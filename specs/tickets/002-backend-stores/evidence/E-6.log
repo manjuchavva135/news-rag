@@ -1,0 +1,21 @@
+$ uv run newsrag db sql "create table if not exists e6_probe(x int)" && uv run newsrag db sql "insert into e6_probe values (42)"
+exit=0
+
+$ uv run newsrag stores down && uv run newsrag stores up
+stores stopped (data kept)
+starting stores from /home/admin1/news-rag/docker/docker-compose.yml ...
+postgres: ok
+qdrant: ok
+opensearch: ok
+exit=0
+
+$ uv run newsrag db sql "select x from e6_probe" && uv run newsrag db sql "drop table e6_probe"
+42
+exit=0
+
+$ docker volume ls --filter name=newsrag --format "{{.Name}}"
+newsrag-os
+newsrag-pg
+newsrag-qdrant
+exit=0
+

@@ -1,0 +1,13 @@
+$ uv run pytest -q -m stores -v -W error::UserWarning
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.16.0
+collected 28 items / 25 deselected / 3 selected
+
+tests/test_stores.py ...                                                 [100%]
+
+======================= 3 passed, 25 deselected in 1.39s =======================
+exit=0

@@ -49,6 +49,41 @@ All settings live in `src/newsrag/config.py`. Override any of them with `NEWSRAG
 `.env` → `pipeline.yaml` (committed, non-secret pipeline choices) → code default.
 Paths under `raw_root` follow an overridden `raw_root`.
 
+## Start the stores
+
+Postgres (port 5442), Qdrant (6343, gRPC 6344) and OpenSearch with the ICU plugin (9210,
+transport 9310) run in Docker under compose project `newsrag`. They use the host network and
+ports that don't clash with the old system (5432 / 6333 / 9200).
+
+You need Docker plus the compose plugin, and `admin1` must be in the `docker` group. If you get
+`cannot talk to the docker daemon: permission denied`, run
+`sudo usermod -aG docker admin1`, then log out and back in.
+
+```bash
+uv run newsrag stores up
+```
+
+`stores up` builds the OpenSearch image the first time, then waits up to 180 s
+(`stores_up_timeout_s`) for all three stores to answer.
+
+```bash
+uv run newsrag stores status
+```
+
+```bash
+uv run newsrag stores down
+```
+
+`stores down` stops the containers. The data stays in the named volumes `newsrag-pg`,
+`newsrag-qdrant` and `newsrag-os`. Containers restart on their own after a reboot
+(`restart: unless-stopped`).
+
+There is no `psql` on the host. Run SQL with:
+
+```bash
+uv run newsrag db sql "select 1"
+```
+
 ## Development
 
 ```bash

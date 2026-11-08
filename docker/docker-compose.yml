@@ -1,0 +1,86 @@
+# Backend stores for newsrag (ticket 002).
+#
+#   postgres    -> warehouse + pipeline ledger           port 5442
+#   qdrant      -> vectors                               HTTP 6343, gRPC 6344
+#   opensearch  -> BM25 keyword search (ICU, Telugu)     HTTP 9210, transport 9310
+#
+# Start/stop with `uv run newsrag stores up` / `uv run newsrag stores down` (named volumes are kept).
+# Raw compose: docker compose -p newsrag -f docker/docker-compose.yml up -d --build
+#
+# Networking: every service uses `network_mode: host`. This machine's firewall resets connections
+# to Docker bridge-published ports (see /home/admin1/RAG/docker/docker-compose.yml), so each
+# service binds its own host port instead. The ports differ from the old system's (5432 / 6333 /
+# 9200) so both stacks can run side by side. No `container_name` keys: compose names the
+# containers newsrag-<service>-1, which never clash with the old `rag-*` containers.
+
+name: newsrag
+
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    network_mode: host
+    command: postgres -p 5442
+    environment:
+      POSTGRES_USER: newsrag
+      POSTGRES_PASSWORD: newsrag
+      POSTGRES_DB: newsrag
+    volumes:
+      - newsrag-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -p 5442 -U newsrag -d newsrag"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  qdrant:
+    image: qdrant/qdrant:v1.16.1
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      QDRANT__SERVICE__HTTP_PORT: "6343"
+      QDRANT__SERVICE__GRPC_PORT: "6344"
+    volumes:
+      - newsrag-qdrant:/qdrant/storage
+
+  opensearch:
+    build:
+      context: .
+      dockerfile: opensearch.Dockerfile
+    image: newsrag-opensearch:2.17.1-icu
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - discovery.type=single-node
+      - http.port=9210
+      - transport.port=9310
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms4g -Xmx4g"
+      # Local single-node store: no TLS / security plugin. 2.12+ refuses to start without either
+      # an admin password or DISABLE_INSTALL_DEMO_CONFIG=true.
+      - DISABLE_SECURITY_PLUGIN=true
+      - DISABLE_INSTALL_DEMO_CONFIG=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - newsrag-os:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9210/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 40s
+
+volumes:
+  newsrag-pg:
+    name: newsrag-pg
+  newsrag-qdrant:
+    name: newsrag-qdrant
+  newsrag-os:
+    name: newsrag-os

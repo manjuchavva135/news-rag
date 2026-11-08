@@ -1,0 +1,27 @@
+$ curl -s http://localhost:9210/_cat/plugins
+sa2 analysis-icu                         2.17.1
+sa2 opensearch-alerting                  2.17.1.0
+sa2 opensearch-anomaly-detection         2.17.1.0
+sa2 opensearch-asynchronous-search       2.17.1.0
+sa2 opensearch-cross-cluster-replication 2.17.1.0
+sa2 opensearch-custom-codecs             2.17.1.0
+sa2 opensearch-flow-framework            2.17.1.0
+sa2 opensearch-geospatial                2.17.1.0
+sa2 opensearch-index-management          2.17.1.0
+sa2 opensearch-job-scheduler             2.17.1.0
+sa2 opensearch-knn                       2.17.1.0
+sa2 opensearch-ml                        2.17.1.0
+sa2 opensearch-neural-search             2.17.1.0
+sa2 opensearch-notifications             2.17.1.0
+sa2 opensearch-notifications-core        2.17.1.0
+sa2 opensearch-observability             2.17.1.0
+sa2 opensearch-performance-analyzer      2.17.1.0
+sa2 opensearch-reports-scheduler         2.17.1.0
+sa2 opensearch-security                  2.17.1.0
+sa2 opensearch-security-analytics        2.17.1.0
+sa2 opensearch-skills                    2.17.1.0
+sa2 opensearch-sql                       2.17.1.0
+sa2 opensearch-system-templates          2.17.1.0
+sa2 query-insights                       2.17.1.0
+exit=0
+

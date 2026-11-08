@@ -1,0 +1,20 @@
+$ uv run newsrag stores up
+starting stores from /home/admin1/news-rag/docker/docker-compose.yml ...
+postgres: ok
+qdrant: ok
+opensearch: ok
+exit=0
+
+$ uv run newsrag stores status; echo "exit=$?"
+postgres: ok
+qdrant: ok
+opensearch: ok
+exit=0
+exit=0
+
+$ docker ps --filter label=com.docker.compose.project=newsrag --format "{{.Names}}  {{.Image}}  {{.Status}}"
+newsrag-opensearch-1  newsrag-opensearch:2.17.1-icu  Up 12 seconds (healthy)
+newsrag-postgres-1  postgres:16  Up 42 seconds (healthy)
+newsrag-qdrant-1  qdrant/qdrant:v1.16.1  Up 42 seconds
+exit=0
+

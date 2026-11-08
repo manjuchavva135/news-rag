@@ -1,0 +1,4 @@
+$ uv run python -c "from newsrag.stores import pg, qdrant, opensearch; from newsrag.stores import ping_all; print(ping_all())"
+{'postgres': True, 'qdrant': True, 'opensearch': True}
+exit=0
+

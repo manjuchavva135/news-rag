@@ -1,0 +1,13 @@
+$ uv run pytest -q tests/test_stores.py -k "compose_plugin_missing or daemon_unreachable or up_timeout" -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 13 items / 10 deselected / 3 selected
+
+tests/test_stores.py ...                                                 [100%]
+
+======================= 3 passed, 10 deselected in 1.28s =======================
+exit=0
+

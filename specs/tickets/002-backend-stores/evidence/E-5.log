@@ -1,0 +1,23 @@
+$ docker compose -p newsrag -f docker/docker-compose.yml stop qdrant
+ Container newsrag-qdrant-1  Stopping
+ Container newsrag-qdrant-1  Stopped
+exit=0
+
+$ time (uv run newsrag stores status; echo "exit=$?")
+postgres: ok
+qdrant: down
+opensearch: ok
+exit=1
+
+real	0m1.609s
+user	0m6.984s
+sys	0m0.101s
+exit=0
+
+$ uv run newsrag stores up
+starting stores from /home/admin1/news-rag/docker/docker-compose.yml ...
+postgres: ok
+qdrant: ok
+opensearch: ok
+exit=0
+

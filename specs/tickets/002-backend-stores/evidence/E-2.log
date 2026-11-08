@@ -1,0 +1,12 @@
+$ curl -s -o /dev/null -w "%{http_code}\n" http://localhost:6343/healthz
+200
+exit=0
+
+$ curl -s http://localhost:9210 | grep -o '"number" : "[0-9.]*"'
+"number" : "2.17.1"
+exit=0
+
+$ uv run newsrag db sql "select 1"
+1
+exit=0
+

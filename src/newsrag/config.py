@@ -55,6 +55,11 @@ RAW_ROOT_DERIVED = {
     "gpu_lock_path": ".gpu.lock",
 }
 
+# Paths under repo_root that follow it unless overridden themselves.
+REPO_ROOT_DERIVED = {
+    "compose_file": "docker/docker-compose.yml",
+}
+
 
 def _warn(message: str) -> None:
     print(message, file=sys.stderr)
@@ -187,6 +192,10 @@ class Settings(BaseSettings):
     postgres_dsn: str = "postgresql://newsrag:newsrag@localhost:5442/newsrag"
     qdrant_url: str = "http://localhost:6343"
     opensearch_url: str = "http://localhost:9210"
+    compose_file: Path  # default {repo_root}/docker/docker-compose.yml
+    stores_up_timeout_s: float = 180.0  # `stores up` waits this long for all three to answer
+    stores_ping_timeout_s: float = 2.0  # per-store timeout for `stores status`
+    pg_pool_max_size: int = 10
 
     # --- render ---
     render_dpi: int = 300
@@ -231,6 +240,9 @@ class Settings(BaseSettings):
         for name, rel in RAW_ROOT_DERIVED.items():
             if data.get(name) in (None, ""):
                 data[name] = raw_root / rel
+        for name, rel in REPO_ROOT_DERIVED.items():
+            if data.get(name) in (None, ""):
+                data[name] = Path(data["repo_root"]) / rel
         for name in secret_fields():
             if data.get(name) == "":
                 data[name] = None
