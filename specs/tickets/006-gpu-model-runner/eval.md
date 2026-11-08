@@ -71,6 +71,13 @@
   1. `uv run pytest -q tests/test_gpu_lock.py tests/test_models_client.py -k "reentrant or different_profile_raises or loaded_profiles or cpu_embed_no_lock or served_model_name or status_free_after_release"`
 - **Expected:** all selected tests pass.
 
+### E-8: Every profile fits the GPU (covers FR-8)
+
+- **Type:** CLI
+- **Steps:**
+  1. `uv run newsrag models fit`
+- **Expected:** one line per profile in `models.yaml`, every line ends with `fit=yes`.
+
 ## Traceability
 
 | Requirement | Checks |
@@ -84,6 +91,7 @@
 | NFR-1 | E-3 |
 | NFR-2 | E-4 |
 | FR-7 | E-7 |
+| FR-8 | E-8 |
 
 ## Definition of done
 

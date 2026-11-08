@@ -35,6 +35,7 @@ local URL. All later GPU tickets use this.
   - `qwen3-vl-32b` and `qwen3-vl-30b-a3b` use `max_model_len: 65536` (room for a 5376-px page, the block list and 4096 output tokens); a request that still exceeds the context returns HTTP 400 and is treated by callers as a schema error (ticket 012).
   - The lock record is deleted on release; `models status` tries a non-blocking lock and prints `GPU free` when it succeeds, regardless of leftover files.
   - E-5's test starts `models serve qwen3-30b-a3b` itself as a subprocess, waits for `serving`, and stops it at the end.
+- **FR-8** - Fit check (user rule: only models that fit this GPU). `uv run newsrag models fit [<profile>]` estimates, for each profile, weights = total size of its safetensors files (or × 0.5 for `dtype: fp8` when the weights are bf16) and KV cache for one `max_model_len` sequence from the model config (layers × KV heads × head dim × 2 × 2 bytes per token), and prints `<profile> weights=<GB> kv_one_seq=<GB> budget=<GB> fit=yes|no` with budget = 96 GB × `gpu_memory_utilization`. A profile fits when weights + kv_one_seq + 4 GB (activations, vision encoder) ≤ budget. `models serve`/`use()` refuse a profile that does not fit with `profile <p> does not fit the GPU: <numbers>` (exit 2), and every profile committed to `models.yaml` must show `fit=yes`.
 
 ## Non-functional requirements
 

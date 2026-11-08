@@ -1,4 +1,4 @@
-# 007: indic-ocr stage - Evaluation
+# 007: OCR stage (Surya layout + indic-ocr text) - Evaluation
 
 ## Setup
 
@@ -19,9 +19,9 @@
 
 - **Type:** CLI
 - **Steps:**
-  1. `uv run newsrag ocr install && grep indic_ocr_revision pipeline.yaml && uv run newsrag ocr install`
-  2. `envs/indic-ocr/bin/python -c "import torch;print(torch.cuda.is_available(), torch.version.cuda)"`
-- **Expected:** step 1 prints a line with a 40-character hex hash and the second install finishes in < 60 s without downloading; step 2 prints `True` and a CUDA version ≥ `12.8`.
+  1. `uv run newsrag ocr install && grep -E 'indic_ocr_revision|surya_version' pipeline.yaml && uv run newsrag ocr install`
+  2. `for e in indic-ocr surya; do envs/$e/bin/python -c "import torch;print(torch.cuda.is_available(), torch.version.cuda)"; done`
+- **Expected:** step 1 prints an `indic_ocr_revision` line with a 40-character hex hash and a `surya_version` line, and the second install finishes in < 60 s without downloading; step 2 prints, for both venvs, `True` and a CUDA version ≥ `12.8`.
 
 ### E-2: OCR the dev sample (covers FR-2, FR-3, FR-4, NFR-1)
 
@@ -67,11 +67,11 @@
 
 - **Type:** CLI
 - **Steps:**
-  1. `uv run pytest -q tests/test_ocr_stage.py -k "blocks_op or error_reply_keeps_worker or worker_restart_on_crash or timeout_kills_worker or not_installed_preflight"`
+  1. `uv run pytest -q tests/test_ocr_stage.py -k "surya_layout_then_indic_blocks or figures_not_sent or tables_sent_as_table or error_reply_keeps_worker or worker_restart_on_crash or timeout_kills_worker or not_installed_preflight"`
   2. `uv run python -c "import yaml;d=yaml.safe_load(open('labels.yaml'));print(len(d['labels']), sorted(set(d['labels'].values())))"`
-- **Expected:** 5 passed; step 2 prints `37` and a subset of the ten group names from FR-6 that includes `text`, `title`, `table`.
+- **Expected:** 7 passed; step 2 prints the number of Surya layout labels (≥ 10) and a subset of the ten group names from FR-6 that includes `text`, `title`, `header_footer`, `table`, `figure`.
 
-### E-8: Second-review clarifications (covers FR-7)
+### E-8: Settings, process groups and labels (covers FR-2, FR-3, FR-6)
 
 - **Type:** CLI
 - **Steps:**
@@ -87,10 +87,9 @@
 | FR-3 | E-2 |
 | FR-4 | E-2, E-5 |
 | FR-5 | E-3 |
-| FR-6 | E-7 |
+| FR-6 | E-7, E-8 |
 | NFR-1 | E-2 |
 | NFR-2 | E-3 |
-| FR-7 | E-8 |
 
 ## Definition of done
 

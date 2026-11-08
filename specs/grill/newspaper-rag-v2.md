@@ -209,6 +209,7 @@ Confirmed by the user after the per-ticket gap checks:
 |---|----------|--------|-----|
 | D-22 | Pages that still fail a later stage after bug fixes | Quarantined (`stage_failed:<stage>`); they count against the ≤ 1% quarantine bar | user chose |
 | D-23 | A bar fails for a non-bug reason | The worker may tune prompts, model choices and retry settings (never the bars), rerun the affected stages within the time budget, and report what changed | user chose |
+| D-24 | Layout step before OCR | Surya finds the blocks and reading order on every page (no fallback); indic-ocr only reads the text inside Surya's blocks | user chose: indic-ocr's layout model may not be trained for newspapers |
 | A-49 | Telugu district/mandal spellings: official lists first; Telugu Wikipedia only for spellings missing there | confirmed |
 | A-50 | Event dates may be up to 1 year after the print date (notices, exams, announced meetings) | confirmed |
 | A-51 | A change in name aliases or edition names re-chunks and re-indexes the whole corpus (under 1 hour) | confirmed |
