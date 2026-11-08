@@ -10,7 +10,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 
 | # | Title | Status | Mode | Runs |
 |---|-------|--------|------|------|
-| 001 | Project foundation (repo, config, CLI, tests) | draft | solo | alongside |
+| 001 | Project foundation (repo, config, CLI, tests) | ready | solo | alongside |
 | 002 | Backend stores (docker compose + clients) | draft | solo | waits for 001: needs package, config and CLI |
 | 003 | Pipeline ledger and stage runner | draft | solo | waits for 002: ledger lives in Postgres |
 | 004 | Unpack, normalize and register pages | draft | solo | waits for 003: registers pages in the ledger |
