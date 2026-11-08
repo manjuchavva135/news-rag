@@ -1,6 +1,6 @@
 # 003: Pipeline ledger and stage runner
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 002: ledger lives in Postgres
 
