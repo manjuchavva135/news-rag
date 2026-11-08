@@ -1,0 +1,6 @@
+$ uv run pytest --markers | grep -E "@pytest.mark.(gpu|data|stores)"
+@pytest.mark.gpu: needs the GPU
+@pytest.mark.data: needs extracted archive data under raw_root
+@pytest.mark.stores: needs the docker stores running
+exit=0
+

@@ -1,0 +1,5 @@
+$ grep -c "low_confidence:" CLAUDE.md; grep -c "add_typer" src/newsrag/cli.py
+1
+1
+exit=0
+

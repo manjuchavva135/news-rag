@@ -1,0 +1,22 @@
+$ uv run python -c "import sys; print(sys.version_info[:2])"
+(3, 12)
+exit=0
+
+$ uv run newsrag --help
+                                                                                
+ Usage: newsrag [OPTIONS] COMMAND [ARGS]...                                     
+                                                                                
+ Sakshi newspaper RAG: process newspaper archives into search stores.           
+                                                                                
+╭─ Options ────────────────────────────────────────────────────────────────────╮
+│ --install-completion          Install completion for the current shell.      │
+│ --show-completion             Show completion for the current shell, to copy │
+│                               it or customize the installation.              │
+│ --help                        Show this message and exit.                    │
+╰──────────────────────────────────────────────────────────────────────────────╯
+╭─ Commands ───────────────────────────────────────────────────────────────────╮
+│ config  Show settings.                                                       │
+╰──────────────────────────────────────────────────────────────────────────────╯
+
+exit=0
+

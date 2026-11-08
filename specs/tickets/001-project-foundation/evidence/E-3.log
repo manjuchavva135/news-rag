@@ -1,0 +1,10 @@
+$ NEWSRAG_RAW_ROOT=/tmp/nr-test uv run newsrag config show | grep -E "^(raw_root|source_dir) ="
+raw_root = /tmp/nr-test
+source_dir = /tmp/nr-test/source
+exit=0
+
+$ NEWSRAG_RAW_ROOT=/tmp/nr-test NEWSRAG_IMAGES_DIR=/tmp/imgs uv run newsrag config show | grep -E "^(images_dir|source_dir) ="
+images_dir = /tmp/imgs
+source_dir = /tmp/nr-test/source
+exit=0
+

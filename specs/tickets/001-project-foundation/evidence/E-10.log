@@ -1,0 +1,12 @@
+$ uv run pytest -q tests/test_config.py -k "subprocess_env or pipeline_yaml_precedence or env_file_fallback or unknown_keys_ignored or set_pipeline_key_keeps_others" -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+collected 13 items / 8 deselected / 5 selected
+
+tests/test_config.py .....                                               [100%]
+
+======================= 5 passed, 8 deselected in 0.11s ========================
+exit=0
+

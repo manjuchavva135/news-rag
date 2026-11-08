@@ -1,0 +1,5 @@
+# Non-secret pipeline choices (model names, thresholds). Committed.
+# Precedence: real environment > .env > this file > code default (src/newsrag/config.py).
+# Keys are setting names (no NEWSRAG_ prefix). Edit by hand or with
+# newsrag.config.set_pipeline_key(key, value), which keeps other keys, their order and comments.
+{}

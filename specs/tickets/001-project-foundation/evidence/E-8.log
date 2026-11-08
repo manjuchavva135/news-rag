@@ -1,0 +1,4 @@
+$ NEWSRAG_RAW_ROOT=/tmp/nr-noside-$$ uv run python -c "import newsrag.config" && test ! -e /tmp/nr-noside-$$ && echo clean
+clean
+exit=0
+

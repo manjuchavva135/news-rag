@@ -1,0 +1,4 @@
+$ grep -E "line-length *= *100" pyproject.toml
+line-length = 100
+exit=0
+

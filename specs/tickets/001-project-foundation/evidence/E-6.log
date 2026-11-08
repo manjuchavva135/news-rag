@@ -1,0 +1,17 @@
+$ grep -c "/home/admin1/RAG" CLAUDE.md
+1
+exit=0
+
+$ grep -E "unrar|poppler-utils" README.md
+sudo apt install unrar poppler-utils
+exit=0
+
+$ grep -E "^\.env$" .gitignore && grep -E "^\.venv/?$" .gitignore
+.env
+.venv/
+exit=0
+
+$ grep -c "newspaper-rag-v2.md" CLAUDE.md
+1
+exit=0
+

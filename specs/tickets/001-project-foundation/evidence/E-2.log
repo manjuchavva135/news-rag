@@ -1,0 +1,21 @@
+$ env -u NEWSRAG_RAW_ROOT uv run newsrag config show | sed "s/^hf_token = .*/hf_token = <masked: see E-5>/"
+archive_dir = /home/admin1/data
+env_file = /home/admin1/news-rag/.env
+gpu_lock_path = /home/admin1/raw/.gpu.lock
+hf_home = /home/admin1/raw/hf-cache
+hf_token = <masked: see E-5>
+images_dir = /home/admin1/raw/images
+logs_dir = /home/admin1/raw/logs
+opensearch_url = http://localhost:9210
+pipeline_file = /home/admin1/news-rag/pipeline.yaml
+postgres_dsn = postgresql://newsrag:newsrag@localhost:5442/newsrag
+qdrant_url = http://localhost:6343
+raw_root = /home/admin1/raw
+render_dpi = 300
+repo_root = /home/admin1/news-rag
+reports_dir = /home/admin1/raw/reports
+sarvam_api_key = (unset)
+source_dir = /home/admin1/raw/source
+work_dir = /home/admin1/raw/work
+exit=0
+

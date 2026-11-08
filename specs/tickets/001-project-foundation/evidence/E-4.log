@@ -1,0 +1,14 @@
+$ cp .env .env.bak 2>/dev/null; echo "NEWSRAG_RENDER_DPI=200" > .env
+exit=0
+
+$ uv run newsrag config show | grep render_dpi
+render_dpi = 200
+exit=0
+
+$ NEWSRAG_RENDER_DPI=150 uv run newsrag config show | grep render_dpi
+render_dpi = 150
+exit=0
+
+$ rm .env; mv .env.bak .env 2>/dev/null; true
+exit=0
+

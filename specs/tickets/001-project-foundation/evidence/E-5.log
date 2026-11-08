@@ -1,0 +1,13 @@
+$ HF_TOKEN=hf_secret123 SARVAM_API_KEY=sk_abc uv run newsrag config show | grep -E "^(hf_token|sarvam_api_key) ="
+hf_token = ***
+sarvam_api_key = ***
+exit=0
+
+$ HF_TOKEN=hf_secret123 SARVAM_API_KEY=sk_abc uv run newsrag config show | grep -cE "hf_secret123|sk_abc"
+0
+exit=1
+
+$ env -u HF_TOKEN -u NEWSRAG_HF_TOKEN NEWSRAG_ENV_FILE=/dev/null uv run newsrag config show | grep hf_token
+hf_token = (unset)
+exit=0
+
