@@ -1,6 +1,6 @@
 # 002: Backend stores (docker compose + clients)
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 001: needs package, config and CLI
 

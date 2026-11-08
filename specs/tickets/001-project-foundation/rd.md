@@ -1,6 +1,6 @@
 # 001: Project foundation (repo, config, CLI, tests)
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** alongside
 
