@@ -1,0 +1,38 @@
+$ uv run pytest -q -m stores tests/test_runner.py -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 26 items
+
+tests/test_runner.py ..........................                          [100%]
+
+============================== 26 passed in 4.58s ==============================
+exit=0
+
+$ grep -c "def test_" tests/test_runner.py
+26
+exit=0
+
+1 test_eligibility_requires_dependencies_done
+1 test_version_change_makes_stage_and_downstream_eligible
+1 test_failure_recorded_and_retried_until_max_attempts
+1 test_exception_does_not_stop_run
+1 test_pages_file_and_page_filters
+1 test_date_stage_waits_for_all_pages_of_date
+1 test_date_stage_depending_on_date_stage
+1 test_new_page_reruns_date_stage
+1 test_running_row_never_eligible
+1 test_attempt_reset_on_version_change
+1 test_dependency_must_be_at_current_version
+1 test_version_for_per_item
+1 test_hooks_called_once_and_close_on_error
+1 test_preflight_unavailable_exits_2_without_db
+1 test_on_final_failure_called_at_max_attempts
+1 test_force_and_skipped_count
+1 test_all_quarantined_date_not_eligible
+1 test_multiple_stage_names_run_in_order
+1 test_change_propagates_three_stages
+1 test_open_failure_restores_row_and_exits_2
+1 test_stop_event_grace_marks_interrupted

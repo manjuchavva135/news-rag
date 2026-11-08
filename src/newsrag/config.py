@@ -197,6 +197,10 @@ class Settings(BaseSettings):
     stores_ping_timeout_s: float = 2.0  # per-store timeout for `stores status`
     pg_pool_max_size: int = 10
 
+    # --- ledger ---
+    ledger_schema: str = "ledger"  # Postgres schema holding the pipeline ledger tables
+    max_attempts: int = 3  # a failed item is retried until it has failed this many times
+
     # --- render ---
     render_dpi: int = 300
 

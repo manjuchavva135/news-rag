@@ -14,3 +14,37 @@ def clean_env(monkeypatch):
     monkeypatch.setenv("NEWSRAG_ENV_FILE", "/dev/null")
     monkeypatch.setenv("NEWSRAG_PIPELINE_FILE", "/dev/null")
     return monkeypatch
+
+
+@pytest.fixture
+def ledger():
+    """A throw-away ledger schema `test_<random>`, migrated, dropped afterwards (NFR-2)."""
+    import secrets
+
+    from psycopg import sql
+
+    from newsrag.ledger import db
+    from newsrag.stores import pg
+
+    name = f"test_{secrets.token_hex(6)}"
+    with db.use_schema(name):
+        try:
+            db.migrate()
+            yield name
+        finally:
+            with pg().connection() as c:
+                c.execute(sql.SQL("DROP SCHEMA IF EXISTS {} CASCADE").format(sql.Identifier(name)))
+
+
+@pytest.fixture
+def registry():
+    """An empty stage REGISTRY for the test; the real one is restored afterwards."""
+    from newsrag.stages.registry import REGISTRY
+
+    saved = dict(REGISTRY)
+    REGISTRY.clear()
+    try:
+        yield REGISTRY
+    finally:
+        REGISTRY.clear()
+        REGISTRY.update(saved)

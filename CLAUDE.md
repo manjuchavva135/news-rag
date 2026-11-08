@@ -34,6 +34,33 @@ RAG, phase 1: process the newspaper archives into stores.
   informational.
 - No `psql` on the host: use `uv run newsrag db sql "<query>"` (from ticket 002 on).
 
+## How to add a stage
+
+1. Create `src/newsrag/stages/<stage>.py` with a subclass of `PageStage` (one page per item) or
+   `DateStage` (one print date per item; runs once every non-quarantined page of the date is
+   through its page dependencies) from `newsrag.stages.base`.
+2. Set `name`, `depends_on` (stage names; a page stage may only depend on page stages) and
+   `version`. **The version ends with the config hash**:
+   `version = versioned("<model>@<prompt-rev>", ["setting_a", ...], [prompt_file, ...])`, i.e.
+   `<prefix>-<config_hash(settings_names, files)>`. List every setting and every prompt/data file
+   the stage reads, so changing one reruns this stage and everything downstream. If the version
+   depends on files that may be missing, make it a `functools.cached_property`: importing the
+   registry must not touch the GPU, the network or missing files.
+3. Implement `handle(page)` / `handle(pub_date, pages)` returning
+   `StageResult(artifact_path, detail)`. Write outputs to
+   `artifact_path(stage, version, key)` with `write_json_atomic(...)`. Raise on failure: the
+   runner records it and retries up to `max_attempts`.
+4. Optional: `concurrency` (threads), `models_needed`, `version_for(item)` (per-item versions),
+   `preflight()` (raise `StageUnavailable` when the stage can't run; checked before any DB
+   access), `open()` / `close()` (once per run: load a model, take the GPU lock),
+   `on_final_failure(item, error)`.
+5. Register it in `src/newsrag/stages/registry.py`: `REGISTRY["<name>"] = MyStage()`.
+6. Add any SQL the stage needs as the next `src/newsrag/ledger/sql/NNN_*.sql` (unqualified table
+   names; they land in `settings.ledger_schema`). Run with `uv run newsrag stage run <name>`;
+   inspect with `stage status`, `stage failures <name>`, `stage reset <name> --page/--date/--all`.
+7. Tests: use the `ledger` fixture (throw-away `test_<random>` schema) and the `registry`
+   fixture (empty REGISTRY), and mark DB tests `@pytest.mark.stores`.
+
 ## Commands
 
 - Install: `uv sync`

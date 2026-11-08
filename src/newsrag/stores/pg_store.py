@@ -14,6 +14,15 @@ _pool: ConnectionPool | None = None
 _lock = threading.Lock()
 
 
+def _reset(conn: psycopg.Connection) -> None:
+    """Undo session settings (e.g. the ledger's search_path) when a connection is returned."""
+    conn.autocommit = True
+    try:
+        conn.execute("RESET ALL")
+    finally:
+        conn.autocommit = False
+
+
 def client() -> ConnectionPool:
     """The shared connection pool, created on first use."""
     global _pool
@@ -25,6 +34,7 @@ def client() -> ConnectionPool:
                 max_size=settings.pg_pool_max_size,
                 open=True,
                 name="newsrag",
+                reset=_reset,
             )
         return _pool
 

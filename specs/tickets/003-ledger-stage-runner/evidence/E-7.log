@@ -1,0 +1,5 @@
+$ uv run pytest -q -m stores tests/test_runner.py -k non_tty
+.                                                                        [100%]
+1 passed, 25 deselected in 1.32s
+exit=0
+

@@ -1,0 +1,9 @@
+$ uv run python -c "from newsrag.stages.base import artifact_path; print(artifact_path('ocr','indic-ocr@v1/p2','2026-04-01_FH_main_01'))"
+/home/admin1/raw/work/ocr/indic-ocr_v1_p2/2026-04-01_FH_main_01.json
+exit=0
+
+$ uv run pytest -q -m stores tests/test_ledger.py -k quarantine
+.                                                                        [100%]
+1 passed, 8 deselected in 1.26s
+exit=0
+

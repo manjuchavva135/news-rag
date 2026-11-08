@@ -1,0 +1,17 @@
+$ uv run newsrag db sql "select count(*) from ledger.pages"
+0
+exit=0
+
+$ uv run pytest -q -m stores
+.................................                                        [100%]
+33 passed, 30 deselected in 4.94s
+exit=0
+
+$ uv run newsrag db sql "select count(*) from ledger.pages"
+0
+exit=0
+
+$ uv run newsrag db sql "select count(*) from information_schema.schemata where schema_name like 'test_%'"
+0
+exit=0
+

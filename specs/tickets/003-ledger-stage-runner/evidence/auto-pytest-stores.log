@@ -1,0 +1,5 @@
+$ uv run pytest -q -m stores tests/test_ledger.py tests/test_runner.py
+..............................                                           [100%]
+30 passed, 5 deselected in 4.70s
+exit=0
+

@@ -1,0 +1,9 @@
+$ uv run newsrag stores up && uv run newsrag ledger init
+starting stores from /home/admin1/news-rag/docker/docker-compose.yml ...
+postgres: ok
+qdrant: ok
+opensearch: ok
+applied 001_init.sql
+ledger schema ledger: up to date (1 new migrations)
+exit=0
+

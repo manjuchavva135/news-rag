@@ -1,0 +1,14 @@
+$ NEWSRAG_LEDGER_SCHEMA=evalcheck uv run newsrag ledger init && NEWSRAG_LEDGER_SCHEMA=evalcheck uv run newsrag ledger init
+applied 001_init.sql
+ledger schema evalcheck: up to date (1 new migrations)
+ledger schema evalcheck: up to date (0 new migrations)
+exit=0
+
+$ uv run newsrag db sql "select table_name from information_schema.tables where table_schema='evalcheck' order by 1"
+date_runs
+pages
+quarantine
+schema_migrations
+stage_runs
+exit=0
+

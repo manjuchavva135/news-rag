@@ -1,0 +1,3 @@
+$ uv run newsrag db sql "drop schema evalcheck cascade"
+exit=0
+
