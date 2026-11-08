@@ -40,4 +40,5 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 028 | Customer-question answer check | draft | solo | waits for 025: needs the search script |
 | 029 | Pipeline orchestrator and incremental ingest | draft | solo | waits for 024: drives every stage up to indexing |
 | 030 | Quality report | draft | solo | waits for 029: reads all run stats; waits for 026, 027, 028: their scores |
-| 031 | Full-corpus run and phase-1 sign-off | draft | solo | waits for 030: needs report; waits for 014: chosen grouping model |
+| 031 | Full-corpus run and phase-1 sign-off | draft | solo | waits for 030: needs report; waits for 014: chosen grouping model; waits for 032: chosen text model |
+| 032 | Text model Telugu bake-off | draft | solo | waits for 017: needs canonical stories; waits for 006: model runner |

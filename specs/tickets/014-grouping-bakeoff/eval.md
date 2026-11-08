@@ -47,6 +47,16 @@
   1. `uv run pytest -q tests/test_bakeoff.py -v`
 - **Expected:** all pass, including `test_tie_within_001_picks_faster`, `test_judge_family_candidate_skipped`, `test_pages_distinct`, `test_failed_page_scores_zero`, `test_no_winner_exits_1`, `test_outputs_outside_group_dir`.
 
+### E-5: Telugu reading score and judge choice (covers FR-5)
+
+- **Type:** CLI
+- **Steps:**
+  1. `grep -v '^#' data/telugu-headlines.txt | wc -l`
+  2. `grep -E 'telugu_read|winner:' /home/admin1/raw/reports/group-bakeoff.md`
+  3. `grep -E '^(group_model|judge_model):' pipeline.yaml`
+  4. `uv run pytest -q tests/test_bakeoff.py -k "telugu_read_score or judge_model_set_by_apply or internvl_is_judge_not_candidate"`
+- **Expected:** `30`; the report has a `telugu_read` column for the three candidates and a `winner:` line; `judge_model` is `qwen3-vl-32b` if `group_model` is a Gemma model, else `gemma3-27b`; tests pass.
+
 ## Traceability
 
 | Requirement | Checks |
@@ -56,6 +66,7 @@
 | FR-3 | E-2, E-4 |
 | FR-4 | E-3 |
 | NFR-1 | E-2 |
+| FR-5 | E-5 |
 
 ## Definition of done
 

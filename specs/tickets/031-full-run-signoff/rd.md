@@ -2,7 +2,7 @@
 
 **Status:** draft
 **Mode:** solo
-**Runs:** waits for 030: needs report; waits for 014: chosen grouping model
+**Runs:** waits for 030: needs report; waits for 014: chosen grouping model; waits for 032: chosen text model
 
 ## Summary
 
@@ -15,7 +15,7 @@ lower any bar.
 ## Functional requirements
 
 - **FR-1** - Preconditions, checked by `uv run newsrag preflight` (new command) which prints one line per item, `ok` or `MISSING <what to do>`, and exits 1 if any is missing:
-  - `pipeline.yaml` has `group_model` (from ticket 014) and `embed_model` (from ticket 026);
+  - `pipeline.yaml` has `group_model` and `judge_model` (from ticket 014), `enrich_model`, `answer_model` and `answer_judge_model` (from ticket 032), and `embed_model` (from ticket 026);
   - OCR sanity check signed off (`verdicts.json` has `signoff`), and the rules in `ocr_fallback.yaml` equal the sign-off's `failing_page_types` with `note` removed (canonical JSON compare; `[]` ↔ `rules: []`); the user (not the worker) writes those rules; if rules are non-empty, `SARVAM_API_KEY` is set;
   - `HF_TOKEN` is set;
   - `stores status` all ok; `models status` prints `GPU free` and `nvidia-smi --query-compute-apps` lists nothing; disk free under `/home/admin1/raw` ≥ 600 GB;

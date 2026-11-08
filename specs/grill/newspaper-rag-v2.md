@@ -210,6 +210,7 @@ Confirmed by the user after the per-ticket gap checks:
 | D-22 | Pages that still fail a later stage after bug fixes | Quarantined (`stage_failed:<stage>`); they count against the ≤ 1% quarantine bar | user chose |
 | D-23 | A bar fails for a non-bug reason | The worker may tune prompts, model choices and retry settings (never the bars), rerun the affected stages within the time budget, and report what changed | user chose |
 | D-24 | Layout step before OCR | Surya finds the blocks and reading order on every page (no fallback); indic-ocr only reads the text inside Surya's blocks | user chose: indic-ocr's layout model may not be trained for newspapers |
+| D-25 | Telugu strength of models | Measured, not assumed: the grouping bake-off (014) adds Gemma 3 27B and a Telugu reading score, judged by InternVL3.5-38B; a new text-model bake-off (032) picks the enrichment/answer model among Gemma 3 27B, Qwen3-30B-A3B and Sarvam-M 24B on Telugu tasks | user chose |
 | A-49 | Telugu district/mandal spellings: official lists first; Telugu Wikipedia only for spellings missing there | confirmed |
 | A-50 | Event dates may be up to 1 year after the print date (notices, exams, announced meetings) | confirmed |
 | A-51 | A change in name aliases or edition names re-chunks and re-indexes the whole corpus (under 1 hour) | confirmed |
