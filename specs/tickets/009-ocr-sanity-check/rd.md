@@ -13,7 +13,7 @@ signs off or names the page types that fail. Failing page types become the Sarva
 
 ## Functional requirements
 
-- **FR-1** - `uv run newsrag ocr check build` writes `data/ocr-check.txt` (committed): 10 page_ids taken from `data/dev-sample.txt` (`#` lines skipped), each slot filled by the first not-yet-chosen sorted line matching it — 2020: 2 × `main_01`, 1 × single-letter edition with page ≠ 1, 1 × `fea`/`splus` (else multi-letter, page ≠ 1); 2025: 1 × `main_01`, 1 × `ALL`, 1 × edition exactly `FH` with page ≠ 1; 2026: 1 × `main_01`, 1 × single-letter edition with page ≠ 1, 1 × `fea`/`splus` (else multi-letter, page ≠ 1). Matching uses the `ledger.pages` columns (edition_code, section, page_num), not the id string. A slot with no match is filled by the next unused line of that year and noted as `# short: <year> <slot>` at the top. It refuses (exit 1, `missing ocr_split for: <ids>`) if any chosen page has no `ocr_split` artifact, and refuses to overwrite an existing file without `--force`.
+- **FR-1** - `uv run newsrag ocr check build` writes `data/ocr-check.txt` (committed): 10 page_ids taken from `data/dev-sample.txt` (`#` lines skipped), each slot filled by the first not-yet-chosen sorted line matching it (slots per D-5) — 2024: 2 × `main_01`, 1 × single-letter edition with page ≠ 1, 1 × combined-code edition (2+ letters, not `ALL`) with page ≠ 1; 2025: 2 × `main_01`, 1 × `ALL`, 1 × spread (`page_end` set), 1 × single-letter edition with page ≠ 1, 1 × combined-code edition with page ≠ 1. Matching uses the `ledger.pages` columns (edition_code, section, page_num), not the id string. A slot with no match is filled by the next unused line of that year and noted as `# short: <year> <slot>` at the top. It refuses (exit 1, `missing ocr_split for: <ids>`) if any chosen page has no `ocr_split` artifact, and refuses to overwrite an existing file without `--force`.
 - **FR-2** - `uv run newsrag ocr check serve [--port 8700]` starts a local web server (stdlib or FastAPI, bound to `0.0.0.0` so the reader can open it from another machine on the LAN) with:
   - `/` — list of the 10 pages with their verdict status.
   - `/page/<page_id>` (404 for a page not in the list) — left: the page as a downscaled JPEG (long side 2400 px, ≤ 2 MB, cached in `<reports_dir>/ocr-check/cache/`, served at `/page/<page_id>/image.jpg`) with the block boxes and numbers drawn in the browser as an SVG layer scaled from the block bboxes, and a link to the full PNG; right: the `ocr_split` blocks in reading order, each with its number, label and full text. Hovering/clicking a block on either side highlights it on the other. Below: a form with verdict radio buttons `good` / `acceptable` / `bad`, a free-text "what is wrong" field, and checkboxes for problem types: `headlines`, `body text`, `numbers`, `names`, `reading order`, `tables`, `old scan quality`, `other`.
@@ -29,7 +29,8 @@ signs off or names the page types that fail. Failing page types become the Sarva
 ## Affected areas
 
 - `src/newsrag/ocr/check/` (new: server, templates, static)
-- `src/newsrag/cli.py` - `ocr check` group (changed)
+- `src/newsrag/ocr/cli.py` - registers the `ocr check` group (changed; `ocr` is already a sub-app of `src/newsrag/cli.py`)
+- `src/newsrag/config.py` - `# --- ocr_check ---` settings (changed)
 - `data/ocr-check.txt` (new, committed)
 - `tests/test_ocr_check.py` (new; uses the server's test client and a fake page)
 
@@ -50,6 +51,7 @@ signs off or names the page types that fail. Failing page types become the Sarva
 | D-2 | Where verdicts live | `<reports_dir>/ocr-check/verdicts.json` | read by the quality report (030) and the sign-off (031) |
 | D-3 | Failing page types | structured rows in the rule shape of ticket 010 | ticket 031 can check `ocr_fallback.yaml` against them by machine |
 | D-4 | Edit after sign-off | clears the sign-off | the sign-off must match the verdicts it covers |
+| D-5 | Page slots after the input changed (2026-11-09) | the dev sample is now Dec 2024 (8) + 2025 (12), every page `section=main`, no `fea`/`splus`/`FH`; slots are 2024: 2 front + 1 single-letter + 1 combined-code, 2025: 2 front + 1 `ALL` + 1 spread + 1 single-letter + 1 combined-code (4 + 6 = 10) | user choice; the old 2020/2025/2026 slots had no candidates (as in ticket 005 D-5) |
 
 ## Open questions
 

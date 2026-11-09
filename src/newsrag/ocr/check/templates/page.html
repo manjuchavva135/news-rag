@@ -1,0 +1,36 @@
+<div class="page-head">
+  <h1>$page_id</h1>
+  <nav class="pager">$prev<span>Page $pos of $total</span>$next</nav>
+</div>
+$flash
+<div class="split">
+  <section class="pane">
+    <div class="pane-head">Scan <a href="/page/$page_id/full.png" target="_blank" rel="noopener">full-size PNG</a></div>
+    <div class="pane-body scan-scroll">
+      <div class="scan">
+        <img src="/page/$page_id/image.jpg" width="$img_w" height="$img_h" alt="scan of $page_id">
+        <svg class="boxes" viewBox="0 0 $w $h" preserveAspectRatio="none" style="--tag: $tag_px">$boxes</svg>
+      </div>
+    </div>
+  </section>
+  <section class="pane">
+    <div class="pane-head">OCR text <span class="muted">$n_blocks blocks, in reading order</span></div>
+    <ol class="pane-body blocks">
+$items
+    </ol>
+  </section>
+</div>
+<form class="verdict" method="post" action="/page/$page_id">
+  <fieldset>
+    <legend>Verdict</legend>
+$verdicts
+  </fieldset>
+  <fieldset>
+    <legend>Problems</legend>
+$problems
+  </fieldset>
+  <label class="note">What is wrong
+    <textarea name="note" rows="2">$note</textarea>
+  </label>
+  <button type="submit">Save verdict</button>
+</form>

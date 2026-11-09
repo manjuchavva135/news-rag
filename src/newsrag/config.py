@@ -65,6 +65,12 @@ REPO_ROOT_DERIVED = {
     "vllm_env_dir": "envs/vllm",
     "surya_env_dir": "envs/surya",
     "labels_file": "labels.yaml",
+    "ocr_check_file": "data/ocr-check.txt",
+}
+
+# Paths under reports_dir that follow it unless overridden themselves.
+REPORTS_DIR_DERIVED = {
+    "ocr_check_dir": "ocr-check",
 }
 
 # The layout-label groups of labels.yaml (ticket 007 FR-6), and the label-set settings derived
@@ -334,6 +340,17 @@ class Settings(BaseSettings):
     colsplit_min_gap_px: int = 40
     colsplit_min_piece_px: int = 120  # ...with at least this many inked columns on each side
 
+    # --- ocr_check ---
+    # The OCR sanity check (ticket 009): 10 pages a Telugu reader reviews in a local web page.
+    ocr_check_file: Path  # default {repo_root}/data/ocr-check.txt: the 10 page ids (committed)
+    ocr_check_dir: Path  # default {reports_dir}/ocr-check: verdicts.json and the image cache
+    ocr_check_stage: str = "ocr_split"  # the OCR blocks shown next to the scan
+    ocr_check_host: str = "0.0.0.0"  # all interfaces, so the reader can open it from the LAN
+    ocr_check_port: int = 8700
+    ocr_check_image_long_side: int = 2400  # the page JPEG is downscaled to this long side...
+    ocr_check_image_max_bytes: int = 2_000_000  # ...and at most this big
+    ocr_check_jpeg_quality: int = 85  # first JPEG quality tried; lowered until it fits
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -373,6 +390,9 @@ class Settings(BaseSettings):
         for name, rel in REPO_ROOT_DERIVED.items():
             if data.get(name) in (None, ""):
                 data[name] = Path(data["repo_root"]) / rel
+        for name, rel in REPORTS_DIR_DERIVED.items():
+            if data.get(name) in (None, ""):
+                data[name] = Path(data["reports_dir"]) / rel
         missing = [n for n in LABEL_SET_GROUPS if data.get(n) in (None, "")]
         if missing:
             groups = read_label_groups(Path(data["labels_file"]))
