@@ -1,9 +1,0 @@
-# adapted E-3: the corpus has 2024 + 2025 only, so year 2025 stands in for 2020
-$ printf 'rules:\n  - years: [2025]\n    page_nums: [1]\n' > /tmp/claude-1000/-home-admin1-news-rag/5f51c284-3720-40d1-9704-204dcedbe74c/scratchpad/fb2.yaml && NEWSRAG_OCR_FALLBACK_FILE=/tmp/claude-1000/-home-admin1-news-rag/5f51c284-3720-40d1-9704-204dcedbe74c/scratchpad/fb2.yaml uv run newsrag ocr fallback preview
-2025	main	361
-exit 0
-$ check against the ledger (spreads 01-xx count too):
-361
-$ default rules (rules: []):
-no ocr_fallback rules: nothing is sent to Sarvam
-exit 0

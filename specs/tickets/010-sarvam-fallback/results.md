@@ -5,6 +5,10 @@ Built on branch `010-sarvam-fallback` (from main at `d2f1966`). The E-1 run used
 pages done at `final-v1`. No Sarvam call was made: there is no `SARVAM_API_KEY` in `.env`, and
 the committed rules are `rules: []`.
 
+**One spec change, made with the user after building:** E-3 was written for the old
+2020/2025/2026 corpus. The ledger holds 2024 and 2025 pages only (as in 009 D-5), so a 2020 rule
+matches nothing. E-3 now uses `years: [2025]` and checks for no `2024` line (eval.md updated).
+
 ## What was built
 
 - `ocr_fallback.yaml` (committed): a commented header and `rules: []`.
@@ -41,7 +45,7 @@ the committed rules are `rules: []`.
 | unit tests | PASS, 234 passed | `evidence/auto-pytest-unit.log` |
 | E-1 pass-through | PASS: the grep prints `rules: []`; `ocr_final done=20 failed=0`; `1097 {'indic'}` | `evidence/E-1.log` |
 | E-2 fallback with fake Sarvam | PASS: 35 passed, including all 10 named tests | `evidence/E-2.log` |
-| E-3 preview | **Spec out of date.** The command runs and prints nothing for 2020, because the ledger holds only 2024 (746) and 2025 (2751) pages. With `years: [2025]` it prints `2025\tmain\t361`, which matches a SQL count. `-k preview_no_network` passes | `evidence/E-3.log`, `evidence/E-3-adapted.log` |
+| E-3 preview | PASS: `2025\tmain\t361` (matches a SQL count), no `2024` line; `-k preview_no_network` passes | `evidence/E-3.log` |
 | E-4 missing key | PASS (2): the unit test checks the exact text; the `stores` test runs the real runner, and the page ends `failed` with that text while the unmatched page is `done` | `evidence/E-4-5-6.log` |
 | E-5 versions | PASS (2) | `evidence/E-4-5-6.log` |
 | E-6 clarifications | PASS (3) | `evidence/E-4-5-6.log` |
