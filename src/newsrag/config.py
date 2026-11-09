@@ -325,6 +325,15 @@ class Settings(BaseSettings):
     ad_labels: tuple[str, ...]
     caption_labels: tuple[str, ...]
 
+    # --- colsplit ---
+    # Stage `ocr_split` (ticket 008): a text block wider than this × the median width of the
+    # page's text_labels blocks is checked for an interior column gap.
+    colsplit_width_factor: float = 1.6
+    # A gap is at least this many blank pixel columns (300 DPI). The ticket said 15; on the dev
+    # sample real gutters measured 54-63 px and the word spaces of display/ad type 15-32 px.
+    colsplit_min_gap_px: int = 40
+    colsplit_min_piece_px: int = 120  # ...with at least this many inked columns on each side
+
     @classmethod
     def settings_customise_sources(
         cls,
