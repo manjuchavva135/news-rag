@@ -8,7 +8,9 @@ installed files lazily.
 from __future__ import annotations
 
 from newsrag.stages.base import Stage
+from newsrag.stages.ocr import OcrStage
 from newsrag.stages.render import RenderStage
 
 REGISTRY: dict[str, Stage] = {}
 REGISTRY["render"] = RenderStage()
+REGISTRY["ocr"] = OcrStage()

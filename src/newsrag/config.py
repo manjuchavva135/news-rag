@@ -19,6 +19,7 @@ directories, makes no network calls and never writes to ``os.environ``.
 
 from __future__ import annotations
 
+import json
 import os
 import sys
 from collections.abc import Mapping
@@ -27,7 +28,7 @@ from typing import Any, get_args
 
 import yaml
 from dotenv import dotenv_values
-from pydantic import Field, SecretStr, model_validator
+from pydantic import Field, SecretStr, field_validator, model_validator
 from pydantic.fields import FieldInfo
 from pydantic_settings import BaseSettings, PydanticBaseSettingsSource, SettingsConfigDict
 
@@ -53,6 +54,7 @@ RAW_ROOT_DERIVED = {
     "logs_dir": "logs",
     "hf_home": "hf-cache",
     "gpu_lock_path": ".gpu.lock",
+    "ocr_tokenizer_root": "indic-ocr-tokenizer",
 }
 
 # Paths under repo_root that follow it unless overridden themselves.
@@ -61,6 +63,33 @@ REPO_ROOT_DERIVED = {
     "dev_sample_file": "data/dev-sample.txt",
     "models_file": "models.yaml",
     "vllm_env_dir": "envs/vllm",
+    "surya_env_dir": "envs/surya",
+    "labels_file": "labels.yaml",
+}
+
+# The layout-label groups of labels.yaml (ticket 007 FR-6), and the label-set settings derived
+# from them: setting name -> the groups whose labels it holds.
+LABEL_GROUPS = (
+    "text",
+    "title",
+    "header_footer",
+    "page_number",
+    "table",
+    "figure",
+    "chart",
+    "advertisement",
+    "caption",
+    "other",
+)
+LABEL_SET_GROUPS = {
+    "text_labels": ("text",),
+    "title_labels": ("title",),
+    "folio_labels": ("header_footer", "page_number"),
+    "table_labels": ("table",),
+    "figure_labels": ("figure",),
+    "chart_labels": ("chart",),
+    "ad_labels": ("advertisement",),
+    "caption_labels": ("caption",),
 }
 
 
@@ -94,6 +123,16 @@ def _file_locations(
         env_file = MAIN_CHECKOUT / ".env"
     pipeline_file = Path(pick("pipeline_file") or repo_root / "pipeline.yaml")
     return repo_root, env_file, pipeline_file
+
+
+def read_label_groups(path: Path) -> dict[str, str]:
+    """labels.yaml as {Surya label: group}; {} when the file is missing or has no mapping."""
+    try:
+        data = yaml.safe_load(Path(path).read_text(encoding="utf-8")) or {}
+    except FileNotFoundError:
+        return {}
+    labels = data.get("labels") if isinstance(data, dict) else None
+    return {str(k): str(v) for k, v in labels.items()} if isinstance(labels, dict) else {}
 
 
 def _is_no_file(path: Path) -> bool:
@@ -242,6 +281,50 @@ class Settings(BaseSettings):
     gpu_memory_gb: float = 96.0  # GPU memory used by `models fit` (GB = 2**30 bytes)
     fit_overhead_gb: float = 4.0  # activations + vision encoder headroom in `models fit`
 
+    # --- ocr ---
+    surya_env_dir: Path  # default {repo_root}/envs/surya: the venv holding surya-ocr
+    labels_file: Path  # default {repo_root}/labels.yaml: Surya label -> group (committed)
+    # `ocr install` writes indic-ocr's own tokenizer files to <this>/<indic_ocr_revision>/ for
+    # vLLM (transformers would otherwise swap in a byte-level Qwen tokenizer).
+    ocr_tokenizer_root: Path  # default {raw_root}/indic-ocr-tokenizer
+    # Pinned in pipeline.yaml by `ocr install` (None = take the newest and pin it).
+    surya_version: str | None = None
+    indic_ocr_revision: str | None = None  # a 40-hex commit of indic_ocr_repo
+    indic_ocr_repo: str = "bodhan-ai/indic-ocr"
+    ocr_torch_backend: str = "auto"  # uv --torch-backend for the Surya venv (CUDA from driver)
+    ocr_min_cuda: str = "12.8"  # the Surya venv needs a torch built for at least this (Blackwell)
+    surya_layout_checkpoint: str = "hf://datalab-to/surya_layout2"  # Surya's rf-detr layout
+    surya_order_checkpoint: str = "hf://datalab-to/surya_layout2/order"  # its reading order
+    ocr_layout_threshold: float = 0.4  # Surya layout boxes scoring below this are dropped
+    ocr_device: str = "cuda"  # Surya's device
+    # indic-ocr's text model runs on vLLM (envs/vllm from ticket 006) under the ocr GPU lock.
+    ocr_vllm_max_model_len: int = 8192
+    ocr_vllm_gpu_memory_utilization: float = 0.3  # Surya needs ~2 GB beside it
+    ocr_vllm_max_num_seqs: int = 256
+    ocr_text_concurrency: int = 128  # block requests in flight to vLLM, over all pages
+    ocr_pages_in_flight: int = 8  # pages the ocr stage works on at once (its concurrency)
+    # Crops as indic-ocr makes them: area scaled into [min_side^2, max_side^2].
+    ocr_crop_min_px_side: int = 256
+    ocr_crop_max_px_side: int = 1536
+    ocr_max_new_tokens: int = 2048  # longest transcription of one block (tables get this)
+    # Token budget of a text block: this many tokens per megapixel of its crop (real text needs
+    # <= ~560), at least ocr_min_new_tokens. Stops tiny boxes (logos read as LaTeX) babbling.
+    ocr_tokens_per_mpx: int = 1500
+    ocr_min_new_tokens: int = 96
+    ocr_start_timeout_s: float = 900.0  # the Surya worker must print "model loaded" within this
+    ocr_request_timeout_s: float = 300.0  # one Surya or vLLM request; then it fails/restarts
+    ocr_stop_timeout_s: float = 10.0  # SIGTERM grace before SIGKILL when stopping a worker
+    # Label sets derived from labels.yaml groups (LABEL_SET_GROUPS). Later tickets use these,
+    # never raw label strings.
+    text_labels: tuple[str, ...]
+    title_labels: tuple[str, ...]
+    folio_labels: tuple[str, ...]  # header_footer + page_number
+    table_labels: tuple[str, ...]
+    figure_labels: tuple[str, ...]
+    chart_labels: tuple[str, ...]
+    ad_labels: tuple[str, ...]
+    caption_labels: tuple[str, ...]
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -281,10 +364,27 @@ class Settings(BaseSettings):
         for name, rel in REPO_ROOT_DERIVED.items():
             if data.get(name) in (None, ""):
                 data[name] = Path(data["repo_root"]) / rel
+        missing = [n for n in LABEL_SET_GROUPS if data.get(n) in (None, "")]
+        if missing:
+            groups = read_label_groups(Path(data["labels_file"]))
+            for name in missing:
+                wanted = LABEL_SET_GROUPS[name]
+                data[name] = tuple(sorted(lab for lab, grp in groups.items() if grp in wanted))
         for name in secret_fields():
             if data.get(name) == "":
                 data[name] = None
         return data
+
+    @field_validator(*LABEL_SET_GROUPS, mode="before")
+    @classmethod
+    def _label_list(cls, value: Any) -> Any:
+        """A label set from the environment: a JSON list or comma-separated names."""
+        if isinstance(value, str):
+            text = value.strip()
+            if text.startswith("["):
+                return tuple(json.loads(text))
+            return tuple(part.strip() for part in text.split(",") if part.strip())
+        return value
 
     def subprocess_env(self) -> dict[str, str]:
         """A copy of os.environ plus HF_HOME and the secrets that are set, for subprocesses."""

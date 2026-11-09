@@ -1,0 +1,32 @@
+--- step 1
+done 2024-12-05_BGNOP_main_01
+done 2024-12-02_BG_main_01
+done 2024-12-27_BGNOPRSVACLT_main_01
+done 2024-12-11_V_main_12
+done 2024-12-09_R_main_03
+done 2024-12-08_BGNOPSVACLT_main_10
+done 2024-12-06_GNOCLT_main_16
+done 2025-01-26_B_main_05
+done 2024-12-11_B_main_03
+done 2025-02-15_B_main_01
+done 2025-01-27_B_main_14
+done 2025-02-25_BGVC_main_14
+done 2025-05-04_BGNOPRSVACLT_main_06
+done 2025-10-10_BGNOPRSVACLT_main_01
+done 2025-05-11_BGNOPRSVACLT_main_03
+done 2025-11-03_BG_main_01
+done 2025-10-20_ALL_main_02
+done 2025-10-15_B_main_10
+done 2025-12-17_B_main_01
+done 2025-12-16_BG_main_06-07
+ocr: 20 pages in 20.9 s (excl. model load) = 0.96 pages/s
+ocr: done=20 failed=0 skipped=0 in 124.0s
+
+real	2m5.043s
+user	12m40.290s
+sys	1m6.937s
+--- failures
+--- step 2
+ocr     done=20 failed=0 running=0 eligible=3477
+--- step 3
+['blocks', 'image', 'markdown', 'model', 'page_id'] ['bbox', 'block_id', 'conf', 'label', 'order', 'text', 'type']

@@ -1,0 +1,26 @@
+--- first install (pins already in pipeline.yaml from the first run of this ticket)
+indic-ocr: kept cd50d301d0e17e8ecb32fc49c8ccbd7914dcfc25; torch cuda=13.2 available=True
+surya: kept 0.23.0; torch cuda=13.2 available=True
+
+real	0m12.672s
+user	0m43.445s
+sys	0m2.183s
+--- step 1: grep pins, then install again (timed)
+indic_ocr_revision: cd50d301d0e17e8ecb32fc49c8ccbd7914dcfc25
+surya_version: 0.23.0
+indic-ocr: kept cd50d301d0e17e8ecb32fc49c8ccbd7914dcfc25; torch cuda=13.2 available=True
+surya: kept 0.23.0; torch cuda=13.2 available=True
+
+real	0m12.922s
+user	0m43.562s
+sys	0m2.285s
+--- step 2
+/home/admin1/news-rag/envs/vllm:
+True 13.2
+envs/surya:
+True 13.2
+--- tokenizer folder
+total 32856
+-rw-rw-r-- 1 admin1 admin1     7755 Nov  9 14:31 chat_template.jinja
+-rw-rw-r-- 1 admin1 admin1 33629731 Nov  9 14:31 tokenizer.json
+-rw-rw-r-- 1 admin1 admin1     1076 Nov  9 14:31 tokenizer_config.json
