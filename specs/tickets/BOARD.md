@@ -15,7 +15,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 003 | Pipeline ledger and stage runner | done | solo | waits for 002: ledger lives in Postgres |
 | 004 | Unpack, normalize and register pages | done | solo | waits for 003: registers pages in the ledger |
 | 005 | Render pages and dev sample | done | solo | waits for 004: needs registered pages |
-| 006 | GPU model runner (one model at a time) | draft | solo | waits for 001: needs package and config |
+| 006 | GPU model runner (one model at a time) | done | solo | waits for 001: needs package and config |
 | 007 | OCR stage (Surya layout + indic-ocr text) | draft | solo | waits for 005: needs page images; waits for 006: GPU lock |
 | 008 | Split column-spanning blocks | draft | solo | waits for 007: edits the OCR block output |
 | 009 | OCR sanity-check page and sign-off | draft | solo | waits for 008: shows split OCR blocks |

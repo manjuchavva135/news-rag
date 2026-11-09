@@ -1,6 +1,6 @@
 # 006: GPU model runner (one model at a time)
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 001: needs package and config
 
