@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from newsrag.stages.base import Stage
 from newsrag.stages.ocr import OcrStage
+from newsrag.stages.ocr_final import OcrFinalStage
 from newsrag.stages.ocr_split import OcrSplitStage
 from newsrag.stages.render import RenderStage
 
@@ -16,3 +17,4 @@ REGISTRY: dict[str, Stage] = {}
 REGISTRY["render"] = RenderStage()
 REGISTRY["ocr"] = OcrStage()
 REGISTRY["ocr_split"] = OcrSplitStage()
+REGISTRY["ocr_final"] = OcrFinalStage()

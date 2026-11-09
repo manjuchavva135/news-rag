@@ -1,0 +1,12 @@
+# Sarvam fallback rules for stage `ocr_final` (ticket 010, grill D-17 / A-38).
+#
+# Pages matching a rule have their text blocks re-read by Sarvam Document Intelligence (the only
+# external API in ingestion). Add a rule only for page types the Telugu reader named as failing
+# in the OCR sanity check (ticket 009). Each rule may set (omitted, null or [] = any):
+#   years: [2020]            print year
+#   sections: [main]         ledger section
+#   page_nums: [1]           a spread matches if any of page_num..page_end is listed
+#   edition_codes: [B]
+#   labels: [Text]           block labels to re-read (default: text_labels + title_labels)
+# Editing the rules reruns `ocr_final` only for the pages whose matching rules changed.
+rules: []

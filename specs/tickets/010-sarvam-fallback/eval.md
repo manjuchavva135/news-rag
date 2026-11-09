@@ -34,10 +34,14 @@
 
 ### E-3: Preview counts (covers FR-5)
 
+(Changed with the user while building: the check was written for the old 2020/2025/2026 corpus;
+the ledger now holds 2024 and 2025 pages only, so 2025 stands in for 2020 and 2024 for the years
+that must not appear.)
+
 - **Type:** CLI
 - **Steps:**
-  1. `printf 'rules:\n  - years: [2020]\n    page_nums: [1]\n' > /tmp/fb.yaml && NEWSRAG_OCR_FALLBACK_FILE=/tmp/fb.yaml uv run newsrag ocr fallback preview`
-- **Expected:** prints a line matching `^2020\tmain\t[1-9][0-9]*$` and no line starting `2025` or `2026`; `uv run pytest -q tests/test_ocr_final.py -k preview_no_network` passes (the Sarvam client is patched to raise if called).
+  1. `printf 'rules:\n  - years: [2025]\n    page_nums: [1]\n' > /tmp/fb.yaml && NEWSRAG_OCR_FALLBACK_FILE=/tmp/fb.yaml uv run newsrag ocr fallback preview`
+- **Expected:** prints a line matching `^2025\tmain\t[1-9][0-9]*$` and no line starting `2024`; `uv run pytest -q tests/test_ocr_final.py -k preview_no_network` passes (the Sarvam client is patched to raise if called).
 
 ## Edge cases
 

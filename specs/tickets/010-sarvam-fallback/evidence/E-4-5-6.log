@@ -1,0 +1,6 @@
+$ uv run pytest -q tests/test_ocr_final.py -k "missing_key"
+======================= 2 passed, 33 deselected in 0.96s =======================
+$ uv run pytest -q tests/test_ocr_final.py -k "version_changes_with_rules or unmatched_pages_keep_version"
+======================= 2 passed, 33 deselected in 0.09s =======================
+$ uv run pytest -q tests/test_ocr_final.py -k "page_flags_present or empty_list_means_any or rule_normalisation"
+======================= 3 passed, 32 deselected in 0.56s =======================

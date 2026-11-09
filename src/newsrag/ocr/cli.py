@@ -1,6 +1,6 @@
 """`newsrag ocr`: install the OCR models, (re)generate labels.yaml, show a page's blocks, draw
-them as a numbered overlay, report the column-split rate (ticket 008), and the `check` group
-(the OCR sanity check, ticket 009)."""
+them as a numbered overlay, report the column-split rate (ticket 008), the `check` group (the
+OCR sanity check, ticket 009) and the `fallback` group (the Sarvam fallback rules, ticket 010)."""
 
 from __future__ import annotations
 
@@ -12,10 +12,12 @@ from typing import Annotated
 import typer
 
 from newsrag import config
+from newsrag.ocr import fallback_cli
 from newsrag.ocr.check import cli as check_cli
 
 app = typer.Typer(help="OCR: Surya layout + indic-ocr text.", no_args_is_help=True)
 app.add_typer(check_cli.app, name="check", no_args_is_help=True)
+app.add_typer(fallback_cli.app, name="fallback", no_args_is_help=True)
 
 # The OCR block stages, most processed first (`ocr show` picks the first one that is done).
 SHOW_STAGES = ("ocr_final", "ocr_split", "ocr")
