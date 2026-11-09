@@ -1,0 +1,5 @@
+$ uv run pytest -q tests/test_register.py -k missing_unrar
+..                                                                       [100%]
+2 passed, 15 deselected in 1.25s
+exit 0
+

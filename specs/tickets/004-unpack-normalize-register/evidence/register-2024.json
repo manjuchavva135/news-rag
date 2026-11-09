@@ -1,0 +1,851 @@
+{
+ "stem": "2024",
+ "source_pdfs": 956,
+ "registered": 746,
+ "superseded": [
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_04R.ps.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_04RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_04.ps.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_04RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_15RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_15RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_15R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_15RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_15.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01B-MAIN_15RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01G-MAIN_13RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01G-MAIN_13RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01GNOPRSVACLT-MAIN_13.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/01-12-2024/main/out/01GNOPRSVACLT-MAIN_13R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02BG-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02BG-MAIN_03RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02BGNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02BGNOPRSVACLT-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02BGOPRSACLT-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02BGOPRSACLT-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02N-MAIN_14R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02N-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02N-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02N-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02V-MAIN_14R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02V-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02V-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/02-12-2024/main/out/02V-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_05RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_05RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_05RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_14RRR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03B-MAIN_14RRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGNOPRSVACLT-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGNOPRSVACLT-MAIN_11.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGNOPRSVACLT-MAIN_11R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGOPRSVACLT-MAIN_14R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGOPRSVACLT-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGOPRSVACLT-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03BGOPRSVACLT-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03C-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/03-12-2024/main/out/03C-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_02R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_02RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_02RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04B-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04BGOPRSVACLT-MAIN_04.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04BGOPRSVACLT-MAIN_04R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04T-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/04-12-2024/main/out/04T-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/05-12-2024/main/out/05BGNOPRSV-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/05-12-2024/main/out/05BGNOPRSV-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06B-MAIN_07R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06B-MAIN_07RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06B-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06B-MAIN_07RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06BGNORCLT-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06BGNORCLT-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06PSVA-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/06-12-2024/main/out/06PSVA-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07B-MAIN_07R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07B-MAIN_07RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_07R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_08.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07BNOPRSVACLT-MAIN_08R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07C-MAIN_16.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07C-MAIN_16R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_07R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_16.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/07-12-2024/main/out/07G-MAIN_16R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08BGNOPSVACLT-MAIN_10R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08BGNOPSVACLT-MAIN_10RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08BGNOPSVACLT-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08BGNOPSVACLT-MAIN_10RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08BGNOPSVACLT-MAIN_13.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08BGNOPSVACLT-MAIN_13R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08G-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08G-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08R-MAIN_12R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08R-MAIN_12RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08R-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08R-MAIN_12RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08R-MAIN_15.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08R-MAIN_15R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08S-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/08-12-2024/main/out/08S-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09B-MAIN_10RRR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09B-MAIN_10RRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09BGNOPRSVACLT-MAIN_10R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09BGNOPRSVACLT-MAIN_10RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09BGNOPRSVACLT-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09BGNOPRSVACLT-MAIN_10RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09BGPV-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09BGPV-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09GOPRC-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09GOPRC-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09NOSACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09NOSACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09R-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/09-12-2024/main/out/09R-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10B-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10B-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10B-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10P-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10P-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10R-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10R-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10T-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/10-12-2024/main/out/10T-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_05RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_05RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_05RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_05RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11B-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11BGNOPSVACT-MAIN_8R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11BGNOPSVACT-MAIN_8RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11BGNOPSVACT-MAIN_8.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11BGNOPSVACT-MAIN_8RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11GNOPSVACT-MAIN_05(E PAPER).pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11GNOPSVACT-MAIN_05.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11L-MAIN_07(E PAPER).pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11L-MAIN_07.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11R-MAIN_07(E PAPER).pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/11-12-2024/main/out/11R-MAIN_07.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_04.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_04R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12B-MAIN_07R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12P-MAIN_08.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/12-12-2024/main/out/12P-MAIN_08R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13B-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13B-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13BGNOPRSACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13BGNOPRSACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13BGNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13BGNOPRSVACLT-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13N-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13N-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13OPRSAL-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13OPRSAL-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13V-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/13-12-2024/main/out/13V-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14B-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14B-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGNOPRSACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGNOPRSACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGNOPRSACLT-MAIN_04.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGNOPRSACLT-MAIN_04R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGOPRAC-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGOPRAC-MAIN_07R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGRSACL-MAIN_16.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14BGRSACL-MAIN_16R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14G-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14G-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14NSLT-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14NSLT-MAIN_07R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14PRSL-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14PRSL-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14T-MAIN_16.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14T-MAIN_16R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14V-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14V-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14V-MAIN_07.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/14-12-2024/main/out/14V-MAIN_07R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/15-12-2024/main/out/15A-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/15-12-2024/main/out/15A-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/15-12-2024/main/out/15B-MAIN_16.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/15-12-2024/main/out/15B-MAIN_16R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_02R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_02RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16B-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16GNOPRSACLT-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16GNOPRSACLT-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16GNOPRSACLT-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16GNOPRSACLT-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16L-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16L-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16N-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16N-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16V-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16V-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16V-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16V-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16V-MAIN_11.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/16-12-2024/main/out/16V-MAIN_11R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17GNORSVACLT-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/15GNORSVACLT-MAIN_10.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17P-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/15P-MAIN_10.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17B-MAIN_10R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17B-MAIN_10RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17B-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17B-MAIN_10RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17BGNOPRVACLT-MAIN_14R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17BGNOPRVACLT-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17BGNOPRVACLT-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17BGNOPRVACLT-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17V-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/17V-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18B-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18B-MAIN_11R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18B-MAIN_11RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18N-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18N-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18N-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18N-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/19-12-2024/main/out/19B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/19-12-2024/main/out/19B-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/19-12-2024/main/out/19BGNOPRSVACLT-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/19-12-2024/main/out/19BGNOPRSVACLT-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/19-12-2024/main/out/19BGNOPRSVACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/19-12-2024/main/out/19BGNOPRSVACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20ACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20ACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20B-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20B-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20B-MAIN_11R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20B-MAIN_11RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20BGNOPRSVACLT-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20BGNOPRSVACLT-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20G-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20G-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20G-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/20-12-2024/main/out/20G-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21ACL-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21ACL-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21B-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21B-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21BGNOPRSACL-MAIN_13.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21BGNOPRSACL-MAIN_13R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRRR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21T-MAIN_03RRRRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21V-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21V-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21V-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/21-12-2024/main/out/21V-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22B-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22B-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22B-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22BGOPRSVACL-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22BGOPRSVACL-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22GNPRSACLT-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22GNPRSACLT-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22L-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22L-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22NT-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22NT-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22T-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22T-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22V-MAIN_10.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/22-12-2024/main/out/22V-MAIN_10R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23B-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23BG-MAIN_02R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23BG-MAIN_02RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23BGNOPRSVACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23BGNOPRSVACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23V-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/23-12-2024/main/out/23V-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/24-12-2024/main/out/24BGNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/24-12-2024/main/out/24BGNOPRSVACLT-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25B-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25BGNOPRSVACLT-MAIN_15.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25BGNOPRSVACLT-MAIN_15R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25BNOPRSVACLT-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25BNOPRSVACLT-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25G-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25G-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25T-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/25-12-2024/main/out/25T-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26A-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26A-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26B-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26B-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26BGNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26BGNOPRSVACLT-MAIN_02R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26G-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/26-12-2024/main/out/26G-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27B-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27C-MAIN_05R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27C-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27C-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27C-MAIN_05RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27GNOPRSVACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/27-12-2024/main/out/27GNOPRSVACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28ACLT-MAIN_12.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28ACLT-MAIN_12R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_04R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_04RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_04.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_04RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_14R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28B-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28GRSVAT-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28GRSVAT-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28GV-MAIN_03R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28GV-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28GV-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28GV-MAIN_03RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28NOPCL-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28NOPCL-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28NOPRSACLT-MAIN_03.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/28-12-2024/main/out/28NOPRSACLT-MAIN_03R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29B-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29B-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29B-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29B-MAIN_14R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29BGC-MAIN_02R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29BGC-MAIN_02RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29GNOPRSVACLT-MAIN_01.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/29-12-2024/main/out/29GNOPRSVACLT-MAIN_01R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30B-MAIN_01R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30B-MAIN_01RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30BGNOPRSVACLT-MAIN_14R.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30BGNOPRSVACLT-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30BGNOPRSVACLT-MAIN_14.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30BGNOPRSVACLT-MAIN_14RR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30BGOPRSAC-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30BGOPRSAC-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30L-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30L-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30N-MAIN_05RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30N-MAIN_05RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30T-MAIN_05.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/30-12-2024/main/out/30T-MAIN_05R.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/31-12-2024/main/out/31BGCVT-MAIN_02RR.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/31-12-2024/main/out/31BGCVT-MAIN_02RRR.pdf"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/31-12-2024/main/out/31BGNOPRSVACLT-MAIN_02.pdf",
+   "winner": "/home/admin1/raw/source/2024/2024/December-2024/31-12-2024/main/out/31BGNOPRSVACLT-MAIN_02R.pdf"
+  }
+ ],
+ "quarantined": [
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/17-12-2024/main/out/15dummy-MAIN_10.pdf",
+   "reason": "test_or_dummy"
+  },
+  {
+   "path": "/home/admin1/raw/source/2024/2024/December-2024/18-12-2024/main/out/18V_10.pdf",
+   "reason": "bad_filename"
+  }
+ ],
+ "day_mismatch_warnings": 2,
+ "quarantine_pct": 0.27
+}

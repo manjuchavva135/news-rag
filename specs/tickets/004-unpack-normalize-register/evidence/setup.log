@@ -1,0 +1,4 @@
+ledger schema ledger: up to date (0 new migrations)
+postgres: ok
+qdrant: ok
+opensearch: ok

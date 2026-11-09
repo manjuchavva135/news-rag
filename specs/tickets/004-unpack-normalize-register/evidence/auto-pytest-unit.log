@@ -1,0 +1,6 @@
+$ uv run pytest -q -m "not gpu and not data and not stores"
+........................................................................ [ 88%]
+.........                                                                [100%]
+81 passed, 41 deselected in 2.16s
+exit 0
+

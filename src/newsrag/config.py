@@ -201,6 +201,10 @@ class Settings(BaseSettings):
     ledger_schema: str = "ledger"  # Postgres schema holding the pipeline ledger tables
     max_attempts: int = 3  # a failed item is retried until it has failed this many times
 
+    # --- ingest ---
+    unrar_bin: str = "unrar"  # only needed to extract a .rar archive
+    unpack_workers: int = 8  # threads extracting one ZIP
+
     # --- render ---
     render_dpi: int = 300
 

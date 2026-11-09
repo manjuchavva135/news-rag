@@ -1,0 +1,21 @@
+$ uv run newsrag ingest unpack
+2024.zip: extracting into /home/admin1/raw/source/2024 ...
+2024.zip: unpacked (963 files, 6.3 s)
+2025.zip: extracting into /home/admin1/raw/source/2025 ...
+2025.zip: unpacked (2751 files, 17.0 s)
+real 24.79 s
+exit 0
+
+$ ls -l --time-style=full-iso /home/admin1/data > /tmp/claude-1000/-home-admin1-news-rag/61807033-cb54-4c50-a2ba-9e41782b7534/scratchpad/e2-after.txt && diff /tmp/claude-1000/-home-admin1-news-rag/61807033-cb54-4c50-a2ba-9e41782b7534/scratchpad/e2-before.txt /tmp/claude-1000/-home-admin1-news-rag/61807033-cb54-4c50-a2ba-9e41782b7534/scratchpad/e2-after.txt && echo same
+same
+exit 0
+
+$ for s in 2024 2025; do test -f /home/admin1/raw/source/$s/.unpacked && echo "$s ok"; done
+2024 ok
+2025 ok
+exit 0
+
+$ find /home/admin1/raw/source -iname '*.pdf' | wc -l
+3707
+exit 0
+

@@ -1,0 +1,54 @@
+$ uv run pytest tests/test_filenames.py -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 42 items
+
+tests/test_filenames.py::test_parse[2025/April-2025/01-04/01-04-2025/01FH-MAIN_03_EPAPER.pdf] PASSED [  2%]
+tests/test_filenames.py::test_parse[2025/April-2025/26-30/02FH-MAIN_05R.pdf] PASSED [  4%]
+tests/test_filenames.py::test_parse[2026/April-2026/03-04-2026/03BGNOPRSVACLT-MAIN_17R-SPLUS.pdf] PASSED [  7%]
+tests/test_filenames.py::test_parse[2020/April-2020/02-04-2020/main/out/02FH-MAIN01(VK)R.pdf] PASSED [  9%]
+tests/test_filenames.py::test_parse[2020/April-2020/06-04-2020/main/out/06E-MAIN_10(for Net).pdf] PASSED [ 11%]
+tests/test_filenames.py::test_parse[2025/April-2025/21-25/21FH-MAIN_01(RR).pdf] PASSED [ 14%]
+tests/test_filenames.py::test_parse[2025/April-2025/21-25/25FH-MAIN_02R .pdf] PASSED [ 16%]
+tests/test_filenames.py::test_parse[2025/April-2025/19-20/19FH-MAIN_08R<shy>.pdf] PASSED [ 19%]
+tests/test_filenames.py::test_parse[2025/April-2025/12-18/13FH-MAIN_14-EPAPER.pdf] PASSED [ 21%]
+tests/test_filenames.py::test_parse[2025/April-2025/01-04/01FH_MAIN_11R.pdf] PASSED [ 23%]
+tests/test_filenames.py::test_parse[2026/September2026/02-09-2026/02FH-MAIN_05.pdf] PASSED [ 26%]
+tests/test_filenames.py::test_parse[2025/October-2025/10-10-2025/main/out/10B-MAIN_11RRRR.ps(EPAPER).pdf] PASSED [ 28%]
+tests/test_filenames.py::test_parse[2025/May-2025/03-05-2025/main/out/03B-MAIN_03R(E-PAPER).pdf] PASSED [ 30%]
+tests/test_filenames.py::test_parse[2025/May-2025/03-05-2025/main/out/03B-MAIN_03R(E PAPER).pdf] PASSED [ 33%]
+tests/test_filenames.py::test_parse[2025/May-2025/03-05-2025/main/out/03B-MAIN_03R(Epapar).pdf] PASSED [ 35%]
+tests/test_filenames.py::test_parse[2025/May-2025/03-05-2025/main/out/03B-MAIN_03R(E-PEPAR).pdf] PASSED [ 38%]
+tests/test_filenames.py::test_parse[2025/May-2025/03-05-2025/main/out/03B-MAIN_03R.(EPAPER)ps.pdf] PASSED [ 40%]
+tests/test_filenames.py::test_parse[2025/May-2025/03-05-2025/main/out/03B-MAIN_03R(E_PAPER).pdf] PASSED [ 42%]
+tests/test_filenames.py::test_parse[2024/December-2024/03-12-2024/main/out/03B-MAIN_14RRR.pdf] PASSED [ 45%]
+tests/test_filenames.py::test_parse[2024/December-2024/20-12-2024/main/out/20NORV-MAIN_03.ps.pdf] PASSED [ 47%]
+tests/test_filenames.py::test_parse[2026/January-2026/12-01-2026/12B-MAIN_08-09.pdf] PASSED [ 50%]
+tests/test_filenames.py::test_parse[2026/April-2026/04-04-2026/04ALL-FEA_02R.pdf] PASSED [ 52%]
+tests/test_filenames.py::test_parse[2026/April-2026/04-04-2026/04fh-MAI_07r.pdf] PASSED [ 54%]
+tests/test_filenames.py::test_parse[2025/December-2025/29-31/02FH-MAIN_01.pdf] PASSED [ 57%]
+tests/test_filenames.py::test_parse[2025/April-2025/01-04/01FH-MAIN_06RR-SPLUS.PDF] PASSED [ 59%]
+tests/test_filenames.py::test_parse[2025/April-2025/01-04/01FH-MAIN_09<sp>R.pdf] PASSED [ 61%]
+tests/test_filenames.py::test_rejected[2025/misc/01FH-MAIN_01.pdf-no_date] PASSED [ 64%]
+tests/test_filenames.py::test_rejected[xyz.pdf-no_date] PASSED           [ 66%]
+tests/test_filenames.py::test_rejected[2020/April-2020/01-04-2020/01FH-DUMMY_01.pdf-test_or_dummy] PASSED [ 69%]
+tests/test_filenames.py::test_rejected[2020/April-2020/01-04-2020/01FH-MAIN_01TEST.pdf-test_or_dummy] PASSED [ 71%]
+tests/test_filenames.py::test_rejected[2020/April-2020/01-04-2020/01FH-MAIN_01_test.pdf-test_or_dummy] PASSED [ 73%]
+tests/test_filenames.py::test_rejected[2024/December-2024/18-12-2024/main/out/18V_10.pdf-bad_filename] PASSED [ 76%]
+tests/test_filenames.py::test_rejected[2020/April-2020/01-04-2020/notes.pdf-bad_filename] PASSED [ 78%]
+tests/test_filenames.py::test_rejected[2025/April-2025/26-30/31FH-MAIN_01.pdf-bad_date] PASSED [ 80%]
+tests/test_filenames.py::test_rejected[2025/April-2025/31-04-2025/31FH-MAIN_01.pdf-bad_date] PASSED [ 83%]
+tests/test_filenames.py::test_test_folder_does_not_reject PASSED         [ 85%]
+tests/test_filenames.py::test_date_folder_wins_over_filename_day PASSED  [ 88%]
+tests/test_filenames.py::test_page_id[2026/April-2026/01-04-2026/01BGNOPRSVACLT-MAIN_01.pdf-2026-04-01_BGNOPRSVACLT_main_01] PASSED [ 90%]
+tests/test_filenames.py::test_page_id[2020/April-2020/02-04-2020/main/out/02FH-MAIN01(VK)R.pdf-2020-04-02_FH-VK_main_01] PASSED [ 92%]
+tests/test_filenames.py::test_page_id[2026/April-2026/01-04-2026/01FH-MAIN_17R-SPLUS.pdf-2026-04-01_FH_splus_17] PASSED [ 95%]
+tests/test_filenames.py::test_page_id[2026/January-2026/12-01-2026/12B-MAIN_08-09.pdf-2026-01-12_B_main_08-09] PASSED [ 97%]
+tests/test_filenames.py::test_clean_name PASSED                          [100%]
+
+============================== 42 passed in 0.05s ==============================
+exit 0

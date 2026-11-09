@@ -1,0 +1,5 @@
+$ uv run pytest -q -m stores tests/test_register.py
+........                                                                 [100%]
+8 passed, 9 deselected in 1.38s
+exit 0
+

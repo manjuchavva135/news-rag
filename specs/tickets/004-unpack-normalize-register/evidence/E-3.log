@@ -1,0 +1,8 @@
+$ time uv run newsrag ingest unpack --archive 2025.zip
+2025.zip: skipped (already unpacked)
+
+real	0m1.364s
+user	0m6.763s
+sys	0m0.077s
+exit 0
+

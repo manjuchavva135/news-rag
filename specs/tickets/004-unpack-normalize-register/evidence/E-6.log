@@ -1,0 +1,14 @@
+$ uv run newsrag db sql "select md5(string_agg(page_id||source_path, ',' order by page_id)) from ledger.pages"
+35f55dad59f7f28b0995e597ea672e7d
+exit 0
+
+$ uv run newsrag ingest register
+2024: pdfs=956 registered=746 superseded=208 quarantined=2 (0.27%)
+2025: pdfs=2751 registered=2751 superseded=0 quarantined=0 (0.00%)
+ledger: 0 new, 0 new winner, 0 source back, 0 source missing
+exit 0
+
+$ uv run newsrag db sql "select md5(string_agg(page_id||source_path, ',' order by page_id)) from ledger.pages"
+35f55dad59f7f28b0995e597ea672e7d
+exit 0
+

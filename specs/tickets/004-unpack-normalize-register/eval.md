@@ -2,11 +2,11 @@
 
 ## Setup
 
-- Prerequisite (user, one-time): `sudo apt install unrar`.
+- Prerequisite: none for the ZIPs (`unrar` is only needed for a RAR archive).
 - Start: `uv sync && uv run newsrag stores up && uv run newsrag ledger init`
 - Base URL: n/a
 - Test account: n/a
-- Seed / reset: none. Unpacking all three archives takes ~1-2 h and ~90 GB; it is done once into `/home/admin1/raw/source` and reused by later tickets.
+- Seed / reset: none. Unpacking both ZIPs (`2024.zip`, `2025.zip`, ~15 GB) takes a few minutes; it is done once into `/home/admin1/raw/source` and reused by later tickets.
 
 ## Automated checks
 
@@ -20,7 +20,7 @@
 
 - **Type:** CLI
 - **Steps:**
-  1. `uv run pytest -q tests/test_filenames.py -v`
+  1. `uv run pytest tests/test_filenames.py -v` (not `-q -v`: the two cancel out and no case ids are listed)
 - **Expected:** all pass, and the output lists at least 11 parametrized cases including ids containing `EPAPER`, `SPLUS`, `VK`, `for Net`, `(RR)` and `September2026`.
 
 ### E-2: Unpack all archives, originals untouched (covers FR-1)
@@ -30,15 +30,15 @@
   1. `ls -l --time-style=full-iso /home/admin1/data > /tmp/e2-before.txt`
   2. `uv run newsrag ingest unpack`
   3. `ls -l --time-style=full-iso /home/admin1/data > /tmp/e2-after.txt && diff /tmp/e2-before.txt /tmp/e2-after.txt && echo same`
-  4. `for s in 2020 2025 2026; do test -f /home/admin1/raw/source/$s/.unpacked && echo "$s ok"; done`
+  4. `for s in 2024 2025; do test -f /home/admin1/raw/source/$s/.unpacked && echo "$s ok"; done`
   5. `find /home/admin1/raw/source -iname '*.pdf' | wc -l`
-- **Expected:** step 3 prints `same`; step 4 prints `2020 ok`, `2025 ok`, `2026 ok`; step 5 prints `21063` (11,859 + 4,683 + 4,521) or a number within ±5 of it.
+- **Expected:** step 3 prints `same`; step 4 prints `2024 ok`, `2025 ok`; step 5 prints `3707` (956 + 2,751) or a number within ±5 of it.
 
 ### E-3: Unpack is skipped the second time (covers FR-1)
 
 - **Type:** CLI
 - **Steps:**
-  1. `uv run newsrag ingest unpack --archive 2025.rar`
+  1. `uv run newsrag ingest unpack --archive 2025.zip`
 - **Expected:** output contains `skipped (already unpacked)` and the command finishes in under 10 s.
 
 ### E-4: Register all and report (covers FR-4, FR-6, FR-7, NFR-2)
@@ -46,7 +46,7 @@
 - **Type:** CLI
 - **Steps:**
   1. `time uv run newsrag ingest register`
-  2. `for s in 2020 2025 2026; do python3 -c "import json;r=json.load(open('/home/admin1/raw/reports/register-$s.json'));print('$s',r['registered'],len(r['superseded']),len(r['quarantined']),r['quarantine_pct'])"; done`
+  2. `for s in 2024 2025; do python3 -c "import json;r=json.load(open('/home/admin1/raw/reports/register-$s.json'));print('$s',r['registered'],len(r['superseded']),len(r['quarantined']),r['quarantine_pct'])"; done`
   3. `uv run newsrag db sql "select count(*), count(distinct page_id) from ledger.pages"`
 - **Expected:** step 1 real time < 10 min; for each archive `registered + superseded + quarantined` = `find /home/admin1/raw/source/<stem> -iname '*.pdf' | wc -l` (a page superseded by a file in another archive counts as superseded in its own archive's report); step 3's two numbers are equal and equal the sum of `registered`; each `quarantine_pct` is printed (its value is checked against the ≤ 1% bar in ticket 031, not here).
 
@@ -89,7 +89,7 @@ PY`
 - **Type:** CLI
 - **Steps:**
   1. `uv run pytest -q -m stores tests/test_register.py -k quarantine`
-- **Expected:** passes; a temp tree with `xyz.pdf` (no date folder), `2020/April-2020/01-04-2020/01FH-DUMMY_01.pdf`, `.../01FH-MAIN_01TEST.pdf` and `2025/April-2025/26-30/31FH-MAIN_01.pdf` (April 31) produces quarantine rows with reasons `no_date`, `test_or_dummy`, `test_or_dummy`, `bad_date` and no pages rows for them; no pages rows for them. Then `uv run pytest -q tests/test_register.py -k unrar_failure` passes (fake unrar failing on one of two archives: exit 1, the FR-8 message, a marker only for the other archive).
+- **Expected:** passes; a temp tree with `xyz.pdf` (no date folder), `2020/April-2020/01-04-2020/01FH-DUMMY_01.pdf`, `.../01FH-MAIN_01TEST.pdf` and `2025/April-2025/26-30/31FH-MAIN_01.pdf` (April 31) produces quarantine rows with reasons `no_date`, `test_or_dummy`, `test_or_dummy`, `bad_date` and no pages rows for them; no pages rows for them. Then `uv run pytest -q tests/test_register.py -k unrar_failure` passes (fake unrar failing on one of two archives: exit 1, the FR-8 message, a marker only for the other archive). Then `uv run pytest -q tests/test_register.py -k zip` passes (unpacks a small temp ZIP, writes the marker, skips it the second time, leaves the ZIP unchanged, refuses a member path with `..`, and a corrupt ZIP gives exit 1 with `unzip failed for <zip>:` and no marker).
 
 ### E-9: Missing unrar (covers FR-2)
 

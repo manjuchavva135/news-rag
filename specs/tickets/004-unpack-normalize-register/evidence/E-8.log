@@ -1,0 +1,15 @@
+$ uv run pytest -q -m stores tests/test_register.py -k quarantine
+...                                                                      [100%]
+3 passed, 14 deselected in 1.30s
+exit 0
+
+$ uv run pytest -q tests/test_register.py -k unrar_failure
+.                                                                        [100%]
+1 passed, 16 deselected in 1.25s
+exit 0
+
+$ uv run pytest -q tests/test_register.py -k zip
+.....                                                                    [100%]
+5 passed, 12 deselected in 1.28s
+exit 0
+
