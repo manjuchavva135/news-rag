@@ -1,7 +1,7 @@
 # 005: Render pages and dev sample - Results
 
-Built in the main checkout on `main`, on top of ticket 004's work (which is not committed yet
-either). Nothing is committed.
+Built in the main checkout on `main`, on top of ticket 004's work; committed as `c1333de`
+(004 is `9e289b8`).
 
 Two spec changes were made with the user before building and recorded in rd.md / eval.md:
 

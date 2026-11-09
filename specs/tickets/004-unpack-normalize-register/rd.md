@@ -1,6 +1,6 @@
 # 004: Unpack, normalize and register pages
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 003: registers pages in the ledger
 

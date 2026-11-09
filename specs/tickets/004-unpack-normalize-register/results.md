@@ -1,6 +1,6 @@
 # 004: Unpack, normalize and register pages - Results
 
-Built in the main checkout on `main` (after 001-003), not yet committed. The input changed before
+Built in the main checkout on `main` (after 001-003); committed as `9e289b8`. The input changed before
 the build: on 2026-11-09 `/home/admin1/data` held `2024.zip` (956 PDFs, December 2024 only) and
 `2025.zip` (2,751 PDFs, January-December 2025) instead of the three RARs the ticket was written
 for. The user chose to build for the ZIPs and keep RAR support, so rd.md and eval.md were updated

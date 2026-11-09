@@ -1,6 +1,6 @@
 # 005: Render pages and dev sample
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 004: needs registered pages
 
