@@ -1,0 +1,14 @@
+andhra_pradesh:
+- file: ap_districts_2014_2022.yaml
+  valid_from: '2014-06-02'
+  valid_to: '2022-04-03'
+- file: ap_districts_2022.yaml
+  valid_from: '2022-04-04'
+  valid_to: '2025-12-30'
+- file: ap_districts_2025.yaml
+  valid_from: '2025-12-31'
+  valid_to: null
+telangana:
+- file: ts_districts_2019.yaml
+  valid_from: '2019-02-17'
+  valid_to: null

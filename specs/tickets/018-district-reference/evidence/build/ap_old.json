@@ -1,0 +1,4076 @@
+[
+ {
+  "name": "Kadiri",
+  "link": "Kadiri",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Talupula",
+  "link": "Talupula",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Nambulapulakunta",
+  "link": "Nambulapulakunta",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Gandlapenta",
+  "link": "Gandlapenta",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Nallacheruvu",
+  "link": "Nallacheruvu",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Tanakal",
+  "link": "Tanakal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Obuladevaracheruvu",
+  "link": "Obuladevaracheruvu",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Amadagur",
+  "link": "Amadagur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Penu Konda",
+  "link": "Penu Konda",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Parigi",
+  "link": "Parigi, Anantapur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Gorantla",
+  "link": "Gorantla, Anantapur district",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Somandepalle",
+  "link": "Somandepalle",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Roddam",
+  "link": "Roddam, Anantapur district",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Hindupur",
+  "link": "Hindupur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Lepakshi",
+  "link": "Lepakshi",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Chilamathur",
+  "link": "Chilamathur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Madakasira",
+  "link": "Madakasira",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Amarapuram",
+  "link": "Amarapuram, Andhra Pradesh",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Gudibanda",
+  "link": "Gudibanda",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Rolla",
+  "link": "Rolla, Anantapur district",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Agali",
+  "link": "Agali mandal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Dharmavaram",
+  "link": "Dharmavaram, Anantapur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Bathalapalle",
+  "link": "Bathalapalle",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Tadimarri",
+  "link": "Tadimarri",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Mudigubba",
+  "link": "Mudigubba",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Bukkapatnam",
+  "link": "Bukkapatnam",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kothacheruvu",
+  "link": "Kothacheruvu",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Puttaparthi",
+  "link": "Puttaparthi",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Nallamada",
+  "link": "Nallamada",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Rayadurg",
+  "link": "Rayadurg",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "D.Hirehal",
+  "link": "D.Hirehal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kanekal",
+  "link": "Kanekal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Bommanahal",
+  "link": "Bommanahal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Gummagatta",
+  "link": "Gummagatta",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kalyandurg",
+  "link": "Kalyandurg",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Brahmasamudram",
+  "link": "Brahmasamudram",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Settur",
+  "link": "Settur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kundurpi",
+  "link": "Kundurpi",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kambadur",
+  "link": "Kambadur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Beluguppa",
+  "link": "Beluguppa",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Ramagiri",
+  "link": "Ramagiri, Anantapur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Anantapur",
+  "link": "Anantapur, Andhra Pradesh",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Tadpatri",
+  "link": "Tadpatri",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kudair",
+  "link": "Kudair",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Atmakur",
+  "link": "Atmakur, Anantapur district",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Peddapappur",
+  "link": "Peddapappur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Singanamala",
+  "link": "Singanamala",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Garladinne",
+  "link": "Garladinne",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Putlur",
+  "link": "Putlur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Yellanur",
+  "link": "Yellanur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Narpala",
+  "link": "Narpala",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Bukkarayasamudram",
+  "link": "Bukkarayasamudram",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Kanaganapalle",
+  "link": "Kanaganapalle",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Chenne Kothapalle",
+  "link": "Chenne Kothapalle",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Raptadu",
+  "link": "Raptadu",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Uravakonda",
+  "link": "Uravakonda",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Vidapanakal",
+  "link": "Vidapanakal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Vajrakarur",
+  "link": "Vajrakarur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Guntakal",
+  "link": "Guntakal",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Gooty",
+  "link": "Gooty",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Pamidi",
+  "link": "Pamidi",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Yadiki",
+  "link": "Yadiki",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "Peddavadugur",
+  "link": "Peddavadugur",
+  "district_link": "Anantapur district",
+  "division": null
+ },
+ {
+  "name": "B. Kothakota",
+  "link": "B.Kothakota",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Kalikiri",
+  "link": "Kalikiri",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Kurabalakota",
+  "link": "Kurabalakota",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Madanapalle",
+  "link": "Madanapalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Mulakalacheruvu",
+  "link": "Mulakalacheruvu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Nimmanapalle",
+  "link": "Nimmanapalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Peddamandyam",
+  "link": "Peddamandyam",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Peddathippasamudram",
+  "link": "Peddathippasamudram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Ramasamudram",
+  "link": "Ramasamudram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Thamballapalle",
+  "link": "Thamballapalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Vayalpadu",
+  "link": "Vayalpadu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Pileru",
+  "link": "Pileru",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Gurramkonda",
+  "link": "Gurramkonda",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Kalakada",
+  "link": "Kalakada",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Kambhamvaripalle",
+  "link": "Kambhamvaripalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Tirupati (rural)",
+  "link": "Tirupati (rural) mandal",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Tirupati (urban)",
+  "link": "Tirupati (urban) mandal",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Renigunta",
+  "link": "Renigunta mandal",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Pitchatur",
+  "link": "Pitchatur",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Nagalapuram",
+  "link": "Nagalapuram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Pakala",
+  "link": "Pakala, Chittoor district",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Chandragiri",
+  "link": "Chandragiri",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Narayanavanam",
+  "link": "Narayanavanam",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Rama Chandrapuram",
+  "link": "Ramachandrapuram, Chittoor district",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Yerravaripalem",
+  "link": "Yerravaripalem",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Chinnagottigallu",
+  "link": "Chinnagottigallu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Srikalahasti",
+  "link": "Srikalahasti",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Yerpedu",
+  "link": "Yerpedu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Thottambedu",
+  "link": "Thottambedu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "K.V.B. Puram",
+  "link": "K V B Puram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Satyavedu",
+  "link": "Satyavedu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Buchinaidu khandriga",
+  "link": "Buchinaidu khandriga",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Varadaiahpalem",
+  "link": "Varadaiahpalem",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Chittoor",
+  "link": "Chittoor mandal",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Gudipala",
+  "link": "Gudipala",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Yadamari",
+  "link": "Yadamari",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Gangadhara nellore",
+  "link": "Gangadhara nellore",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Puthalapattu",
+  "link": "Puthalapattu",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Penumuru",
+  "link": "Penumuru",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Bangarupalem",
+  "link": "Bangarupalem",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Thavanampalle",
+  "link": "Thavanampalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Irala",
+  "link": "Irala",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Srirangarajapuram",
+  "link": "Srirangarajapuram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Vedurukuppam",
+  "link": "Vedurukuppam",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Vadamalapeta",
+  "link": "Vadamalapeta",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Palasamudram",
+  "link": "Palasamudram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Puttur",
+  "link": "Puttur, Andhra Pradesh",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Karvetinagar",
+  "link": "Karvetinagar",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Nagari",
+  "link": "Nagari, Andhra Pradesh",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Nindra",
+  "link": "Nindra",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Vijayapuram",
+  "link": "Vijayapuram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Rompicherla",
+  "link": "Rompicherla, Chittoor district",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Palamaner",
+  "link": "Palamaner",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Gangavaram",
+  "link": "Gangavaram, Chittoor district",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Baireddipalle",
+  "link": "Baireddipalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Venkatagirikota",
+  "link": "Venkatagirikota",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Peddapanjani",
+  "link": "Peddapanjani",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Kuppam",
+  "link": "Kuppam",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Santhipuram",
+  "link": "Santhipuram",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Gudupalle",
+  "link": "Gudupalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Ramakuppam",
+  "link": "Ramakuppam",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Somala",
+  "link": "Somala",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Chowdepalle",
+  "link": "Chowdepalle",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Punganur",
+  "link": "Punganur",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Sodam",
+  "link": "Sodam",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Pulicherla",
+  "link": "Pulicherla, Chittoor district",
+  "district_link": "Chittoor district",
+  "division": null
+ },
+ {
+  "name": "Kadapa",
+  "link": "Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Chakrayapet",
+  "link": "Chakrayapet",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Yerraguntla",
+  "link": "Yerraguntla",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Veerapanayani Palle",
+  "link": "Veerapunayunipalle",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Kamalapuram",
+  "link": "Kamalapuram, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Vallur",
+  "link": "Vallur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Chennur",
+  "link": "Chennur, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Chinthakomma Dinne",
+  "link": "Chinthakomma Dinne",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Pendlimarri",
+  "link": "Pendlimarri",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Vempalle",
+  "link": "Vempalle",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Jammalamadugu",
+  "link": "Jammalamadugu",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Peddamudium",
+  "link": "Peddamudium",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Mylavaram",
+  "link": "Mylavaram, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Muddanur",
+  "link": "Muddanur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Kondapuram",
+  "link": "Kondapuram, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Pulivendula",
+  "link": "Pulivendula",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Simhadripuram",
+  "link": "Simhadripuram",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Lingala",
+  "link": "Lingala, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Thondur",
+  "link": "Thondur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Vemula",
+  "link": "Vemula",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Proddatur",
+  "link": "Proddatur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Rajupalem, Kadapa",
+  "link": "Rajupalem, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Mydukur",
+  "link": "Mydukur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Duvvur",
+  "link": "Duvvur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Chapadu",
+  "link": "Chapadu",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Sri Avadhuth Kasinayana",
+  "link": "Sri Avadhuth Kasinayana",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Kalasapadu",
+  "link": "Kalasapadu",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Porumamilla",
+  "link": "Porumamilla",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "B.Kodur",
+  "link": "B.Kodur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Badvel",
+  "link": "Badvel",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Gopavaram",
+  "link": "Gopavaram",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Brahmamgarimatham",
+  "link": "Brahmamgarimatham",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Atlur",
+  "link": "Atlur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Khajipet",
+  "link": "Khajipet",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Koduru",
+  "link": "Railway Koduru",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Penagalur",
+  "link": "Penagalur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Chitvel",
+  "link": "Chitvel",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Pullampeta",
+  "link": "Pullampeta",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Obulavaripalle",
+  "link": "Obulavaripalle",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Rajampet",
+  "link": "Rajampet",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Sidhout",
+  "link": "Sidhout",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Vontimitta",
+  "link": "Vontimitta",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Nandalur",
+  "link": "Nandalur",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Veeraballi",
+  "link": "Veeraballi",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "T. Sundupalle",
+  "link": "T. Sundupalle",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Rayachoti",
+  "link": "Rayachoti",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Sambepalle",
+  "link": "Sambepalle",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Chinnamandem",
+  "link": "Chinnamandem",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Galiveedu",
+  "link": "Galiveedu",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Lakkireddipalle",
+  "link": "Lakkireddipalle",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Ramapuram",
+  "link": "Ramapuram, Kadapa",
+  "district_link": "Kadapa district",
+  "division": null
+ },
+ {
+  "name": "Rajahmundry (rural)",
+  "link": "Rajahmundry (rural) mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rajahmundry (urban))",
+  "link": "Rajahmundry (urban) mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kadiam",
+  "link": "Kadiam mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rajanagaram",
+  "link": "Rajanagaram mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Seethanagaram",
+  "link": "Seethanagaram mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Korukonda",
+  "link": "Korukonda Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Anaparti",
+  "link": "Anaparthy mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Biccavolu",
+  "link": "Biccavolu mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Pedapudi",
+  "link": "Pedapudi mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rangampeta",
+  "link": "Rangampeta mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Gokavaram",
+  "link": "Gokavaram mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Peddapuram",
+  "link": "Peddapuram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Jaggampeta",
+  "link": "Jaggampeta mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Gandepalle",
+  "link": "Gandepalle mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kirlampudi",
+  "link": "Kirlampudi mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Tuni",
+  "link": "Tuni Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Thondangi",
+  "link": "Thondangi Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kotananduru",
+  "link": "Kotananduru Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Prathipadu",
+  "link": "Prathipadu Mandal - East Godavari",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Sankhavaram",
+  "link": "Sankhavaram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Yeleswaram",
+  "link": "Yeleswaram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rowthulapudi",
+  "link": "Rowthulapudi Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Samalkota",
+  "link": "Samalkota Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Pithapuram",
+  "link": "Pithapuram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Gollaprolu",
+  "link": "Gollaprolu Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kothapalle",
+  "link": "Kothapalle Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Karapa",
+  "link": "Karapa mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kakinada (rural)",
+  "link": "Kakinada (rural) mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kakinada (urban)",
+  "link": "Kakinada (urban) mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Mummidivaram",
+  "link": "Mummidivaram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "I. Polavaram",
+  "link": "I. Polavaram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Katrenikona",
+  "link": "Katrenikona Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Amalapuram",
+  "link": "Amalapuram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Uppalaguptam",
+  "link": "Uppalaguptam Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Allavaram",
+  "link": "Allavaram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kothapeta",
+  "link": "Kothapeta, East Godavari district",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Ravulapalem",
+  "link": "Ravulapalem Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Atreyapuram",
+  "link": "Atreyapuram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "P.Gannavaram",
+  "link": "P.Gannavaram",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Ambajipeta",
+  "link": "Ambajipeta mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Ainavilli",
+  "link": "Ainavilli Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Razole",
+  "link": "Razole Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Malikipuram",
+  "link": "Malikipuram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Sakhinetipalli",
+  "link": "Sakhinetipalli",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Manidikurru",
+  "link": "Mamidikuduru Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Ramachandrapuram",
+  "link": "Ramachandrapuram mandal, East Godavari district",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kajuluru",
+  "link": "Kajuluru",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Pamarru",
+  "link": "Pamarru mandal, East Godavari district",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Mandapeta",
+  "link": "Mandapeta mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rayavaram",
+  "link": "Rayavaram mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kapileswarapuram",
+  "link": "Kapileswarapuram mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Thallarevu",
+  "link": "Thallarevu mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Alamuru",
+  "link": "Alamuru mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rampachodavaram",
+  "link": "Rampachodavaram",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Devipatnam",
+  "link": "Devipatnam Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Y. Ramavaram",
+  "link": "Y. Ramavaram Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Addateegala",
+  "link": "Addateegala mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Gangavaram",
+  "link": "Gangavaram mandal, East Godavari district",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Maredumilli",
+  "link": "Maredumilli Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Rajavommangi",
+  "link": "Rajavommangi Mandal",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Nellipaka",
+  "link": "Nellipaka",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Chinturu",
+  "link": "Chinturu",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kunavaram",
+  "link": "Kunavaram",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Vararamachandrapuram",
+  "link": "Vararamachandrapuram",
+  "district_link": "East Godavari district",
+  "division": null
+ },
+ {
+  "name": "Tadikonda",
+  "link": "Tadikonda",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Thulluru",
+  "link": "Thulluru",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Phirangipuram",
+  "link": "Phirangipuram",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Medikonduru",
+  "link": "Medikonduru",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Guntur East",
+  "link": "Guntur mandal",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Guntur West",
+  "link": "Guntur mandal",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Prathipadu",
+  "link": "Prathipadu, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Vatticherukuru",
+  "link": "Vatticherukuru",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Pedanandipadu",
+  "link": "Pedanandipadu",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Pedakakani",
+  "link": "Pedakakani",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Tenali",
+  "link": "Tenali",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Kollipara",
+  "link": "Kollipara",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Ponnur",
+  "link": "Ponnur",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Chebrole",
+  "link": "Chebrolu, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Duggirala",
+  "link": "Duggirala",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Kakumanu",
+  "link": "Kakumanu",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Mangalagiri",
+  "link": "Mangalagiri mandal",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Tadepalle, Guntur",
+  "link": "Tadepalle, Guntur",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Vemuru",
+  "link": "Vemuru",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Kolluru",
+  "link": "Kollur, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Tsunduru",
+  "link": "Tsunduru",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Bhattiprolu",
+  "link": "Bhattiprolu",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Amruthalur",
+  "link": "Amruthalur",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Repalle",
+  "link": "Repalle",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Nizampatnam",
+  "link": "Nizampatnam",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Nagaram",
+  "link": "Nagaram, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Cherukupalle",
+  "link": "Cherukupalle",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Bapatla",
+  "link": "Bapatla",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Pittalavanipalem",
+  "link": "Pittalavanipalem",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Karlapalem",
+  "link": "Karlapalem",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Gurazala",
+  "link": "Gurazala",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Dachepalle",
+  "link": "Dachepalle",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Piduguralla",
+  "link": "Piduguralla",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Machavaram",
+  "link": "Machavaram, Guntur",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Macherla",
+  "link": "Macherla",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Veldurthi",
+  "link": "Veldurthi, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Durgi",
+  "link": "Durgi",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Rentachintala",
+  "link": "Rentachintala",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Karempudi",
+  "link": "Karempudi",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Bellamkonda",
+  "link": "Bellamkonda",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Sattenapalli",
+  "link": "Sattenapalli",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Rajupalem",
+  "link": "Rajupalem, Guntur",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Muppalla",
+  "link": "Muppalla",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Pedakurapadu",
+  "link": "Pedakurapadu",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Achampet",
+  "link": "Atchampet mandal, Andhra Pradesh",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Krosuru",
+  "link": "Krosuru",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Amaravati",
+  "link": "Amaravathi village, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Nekarikallu",
+  "link": "Nekarikallu",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Chilakaluripet",
+  "link": "Chilakaluripet mandal",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Nadendla",
+  "link": "Nadendla",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Edlapadu",
+  "link": "Edlapadu",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Narasaraopet",
+  "link": "Narasaraopet",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Rompicherla",
+  "link": "Rompicherla, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Vinukonda",
+  "link": "Vinukonda",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Bollapalle",
+  "link": "Bollapalle",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Nuzendla",
+  "link": "Nuzendla",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Savalyapuram",
+  "link": "Savalyapuram",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Ipur",
+  "link": "Ipur, Guntur district",
+  "district_link": "Guntur district",
+  "division": null
+ },
+ {
+  "name": "Kaikalur",
+  "link": "Kaikalur mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Mandavalli",
+  "link": "Mandavalli mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Kalidindi",
+  "link": "Kalidindi mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Mudinepalli",
+  "link": "Mudinepalle mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Nuzvid",
+  "link": "Nuzvid mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Agiripalli",
+  "link": "Agiripalli mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Chatrai",
+  "link": "Chatrai mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Musunuru",
+  "link": "Musunuru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Pedana",
+  "link": "Pedana mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Guduru",
+  "link": "Guduru mandal, Krishna district",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Bantumilli",
+  "link": "Bantumilli mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Kruthivennu",
+  "link": "Kruthivennu mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Machilipatnam",
+  "link": "Machilipatnam mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Avanigadda",
+  "link": "Avanigadda mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Challapalli",
+  "link": "Challapalli mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Mopidevi",
+  "link": "Mopidevi mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Nagayalanka",
+  "link": "Nagayalanka mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Koduru",
+  "link": "Koduru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Ghantasala",
+  "link": "Ghantasala mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Movva",
+  "link": "Movva mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Gudivada",
+  "link": "Gudivada mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Gudlavalleru",
+  "link": "Gudlavalleru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Nandivada",
+  "link": "Nandivada mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Pedaparupudi",
+  "link": "Pedaparupudi mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Pamarru",
+  "link": "Pamarru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Penamaluru",
+  "link": "Penamaluru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Kankipadu",
+  "link": "Kankipadu mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Thotlavalluru",
+  "link": "Thotlavalluru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vuyyuru",
+  "link": "Vuyyuru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Pamidimukkala",
+  "link": "Pamidimukkala mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Gannavaram",
+  "link": "Gannavaram mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Bapulapadu",
+  "link": "Bapulapadu mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Unguturu",
+  "link": "Unguturu mandal, Krishna district",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Chandarlapadu",
+  "link": "Chandarlapadu mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Jaggayyapeta",
+  "link": "Jaggayyapeta mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Kanchikacherlal",
+  "link": "Kanchikacherla mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Nandigama",
+  "link": "Nandigama mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Penuganchiprolu",
+  "link": "Penuganchiprolu mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vatsavai",
+  "link": "Vatsavai mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Veerullapadu",
+  "link": "Veerullapadu mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Mylavaram",
+  "link": "Mylavaram mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "G.Konduru",
+  "link": "G.Konduru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Reddigudem",
+  "link": "Reddigudem mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Tiruvuru",
+  "link": "Tiruvuru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vissannapeta",
+  "link": "Vissannapeta mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Gampalagudem",
+  "link": "Gampalagudem mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "A.Konduru",
+  "link": "A.Konduru mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Ibrahimpatnam",
+  "link": "Ibrahimpatnam, Krishna",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vijayawada (Rural)",
+  "link": "Vijayawada (rural) mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vijayawada West",
+  "link": "Vijayawada (urban) mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vijayawada Central",
+  "link": "Vijayawada (urban) mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vijayawada North",
+  "link": "Vijayawada (urban) mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Vijayawada East",
+  "link": "Vijayawada (urban) mandal",
+  "district_link": "Krishna district",
+  "division": null
+ },
+ {
+  "name": "Kallur",
+  "link": "Kallur, Kurnool district",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Orvakal",
+  "link": "Orvakal",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "C.Belagal",
+  "link": "C.Belagal",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Gudur",
+  "link": "Gudur, Kurnool",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kurnool Rural",
+  "link": "Kurnool",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kurnool Urban",
+  "link": "Kurnool",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kodumuru",
+  "link": "Kodumuru",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Krishnagiri",
+  "link": "Krishnagiri, Kurnool district",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Veldurthi",
+  "link": "Veldurthi, Kurnool district",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Panyam",
+  "link": "Panyam",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Gadivemula",
+  "link": "Gadivemula",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Adoni",
+  "link": "Adoni",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Mantralayam",
+  "link": "Mantralayam",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Pedda Kadubur",
+  "link": "Pedda kadabur",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kosigi",
+  "link": "Kosigi",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kowthalam",
+  "link": "Kowthalam",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Alur",
+  "link": "Alur, Kurnool",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Devanakonda",
+  "link": "Devanakonda",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Holagunda",
+  "link": "Holagunda",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Halaharvi",
+  "link": "Halaharvi",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Aspari",
+  "link": "Aspari",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Chippagiri",
+  "link": "Chippagiri",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Pattikonda",
+  "link": "Pattikonda",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Maddikera",
+  "link": "Maddikera",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Tuggali",
+  "link": "Tuggali",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Yemmiganur",
+  "link": "Yemmiganur",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Nandavaram",
+  "link": "Nandavaram",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Gonegandla",
+  "link": "Gonegandla",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Nandyal",
+  "link": "Nandyal",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Gospadu",
+  "link": "Gospadu",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Sirvel",
+  "link": "Sirvel",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Dornipadu",
+  "link": "Dornipadu",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Uyyalawada",
+  "link": "Uyyalawada",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Chagalamarri",
+  "link": "Chagalamarri",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Rudravaram",
+  "link": "Rudravaram, Kurnool",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Mahanandi",
+  "link": "Mahanandi",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Allagadda",
+  "link": "Allagadda",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Dhone",
+  "link": "Dhone",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Bethamcherla",
+  "link": "Bethamcherla",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Peapally",
+  "link": "Peapally",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Banaganapalle",
+  "link": "Banaganapalle",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Owk",
+  "link": "Owk",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Koilkuntla",
+  "link": "Koilkuntla",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Sanjamala",
+  "link": "Sanjamala",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kolimigundla",
+  "link": "Kolimigundla",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Bandi Atmakur",
+  "link": "Bandi Atmakur",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Srisailam",
+  "link": "Srisailam",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Atmakur",
+  "link": "Atmakur, Kurnool district",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Velgodu",
+  "link": "Velgodu",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Nandikotkur",
+  "link": "Nandikotkur",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Pagidyala",
+  "link": "Pagidyala",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Jupadu Bungalow",
+  "link": "Jupadu bungalow",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Kothapalle",
+  "link": "Kothapalle, Kurnool district",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Pamulapadu",
+  "link": "Pamulapadu",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Miduthur",
+  "link": "Miduthur",
+  "district_link": "Kurnool district",
+  "division": null
+ },
+ {
+  "name": "Gudur",
+  "link": "Gudur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Chillakur",
+  "link": "Chillakur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kota",
+  "link": "Kota, Andhra Pradesh",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Vakadu",
+  "link": "Vakadu",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Chittamur",
+  "link": "Chittamur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Venkatagiri",
+  "link": "Venkatagiri",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Sydapuram",
+  "link": "Sydapuram",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Dakkili",
+  "link": "Dakkili",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Balayapalle",
+  "link": "Balayapalle",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kaluvoya",
+  "link": "Kaluvoya",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Rapur",
+  "link": "Rapur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Sullurpeta",
+  "link": "Sullurpeta",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Ozili",
+  "link": "Ozili",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Naidupeta",
+  "link": "Naidupeta",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Pellakur",
+  "link": "Pellakur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Doravarisatram",
+  "link": "Doravarisatram",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Tada",
+  "link": "Tada mandal",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kavali",
+  "link": "Kavali",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Bhogolu",
+  "link": "Bogole, Nellore district",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Allur",
+  "link": "Allur Mandal, Nellore",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Dagadarthi",
+  "link": "Dagadarthi",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Jaladanki",
+  "link": "Jaladanki",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kaligiri",
+  "link": "Kaligiri",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kondapuram",
+  "link": "Kondapuram, Nellore",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Nellore Rural",
+  "link": "Nellore",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Nellore Urban",
+  "link": "Nellore",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kovur",
+  "link": "Kovur, Nellore",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Vidavalur",
+  "link": "Vidavalur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kodavalur",
+  "link": "Kodavalur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Buchireddypalem",
+  "link": "Buchireddypalem",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Indukurpet",
+  "link": "Indukurpet",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Thotapalligudur",
+  "link": "Thotapalligudur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Muthukur",
+  "link": "Muthukur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Venkatachalam",
+  "link": "Venkatachalam mandal",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Manubolu",
+  "link": "Manubolu",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Podlakur",
+  "link": "Podlakur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Atmakur",
+  "link": "Atmakur, Nellore",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Chejerla",
+  "link": "Chejerla, Nellore district",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Anumasamudrampeta",
+  "link": "Anumasamudrampeta",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Marripadu",
+  "link": "Marripadu",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Sangam",
+  "link": "Sangam, Nellore district",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Ananthasagaram",
+  "link": "Ananthasagaram",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Udayagiri",
+  "link": "Udayagiri, Nellore district",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Seetharamapuram",
+  "link": "Seetharamapuram",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Vinjamur",
+  "link": "Vinjamur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Varikuntapadu",
+  "link": "Varikuntapadu",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Duttalur",
+  "link": "Duttalur",
+  "district_link": "Nellore district",
+  "division": null
+ },
+ {
+  "name": "Kandukur",
+  "link": "Kandukur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Lingasamudram",
+  "link": "Lingasamudram",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Gudluru",
+  "link": "Gudluru",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Ulavapadu",
+  "link": "Ulavapadu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Voletivaripalem",
+  "link": "Voletivaripalem",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Chirala",
+  "link": "Chirala",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Vetapalem",
+  "link": "Vetapalem",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Addanki",
+  "link": "Addanki",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Janakavaram Panguluru",
+  "link": "Janakavaram Panguluru",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Santhamaguluru",
+  "link": "Santhamaguluru",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Ballikuruva",
+  "link": "Ballikurava",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Korisapadu",
+  "link": "Korisapadu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Parchur",
+  "link": "Parchur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Yeddanapudi",
+  "link": "Yeddanapudi",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Karamchedu",
+  "link": "Karamchedu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Inkollu",
+  "link": "Inkollu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Chinaganjam",
+  "link": "Chinaganjam",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Martur",
+  "link": "Martur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Markapur",
+  "link": "Markapur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Giddaluru",
+  "link": "Giddaluru",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Bestavaripeta",
+  "link": "Bestavaripeta",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Racherla",
+  "link": "Racherla",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Komarolu",
+  "link": "Komarolu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Cumbum",
+  "link": "Cumbum, Andhra Pradesh",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Ardhaveedu",
+  "link": "Ardhaveedu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Yerragondapalem",
+  "link": "Yerragondapalem",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Pullalacheruvu",
+  "link": "Pullalacheruvu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Tripuranthakam",
+  "link": "Tripuranthakam",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Dornala",
+  "link": "Dornala",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Pedaaraveedu",
+  "link": "Peda Araveedu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Tarlupadu",
+  "link": "Tarlupadu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Ongole",
+  "link": "Ongole mandal",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Kothapatnam",
+  "link": "Kothapatnam",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Santhanuthlapadu",
+  "link": "Santhanuthlapadu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Naguluppalapadu",
+  "link": "Naguluppalapadu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Maddipadu",
+  "link": "Maddipadu mandal",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Chimakurthi",
+  "link": "Chimakurthi",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Tangutur",
+  "link": "Tangutur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Mundlamuru",
+  "link": "Mundlamuru",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Kondapi",
+  "link": "Kondapi",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Zarugumilli",
+  "link": "Zarugumilli",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Thallur",
+  "link": "Thallur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Singarayakonda",
+  "link": "Singarayakonda",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Podili",
+  "link": "Podili",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Hanumanthunipadu",
+  "link": "Hanumanthunipadu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Veligandla",
+  "link": "Veligandla",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Kanigiri",
+  "link": "Kanigiri",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Pedacherlopalle",
+  "link": "Pedacherlopalle",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Chandrasekharapuram",
+  "link": "Chandrasekharapuram",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Pamur",
+  "link": "Pamur",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Konakanamitla",
+  "link": "Konakanamitla",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Darsi",
+  "link": "Darsi",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Donakonda",
+  "link": "Donakonda",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Kurichedu",
+  "link": "Kurichedu",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Marripudi",
+  "link": "Marripudi, Prakasam",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Ponnaluru",
+  "link": "Ponnaluru",
+  "district_link": "Prakasam district",
+  "division": null
+ },
+ {
+  "name": "Palakonda",
+  "link": "Palakonda",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Seethampeta",
+  "link": "Seethampeta",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Bhamini",
+  "link": "Bhamini",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Veeraghattam",
+  "link": "Veeraghattam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Rajam",
+  "link": "Rajam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Vangara",
+  "link": "Vangara, Srikakulam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Regidi Amadalavalasa",
+  "link": "Regidi Amadalavalasa",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Santhakavati",
+  "link": "Santhakavati",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Ichchapuram",
+  "link": "Ichchapuram",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Kaviti",
+  "link": "Kaviti",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Sompeta",
+  "link": "Sompeta",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Kanchili",
+  "link": "Kanchili",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Palasa",
+  "link": "Palasa",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Mandasa",
+  "link": "Mandasa",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Vajrapu Kotturu",
+  "link": "Vajrapu Kotturu",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Jalumuru",
+  "link": "Jalumuru",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Tekkali",
+  "link": "Tekkali",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Santhabommali",
+  "link": "Santhabommali",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Kotabommali",
+  "link": "Kotabommali",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Nandigam",
+  "link": "Nandigam, Srikakulam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Pathapatnam",
+  "link": "Pathapatnam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Meliaputti",
+  "link": "Meliaputti",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Srikakulam",
+  "link": "Srikakulam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Gara",
+  "link": "Gara",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Amadalavalasa",
+  "link": "Amadalavalasa",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Ponduru",
+  "link": "Ponduru",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Sarubujjili",
+  "link": "Sarubujjili",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Burja",
+  "link": "Burja, Srikakulam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Narasannapeta",
+  "link": "Narasannapeta",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Polaki",
+  "link": "Polaki, Srikakulam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Lakshminarasupeta",
+  "link": "Lakshminarasupeta",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Etcherla",
+  "link": "Etcherla",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Ganguvari Sigadam",
+  "link": "Ganguvari Sigadam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Laveru",
+  "link": "Laveru",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Ranastalam",
+  "link": "Ranastalam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Saravakota",
+  "link": "Saravakota",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Kothuru(Srikakulam)",
+  "link": "Kothuru(Srikakulam)",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Hiramandalam",
+  "link": "Hiramandalam",
+  "district_link": "Srikakulam district",
+  "division": null
+ },
+ {
+  "name": "Bheemunipatnam",
+  "link": "Bheemunipatnam",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Anandapuram",
+  "link": "Anandapuram",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Padmanabham",
+  "link": "Padmanabham",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Maharanipeta",
+  "link": "Maharanipeta",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Visakhapatnam (Rural)",
+  "link": "Visakhapatnam (Rural)",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Gajuwaka",
+  "link": "Gajuwaka",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Pedagantyada",
+  "link": "Pedagantyada",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Gopalapatnam",
+  "link": "Gopalapatnam",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Mulagada",
+  "link": "Mulagada",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Seethammadhara",
+  "link": "Seethammadhara",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Araku Valley",
+  "link": "Araku Valley",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Pedabayalu",
+  "link": "Pedabayalu",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Dumbriguda",
+  "link": "Dumbriguda",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Munchingiputtu",
+  "link": "Munchingiputtu",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Hukumpeta",
+  "link": "Hukumpeta",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Ananthagiri",
+  "link": "Ananthagiri, Vishakapatnam district",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Paderu",
+  "link": "Paderu",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "G.Madugula",
+  "link": "G.Madugula",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Chintapalle",
+  "link": "Chintapalle, Visakhapatnam",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Gudem Kotha Veedhi",
+  "link": "Gudem Kotha Veedhi",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Koyyuru",
+  "link": "Koyyuru",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Madugula",
+  "link": "Madugula",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Cheedikada",
+  "link": "Cheedikada",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Devarapalle",
+  "link": "Devarapalle, Visakhapatnam district",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "K.Kotapadu",
+  "link": "K.Kotapadu",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Anakapalli",
+  "link": "Anakapalli",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Kasimkota",
+  "link": "Kasimkota",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Yelamanchili",
+  "link": "Yelamanchili",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Rambilli",
+  "link": "Rambilli",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Munagapaka",
+  "link": "Munagapaka",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Atchutapuram",
+  "link": "Atchutapuram",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Butchayyapeta",
+  "link": "Butchayyapeta",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Chodavaram",
+  "link": "Chodavaram, Visakhapatnam",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Pendurthi",
+  "link": "Pendurthi",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Paravada",
+  "link": "Paravada",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Sabbavaram",
+  "link": "Sabbavaram",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Narsipatnam",
+  "link": "Narsipatnam",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Golugonda",
+  "link": "Golugonda",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Makavarapalem",
+  "link": "Makavarapalem",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Nathavaram",
+  "link": "Nathavaram",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Nakkapalli",
+  "link": "Nakkapalli",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Payakaraopeta",
+  "link": "Payakaraopeta",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Kotauratla",
+  "link": "Kotauratla",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "S.Rayavaram",
+  "link": "S.Rayavaram",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Ravikamatham",
+  "link": "Ravikamatham",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Rolugunta",
+  "link": "Rolugunta",
+  "district_link": "Visakhapatnam district",
+  "division": null
+ },
+ {
+  "name": "Parvathipuram",
+  "link": "Parvathipuram, Andhra Pradesh",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Seethanagaram",
+  "link": "Seethanagaram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Balijipeta",
+  "link": "Balijipeta",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Salur",
+  "link": "Salur",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Pachipenta",
+  "link": "Pachipenta",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Makkuva",
+  "link": "Makkuva",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Komarada",
+  "link": "Komarada",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Kurupam",
+  "link": "Kurupam",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Gummalaxmipuram",
+  "link": "Gummalaxmipuram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Mentada",
+  "link": "Mentada",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Jiyyammavalasa",
+  "link": "Jiyyammavalasa",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Garugubilli",
+  "link": "Garugubilli",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Vizianagaram",
+  "link": "Vizianagaram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Gantyada",
+  "link": "Gantyada",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Pusapatirega",
+  "link": "Pusapatirega",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Denkada",
+  "link": "Denkada",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Bhogapuram",
+  "link": "Bhogapuram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Srungavarapukota",
+  "link": "Srungavarapukota",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Jami",
+  "link": "Jami, Vizianagaram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Vepada",
+  "link": "Vepada",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Lakkavarapukota",
+  "link": "Lakkavarapukota",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Kothavalasa",
+  "link": "Kothavalasa",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Nellimarla",
+  "link": "Nellimarla",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Cheepurupalli",
+  "link": "Cheepurupalli",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Bondapalli",
+  "link": "Bondapalli",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Garividi",
+  "link": "Garividi",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Gurla",
+  "link": "Gurla",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Gajapathinagaram",
+  "link": "Gajapathinagaram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Dattirajeru",
+  "link": "Dattirajeru",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Merakamudidam",
+  "link": "Merakamudidam",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Bobbili",
+  "link": "Bobbili",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Ramabhadrapuram",
+  "link": "Ramabhadrapuram",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Badangi",
+  "link": "Badangi",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Therlam",
+  "link": "Therlam",
+  "district_link": "Vizianagaram district",
+  "division": null
+ },
+ {
+  "name": "Eluru",
+  "link": "Eluru mandal",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Denduluru",
+  "link": "Denduluru",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Pedavegi",
+  "link": "Pedavegi",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Pedapadu",
+  "link": "Pedapadu",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Unguturu",
+  "link": "Unguturu, West Godavari district",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Bhimadole",
+  "link": "Bhimadole",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Nidamarru",
+  "link": "Nidamarru",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Ganapavaram",
+  "link": "Ganapavaram, West Godavari district",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Chintalapudi",
+  "link": "Chintalapudi, West Godavari district",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Lingapalem",
+  "link": "Lingapalem",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kamavarapukota",
+  "link": "Kamavarapukota",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "T.Narasapuram",
+  "link": "T.Narasapuram",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Jangareddigudem",
+  "link": "Jangareddigudem",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Polavaram",
+  "link": "Polavaram, West Godavari district",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Buttayagudem",
+  "link": "Buttayagudem",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Jeelugumilli",
+  "link": "Jeelugumilli",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Koyyalagudem",
+  "link": "Koyyalagudem, West Godavari",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kukkunoor",
+  "link": "Kukkunoor",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Velerupadu",
+  "link": "Velerupadu",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kovvur",
+  "link": "Kovvur",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Chagallu",
+  "link": "Chagallu, West Godavari district",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Thallapudi",
+  "link": "Thallapudi",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Nidadavole",
+  "link": "Nidadavole",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Undrajavaram",
+  "link": "Undrajavaram",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Peravali",
+  "link": "Peravali",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Devarapalle",
+  "link": "Devarapalle, West Godavari district",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Dwarakatirumala",
+  "link": "Dwarakatirumala",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Nallajarla",
+  "link": "Nallajerla",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Gopalapuram",
+  "link": "Gopalapuram, West Godavari",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Narasapuram",
+  "link": "Narasapuram",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Mogalthur",
+  "link": "Mogalthur",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Palakollu",
+  "link": "Palakollu",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Yelamanchili",
+  "link": "Yelamanchili",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Poduru",
+  "link": "Poduru",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Achanta",
+  "link": "Achanta",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Penugonda",
+  "link": "Penugonda",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Penumantra",
+  "link": "Penumantra",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Tanuku",
+  "link": "Tanuku",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Attili",
+  "link": "Attili",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Iragavaram",
+  "link": "Iragavaram",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Bhimavaram",
+  "link": "Bhimavaram",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Veeravasaram",
+  "link": "Veeravasaram",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Undi",
+  "link": "Undi",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Kalla",
+  "link": "Kalla",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Palakoderu",
+  "link": "Palakoderu",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Akiveedu",
+  "link": "Akiveedu",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Tadepalligudem",
+  "link": "Tadepalligudem",
+  "district_link": "West Godavari district",
+  "division": null
+ },
+ {
+  "name": "Pentapadu",
+  "link": "Pentapadu",
+  "district_link": "West Godavari district",
+  "division": null
+ }
+]

@@ -1,0 +1,216 @@
+as_of: '2026-11-09'
+source_urls:
+- https://www.ap.gov.in/
+- https://www.thehindu.com/news/national/andhra-pradesh/thirteen-new-districts-come-into-existence-in-andhra-pradesh/article65289032.ece
+- https://en.wikipedia.org/w/index.php?title=List_of_mandals_of_Andhra_Pradesh&oldid=1304848017
+- https://en.wikipedia.org/wiki/List_of_districts_of_Andhra_Pradesh
+- https://www.wikidata.org/wiki/Q122987710
+districts:
+- id: alluri_sitharama_raju
+  name_en: Alluri Sitharama Raju
+  name_te: అల్లూరి సీతారామరాజు
+  hq:
+    id: paderu
+    name_en: Paderu
+    name_te: పాడేరు
+    mandal_id: paderu
+- id: anakapalli
+  name_en: Anakapalli
+  name_te: అనకాపల్లి
+  hq:
+    id: anakapalli
+    name_en: Anakapalli
+    name_te: అనకాపల్లి
+    mandal_id: anakapalle
+- id: anantapuramu
+  name_en: Anantapuramu
+  name_te: అనంతపురం
+  hq:
+    id: anantapuramu
+    name_en: Anantapuramu
+    name_te: అనంతపురం
+    mandal_id: anantapur_urban
+- id: annamayya
+  name_en: Annamayya
+  name_te: అన్నమయ్య
+  hq:
+    id: rayachoti
+    name_en: Rayachoti
+    name_te: రాయచోటి
+    mandal_id: rayachoti
+- id: bapatla
+  name_en: Bapatla
+  name_te: బాపట్ల
+  hq:
+    id: bapatla
+    name_en: Bapatla
+    name_te: బాపట్ల
+    mandal_id: bapatla
+- id: chittoor
+  name_en: Chittoor
+  name_te: చిత్తూరు
+  hq:
+    id: chittoor
+    name_en: Chittoor
+    name_te: చిత్తూరు
+    mandal_id: chittoor_urban
+- id: dr_b_r_ambedkar_konaseema
+  name_en: Dr. B. R. Ambedkar Konaseema
+  name_te: డాక్టర్ బి.ఆర్. అంబేద్కర్ కోనసీమ
+  hq:
+    id: amalapuram
+    name_en: Amalapuram
+    name_te: అమలాపురం
+    mandal_id: amalapuram
+- id: east_godavari
+  name_en: East Godavari
+  name_te: తూర్పు గోదావరి
+  hq:
+    id: rajamahendravaram
+    name_en: Rajamahendravaram
+    name_te: రాజమహేంద్రవరం
+    mandal_id: rajamahendravaram_urban
+- id: eluru
+  name_en: Eluru
+  name_te: ఏలూరు
+  hq:
+    id: eluru
+    name_en: Eluru
+    name_te: ఏలూరు
+    mandal_id: eluru_urban
+- id: guntur
+  name_en: Guntur
+  name_te: గుంటూరు
+  hq:
+    id: guntur
+    name_en: Guntur
+    name_te: గుంటూరు
+    mandal_id: guntur_west
+- id: kakinada
+  name_en: Kakinada
+  name_te: కాకినాడ
+  hq:
+    id: kakinada
+    name_en: Kakinada
+    name_te: కాకినాడ
+    mandal_id: kakinada_urban
+- id: krishna
+  name_en: Krishna
+  name_te: కృష్ణా
+  hq:
+    id: machilipatnam
+    name_en: Machilipatnam
+    name_te: మచిలీపట్నం
+    mandal_id: machilipatnam_north
+- id: kurnool
+  name_en: Kurnool
+  name_te: కర్నూలు
+  hq:
+    id: kurnool
+    name_en: Kurnool
+    name_te: కర్నూలు
+    mandal_id: kurnool_urban
+- id: nandyal
+  name_en: Nandyal
+  name_te: నంద్యాల
+  hq:
+    id: nandyal
+    name_en: Nandyal
+    name_te: నంద్యాల
+    mandal_id: nandyal_urban
+- id: ntr
+  name_en: NTR
+  name_te: ఎన్టీఆర్
+  hq:
+    id: vijayawada
+    name_en: Vijayawada
+    name_te: విజయవాడ
+    mandal_id: vijayawada_central
+- id: palnadu
+  name_en: Palnadu
+  name_te: పల్నాడు
+  hq:
+    id: narasaraopet
+    name_en: Narasaraopet
+    name_te: నరసరావుపేట
+    mandal_id: narasaraopet
+- id: parvathipuram_manyam
+  name_en: Parvathipuram Manyam
+  name_te: పార్వతీపురం మన్యం
+  hq:
+    id: parvathipuram
+    name_en: Parvathipuram
+    name_te: పార్వతీపురం
+    mandal_id: parvathipuram
+- id: prakasam
+  name_en: Prakasam
+  name_te: ప్రకాశం
+  hq:
+    id: ongole
+    name_en: Ongole
+    name_te: ఒంగోలు
+    mandal_id: ongole_urban
+- id: sri_potti_sriramulu_nellore
+  name_en: Sri Potti Sriramulu Nellore
+  name_te: శ్రీ పొట్టి శ్రీరాములు నెల్లూరు
+  hq:
+    id: nellore
+    name_en: Nellore
+    name_te: నెల్లూరు
+    mandal_id: nellore_urban
+- id: sri_sathya_sai
+  name_en: Sri Sathya Sai
+  name_te: శ్రీ సత్యసాయి
+  hq:
+    id: puttaparthi
+    name_en: Puttaparthi
+    name_te: పుట్టపర్తి
+    mandal_id: puttaparthi
+- id: srikakulam
+  name_en: Srikakulam
+  name_te: శ్రీకాకుళం
+  hq:
+    id: srikakulam
+    name_en: Srikakulam
+    name_te: శ్రీకాకుళం
+    mandal_id: srikakulam
+- id: tirupati
+  name_en: Tirupati
+  name_te: తిరుపతి
+  hq:
+    id: tirupati
+    name_en: Tirupati
+    name_te: తిరుపతి
+    mandal_id: tirupati_urban
+- id: visakhapatnam
+  name_en: Visakhapatnam
+  name_te: విశాఖపట్నం
+  hq:
+    id: visakhapatnam
+    name_en: Visakhapatnam
+    name_te: విశాఖపట్నం
+    mandal_id: maharanipeta
+- id: vizianagaram
+  name_en: Vizianagaram
+  name_te: విజయనగరం
+  hq:
+    id: vizianagaram
+    name_en: Vizianagaram
+    name_te: విజయనగరం
+    mandal_id: vizianagaram_urban
+- id: west_godavari
+  name_en: West Godavari
+  name_te: పశ్చిమ గోదావరి
+  hq:
+    id: bhimavaram
+    name_en: Bhimavaram
+    name_te: భీమవరం
+    mandal_id: bhimavaram
+- id: ysr_kadapa
+  name_en: YSR Kadapa
+  name_te: వైఎస్ఆర్ కడప
+  hq:
+    id: kadapa
+    name_en: Kadapa
+    name_te: కడప
+    mandal_id: kadapa

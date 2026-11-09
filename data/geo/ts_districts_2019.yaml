@@ -1,0 +1,271 @@
+as_of: '2026-11-09'
+source_urls:
+- https://telangana.gov.in/wp-content/uploads/2023/05/Telangana-State-Statistical-Abstract-2022-1.pdf
+- https://web.archive.org/web/20161011223505/http://newdistrictsformation.telangana.gov.in/uploads/gos-circulars/1476130220055231.Warangal%20U.pdf
+- https://en.wikipedia.org/wiki/List_of_mandals_in_Telangana
+- https://www.wikidata.org/wiki/Q122987738
+districts:
+- id: adilabad
+  name_en: Adilabad
+  name_te: ఆదిలాబాద్
+  hq:
+    id: adilabad
+    name_en: Adilabad
+    name_te: ఆదిలాబాద్
+    mandal_id: adilabad_urban
+- id: bhadradri_kothagudem
+  name_en: Bhadradri Kothagudem
+  name_te: భద్రాద్రి కొత్తగూడెం
+  hq:
+    id: kothagudem
+    name_en: Kothagudem
+    name_te: కొత్తగూడెం
+    mandal_id: kothagudem
+- id: hanumakonda
+  name_en: Hanumakonda
+  name_te: హనుమకొండ
+  hq:
+    id: hanumakonda
+    name_en: Hanumakonda
+    name_te: హనుమకొండ
+    mandal_id: hanamkonda
+- id: hyderabad
+  name_en: Hyderabad
+  name_te: హైదరాబాద్
+  hq:
+    id: hyderabad
+    name_en: Hyderabad
+    name_te: హైదరాబాద్
+    mandal_id: nampally
+- id: jagtial
+  name_en: Jagtial
+  name_te: జగిత్యాల
+  hq:
+    id: jagtial
+    name_en: Jagtial
+    name_te: జగిత్యాల
+    mandal_id: jagtial
+- id: jangaon
+  name_en: Jangaon
+  name_te: జనగామ
+  hq:
+    id: jangaon
+    name_en: Jangaon
+    name_te: జనగామ
+    mandal_id: jangaon
+- id: jayashankar_bhupalpally
+  name_en: Jayashankar Bhupalpally
+  name_te: జయశంకర్ భూపాలపల్లి
+  hq:
+    id: bhupalpally
+    name_en: Bhupalpally
+    name_te: భూపాలపల్లి
+    mandal_id: bhupalapally
+- id: jogulamba_gadwal
+  name_en: Jogulamba Gadwal
+  name_te: జోగులాంబ గద్వాల
+  hq:
+    id: gadwal
+    name_en: Gadwal
+    name_te: గద్వాల
+    mandal_id: gadwal
+- id: kamareddy
+  name_en: Kamareddy
+  name_te: కామారెడ్డి
+  hq:
+    id: kamareddy
+    name_en: Kamareddy
+    name_te: కామారెడ్డి
+    mandal_id: kamareddy
+- id: karimnagar
+  name_en: Karimnagar
+  name_te: కరీంనగర్
+  hq:
+    id: karimnagar
+    name_en: Karimnagar
+    name_te: కరీంనగర్
+    mandal_id: karimnagar
+- id: khammam
+  name_en: Khammam
+  name_te: ఖమ్మం
+  hq:
+    id: khammam
+    name_en: Khammam
+    name_te: ఖమ్మం
+    mandal_id: khammam_urban
+- id: kumuram_bheem_asifabad
+  name_en: Kumuram Bheem Asifabad
+  name_te: కుమురం భీం ఆసిఫాబాద్
+  hq:
+    id: asifabad
+    name_en: Asifabad
+    name_te: ఆసిఫాబాద్
+    mandal_id: asifabad
+- id: mahabubabad
+  name_en: Mahabubabad
+  name_te: మహబూబాబాద్
+  hq:
+    id: mahabubabad
+    name_en: Mahabubabad
+    name_te: మహబూబాబాద్
+    mandal_id: mahabubabad
+- id: mahabubnagar
+  name_en: Mahabubnagar
+  name_te: మహబూబ్‌నగర్
+  hq:
+    id: mahabubnagar
+    name_en: Mahabubnagar
+    name_te: మహబూబ్‌నగర్
+    mandal_id: mahabubnagar_urban
+- id: mancherial
+  name_en: Mancherial
+  name_te: మంచిర్యాల
+  hq:
+    id: mancherial
+    name_en: Mancherial
+    name_te: మంచిర్యాల
+    mandal_id: mancherial
+- id: medak
+  name_en: Medak
+  name_te: మెదక్
+  hq:
+    id: medak
+    name_en: Medak
+    name_te: మెదక్
+    mandal_id: medak
+- id: medchal_malkajgiri
+  name_en: Medchal–Malkajgiri
+  name_te: మేడ్చల్ మల్కాజిగిరి
+  hq:
+    id: shamirpet
+    name_en: Shamirpet
+    name_te: షామీర్‌పేట
+    mandal_id: shamirpet
+- id: mulugu
+  name_en: Mulugu
+  name_te: ములుగు
+  hq:
+    id: mulugu
+    name_en: Mulugu
+    name_te: ములుగు
+    mandal_id: mulugu_mulugu
+- id: nagarkurnool
+  name_en: Nagarkurnool
+  name_te: నాగర్‌కర్నూల్
+  hq:
+    id: nagarkurnool
+    name_en: Nagarkurnool
+    name_te: నాగర్‌కర్నూల్
+    mandal_id: nagarkurnool
+- id: nalgonda
+  name_en: Nalgonda
+  name_te: నల్గొండ
+  hq:
+    id: nalgonda
+    name_en: Nalgonda
+    name_te: నల్గొండ
+    mandal_id: nalgonda
+- id: narayanpet
+  name_en: Narayanpet
+  name_te: నారాయణపేట
+  hq:
+    id: narayanpet
+    name_en: Narayanpet
+    name_te: నారాయణపేట
+    mandal_id: narayanpet
+- id: nirmal
+  name_en: Nirmal
+  name_te: నిర్మల్
+  hq:
+    id: nirmal
+    name_en: Nirmal
+    name_te: నిర్మల్
+    mandal_id: nirmal
+- id: nizamabad
+  name_en: Nizamabad
+  name_te: నిజామాబాద్
+  hq:
+    id: nizamabad
+    name_en: Nizamabad
+    name_te: నిజామాబాద్
+    mandal_id: nizamabad_north
+- id: peddapalli
+  name_en: Peddapalli
+  name_te: పెద్దపల్లి
+  hq:
+    id: peddapalli
+    name_en: Peddapalli
+    name_te: పెద్దపల్లి
+    mandal_id: peddapalli
+- id: rajanna_sircilla
+  name_en: Rajanna Sircilla
+  name_te: రాజన్న సిరిసిల్ల
+  hq:
+    id: sircilla
+    name_en: Sircilla
+    name_te: సిరిసిల్ల
+    mandal_id: sircilla
+- id: ranga_reddy
+  name_en: Ranga Reddy
+  name_te: రంగారెడ్డి
+  hq:
+    id: shamshabad
+    name_en: Shamshabad
+    name_te: శంషాబాద్
+    mandal_id: shamshabad
+- id: sangareddy
+  name_en: Sangareddy
+  name_te: సంగారెడ్డి
+  hq:
+    id: sangareddy
+    name_en: Sangareddy
+    name_te: సంగారెడ్డి
+    mandal_id: sangareddy
+- id: siddipet
+  name_en: Siddipet
+  name_te: సిద్దిపేట
+  hq:
+    id: siddipet
+    name_en: Siddipet
+    name_te: సిద్దిపేట
+    mandal_id: siddipeta_urban
+- id: suryapet
+  name_en: Suryapet
+  name_te: సూర్యాపేట
+  hq:
+    id: suryapet
+    name_en: Suryapet
+    name_te: సూర్యాపేట
+    mandal_id: suryapeta
+- id: vikarabad
+  name_en: Vikarabad
+  name_te: వికారాబాద్
+  hq:
+    id: vikarabad
+    name_en: Vikarabad
+    name_te: వికారాబాద్
+    mandal_id: vikarabad
+- id: wanaparthy
+  name_en: Wanaparthy
+  name_te: వనపర్తి
+  hq:
+    id: wanaparthy
+    name_en: Wanaparthy
+    name_te: వనపర్తి
+    mandal_id: wanaparthy
+- id: warangal
+  name_en: Warangal
+  name_te: వరంగల్
+  hq:
+    id: warangal
+    name_en: Warangal
+    name_te: వరంగల్
+    mandal_id: warangal
+- id: yadadri_bhuvanagiri
+  name_en: Yadadri Bhuvanagiri
+  name_te: యాదాద్రి భువనగిరి
+  hq:
+    id: bhuvanagiri
+    name_en: Bhuvanagiri
+    name_te: భువనగిరి
+    mandal_id: bhongir

@@ -67,6 +67,7 @@ REPO_ROOT_DERIVED = {
     "labels_file": "labels.yaml",
     "ocr_check_file": "data/ocr-check.txt",
     "ocr_fallback_file": "ocr_fallback.yaml",
+    "geo_dir": "data/geo",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -380,6 +381,13 @@ class Settings(BaseSettings):
     # Every SDK call is retried after these waits on HTTP 429/5xx or a connection error
     # (len + 1 attempts in all).
     sarvam_retry_backoff_s: tuple[float, ...] = (2.0, 8.0, 30.0)
+
+    # --- geo ---
+    # The district/mandal reference list (ticket 018): periods.yaml, one district file per
+    # period, mandals.yaml (committed).
+    geo_dir: Path  # default {repo_root}/data/geo
+    # Extra spellings -> district/town/mandal id. None = the file shipped in newsrag/geo/.
+    geo_aliases_file: Path | None = None
 
     @classmethod
     def settings_customise_sources(
