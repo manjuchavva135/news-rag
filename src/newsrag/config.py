@@ -66,11 +66,17 @@ REPO_ROOT_DERIVED = {
     "surya_env_dir": "envs/surya",
     "labels_file": "labels.yaml",
     "ocr_check_file": "data/ocr-check.txt",
+    "ocr_fallback_file": "ocr_fallback.yaml",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
 REPORTS_DIR_DERIVED = {
     "ocr_check_dir": "ocr-check",
+}
+
+# Paths under work_dir that follow it unless overridden themselves.
+WORK_DIR_DERIVED = {
+    "sarvam_cache_dir": "sarvam-cache",
 }
 
 # The layout-label groups of labels.yaml (ticket 007 FR-6), and the label-set settings derived
@@ -357,6 +363,24 @@ class Settings(BaseSettings):
     ocr_check_image_max_bytes: int = 2_000_000  # ...and at most this big
     ocr_check_jpeg_quality: int = 85  # first JPEG quality tried; lowered until it fits
 
+    # --- ocr_fallback ---
+    # Stage `ocr_final` (ticket 010): pages matching a rule in this file have their text blocks
+    # re-read by Sarvam Document Intelligence. The committed default is `rules: []` (no calls).
+    ocr_fallback_file: Path  # default {repo_root}/ocr_fallback.yaml
+    sarvam_cache_dir: Path  # default {work_dir}/sarvam-cache: results by sha1 of the crop PNG
+    sarvam_language: str = "te-IN"
+    sarvam_output_format: str = "md"
+    sarvam_min_block_px: int = 20  # blocks narrower or lower than this are not sent
+    sarvam_crop_pad_px: int = 2  # padding around a block's box when cropping it
+    sarvam_crops_per_job: int = 10  # one crop per PDF page; the API takes at most 10 pages
+    sarvam_max_jobs: int = 4  # Sarvam jobs running at once in one process
+    sarvam_job_timeout_s: float = 600.0  # from start until the job reaches a final state
+    sarvam_poll_interval_s: float = 3.0  # between two job-status calls
+    sarvam_http_timeout_s: float = 300.0  # one SDK request, upload or download
+    # Every SDK call is retried after these waits on HTTP 429/5xx or a connection error
+    # (len + 1 attempts in all).
+    sarvam_retry_backoff_s: tuple[float, ...] = (2.0, 8.0, 30.0)
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -399,6 +423,9 @@ class Settings(BaseSettings):
         for name, rel in REPORTS_DIR_DERIVED.items():
             if data.get(name) in (None, ""):
                 data[name] = Path(data["reports_dir"]) / rel
+        for name, rel in WORK_DIR_DERIVED.items():
+            if data.get(name) in (None, ""):
+                data[name] = Path(data["work_dir"]) / rel
         missing = [n for n in LABEL_SET_GROUPS if data.get(n) in (None, "")]
         if missing:
             groups = read_label_groups(Path(data["labels_file"]))
@@ -419,6 +446,17 @@ class Settings(BaseSettings):
             if text.startswith("["):
                 return tuple(json.loads(text))
             return tuple(part.strip() for part in text.split(",") if part.strip())
+        return value
+
+    @field_validator("sarvam_retry_backoff_s", mode="before")
+    @classmethod
+    def _float_list(cls, value: Any) -> Any:
+        """Waits from the environment: a JSON list or comma-separated numbers."""
+        if isinstance(value, str):
+            text = value.strip()
+            if text.startswith("["):
+                return tuple(json.loads(text))
+            return tuple(float(part) for part in text.split(",") if part.strip())
         return value
 
     def subprocess_env(self) -> dict[str, str]:

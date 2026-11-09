@@ -17,6 +17,7 @@ dependencies = [
     "pyyaml>=6.0",
     "qdrant-client>=1.16,<1.17",  # match the qdrant server (v1.16.1)
     "ruamel.yaml>=0.18",
+    "sarvamai>=0.1.45",
     "sentence-transformers>=3.3",
     "torch>=2.7",  # CUDA 12.8+ build (Blackwell), from the pytorch-cu128 index below
     "typer>=0.12",
