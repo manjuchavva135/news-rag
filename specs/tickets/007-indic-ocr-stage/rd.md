@@ -1,6 +1,6 @@
 # 007: OCR stage (Surya layout + indic-ocr text)
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 005: needs page images; waits for 006: GPU lock
 
