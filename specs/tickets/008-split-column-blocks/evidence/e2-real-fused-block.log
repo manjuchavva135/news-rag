@@ -1,0 +1,3 @@
+$ uv run pytest -q -m "gpu and data" tests/test_colsplit.py -k real_fused_block
+.                                                                        [100%]
+1 passed, 19 deselected in 105.54s (0:01:45)

@@ -1,0 +1,15 @@
+$ uv run newsrag ocr show 2025-10-15_B_main_10 --stage ocr | grep -E "^(16|17|18)\b"
+16	SectionHeader	736,2585,2639,2838	'సాక్షి' ప్రసారాల నిలిపివేతపై సుప్రీంకోర్టు సీరియస్
+17	Text	2697,2396,3962,2537	మూర్తులు కానున్నారు. వీరి పేర్లను హైకోర్టు కొలీజి నుంచి ఇంటె
+18	Text	3331,2694,3972,3611	సదె भवन्तु सुखिनः tional Human ts Commission లో ఏడుగురు మృతి
+$ uv run newsrag ocr show 2025-10-15_B_main_10 --stage ocr_split | rows 16-19
+16	SectionHeader	736,2585,2639,2838	'సాక్షి' ప్రసారాల నిలిపివేతపై సుప్రీంకోర్టు సీరియస్
+17	Text	2697,2396,3339,2537	మూర్తులు కానున్నారు. వీరి పేర్లను హైకోర్టు కొలీజి యం ఇటీవల స
+18	Text	3339,2396,3962,2537	నుంచి ఇంటెలిజెన్స్ నివేదిక వెళ్లగానే సుప్రీంకోర్టు కొలీ జియం
+19	Text	3331,2694,3972,3611	సదె भवन्तु सुखिनः tional Human ts Commission లో ఏడుగురు మృతి
+$ P=2024-12-02_BG_main_01; uv run newsrag ocr overlay $P --out evidence/E-3-overlay.png && file evidence/E-3-overlay.png
+evidence/E-3-overlay.png
+evidence/E-3-overlay.png: PNG image data, 4052 x 6804, 8-bit/color RGB, non-interlaced
+evidence/E-3-overlay-split-2025-10-15_B_main_10.png
+$ E-4 provenance one-liner
+8 True

@@ -1,0 +1,10 @@
+$ uv run newsrag stage status | grep '^ocr_split'
+ocr_split  done=20 failed=0 running=0 eligible=0
+$ uv run newsrag stage failures ocr_split
+exit 0
+$ uv run newsrag ocr split-stats --pages-file data/dev-sample.txt
+split_blocks=4 text_blocks=435 pct=0.9 pieces=8
+$ uv run newsrag db sql "select page_id, detail from ledger.stage_runs where stage = 'ocr_split' and (detail->>'n_split_blocks')::int + (detail->>'split_errors')::int > 0"
+2024-12-02_BG_main_01	{'n_blocks': 45, 'n_pieces': 4, 'split_errors': 0, 'n_text_blocks': 22, 'n_split_blocks': 2}
+2025-10-15_B_main_10	{'n_blocks': 54, 'n_pieces': 2, 'split_errors': 0, 'n_text_blocks': 35, 'n_split_blocks': 1}
+2025-11-03_BG_main_01	{'n_blocks': 44, 'n_pieces': 2, 'split_errors': 0, 'n_text_blocks': 25, 'n_split_blocks': 1}
