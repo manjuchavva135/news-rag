@@ -42,6 +42,7 @@ VERSION_SETTINGS = [
     "surya_layout_checkpoint",
     "surya_order_checkpoint",
     "ocr_layout_threshold",
+    "ocr_dup_box_iou",
     "ocr_crop_min_px_side",
     "ocr_crop_max_px_side",
     "ocr_max_new_tokens",
@@ -175,6 +176,27 @@ class OcrStage(PageStage):
         return result
 
 
+def _iou(a: list[float], b: list[float]) -> float:
+    iw = max(0.0, min(a[2], b[2]) - max(a[0], b[0]))
+    ih = max(0.0, min(a[3], b[3]) - max(a[1], b[1]))
+    inter = iw * ih
+    union = (a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - inter
+    return inter / union if union > 0 else 0.0
+
+
+def drop_duplicate_regions(regions: list[dict], iou_min: float) -> list[dict]:
+    """Keep the higher-confidence region of any two whose boxes overlap by >= `iou_min` IoU.
+
+    Below a 0.4 threshold Surya often returns one area twice under two labels (a heading as
+    both SectionHeader and Text); the second copy is the lower-scoring one.
+    """
+    kept: list[dict] = []
+    for region in sorted(regions, key=lambda r: -float(r.get("confidence") or 0.0)):
+        if all(_iou(region["bbox"], k["bbox"]) < iou_min for k in kept):
+            kept.append(region)
+    return kept
+
+
 def ocr_page(client: Any, page: PageRow, version: str) -> StageResult:
     """OCR one rendered page with `client` (an OcrClient); write the artifact."""
     s = config.settings
@@ -184,7 +206,8 @@ def ocr_page(client: Any, page: PageRow, version: str) -> StageResult:
     width, height = png_size(image)
 
     layout = client.layout(image)
-    regions = layout.get("regions") or []
+    found = layout.get("regions") or []
+    regions = drop_duplicate_regions(found, s.ocr_dup_box_iou)
     # Boxes in pixels of the 300 DPI PNG, scaled if Surya worked on a resized image.
     sx = width / float(layout.get("width") or width)
     sy = height / float(layout.get("height") or height)
@@ -244,5 +267,6 @@ def ocr_page(client: Any, page: PageRow, version: str) -> StageResult:
         "chars": sum(len(b["text"]) for b in blocks),
         "zero_blocks": not blocks,
         "unknown_labels": unknown,
+        "dup_regions_dropped": len(found) - len(regions),
     }
     return StageResult(str(path), detail)

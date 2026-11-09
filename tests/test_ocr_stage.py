@@ -143,7 +143,10 @@ def free_port_range(width: int = 10) -> int:
     return pick(width)
 
 
-def region(label: str, position: int, bbox=(10, 10, 50, 50), conf=0.5) -> dict:
+def region(label: str, position: int, bbox=None, conf=0.5) -> dict:
+    """A fake Surya region; by default each position gets its own box, one under the other."""
+    if bbox is None:
+        bbox = (10, 2 + 10 * position, 50, 10 + 10 * position)  # on the 100 px page
     return {"bbox": list(bbox), "label": label, "position": position, "confidence": conf}
 
 
@@ -217,6 +220,7 @@ def test_surya_layout_then_indic_blocks(env, ocr):
         "chars": 18,
         "zero_blocks": False,
         "unknown_labels": 0,
+        "dup_regions_dropped": 0,
     }
 
 
@@ -514,6 +518,27 @@ def test_unknown_label_other(env, ocr):
     assert len(env.requests("vllm")) == 1
     assert result.detail["unknown_labels"] == 2
     assert labels_mod.group_of("Mystery", labels_mod.load()) == "other"
+
+
+def test_duplicate_regions_dropped(env, ocr):
+    env.layouts["p5.png"] = [
+        region("SectionHeader", 0, (10, 10, 80, 30), conf=0.55),
+        region("Text", 1, (11, 11, 80, 29), conf=0.32),  # the same area, second label
+        region("Text", 2, (10, 40, 80, 90), conf=0.31),  # new ground: kept
+    ]
+    env.save_layouts()
+    result = ocr_page(ocr, env.page("p5"), OcrStage().version)
+    art = json.loads(Path(result.artifact_path).read_text())
+    assert [(b["label"], b["order"]) for b in art["blocks"]] == [("SectionHeader", 1), ("Text", 2)]
+    assert result.detail["dup_regions_dropped"] == 1
+    assert len(env.requests("vllm")) == 2
+
+
+def test_drop_duplicate_regions_threshold():
+    a = region("Text", 0, (0, 0, 100, 100), conf=0.3)
+    b = region("Text", 1, (0, 0, 100, 75), conf=0.6)  # IoU 0.75: below 0.8, both kept
+    assert len(ocr_mod.drop_duplicate_regions([a, b], 0.8)) == 2
+    assert ocr_mod.drop_duplicate_regions([a, b], 0.7) == [b]
 
 
 def test_labels_in_version(env):

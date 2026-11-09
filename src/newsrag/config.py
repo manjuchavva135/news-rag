@@ -301,7 +301,13 @@ class Settings(BaseSettings):
     ocr_min_cuda: str = "12.8"  # the Surya venv needs a torch built for at least this (Blackwell)
     surya_layout_checkpoint: str = "hf://datalab-to/surya_layout2"  # Surya's rf-detr layout
     surya_order_checkpoint: str = "hf://datalab-to/surya_layout2/order"  # its reading order
-    ocr_layout_threshold: float = 0.4  # Surya layout boxes scoring below this are dropped
+    # Surya layout boxes scoring below this are dropped. Was 0.4: the ticket-009 review found
+    # missed headlines and text columns that Surya scored 0.3-0.4 (on the 10 check pages, 0.3
+    # adds 114 text boxes over uncovered ground and keeps 330 of the 338 boxes found at 0.4).
+    ocr_layout_threshold: float = 0.3
+    # Two layout boxes overlapping by at least this IoU are one area read twice (under two
+    # labels): the lower-scoring one is dropped before OCR.
+    ocr_dup_box_iou: float = 0.8
     ocr_device: str = "cuda"  # Surya's device
     # indic-ocr's text model runs on vLLM (envs/vllm from ticket 006) under the ocr GPU lock.
     ocr_vllm_max_model_len: int = 8192
