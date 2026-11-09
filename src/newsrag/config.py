@@ -59,6 +59,8 @@ RAW_ROOT_DERIVED = {
 REPO_ROOT_DERIVED = {
     "compose_file": "docker/docker-compose.yml",
     "dev_sample_file": "data/dev-sample.txt",
+    "models_file": "models.yaml",
+    "vllm_env_dir": "envs/vllm",
 }
 
 
@@ -225,6 +227,20 @@ class Settings(BaseSettings):
     # --- models ---
     hf_home: Path
     gpu_lock_path: Path
+    models_file: Path  # default {repo_root}/models.yaml: the model profiles
+    vllm_env_dir: Path  # default {repo_root}/envs/vllm: the separate venv holding vLLM
+    vllm_spec: str = "vllm>=0.11.0"  # what `models install` installs into vllm_env_dir
+    vllm_min_version: str = "0.11.0"  # an existing vllm_env_dir with at least this is kept
+    vllm_torch_backend: str = "auto"  # uv --torch-backend for the vLLM venv (CUDA from driver)
+    uv_bin: str = "uv"  # used by `models install` when not started through `uv run`
+    model_port: int = 8100  # first port tried by `models serve` / use()
+    model_port_max: int = 8199  # last port of the range searched when model_port is busy
+    model_start_timeout_s: float = 1200.0  # vLLM must answer /v1/models within this
+    model_stop_timeout_s: float = 60.0  # SIGTERM grace before SIGKILL when stopping vLLM
+    model_request_timeout_s: float = 600.0  # one chat request to a vLLM server
+    gpu_lock_report_s: float = 60.0  # "waiting for GPU lock" is repeated this often
+    gpu_memory_gb: float = 96.0  # GPU memory used by `models fit` (GB = 2**30 bytes)
+    fit_overhead_gb: float = 4.0  # activations + vision encoder headroom in `models fit`
 
     @classmethod
     def settings_customise_sources(

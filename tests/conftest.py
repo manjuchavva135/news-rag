@@ -48,3 +48,7 @@ def registry():
     finally:
         REGISTRY.clear()
         REGISTRY.update(saved)
+
+
+# ticket 006: settings in tmp_path + a fake vLLM for the model-runner tests
+from _models_env import models_env  # noqa: F401

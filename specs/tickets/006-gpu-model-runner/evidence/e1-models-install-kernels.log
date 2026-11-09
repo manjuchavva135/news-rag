@@ -1,0 +1,49 @@
+FlashInfer kernels are disabled: flashinfer-cubin is not installed and nvcc (CUDA_HOME, CUDA_PATH, PATH or /usr/local/cuda) or ninja (PATH) is missing. Set CUDA_HOME to a CUDA toolkit and put ninja on PATH, or run `vllm download-kernels`.
+=== Cubin Wheel Install ===
+FlashInfer version: 0.7.2.post1
+Wheel index: https://flashinfer.ai/whl
+Requirement: flashinfer-cubin==0.7.2.post1
+Command: /home/admin1/.local/bin/uv pip install --python /home/admin1/news-rag/.claude/worktrees/006-gpu-model-runner/envs/vllm/bin/python --upgrade --no-deps --index-url https://flashinfer.ai/whl flashinfer-cubin==0.7.2.post1
+Using Python 3.12.16 environment at: envs/vllm
+Resolved 1 package in 736ms
+Downloading flashinfer-cubin (1.6GiB)
+ Downloaded flashinfer-cubin
+Prepared 1 package in 2m 59s
+Installed 1 package in 454ms
+ + flashinfer-cubin==0.7.2.post1
+✅ flashinfer-cubin installed successfully.
+=== JIT Cache Wheel Install ===
+FlashInfer version: 0.7.2.post1
+CUDA version: 13.2
+Wheel CUDA label: cu130
+Install mode: all
+Wheel index: https://flashinfer.ai/whl/cu130
+Requirement: flashinfer-jit-cache==0.7.2.post1+cu130
+Command: /home/admin1/.local/bin/uv pip install --python /home/admin1/news-rag/.claude/worktrees/006-gpu-model-runner/envs/vllm/bin/python --upgrade --index-url https://flashinfer.ai/whl/cu130 flashinfer-jit-cache==0.7.2.post1+cu130
+Using Python 3.12.16 environment at: envs/vllm
+Resolved 7 packages in 13m 55s
+Downloading flashinfer-jit-cache-sm100a (272.4MiB)
+Downloading flashinfer-jit-cache-sm120f (185.7MiB)
+Downloading flashinfer-jit-cache-sm89 (110.2MiB)
+Downloading flashinfer-jit-cache-sm80 (111.8MiB)
+Downloading flashinfer-jit-cache-sm103a (277.3MiB)
+Downloading flashinfer-jit-cache-sm90a (284.2MiB)
+ Downloaded flashinfer-jit-cache-sm89
+ Downloaded flashinfer-jit-cache-sm80
+ Downloaded flashinfer-jit-cache-sm120f
+ Downloaded flashinfer-jit-cache-sm100a
+ Downloaded flashinfer-jit-cache-sm103a
+ Downloaded flashinfer-jit-cache-sm90a
+Prepared 7 packages in 11m 30s
+Installed 7 packages in 191ms
+ + flashinfer-jit-cache==0.7.2.post1+cu130
+ + flashinfer-jit-cache-sm100a==0.7.2.post1+cu130
+ + flashinfer-jit-cache-sm103a==0.7.2.post1+cu130
+ + flashinfer-jit-cache-sm120f==0.7.2.post1+cu130
+ + flashinfer-jit-cache-sm80==0.7.2.post1+cu130
+ + flashinfer-jit-cache-sm89==0.7.2.post1+cu130
+ + flashinfer-jit-cache-sm90a==0.7.2.post1+cu130
+✅ flashinfer-jit-cache installed successfully.
+kept /home/admin1/news-rag/.claude/worktrees/006-gpu-model-runner/envs/vllm
+vllm 0.33.0
+device capability (12, 0)

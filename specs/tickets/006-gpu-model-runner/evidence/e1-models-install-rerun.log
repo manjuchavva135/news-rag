@@ -1,0 +1,3 @@
+kept /home/admin1/news-rag/.claude/worktrees/006-gpu-model-runner/envs/vllm
+vllm 0.33.0
+device capability (12, 0)

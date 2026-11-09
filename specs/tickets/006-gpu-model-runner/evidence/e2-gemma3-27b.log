@@ -1,0 +1,5 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 3117.61it/s]
+gemma3-27b reply: NEWS 2026
+gemma3-27b latency=1.40s (open 182s)
+exit=0
+GPU free

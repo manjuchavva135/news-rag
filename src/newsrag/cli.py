@@ -5,6 +5,7 @@ import typer
 from newsrag import config_cli
 from newsrag.ingest import cli as ingest_cli
 from newsrag.ledger import cli as ledger_cli
+from newsrag.models import cli as models_cli
 from newsrag.render import cli as render_cli
 from newsrag.sample import cli as sample_cli
 from newsrag.stages import cli as stages_cli
@@ -26,6 +27,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (ingest_cli.app, "ingest"),
     (render_cli.app, "render"),
     (sample_cli.app, "sample"),
+    (models_cli.app, "models"),
 ]
 
 for sub_app, name in SUB_APPS:
