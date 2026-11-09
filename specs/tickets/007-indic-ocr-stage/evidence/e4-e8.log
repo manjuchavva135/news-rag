@@ -1,0 +1,32 @@
+--- automated: ruff check
+All checks passed!
+exit=0
+--- automated: ruff format --check
+66 files already formatted
+exit=0
+--- automated: unit tests
+........................................................................ [ 45%]
+........................................................................ [ 90%]
+................                                                         [100%]
+160 passed, 56 deselected in 74.23s (0:01:14)
+exit=0
+--- E-4
+.                                                                        [100%]
+1 passed, 32 deselected in 0.92s
+exit=0
+--- E-5
+..                                                                       [100%]
+2 passed, 31 deselected in 3.35s
+exit=0
+--- E-6
+None
+--- E-7 step 1
+.......                                                                  [100%]
+7 passed, 26 deselected in 12.68s
+exit=0
+--- E-7 step 2
+18 ['caption', 'chart', 'figure', 'header_footer', 'other', 'table', 'text', 'title']
+--- E-8
+.....                                                                    [100%]
+5 passed, 28 deselected in 4.47s
+exit=0
