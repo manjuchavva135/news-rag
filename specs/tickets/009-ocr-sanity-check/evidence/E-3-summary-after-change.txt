@@ -1,0 +1,12 @@
+2024-12-02_BG_main_01 good numbers
+2024-12-05_BGNOP_main_01 acceptable numbers
+2024-12-06_GNOCLT_main_16 acceptable numbers
+2024-12-09_R_main_03 acceptable numbers
+2025-01-26_B_main_05 acceptable numbers
+2025-02-15_B_main_01 acceptable numbers
+2025-02-25_BGVC_main_14 acceptable numbers
+2025-10-10_BGNOPRSVACLT_main_01 acceptable numbers
+2025-10-20_ALL_main_02 acceptable numbers
+2025-12-16_BG_main_06-07 acceptable numbers
+NOT SIGNED OFF
+none

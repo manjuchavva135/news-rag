@@ -1,0 +1,21 @@
+<h1>Sign-off</h1>
+$status
+$error
+<form class="signoff" method="post" action="/signoff">
+  <label class="name">Your name
+    <input type="text" name="name" value="$name" autocomplete="name">
+  </label>
+  <label class="check"><input type="checkbox" name="no_page_types" value="1"$no_checked>
+    No page types need Sarvam</label>
+  <p class="or">or name the page types whose OCR fails (comma-separated values; leave a field
+  blank to match any value):</p>
+  <table class="rows">
+    <thead><tr><th>years</th><th>sections</th><th>page_nums</th><th>edition_codes</th><th>note</th></tr></thead>
+    <tbody id="rows">
+$rows
+    </tbody>
+  </table>
+  <template id="row-template">$row_template</template>
+  <p><button type="button" id="add-row" class="secondary">Add row</button></p>
+  <p class="actions"><button type="submit"$disabled>Sign off</button> <span class="muted">$hint</span></p>
+</form>

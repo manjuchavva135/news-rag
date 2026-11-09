@@ -19,9 +19,9 @@
 
 - **Type:** CLI
 - **Steps:**
-  1. `grep -v '^#' data/ocr-check.txt | wc -l; grep -v '^#' data/ocr-check.txt | cut -c1-4 | sort | uniq -c; grep -v '^#' data/ocr-check.txt | grep -c '_main_01$'; grep -v '^#' data/ocr-check.txt | grep -cE '_(fea|splus)_'`
+  1. `grep -v '^#' data/ocr-check.txt | wc -l; grep -v '^#' data/ocr-check.txt | cut -c1-4 | sort | uniq -c; grep -v '^#' data/ocr-check.txt | grep -c '_main_01$'; grep -v '^#' data/ocr-check.txt | grep -c '_ALL_'; grep -v '^#' data/ocr-check.txt | grep -cE '_main_[0-9]+-[0-9]+$'`
   2. `cp data/ocr-check.txt /tmp/oc && uv run newsrag ocr check build --force && diff /tmp/oc data/ocr-check.txt && echo same`
-- **Expected:** `10`; 2020 → 4, 2025 → 3, 2026 → 3; `_main_01` count ≥ 4; fea/splus ≥ 1 (unless a `# short:` line explains it); `same`.
+- **Expected:** `10`; 2024 → 4, 2025 → 6 (D-5); `_main_01` count ≥ 4; `ALL` ≥ 1 and spread ≥ 1 (unless a `# short:` line explains it); `same`.
 
 ### E-2: Review page shows scan and text (covers FR-2, FR-5, NFR-1)
 
