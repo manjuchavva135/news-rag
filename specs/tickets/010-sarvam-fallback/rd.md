@@ -1,6 +1,6 @@
 # 010: Sarvam fallback for named page types
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 008: wraps the OCR block output
 
