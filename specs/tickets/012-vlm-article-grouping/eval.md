@@ -64,6 +64,26 @@ PY`
   1. `uv run pytest -q tests/test_grouping_parse.py tests/test_grouping_geometry.py -k "split_on_length or transport_retry or stats_line or draw_articles_kinds or ocr_page_flags_copied"`
 - **Expected:** all selected tests pass.
 
+### E-6: Reading order and duplicates, unit level (covers FR-9, FR-10)
+
+- **Type:** CLI
+- **Steps:**
+  1. `uv run pytest -q tests/test_grouping_geometry.py -k "column_order or order_from_model or order_changed or duplicate_block" -v`
+- **Expected:** all pass, including `test_column_order_009_page`, which uses the real boxes of `2024-12-06_GNOCLT_main_16` (b004 `[75,537,459,614]`, b005 `[81,405,1652,521]`, b007 `[2504,960,3226,1171]`, b008 `[885,528,1689,1170]`, b009 `[1763,426,2464,583]`, b010 `[2505,424,3186,576]`, b011 `[3248,436,3974,1168]`, b012 `[72,632,861,1178]`, b013 `[1755,760,2476,1174]`, b014 `[1760,602,2470,761]`, b015 `[2504,584,3224,993]`, b032 `[884,408,1662,535]`) and the reader's grouping: story 1 headline b005, subheadline b004, body b012 then b008, b032 `duplicate_of` b005; story 2 headline b009 then b010, body b014, b013, b015, b007, b011 (the same text order when b014 is a subheadline instead). Also `test_order_from_model_when_unsure` (two body blocks overlapping 40% → model order kept, flag set) and `test_duplicate_needs_text_match` (a box 90% inside another but with different text is kept).
+
+### E-7: Reading order on the 009 page, live (covers FR-9, FR-10)
+
+- **Type:** CLI
+- **Steps:**
+  1. After E-2: `uv run python - <<'PY'
+import json,glob
+d=json.load(open(glob.glob('/home/admin1/raw/work/group/*/2024-12-06_GNOCLT_main_16.json')[0]))
+for a in d['articles']:
+    ids=[b['block_id'] for b in a['blocks']]
+    if 'b012' in ids or 'b013' in ids: print(ids, a['flags'], a['headline'][:40])
+PY`
+- **Expected:** one article holds b005, b004, b012, b008 (b032 too, marked `duplicate_of`), with b012 before b008 and the headline text not repeated; one article holds b009, b010, b014, b013, b015, b007, b011 in that order. If the model grouped either story differently, the check fails and the tester records the model's grouping in `results.md`.
+
 ## Traceability
 
 | Requirement | Checks |
@@ -78,6 +98,8 @@ PY`
 | NFR-1 | E-2 |
 | NFR-2 | E-2 |
 | FR-8 | E-5 |
+| FR-9 | E-6, E-7 |
+| FR-10 | E-6, E-7 |
 
 ## Definition of done
 
