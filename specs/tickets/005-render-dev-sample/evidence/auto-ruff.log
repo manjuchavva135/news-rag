@@ -1,0 +1,6 @@
+$ uv run ruff check .
+All checks passed!
+exit=0
+$ uv run ruff format --check .
+40 files already formatted
+exit=0

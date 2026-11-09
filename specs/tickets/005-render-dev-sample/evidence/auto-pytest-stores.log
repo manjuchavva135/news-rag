@@ -1,0 +1,4 @@
+$ uv run pytest -q -m stores
+................................................                         [100%]
+48 passed, 99 deselected in 7.54s
+exit=0

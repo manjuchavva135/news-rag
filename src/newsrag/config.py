@@ -58,6 +58,7 @@ RAW_ROOT_DERIVED = {
 # Paths under repo_root that follow it unless overridden themselves.
 REPO_ROOT_DERIVED = {
     "compose_file": "docker/docker-compose.yml",
+    "dev_sample_file": "data/dev-sample.txt",
 }
 
 
@@ -207,6 +208,19 @@ class Settings(BaseSettings):
 
     # --- render ---
     render_dpi: int = 300
+    render_workers: int = 96  # default threads of `stage run render` (PNG encoding is CPU-bound)
+    pdftoppm_bin: str = "pdftoppm"
+    pdfinfo_bin: str = "pdfinfo"
+    render_timeout_s: float = 120.0  # one pdftoppm call; a timeout is a failed attempt
+    pdfinfo_timeout_s: float = 30.0
+    render_small_width_px: int = 1500  # a narrower render gets detail.small_render = true
+    # A failed render with less free space than this in images_dir is a disk problem, not a bad
+    # PDF: it is retried but never quarantined.
+    render_min_free_bytes: int = 1_000_000_000
+
+    # --- sample ---
+    dev_sample_file: Path  # default {repo_root}/data/dev-sample.txt (committed)
+    dev_sample_seed: int = 42
 
     # --- models ---
     hf_home: Path

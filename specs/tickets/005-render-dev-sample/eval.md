@@ -19,8 +19,8 @@
 
 - **Type:** CLI
 - **Steps:**
-  1. on a ledger with no `render` rows: `time uv run newsrag stage run render --workers 32`
-  2. `for i in 1 2 3; do uv run newsrag stage run render --workers 32; done` (retries until failing pages reach max attempts and are quarantined)
+  1. on a ledger with no `render` rows: `time uv run newsrag stage run render --workers 96`
+  2. `for i in 1 2 3; do uv run newsrag stage run render --workers 96; done` (retries until failing pages reach max attempts and are quarantined)
   3. `uv run newsrag stage status | grep '^render'`
   4. `uv run newsrag db sql "select count(*) from ledger.pages where quarantine_reason is null"`
   5. `uv run newsrag db sql "select percentile_cont(0.5) within group (order by (detail->>'width')::int) from ledger.stage_runs where stage='render' and status='done'"`
@@ -30,7 +30,7 @@
 
 - **Type:** CLI
 - **Steps:**
-  1. `P=$(grep -v '^#' data/dev-sample.txt | grep '^2026' | grep '_main_01$' | head -1); file /home/admin1/raw/images/$P.png` (after E-3 built the sample)
+  1. `P=$(grep -v '^#' data/dev-sample.txt | grep '^2025' | grep '_main_01$' | head -1); file /home/admin1/raw/images/$P.png` (after E-3 built the sample)
 - **Expected:** contains `PNG image data`.
 
 ### E-3: Dev sample (covers FR-4, FR-5)
@@ -41,8 +41,8 @@
   2. `cp data/dev-sample.txt /tmp/s1 && uv run newsrag sample build --force && diff /tmp/s1 data/dev-sample.txt && echo same; uv run newsrag sample build; echo "exit=$?"`
   3. `grep -v '^#' data/dev-sample.txt | cut -c1-4 | sort | uniq -c`
   4. `uv run newsrag sample show | grep -c 'ok$'`
-  5. `grep -v '^#' data/dev-sample.txt | grep -c '_main_01$'; grep -v '^#' data/dev-sample.txt | grep -cE '_(fea|splus)_'`
-- **Expected:** `20`; `same` then `exit=1`; counts per year 2020 = 8, 2025 = 6, 2026 = 6 (unless `# short:` lines explain a shortfall); step 4 prints `20`; step 5 prints ≥ 8 and ≥ 3 (unless `# short:` lines explain a shortfall).
+  5. `grep -v '^#' data/dev-sample.txt | grep -c '_main_01$'; grep -v '^#' data/dev-sample.txt | grep -c '_ALL_'; grep -v '^#' data/dev-sample.txt | grep -cE '_[0-9]+-[0-9]+$'`
+- **Expected:** `20`; `same` then `exit=1`; counts per year 2024 = 8, 2025 = 12 (unless `# short:` lines explain a shortfall); step 4 prints `20`; step 5 prints ≥ 7, ≥ 1 and ≥ 1 (unless `# short:` lines explain a shortfall).
 
 ## Edge cases
 

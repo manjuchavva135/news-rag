@@ -1,0 +1,24 @@
+$ uv run pytest -q -m stores tests/test_render.py -k corrupt -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 25 items / 24 deselected / 1 selected
+
+tests/test_render.py .                                                   [100%]
+
+======================= 1 passed, 24 deselected in 0.72s =======================
+exit=0
+$ uv run pytest -q tests/test_render.py -k "timeout_counts_as_failure or partial_png_not_left" -v
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 25 items / 23 deselected / 2 selected
+
+tests/test_render.py ..                                                  [100%]
+
+======================= 2 passed, 23 deselected in 3.68s =======================
+exit=0

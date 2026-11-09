@@ -1,0 +1,4 @@
+$ uv run pytest -q tests/test_render.py -k missing_poppler
+..                                                                       [100%]
+2 passed, 23 deselected in 0.63s
+exit=0

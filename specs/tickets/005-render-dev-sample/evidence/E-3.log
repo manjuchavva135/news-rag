@@ -1,0 +1,59 @@
+$ uv run newsrag sample build && grep -v "^#" data/dev-sample.txt | wc -l
+wrote 20 page ids to /home/admin1/news-rag/data/dev-sample.txt
+20
+$ cp data/dev-sample.txt <scratchpad>/s1 && uv run newsrag sample build --force && diff <scratchpad>/s1 data/dev-sample.txt && echo same; uv run newsrag sample build; echo "exit=$?"
+wrote 20 page ids to /home/admin1/news-rag/data/dev-sample.txt
+same
+data/dev-sample.txt exists (use --force)
+exit=1
+$ grep -v "^#" data/dev-sample.txt | cut -c1-4 | sort | uniq -c
+      8 2024
+     12 2025
+$ uv run newsrag sample show | grep -c "ok$"
+20
+$ front / ALL / spread counts
+7
+1
+1
+$ cat data/dev-sample.txt
+2024-12-02_BG_main_01
+2024-12-05_BGNOP_main_01
+2024-12-06_GNOCLT_main_16
+2024-12-08_BGNOPSVACLT_main_10
+2024-12-09_R_main_03
+2024-12-11_B_main_03
+2024-12-11_V_main_12
+2024-12-27_BGNOPRSVACLT_main_01
+2025-01-26_B_main_05
+2025-01-27_B_main_14
+2025-02-15_B_main_01
+2025-02-25_BGVC_main_14
+2025-05-04_BGNOPRSVACLT_main_06
+2025-05-11_BGNOPRSVACLT_main_03
+2025-10-10_BGNOPRSVACLT_main_01
+2025-10-15_B_main_10
+2025-10-20_ALL_main_02
+2025-11-03_BG_main_01
+2025-12-16_BG_main_06-07
+2025-12-17_B_main_01
+$ uv run newsrag sample show
+2024-12-02_BG_main_01	/home/admin1/raw/images/2024-12-02_BG_main_01.png	ok
+2024-12-05_BGNOP_main_01	/home/admin1/raw/images/2024-12-05_BGNOP_main_01.png	ok
+2024-12-06_GNOCLT_main_16	/home/admin1/raw/images/2024-12-06_GNOCLT_main_16.png	ok
+2024-12-08_BGNOPSVACLT_main_10	/home/admin1/raw/images/2024-12-08_BGNOPSVACLT_main_10.png	ok
+2024-12-09_R_main_03	/home/admin1/raw/images/2024-12-09_R_main_03.png	ok
+2024-12-11_B_main_03	/home/admin1/raw/images/2024-12-11_B_main_03.png	ok
+2024-12-11_V_main_12	/home/admin1/raw/images/2024-12-11_V_main_12.png	ok
+2024-12-27_BGNOPRSVACLT_main_01	/home/admin1/raw/images/2024-12-27_BGNOPRSVACLT_main_01.png	ok
+2025-01-26_B_main_05	/home/admin1/raw/images/2025-01-26_B_main_05.png	ok
+2025-01-27_B_main_14	/home/admin1/raw/images/2025-01-27_B_main_14.png	ok
+2025-02-15_B_main_01	/home/admin1/raw/images/2025-02-15_B_main_01.png	ok
+2025-02-25_BGVC_main_14	/home/admin1/raw/images/2025-02-25_BGVC_main_14.png	ok
+2025-05-04_BGNOPRSVACLT_main_06	/home/admin1/raw/images/2025-05-04_BGNOPRSVACLT_main_06.png	ok
+2025-05-11_BGNOPRSVACLT_main_03	/home/admin1/raw/images/2025-05-11_BGNOPRSVACLT_main_03.png	ok
+2025-10-10_BGNOPRSVACLT_main_01	/home/admin1/raw/images/2025-10-10_BGNOPRSVACLT_main_01.png	ok
+2025-10-15_B_main_10	/home/admin1/raw/images/2025-10-15_B_main_10.png	ok
+2025-10-20_ALL_main_02	/home/admin1/raw/images/2025-10-20_ALL_main_02.png	ok
+2025-11-03_BG_main_01	/home/admin1/raw/images/2025-11-03_BG_main_01.png	ok
+2025-12-16_BG_main_06-07	/home/admin1/raw/images/2025-12-16_BG_main_06-07.png	ok
+2025-12-17_B_main_01	/home/admin1/raw/images/2025-12-17_B_main_01.png	ok

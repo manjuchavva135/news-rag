@@ -1,0 +1,28 @@
+$ uv run newsrag stage status | grep ^render   (before)
+render  done=0 failed=0 running=0 eligible=3497
+$ uv run newsrag db sql "select count(*) from ledger.stage_runs where stage='render'"
+0
+
+$ time uv run newsrag stage run render --workers 96
+render: done=3497 failed=0 skipped=0 in 327.3s
+
+real	5m28.043s
+user	478m26.382s
+sys	4m10.900s
+(per-item lines: specs/tickets/005-render-dev-sample/evidence/E-1-run1.log)
+
+$ for i in 1 2 3; do uv run newsrag stage run render --workers 96; done
+render: done=0 failed=0 skipped=0 in 0.1s
+render: done=0 failed=0 skipped=0 in 0.1s
+render: done=0 failed=0 skipped=0 in 0.1s
+$ uv run newsrag stage status | grep ^render
+render  done=3497 failed=0 running=0 eligible=0
+$ uv run newsrag db sql "select count(*) from ledger.pages where quarantine_reason is null"
+3497
+$ median width
+4052.0
+$ uv run newsrag render stats
+rendered=3497 multi_page=0 small_render=0 quarantined=0
+$ min/max width, total bytes
+4050	8103	40 GB
+budget: 3497 pages / 5 = 699 s; run 1 real time above

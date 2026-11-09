@@ -1,0 +1,2 @@
+$ P=$(grep -v '^#' data/dev-sample.txt | grep '^2025' | grep '_main_01$' | head -1); file /home/admin1/raw/images/$P.png
+/home/admin1/raw/images/2025-02-15_B_main_01.png: PNG image data, 4052 x 6804, 8-bit/color RGB, non-interlaced

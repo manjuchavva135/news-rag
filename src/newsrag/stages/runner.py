@@ -723,4 +723,5 @@ def reset_stage(
             )
         else:
             cur = c.execute("delete from stage_runs where stage = %s", (stage.name,))
+        stage.on_reset(c, page_id, pub_date, all_rows)
         return cur.rowcount

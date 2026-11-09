@@ -82,6 +82,13 @@ class _StageBase:
     def on_final_failure(self, item: Any, error: str) -> None:
         """When an item fails its `max_attempts`-th attempt."""
 
+    def on_reset(self, c: Any, page_id: str | None, pub_date: date | None, all_rows: bool) -> None:
+        """Inside the `stage reset` transaction (`c`), after this stage's rows were deleted.
+
+        Exactly one of `page_id`, `pub_date`, `all_rows` is set (e.g. to lift a quarantine the
+        stage itself put on the page).
+        """
+
     def __repr__(self) -> str:
         return f"<{type(self).__name__} {self.name}>"
 
