@@ -1,6 +1,6 @@
 # 008: Split column-spanning blocks
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 007: edits the OCR block output
 

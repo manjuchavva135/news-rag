@@ -17,7 +17,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 005 | Render pages and dev sample | done | solo | waits for 004: needs registered pages |
 | 006 | GPU model runner (one model at a time) | done | solo | waits for 001: needs package and config |
 | 007 | OCR stage (Surya layout + indic-ocr text) | done | solo | waits for 005: needs page images; waits for 006: GPU lock |
-| 008 | Split column-spanning blocks | draft | solo | waits for 007: edits the OCR block output |
+| 008 | Split column-spanning blocks | done | solo | waits for 007: edits the OCR block output |
 | 009 | OCR sanity-check page and sign-off | draft | solo | waits for 008: shows split OCR blocks |
 | 010 | Sarvam fallback for named page types | draft | solo | waits for 008: wraps the OCR block output |
 | 011 | Edition and state from the folio | draft | solo | waits for 010: reads `ocr_final`; waits for 018: place → state list |
