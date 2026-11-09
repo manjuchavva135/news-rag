@@ -1,0 +1,17 @@
+qwen3-vl-32b: /home/admin1/raw/hf-cache/hub/models--Qwen--Qwen3-VL-32B-Instruct/snapshots/0cfaf48183f594c314753d30a4c4974bc75f3ccb
+qwen3-vl-32b reply: NEWS 2026
+qwen3-vl-32b latency=0.57s (open 148s)
+== qwen3-vl-32b exit=0
+gemma3-27b: /home/admin1/raw/hf-cache/hub/models--google--gemma-3-27b-it/snapshots/005ad3404e59d6023443cb575daa05336842228a
+gemma3-27b reply: NEWS 2026
+gemma3-27b latency=0.59s (open 112s)
+== gemma3-27b exit=0
+qwen3-30b-a3b: /home/admin1/raw/hf-cache/hub/models--Qwen--Qwen3-30B-A3B-Instruct-2507/snapshots/0d7cf23991f47feeb3a57ecb4c9cee8ea4a17bfe
+qwen3-30b-a3b reply: OK
+qwen3-30b-a3b latency=0.07s (open 150s)
+== qwen3-30b-a3b exit=0
+bge-m3: /home/admin1/raw/hf-cache/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181
+bge-m3 reply: dim=1024
+bge-m3 latency=0.46s (open 13s)
+== bge-m3 exit=0
+== models status: GPU free

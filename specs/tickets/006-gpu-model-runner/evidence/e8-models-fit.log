@@ -1,0 +1,4 @@
+qwen3-vl-32b weights=62.1 kv_one_seq=16.0 budget=86.4 fit=yes
+gemma3-27b weights=51.1 kv_one_seq=7.8 budget=86.4 fit=yes
+qwen3-30b-a3b weights=56.9 kv_one_seq=3.0 budget=86.4 fit=yes
+bge-m3 weights=2.1 kv_one_seq=0.0 budget=96.0 fit=yes

@@ -84,6 +84,54 @@ There is no `psql` on the host. Run SQL with:
 uv run newsrag db sql "select 1"
 ```
 
+## Local models (GPU)
+
+Model profiles live in `models.yaml`. Only one big model is on the GPU at a time: every GPU user
+takes the file lock `{raw_root}/.gpu.lock`, and a second one waits. vLLM runs from its own venv
+`envs/vllm/` and listens on 127.0.0.1 only.
+
+Create the vLLM venv once (also installs FlashInfer's precompiled kernels, since the host has no
+`nvcc`). It does nothing if a current vLLM is already there:
+
+```bash
+uv run newsrag models install
+```
+
+Download weights into `{raw_root}/hf-cache` (uses `HF_TOKEN` from `.env`):
+
+```bash
+uv run newsrag models download qwen3-30b-a3b
+```
+
+Check that every profile fits the 96 GB GPU:
+
+```bash
+uv run newsrag models fit
+```
+
+Send one test request (starts and stops the model unless a `models serve` of it is running):
+
+```bash
+uv run newsrag models smoke qwen3-30b-a3b
+```
+
+Keep a model running for other jobs to reuse (Ctrl-C stops it). Logs go to
+`{raw_root}/logs/vllm-<profile>-<time>.log`:
+
+```bash
+uv run newsrag models serve qwen3-30b-a3b
+```
+
+Who holds the GPU:
+
+```bash
+uv run newsrag models status
+```
+
+From Python, `newsrag.models.use("<profile>")` gives a client with `chat()` / `chat_json()`
+(or an embedder with `embed()`), and `newsrag.models.gpu_lock("<holder>")` takes the lock for
+any other in-process GPU user.
+
 ## Development
 
 ```bash

@@ -1,0 +1,5 @@
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3696.39it/s]
+qwen3-30b-a3b reply: OK
+qwen3-30b-a3b latency=0.07s (open 275s)
+exit=0
+GPU free

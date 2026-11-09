@@ -1,0 +1,18 @@
+== step 2: serving qwen3-30b-a3b at http://127.0.0.1:8100/v1
+== step 3 (/tmp/e3b.log):
+waiting for GPU lock held by models serve qwen3-30b-a3b (pid 682367)
+waiting for GPU lock held by models serve qwen3-30b-a3b (pid 682367)
+stopped gemma3-27b
+== step 4 (models status):
+holder: models serve qwen3-30b-a3b
+pid: 682367
+pid_start: 51556079
+pgid: 682448
+profile: qwen3-30b-a3b
+base_url: http://127.0.0.1:8100/v1
+kind: serve
+started: 2026-11-09T11:39:40+00:00
+== step 5 (compute processes):
+1
+682762, VLLM::EngineCore, 86862 MiB
+== after: GPU free

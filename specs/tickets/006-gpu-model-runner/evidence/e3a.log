@@ -1,0 +1,4 @@
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3085.81it/s]
+serving qwen3-30b-a3b at http://127.0.0.1:8100/v1
+log: /home/admin1/raw/logs/vllm-qwen3-30b-a3b-20261109T113940Z.log
+stopped qwen3-30b-a3b

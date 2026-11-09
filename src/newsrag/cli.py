@@ -4,6 +4,7 @@ import typer
 
 from newsrag import config_cli
 from newsrag.ledger import cli as ledger_cli
+from newsrag.models import cli as models_cli
 from newsrag.stages import cli as stages_cli
 from newsrag.stores import cli as stores_cli
 
@@ -20,6 +21,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (stores_cli.db_app, "db"),
     (ledger_cli.app, "ledger"),
     (stages_cli.app, "stage"),
+    (models_cli.app, "models"),
 ]
 
 for sub_app, name in SUB_APPS:

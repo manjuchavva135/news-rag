@@ -1,0 +1,4 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 3222.12it/s]
+waiting for GPU lock held by models serve qwen3-30b-a3b (pid 682367)
+waiting for GPU lock held by models serve qwen3-30b-a3b (pid 682367)
+stopped gemma3-27b
