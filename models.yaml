@@ -30,6 +30,39 @@ profiles:
       - --mm-processor-kwargs
       - '{"do_pan_and_scan": true}'  # so a full page is not read at 896 px
 
+  - name: gemma4-31b
+    hf_id: google/gemma-4-31B-it
+    family: gemma
+    kind: vlm
+    dtype: bfloat16
+    max_model_len: 16384
+    gpu_memory_utilization: 0.90
+    extra_args:
+      - --limit-mm-per-prompt
+      - '{"image": 1}'
+      - --mm-processor-kwargs
+      - '{"max_soft_tokens": 1120}'  # the largest image budget (~2.6 MP, aspect ratio kept)
+
+  - name: internvl3.5-38b
+    hf_id: OpenGVLab/InternVL3_5-38B
+    family: internvl  # InternViT encoder; its language half is Qwen3 (grill A-28 names InternVL as a judge)
+    kind: vlm
+    dtype: bfloat16
+    max_model_len: 32768
+    gpu_memory_utilization: 0.90
+    extra_args:
+      # bf16 weights (72 GB) leave too little room for 41 tiles' activations plus the KV cache
+      # on the 96 GB GPU: quantise to fp8 when vLLM loads them.
+      - --quantization
+      - fp8
+      - --trust-remote-code
+      - --limit-mm-per-prompt
+      - '{"image": 1}'
+      # 448-px tiles: a 3584-px page is 8 x 5 tiles, not shrunk to 12. Set in the model config,
+      # not --mm-processor-kwargs: vLLM 0.33 also hands those to the video processor, which fails.
+      - --hf-overrides
+      - '{"max_dynamic_patch": 40}'
+
   - name: qwen3-30b-a3b
     hf_id: Qwen/Qwen3-30B-A3B-Instruct-2507
     family: qwen

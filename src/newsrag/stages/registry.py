@@ -10,6 +10,9 @@ from __future__ import annotations
 from newsrag.stages.base import Stage
 from newsrag.stages.folio import FolioStage
 from newsrag.stages.group import GroupStage
+from newsrag.stages.group_final import GroupFinalStage
+from newsrag.stages.group_retry import GroupRetryStage
+from newsrag.stages.judge import JudgeRetryStage, JudgeStage
 from newsrag.stages.ocr import OcrStage
 from newsrag.stages.ocr_final import OcrFinalStage
 from newsrag.stages.ocr_split import OcrSplitStage
@@ -22,3 +25,7 @@ REGISTRY["ocr_split"] = OcrSplitStage()
 REGISTRY["ocr_final"] = OcrFinalStage()
 REGISTRY["folio"] = FolioStage()
 REGISTRY["group"] = GroupStage()
+REGISTRY["judge"] = JudgeStage()
+REGISTRY["group_retry"] = GroupRetryStage()
+REGISTRY["judge_retry"] = JudgeRetryStage()
+REGISTRY["group_final"] = GroupFinalStage()

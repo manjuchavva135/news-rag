@@ -1,0 +1,81 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________ test_009_page_judged_and_a_merge_scores_lower _________________
+
+    def test_009_page_judged_and_a_merge_scores_lower():
+        from newsrag.grouping import input as gin
+        from newsrag.grouping import judge as jg
+    
+        group_path = gin.done_artifact("group", PAGE)
+        assert group_path is not None, "run `stage run group` on the dev sample first"
+        grouping = gin.load_artifact(group_path)
+        data = gin.load_ocr_final(PAGE)
+    
+        good = jg.judge_grouping(data, grouping)  # opens the judge model
+        judged = [a for a in grouping["articles"] if a["kind"] not in ("masthead", "ad_commercial")]
+        assert good["score"] is not None and 0 <= good["score"] <= 1
+        assert set(good["verdicts"]) == {a["article_id"] for a in judged}
+        assert set(good["verdicts"].values()) <= set(jg.VERDICTS) | {jg.MISSING}
+    
+        merged = jg.merge_two_longest(grouping)
+        assert merged is not None
+>       assert jg.judge_grouping(data, merged)["score"] < good["score"]
+E       assert 1.0 < 0.75
+
+tests/test_judge_live.py:31: AssertionError
+----------------------------- Captured stderr call -----------------------------
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 1s [Retry 1/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 2s [Retry 2/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 4s [Retry 3/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 8s [Retry 4/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 8s [Retry 5/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+using cached google/gemma-3-27b-it (HfHubHTTPError: (Amz CF ID: KV2chMHCm8cNhUAVLjB5mAimjCEy1ULDh6ef3tYWGz8dbHNkmWLd6w==)
+
+429 Too Many Requests for url: https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main?recursive=true&expand=false.)
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 1s [Retry 1/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 2s [Retry 2/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 4s [Retry 3/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 8s [Retry 4/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+Retrying in 8s [Retry 5/5].
+HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+using cached google/gemma-3-27b-it (HfHubHTTPError: (Amz CF ID: 4J0ybpwrDEapfR5id52IG8fxICTOiU64zXn_WiU9CVNHxkA1Xw8NnA==)
+
+429 Too Many Requests for url: https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main?recursive=true&expand=false.)
+------------------------------ Captured log call -------------------------------
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 1s [Retry 1/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 2s [Retry 2/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 4s [Retry 3/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 8s [Retry 4/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 8s [Retry 5/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 1s [Retry 1/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 2s [Retry 2/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 4s [Retry 3/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 8s [Retry 4/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+WARNING  huggingface_hub.utils._http:_http.py:564 Retrying in 8s [Retry 5/5].
+WARNING  huggingface_hub.utils._http:_http.py:520 HTTP Error 429 thrown while requesting GET https://huggingface.co/api/models/google/gemma-3-27b-it/tree/main
+=========================== short test summary info ============================
+FAILED tests/test_judge_live.py::test_009_page_judged_and_a_merge_scores_lower
+1 failed in 238.96s (0:03:58)
+exit=1

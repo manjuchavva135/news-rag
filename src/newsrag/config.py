@@ -435,6 +435,23 @@ class Settings(BaseSettings):
     group_dup_overlap_frac: float = 0.8
     group_dup_text_frac: float = 0.8
 
+    # --- judge ---
+    # The VLM that scores a grouping: another family than group_model (checked by `judge`).
+    # Gemma 4 won the 013 bake-off (6/10 merges caught on the page view; Gemma 3 and InternVL 0/10).
+    judge_model: str = "gemma4-31b"
+    judge_threshold: float = 0.8  # a page scoring below this is grouped again at higher resolution
+    judge_concurrency: int = 16  # requests in flight (threads of `stage run judge`)
+    judge_image_max_px: int = 3584  # long side of the article overlay sent to the judge
+    judge_text_chars: int = 300  # characters of each article's text in the judge's list
+    judge_skip_kinds: tuple[str, ...] = ("masthead", "ad_commercial")  # not judged, not counted
+    judge_max_tokens: int = 4096
+    judge_retry_scale: float = 1.5  # the regroup pass sends the image at group_image_max_px x this
+    # One-story check: every article of these kinds that the page judge called `correct` is sent
+    # again on its own (headline boxes + text, no image): "one story or several?". Two or more
+    # turns the verdict into `merged`. Empty turns the check off.
+    judge_story_kinds: tuple[str, ...] = ("news", "editorial")
+    judge_story_chars: int = 6000  # characters of the article's text sent to the one-story check
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -502,7 +519,7 @@ class Settings(BaseSettings):
             return tuple(part.strip() for part in text.split(",") if part.strip())
         return value
 
-    @field_validator("editions_state_sections", mode="before")
+    @field_validator("editions_state_sections", "judge_skip_kinds", mode="before")
     @classmethod
     def _str_list(cls, value: Any) -> Any:
         """Names from the environment: a JSON list or comma-separated names."""

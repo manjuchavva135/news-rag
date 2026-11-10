@@ -88,7 +88,7 @@ def weights_bytes(sizes: dict[str, int]) -> int:
 
 
 def kv_bytes_per_token(cfg: dict) -> int:
-    text = cfg.get("text_config") or cfg
+    text = cfg.get("text_config") or cfg.get("llm_config") or cfg  # InternVL: llm_config
     layers = text["num_hidden_layers"]
     heads = text["num_attention_heads"]
     kv_heads = text.get("num_key_value_heads") or heads

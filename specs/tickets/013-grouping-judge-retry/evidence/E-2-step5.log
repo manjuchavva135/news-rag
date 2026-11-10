@@ -1,0 +1,4 @@
+NOTE: exact SQL of E-2 step 5 was refused by the sandbox command filter (parentheses/quotes in db sql arg). Equivalent done by dumping stage, detail for all runs and filtering with grep:
+group_retry rows with retried True: 9
+of those with image_long_side not 5376: 0
+=> expected 0 (equivalent)

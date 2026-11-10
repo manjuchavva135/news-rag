@@ -1,0 +1,5 @@
+pages=20
+mean_score=0.841
+judge_low_pct=25.0
+retried_pct=45.0
+retry_gain=0.290

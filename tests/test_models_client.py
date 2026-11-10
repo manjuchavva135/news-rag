@@ -204,12 +204,22 @@ def test_chat_json_parses_fence():
 
 def test_repo_profiles():
     profiles = load_profiles()
-    assert list(profiles) == ["qwen3-vl-32b", "gemma3-27b", "qwen3-30b-a3b", "bge-m3"]
+    assert list(profiles) == [
+        "qwen3-vl-32b",
+        "gemma3-27b",
+        "gemma4-31b",
+        "internvl3.5-38b",
+        "qwen3-30b-a3b",
+        "bge-m3",
+    ]
     qwen_vl = profiles["qwen3-vl-32b"]
     assert qwen_vl.hf_id == "Qwen/Qwen3-VL-32B-Instruct" and qwen_vl.kind == "vlm"
     assert qwen_vl.max_model_len == 65536
     assert '{"max_pixels": 20000000}' in qwen_vl.extra_args
     assert '{"do_pan_and_scan": true}' in profiles["gemma3-27b"].extra_args
+    assert '{"max_soft_tokens": 1120}' in profiles["gemma4-31b"].extra_args
+    assert profiles["internvl3.5-38b"].family == "internvl"
+    assert '{"max_dynamic_patch": 40}' in profiles["internvl3.5-38b"].extra_args
     assert profiles["qwen3-30b-a3b"].kind == "llm"
     bge = profiles["bge-m3"]
     assert (bge.kind, bge.dim, bge.query_prefix, bge.doc_prefix) == ("embed", 1024, "", "")
@@ -255,6 +265,8 @@ def test_fit_reads_text_config_for_vlms():
         }
     }
     assert fit.kv_bytes_per_token(cfg) == 64 * 8 * 128 * 4
+    # InternVL keeps its language model's config under llm_config
+    assert fit.kv_bytes_per_token({"llm_config": cfg["text_config"]}) == 64 * 8 * 128 * 4
 
 
 def test_smoke_image():

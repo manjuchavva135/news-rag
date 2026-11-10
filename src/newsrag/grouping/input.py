@@ -53,26 +53,34 @@ def prompt_text(width: int, height: int, blocks: Sequence[dict[str, Any]]) -> st
     )
 
 
-def page_image(data: dict[str, Any], blocks: Sequence[dict[str, Any]]) -> bytes:
-    """JPEG of the page with the `blocks` boxed and numbered, long side `group_image_max_px`."""
+def page_image(
+    data: dict[str, Any], blocks: Sequence[dict[str, Any]], image_long_side: int | None = None
+) -> bytes:
+    """JPEG of the page with the `blocks` boxed and numbered, long side `image_long_side`
+    (default `group_image_max_px`)."""
     from newsrag.ocr.overlay import draw_blocks
 
     s = config.settings
     image = (data.get("image") or {}).get("path") or Path(s.images_dir) / f"{data['page_id']}.png"
     if not Path(image).is_file():
         raise FileNotFoundError(f"rendered page missing: {image}")
-    picture = draw_blocks(image, blocks, max_long_side=s.group_image_max_px)
+    picture = draw_blocks(image, blocks, max_long_side=image_long_side or s.group_image_max_px)
     buf = io.BytesIO()
     picture.save(buf, format="JPEG", quality=JPEG_QUALITY, subsampling=0)
     return buf.getvalue()
 
 
-def messages_for(data: dict[str, Any], blocks: Sequence[dict[str, Any]]) -> list[dict[str, Any]]:
-    """The chat messages for grouping `blocks` of the page: one user message, image then text."""
+def messages_for(
+    data: dict[str, Any], blocks: Sequence[dict[str, Any]], image_long_side: int | None = None
+) -> list[dict[str, Any]]:
+    """The chat messages for grouping `blocks` of the page: one user message, image then text.
+    `image_long_side` overrides `group_image_max_px` (ticket 013's regroup pass)."""
     from newsrag.models.client import build_messages
 
     width, height = page_size(data)
-    return build_messages(prompt_text(width, height, blocks), [page_image(data, blocks)])
+    return build_messages(
+        prompt_text(width, height, blocks), [page_image(data, blocks, image_long_side)]
+    )
 
 
 # --- artifacts of other stages --------------------------------------------------------------
@@ -99,3 +107,20 @@ def load_ocr_final(page_id: str) -> dict[str, Any]:
     if path is None:
         raise FileNotFoundError(f"no done ocr_final artifact for {page_id}")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def stage_row(stage: str, page_id: str) -> dict[str, Any] | None:
+    """The page's ledger row of `stage` (status, attempt, detail, artifact_path, error), if any."""
+    from newsrag.ledger import db
+
+    with db.conn() as c:
+        return db.fetch_one(
+            c,
+            "select status, attempt, detail, artifact_path, error from stage_runs "
+            "where page_id = %s and stage = %s",
+            (page_id, stage),
+        )
+
+
+def load_artifact(path: str | Path) -> dict[str, Any]:
+    return json.loads(Path(path).read_text(encoding="utf-8"))

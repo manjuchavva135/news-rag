@@ -63,6 +63,10 @@ class _StageBase:
     # hashes installed files. It must end with `-<config_hash(...)>` (see `versioned`).
     version: str = ""
     depends_on: tuple[str, ...] = ()
+    # Page stages only: dependencies that also count as satisfied when they failed for good
+    # (failed at `max_attempts`, or cannot run because something they depend on did). The stage
+    # then runs and finds the failure in the ledger itself.
+    tolerate_failed: tuple[str, ...] = ()
     concurrency: int = 1
     models_needed: tuple[str, ...] = ()
 

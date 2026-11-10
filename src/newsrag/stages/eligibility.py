@@ -5,7 +5,8 @@ A stage row ("run row") is a dict with at least ``status``, ``version``, ``input
 
 - A stage is **current** for an item when its row is ``done`` at the stage's current
   ``version_for(item)``, its recorded ``input_versions`` equal the inputs it would record now, and
-  every dependency is current too. Only a current dependency satisfies a stage.
+  every dependency is current too. Only a current dependency satisfies a stage (except the
+  dependencies a page stage lists in `tolerate_failed`, which a failure for good also satisfies).
 - A stage is **eligible** for an item when the item is not quarantined, every dependency is
   current, and its own row is absent, ``failed`` with attempts left, or ``failed``/``done`` at a
   different version or with different inputs. ``running`` rows are never eligible.
@@ -19,6 +20,7 @@ from collections.abc import Mapping
 from datetime import UTC, date, datetime
 from typing import Any
 
+from newsrag import config
 from newsrag.stages.base import DateStage, PageRow, PageStage, Stage
 
 Row = Mapping[str, Any]
@@ -114,14 +116,40 @@ class PageContext:
                 and row["status"] == "done"
                 and row["version"] == stage.version_for(self.page)
                 and row["input_versions"] == self.inputs(stage)
-                and all(self.current(dep) for dep in stage.depends_on)
+                and all(self.satisfied(stage, dep) for dep in stage.depends_on)
             )
         return self._current[name]
+
+    def failed_for_good(self, name: str, max_attempts: int | None = None) -> bool:
+        """`name` is not current and will not become so without help: its own row is `failed` at
+        `max_attempts` (same version and inputs, dependencies current), or one of its dependencies
+        is failed for good."""
+        limit = config.settings.max_attempts if max_attempts is None else max_attempts
+        if self.current(name):
+            return False
+        stage = self.registry[name]
+        row = self.rows.get(name)
+        if (
+            row is not None
+            and row["status"] == "failed"
+            and row["attempt"] >= limit
+            and row["version"] == stage.version_for(self.page)
+            and row["input_versions"] == self.inputs(stage)
+            and all(self.satisfied(stage, dep) for dep in stage.depends_on)
+        ):
+            return True
+        return any(self.failed_for_good(dep, limit) for dep in stage.depends_on)
+
+    def satisfied(self, stage: Stage, dep: str) -> bool:
+        """`dep` is current, or listed in `stage.tolerate_failed` and failed for good."""
+        if self.current(dep):
+            return True
+        return dep in getattr(stage, "tolerate_failed", ()) and self.failed_for_good(dep)
 
     def eligible(self, stage: Stage, max_attempts: int, force: bool = False) -> bool:
         if self.page.quarantine_reason:
             return False
-        if not all(self.current(dep) for dep in stage.depends_on):
+        if not all(self.satisfied(stage, dep) for dep in stage.depends_on):
             return False
         if force:
             return True
