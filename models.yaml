@@ -17,6 +17,23 @@ profiles:
       - --mm-processor-kwargs
       - '{"max_pixels": 20000000}'  # so a 5376-px page is not silently shrunk
 
+  # The same weights quantised to fp8 when vLLM loads them: half the weight bytes, so faster
+  # decoding and room for more requests in the KV cache (ticket 012 NFR-2 measurements).
+  - name: qwen3-vl-32b-fp8
+    hf_id: Qwen/Qwen3-VL-32B-Instruct
+    family: qwen
+    kind: vlm
+    dtype: bfloat16
+    max_model_len: 65536
+    gpu_memory_utilization: 0.90
+    extra_args:
+      - --quantization
+      - fp8
+      - --limit-mm-per-prompt
+      - '{"image": 1}'
+      - --mm-processor-kwargs
+      - '{"max_pixels": 20000000}'
+
   - name: gemma3-27b
     hf_id: google/gemma-3-27b-it
     family: gemma

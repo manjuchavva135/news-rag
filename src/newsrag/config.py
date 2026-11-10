@@ -407,6 +407,34 @@ class Settings(BaseSettings):
     # edition name or district, and do not feed the code -> name map.
     editions_state_sections: tuple[str, ...] = ("main",)
 
+    # --- group ---
+    group_model: str = "qwen3-vl-32b"  # the VLM profile that groups blocks into articles (012)
+    group_concurrency: int = 16  # requests in flight (threads of `stage run group`)
+    group_image_max_px: int = 3584  # long side of the numbered-box page image sent to the model
+    group_text_chars: int = 80  # characters of each block's text in the model's block list...
+    group_long_page_blocks: int = 150  # ...cut to group_long_page_chars on pages with more blocks
+    group_long_page_chars: int = 40
+    group_max_tokens: int = 8192
+    group_request_timeout_s: float = 300.0  # one chat request
+    group_transport_retries: int = 2  # timeouts, connection errors, HTTP 5xx
+    group_retry_backoff_s: tuple[float, ...] = (2.0, 8.0)
+    group_parse_retries: int = 2  # invalid JSON / schema error: ask again with the error
+    # Geometry checks (300-DPI page pixels): blocks of an article within this edge-to-edge gap
+    # are connected; an article box covering more than group_overlap_frac of another article's
+    # block, or a headline lower than group_headline_slack_px below its body, is flagged.
+    group_max_gap_px: int = 60
+    group_overlap_frac: float = 0.2
+    group_headline_slack_px: int = 50
+    # Reading order inside an article (FR-9): x-ranges overlapping by this share of the narrower
+    # block are one column; overlaps between group_order_min_overlap_px and that share are
+    # "unsure" (the model's order is kept). A block touching another by <= the min overlap is not
+    # counted as overlapping it when looking for wide blocks.
+    group_order_same_column_frac: float = 0.5
+    group_order_min_overlap_px: int = 30
+    # Duplicate boxes (FR-10): share of the box inside a bigger one and share of its text matched.
+    group_dup_overlap_frac: float = 0.8
+    group_dup_text_frac: float = 0.8
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -485,7 +513,7 @@ class Settings(BaseSettings):
             return tuple(part.strip() for part in text.split(",") if part.strip())
         return value
 
-    @field_validator("sarvam_retry_backoff_s", mode="before")
+    @field_validator("sarvam_retry_backoff_s", "group_retry_backoff_s", mode="before")
     @classmethod
     def _float_list(cls, value: Any) -> Any:
         """Waits from the environment: a JSON list or comma-separated numbers."""
