@@ -1,0 +1,31 @@
+$ uv run newsrag geo check; echo "exit=$?"
+ap_current=28 ap_2014_2022=13 ts=33 ap_mandals=688 ts_mandals=621
+andhra_pradesh_ap_districts_2014_2022=13
+andhra_pradesh_ap_districts_2022=26
+andhra_pradesh_ap_districts_2025=28
+telangana_ts_districts_2019=33
+andhra_pradesh_mandals=688
+telangana_mandals=621
+exit=0
+
+$ E-1 step 2
+data/geo/ap_districts_2014_2022.yaml 2026-11-09 4
+data/geo/ap_districts_2022.yaml 2026-11-09 5
+data/geo/ap_districts_2025.yaml 2026-11-09 5
+data/geo/ts_districts_2019.yaml 2026-11-09 4
+
+$ E-1 step 3
+[('ap_districts_2014_2022.yaml', '2014-06-02', '2022-04-03'), ('ap_districts_2022.yaml', '2022-04-04', '2025-12-30'), ('ap_districts_2025.yaml', '2025-12-31', 'None')]
+
+$ E-3
+True
+
+$ E-2 / E-4 / E-5: uv run pytest -q tests/test_geo.py -v
+============================== 26 passed in 3.67s ==============================
+$ E-4
+3 passed, 23 deselected in 0.07s
+$ E-5
+5 passed, 21 deselected in 1.11s
+$ ruff
+All checks passed!
+85 files already formatted

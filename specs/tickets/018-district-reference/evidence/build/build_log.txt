@@ -1,0 +1,15 @@
+ap_districts_2014_2022.yaml: Veldurthi: table guntur vs wikidata kurnool -> wikidata
+ap_districts_2022.yaml: Unguturu: table krishna vs wikidata eluru -> wikidata
+ap_districts_2022.yaml: Addateegala: table alluri_sitharama_raju vs wikidata east_godavari -> wikidata
+ap_districts_2022.yaml: Chowdepalle: table annamayya vs wikidata chittoor -> wikidata
+ap_districts_2022.yaml: Punganur: table annamayya vs wikidata chittoor -> wikidata
+ap_districts_2022.yaml: Pulicherla: table annamayya vs wikidata chittoor -> wikidata
+ap_districts_2022.yaml: Gangavaram: table chittoor vs wikidata alluri_sitharama_raju -> wikidata
+ap_districts_2022.yaml: Sodam: table annamayya vs wikidata chittoor -> wikidata
+ap_districts_2022.yaml: Somala: table annamayya vs wikidata chittoor -> wikidata
+ap_districts_2022.yaml: Gurtedu: inferred alluri_sitharama_raju from polavaram
+ap_districts_2014_2022.yaml: Nandyal Urban: inferred kurnool from nandyal
+ap_districts_2014_2022.yaml: Nandyal Rural: inferred kurnool from nandyal
+ap_districts_2014_2022.yaml: Eluru Urban: inferred west_godavari from eluru
+ap_districts_2014_2022.yaml: Eluru Rural: inferred west_godavari from eluru
+ap_districts_2014_2022.yaml: Gurtedu: inferred visakhapatnam from alluri_sitharama_raju

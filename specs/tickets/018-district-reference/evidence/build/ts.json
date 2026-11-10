@@ -1,0 +1,3032 @@
+[
+ {
+  "name": "Adilabad Rural",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Adilabad Urban",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Bazarhatnoor",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Bela",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Boath",
+  "link": "Boath mandal",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Bheempoor",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Gudihathnur",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Ichoda",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Jainad",
+  "link": "Jainad mandal",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Mavala",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Neradigonda",
+  "link": "Neradigonda mandal",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Sirikonda",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Talamadagu",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Tamsi",
+  "link": "Tamsi mandal",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Gadiguda",
+  "link": null,
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Inderavelly",
+  "link": "Indervelly, Adilabad",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Narnoor",
+  "link": "Narnoor",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Utnoor",
+  "link": "Utnoor",
+  "district_link": "Adilabad district"
+ },
+ {
+  "name": "Allapalli",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Annapureddypally",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Aswaraopeta",
+  "link": "Aswaraopeta",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Chandrugonda",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Chunchupally",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Dammapeta",
+  "link": "Dammapeta",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Gundala",
+  "link": "Gundala, Bhadradri Kothagudem district",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Julurpad",
+  "link": "Julurpadu",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Kothagudem",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Laxmidevipalli",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Mulakalapalle",
+  "link": "Mulakalapalli",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Palvancha",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Sujathanagar",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Tekulapalle",
+  "link": "Tekulapalli",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Yellandu",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Aswapuram",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Bhadrachalam",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Cherla",
+  "link": "Cherla mandal",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Burgampahad",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Dummugudem",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Karakagudem",
+  "link": "Karakagudem",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Manuguru",
+  "link": null,
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Pinapaka",
+  "link": "Pinapaka",
+  "district_link": "Bhadradri district"
+ },
+ {
+  "name": "Bheemadevarapalle",
+  "link": null,
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Dharmasagar",
+  "link": "Dharmasagar, India",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Elkathurthy",
+  "link": "Elkathurthy",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Hanamkonda",
+  "link": "Hanamkonda mandal",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Hasanparthy",
+  "link": "Hasanparthy",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Inavole",
+  "link": null,
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Kamalapur",
+  "link": "Kamalapur, Warangal (urban) district",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Kazipet",
+  "link": "Kazipet",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Velair",
+  "link": null,
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Atmakur",
+  "link": "Atmakur, Warangal (rural) district",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Damera",
+  "link": null,
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Nadikuda",
+  "link": null,
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Parkal",
+  "link": "Parkal",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Shayampet",
+  "link": "Shyampet",
+  "district_link": "Warangal (urban) district"
+ },
+ {
+  "name": "Amberpet",
+  "link": "Amberpet",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Asif Nagar",
+  "link": "Asif Nagar",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Bahadurpura",
+  "link": null,
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Bandlaguda",
+  "link": null,
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Charminar",
+  "link": null,
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Golkonda",
+  "link": null,
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Himayathnagar",
+  "link": "Himayatnagar, Hyderabad",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Nampally",
+  "link": "Nampally, Hyderabad",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Saidabad",
+  "link": "Saidabad mandal",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Ameerpet",
+  "link": "Ameerpet",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Khairtabad",
+  "link": "Khairatabad",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Maredpally",
+  "link": "Marredpally",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Musheerabad",
+  "link": "Musheerabad",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Secunderabad",
+  "link": "Secunderabad",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Shaikpet",
+  "link": "Shaikpet",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Tirumalgiri",
+  "link": "Tirumalagiri",
+  "district_link": "Hyderabad district, India"
+ },
+ {
+  "name": "Beerpur",
+  "link": null,
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Buggaram",
+  "link": null,
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Dharmapuri",
+  "link": "Dharmapuri, Telangana",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Gollapalle",
+  "link": "Gollapally, Jagtial district",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Jagtial",
+  "link": "Jagtial",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Jagtial Rural",
+  "link": null,
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Kodimial",
+  "link": "Kodimial",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Mallial",
+  "link": "Mallial",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Pegadapalle",
+  "link": "Pegadapally",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Raikal",
+  "link": "Raikal",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Sarangapur",
+  "link": "Sarangapur, Jagtial district",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Velgatoor",
+  "link": "Velgatoor",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Ibrahimpatnam",
+  "link": null,
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Mallapur",
+  "link": "Mallapur, Jagtial district",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Metpalli",
+  "link": "Metpally",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Kathlapur",
+  "link": "Kathlapur",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Korutla",
+  "link": "Korutla",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Medipalle",
+  "link": "Medipalle mandal",
+  "district_link": "Jagtial district"
+ },
+ {
+  "name": "Bachannapet",
+  "link": "Bachannapet",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Devaruppala",
+  "link": "Devaruppula",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Jangaon",
+  "link": "Jangaon, Telangana",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Lingalaghanpur",
+  "link": "Lingalaghanpur",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Narmetta",
+  "link": "Narmetta",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Raghunathapalle",
+  "link": "Raghunathpalle",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Tharigoppula",
+  "link": null,
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Chilpur",
+  "link": null,
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Kodakandla",
+  "link": "Kodakandla",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Palakurthi",
+  "link": "Palakurthi",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Station Ghanpur",
+  "link": "Ghanpur (Station)",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Zaffergadh",
+  "link": "Zaffergadh",
+  "district_link": "Jangaon district"
+ },
+ {
+  "name": "Bhupalpalle",
+  "link": "Bhupalpalle",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Chityal",
+  "link": "Chityal, Warangal",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Ghanpur",
+  "link": "Ghanpur (Mulug)",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Kataram",
+  "link": "Kataram",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Mahadevpur",
+  "link": "Mahadevpur",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Maha Mutharam",
+  "link": "Maha Mutharam",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Malharrao",
+  "link": "Malharrao",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Mogullapalle",
+  "link": "Mogullapalle",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Palimela",
+  "link": null,
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Regonda",
+  "link": "Regonda",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Tekumatla",
+  "link": "Tekumatla",
+  "district_link": "Jayashankar district"
+ },
+ {
+  "name": "Kaloor_Timmanadoddi",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Dharur",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Gadwal",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Itikyal",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Maldakal",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Ghattu",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Aiza",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Rajoli",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Waddepalle",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Manopad",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Undavelli",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Alampur",
+  "link": null,
+  "district_link": "Jogulamba Gadwal district"
+ },
+ {
+  "name": "Banswada",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Bichkunda",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Birkoor",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Jukkal",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Madnur",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Nasurullabad",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Nizamsagar",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Pedda Kodapgal",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Pitlam",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Dongli",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Bhiknoor",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Bibipet",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Domakonda",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Kamareddy",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Machareddy",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Rajampet",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Ramareddy",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Sadasivanagar",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Tadwai",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Palvancha",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Gandhari",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Lingampet",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Naga Reddipet",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Yellareddy",
+  "link": null,
+  "district_link": "Kamareddy district"
+ },
+ {
+  "name": "Chigurumamidi",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Choppadandi",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Gangadhara",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Ganneruvaram",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Karimnagar",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Karimnagar",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Karimnagar",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Manakondur",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Ramadugu",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Thimmapur",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Ellandakunta",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Huzurabad",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Jammikunta",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Shankarapatnam",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "V_Saidapur",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Veenavanka",
+  "link": null,
+  "district_link": "Karimnagar district"
+ },
+ {
+  "name": "Enkuru",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Kalluru",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Penuballi",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Sathupalli",
+  "link": "Sathupalli mandal",
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Thallada",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Vemsoor",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Bonakal",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Chinthakani",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Kamepalle",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Khammam_Rural",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Khammam_Urban",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Konijerla",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Kusumanchi",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Madhira",
+  "link": "Madhira mandal",
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Mudigonda",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Nelakondapalle",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Raghunadhapalem",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Singareni",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Thirumalayapalem",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Wyra",
+  "link": null,
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Yerrupalem",
+  "link": "Yerrupalem mandal",
+  "district_link": "Khammam district"
+ },
+ {
+  "name": "Asifabad",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Jainoor",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Kerameri",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Lingapur",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Rebbena",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Sirpur_U",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Tiryani",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Wankidi",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Bejjur",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Chintalamanepally",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Dahegaon",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Kagaznagar",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Kouthala",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Penchikalpet",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Sirpur_T",
+  "link": null,
+  "district_link": "Komaram Bheem Asifabad district"
+ },
+ {
+  "name": "Bayyaram",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Dornakal",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Ganagavaram",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Garla",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Gudur",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Kesamudram",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Kothaguda",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Kuravi",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Mahabubabad",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Seerole",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Inugurthy",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Chinnagudur",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Danthalapalle",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Maripeda",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Narsimhulapet",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Nellikudur",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Peddavangara",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Thorrur",
+  "link": null,
+  "district_link": "Mahabubabad district"
+ },
+ {
+  "name": "Addakal",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Balanagar",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Bhoothpur",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Chinna_Chintha_Kunta",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Devarkadara",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Gandeed",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Hanwada",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Jadcherla",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Koilkonda",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Mahabubnagar_Rural",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Mahabubnagar_Urban",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Midjil",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Mohammadabad",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Musapet",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Nawabpet",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Rajapur",
+  "link": null,
+  "district_link": "Mahabubnagar district"
+ },
+ {
+  "name": "Bheemaram",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Chennur",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Dandepally",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Hajipur",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Jaipur",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Jannaram",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Kotapally",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Luxettipet",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Mancherial",
+  "link": "Mancherial",
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Mandamarri",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Naspur",
+  "link": "Naspur",
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Bellampally Mandal",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Bheemini",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Kannepally",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Kasipet",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Nennel",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Tandur",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Vempally",
+  "link": null,
+  "district_link": "Mancherial district"
+ },
+ {
+  "name": "Alladurg",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Havelighanpur",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Medak",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Nizampet",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Papannapet",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Ramayampet",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Regode",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Shankarampet_A",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Shankarampet_R",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Tekmal",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Chilipched",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Kowdipalle",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Kulcharam",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Narsapur",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Shivampet",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Chegunta",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Manoharabad",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Masaipet",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Narsingi",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Tupran",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Yeldurthy",
+  "link": null,
+  "district_link": "Medak district"
+ },
+ {
+  "name": "Alwal",
+  "link": "Alwal",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Bachupally",
+  "link": "Bachupally",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Balanagar",
+  "link": "Balanagar, Ranga Reddy district",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Dundigal Gandimaisamma",
+  "link": "Dundigal Gandimaisamma",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Kukatpally",
+  "link": "Kukatpally",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Malkajgiri",
+  "link": "Malkajgiri",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Quthbullapur",
+  "link": "Quthbullapur",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Ghatkesar",
+  "link": "Ghatkesar",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Kapra",
+  "link": "Kapra",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Keesara",
+  "link": "Keesara",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Medchal",
+  "link": "Medchal",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Medipally, Telangana",
+  "link": "Medipally, Telangana",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Muduchintalpalli",
+  "link": null,
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Shamirpet",
+  "link": "Shamirpet",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Uppal",
+  "link": "Uppal Village",
+  "district_link": "Medchal–Malkajgiri district"
+ },
+ {
+  "name": "Eturnagaram",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Govindaraopet",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Kannaigudem",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Mangapet",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Mulugu",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Sammakka Saralamma Tadvai",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Venkatapur",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Venkatapuram",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Wazeed",
+  "link": null,
+  "district_link": "Mulugu district"
+ },
+ {
+  "name": "Achampet",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Amrabad",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Balmoor",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Lingal",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Padra",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Uppunuthala",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Charakonda",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Kalwakurthy",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Urkonda",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Vangoor",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Veldanda",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Kodair",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Kollapur",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Peddakothapalle",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Pentlavelli",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Bijinapalle",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Nagarkurnool",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Tadoor",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Telkapalle",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Thimmajipeta",
+  "link": null,
+  "district_link": "Nagarkurnool district"
+ },
+ {
+  "name": "Chandampet",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Chinthapalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Devarakonda",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Gundlapalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Gurrampode",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Kondamallapally",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Marriguda",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Nampalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Neredugommu",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Pedda_adiserlapalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Adavi devula palli",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Anumula_Haliya",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Damaracherla",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Madugulapally",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Miryalaguda",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Nidamanur",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Peddavoora",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Thripuraram",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Tirumalagiri_Sagar",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Vemulapalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Chandur",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Chityala",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Kangal",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Kattangoor",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Kethepalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Munugode",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Nakrekal",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Narketpalle",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Nalgonda",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Saligouraram",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Thipparthi",
+  "link": null,
+  "district_link": "Nalgonda district"
+ },
+ {
+  "name": "Damaragidda",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Dhanwada",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Gundumal",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Kosgi",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Krishna",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Kottha pally",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Maddur",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Maganoor",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Makthal",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Marikal",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Narayanpet",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Narva",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Utkoor",
+  "link": null,
+  "district_link": "Narayanpet district"
+ },
+ {
+  "name": "Basar",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Bhainsa",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Kubeer",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Kuntala",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Lokeshwaram",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Mudhole",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Tanoor",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Dastuarabad",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Dilawarpur",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Kaddampeddur",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Khanapur",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Laxmanchanda",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Mamada",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Narsapur_G",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Nirmal Rural",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Nirmal Urban",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Pembi",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Sarangapur",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Soan",
+  "link": null,
+  "district_link": "Nirmal district"
+ },
+ {
+  "name": "Aloor",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Armur",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Balkonda",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Bheemgal",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Donkeshwar",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Jakranpalle",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Kammarpalle",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Mendora",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Mortad",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Mupkal",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Nandipet",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Vailpur",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Yergatla",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Bodhan",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Chandur",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Kotgiri",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Pothangal",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Mosra",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Ranjal",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Rudrur",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Saloora",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Varni",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Yedapalle",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Dharpalle",
+  "link": "Dharpalle",
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Dharpalle",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Dichpalle",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Indalwai",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Makloor",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Mugpal",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Navipet",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Nizamabad_North",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Nizamabad_Rural",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Nizamabad_South",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Sirkonda",
+  "link": null,
+  "district_link": "Nizamabad district"
+ },
+ {
+  "name": "Kamanpur",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Manthani",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Mutharam",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Ramagiri",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Anthergoan",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Dharmaram",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Elgaid",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Julapalle",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Palakurthy",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Peddapalli",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Ramagundam",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Srirampur",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Sultanabad",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Odela",
+  "link": null,
+  "district_link": "Peddapalli district"
+ },
+ {
+  "name": "Ellanthakunta",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Gambhiraopeta",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Mustabad",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Sircilla",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Thangallapalle",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Veernapalle",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Yellareddypeta",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Boinpalle",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Chandurthi",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Konaraopeta",
+  "link": "Konaraopeta mandal",
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Rudrangi",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Vemulawada",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Vemulawada_Rural",
+  "link": null,
+  "district_link": "Rajanna Sircilla district"
+ },
+ {
+  "name": "Chevella",
+  "link": "Chevella Mandal",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Moinabad",
+  "link": "Moinabad mandal",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Shabad",
+  "link": "Shabad, Telangana",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Shankarpalle",
+  "link": "Shankarpalli mandal",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Abdullapurmet",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Hayathnagar",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Ibrahimpatnam",
+  "link": "Ibrahimpatnam, Ranga Reddy district",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Madgul",
+  "link": "Madgul",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Manchal",
+  "link": "Manchal (mandal)",
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Yacharam",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Amangal",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Balapur",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Kadthal",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Kandukur",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Maheshwaram",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Saroornagar",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Talakonapally",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Gandipet",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Rajendranagar",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Serilingampally",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Shamshabad",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Farooqnagar",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Jilled Chowdergudem",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Keshampeta",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Kondurg",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Kothur",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Nandigam",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Shadnagar",
+  "link": null,
+  "district_link": "Ranga Reddy district"
+ },
+ {
+  "name": "Kalher",
+  "link": "Kalher",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Kangti",
+  "link": "Kangti",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Manoor",
+  "link": "Manoor, Medak",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Nagilgidda",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Narayankhed",
+  "link": "Narayankhed",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Sirgapoor",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Ameenpur",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Andole",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Gummadidala",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Hathnoora",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Jinnaram",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Kandi",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Kondapur",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Munipally",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Patancheru",
+  "link": "Patancheru",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Pulkal",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Ramchandrapuram",
+  "link": "Ramchandrapuram",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Sadasivpet",
+  "link": "Sadasivpet",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Sangareddy",
+  "link": "Sangareddy",
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Vatpally",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Jharasangam",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Kohir",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Mogudampally",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Nyalkal",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Raikode",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Zaheerabad",
+  "link": null,
+  "district_link": "Sangareddy district"
+ },
+ {
+  "name": "Dubbak",
+  "link": "Dubbaka",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Siddipet",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Chinnakodur",
+  "link": "Chinna Kodur",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Nangnoor",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Siddipet",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Thoguta",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Mirdoddi",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Doulthabad",
+  "link": "Doultabad, Siddipet district",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Komuravelli",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Cherial",
+  "link": "Cheriyal",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Narayanaraopet",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Akberpet Bhoompally",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Raipole",
+  "link": "Raipole",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Wargal",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Mulug",
+  "link": "Mulug, Siddipet district",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Markook",
+  "link": "Markook, Telangana",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Jagdevpur",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Gajwel",
+  "link": "Gajwel",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Kondapak",
+  "link": "Kondapak",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Kukunoorpally",
+  "link": "Kukunoorpally",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Akkannapet",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Bejjanki",
+  "link": "Bejjanki",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Dhoolmitta",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Husnabad",
+  "link": "Husnabad",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Koheda",
+  "link": "Koheda, Siddipet district",
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Maddur",
+  "link": null,
+  "district_link": "Siddipet district"
+ },
+ {
+  "name": "Atmakur(s)",
+  "link": "Athmakur (S) mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Chivvemla",
+  "link": "Chivvemla mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Jajireddygudem",
+  "link": "Jajireddygudem mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Maddirala",
+  "link": "Maddirala mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Mothey",
+  "link": "Mothey mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Nagaram",
+  "link": "Nagaram mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Nuthankal",
+  "link": "Nuthankal mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Penpahad",
+  "link": "Penpahad mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Thirumalagiri",
+  "link": "Thirumalagiri mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Thungathurthy",
+  "link": "Thungathurthy mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Suryapet",
+  "link": "Suryapet mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Ananthagiri",
+  "link": "Ananthagiri mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Chilkur",
+  "link": "Chilkur mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Kodad",
+  "link": "Kodad mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Munagala",
+  "link": "Munagala mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Nadigudem",
+  "link": "Nadigudem mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Garidepally",
+  "link": "Garidepally mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Huzurnagar",
+  "link": "Huzurnagar mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Mallareddygudem",
+  "link": "Mallareddygudem mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Mattampally",
+  "link": "Mattampally mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Mellachervu",
+  "link": "Mellachervu mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Neredcherla",
+  "link": "Neredcherla mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Palakeedu",
+  "link": "Palakeedu mandal",
+  "district_link": "Suryapet district"
+ },
+ {
+  "name": "Basheerabad",
+  "link": "Basheerabad",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Bommaraspet",
+  "link": "Bomraspeta",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Doulthabad",
+  "link": "Doulatabad, Mahbubnagar",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Kodangal",
+  "link": "Kodangal",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Peddemul",
+  "link": "Peddemul",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Tandur",
+  "link": "Tandur",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Yelal",
+  "link": "Yalal",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Bantwaram",
+  "link": "Bantwaram",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Doma",
+  "link": "Domah",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Dharur",
+  "link": "Dharur, Vikarabad district",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Kotepally",
+  "link": "Kotepally",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Kulkacherla",
+  "link": "Kulkacherla",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Marpalle",
+  "link": "Marpalle",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Mominpet",
+  "link": "Mominpet",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Nawabpet",
+  "link": "Nawabpet, Vikarabad district",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Pargi",
+  "link": "Parigi, Vikarabad district",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Pudur",
+  "link": "Pudur, Vikarabad district",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Vikarabad",
+  "link": "Vikarabad",
+  "district_link": "Vikarabad district"
+ },
+ {
+  "name": "Amarchinta",
+  "link": "Amarchinta",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Atmakur",
+  "link": "Atmakur, Wanaparthy",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Chinnambavi",
+  "link": "Chinnambavi",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Ghanpur (Khilla)",
+  "link": "Ghanpur (Khilla)",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Gopalpeta",
+  "link": "Gopalpeta",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Kothakota",
+  "link": "Kothakota",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Madanapur",
+  "link": null,
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Pangal",
+  "link": "Pangal, Wanaparthy",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Pebbair",
+  "link": "Pebbair",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Peddamandadi",
+  "link": "Peddamandadi",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Revally",
+  "link": null,
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Srirangapur",
+  "link": null,
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Veepanagandla",
+  "link": "Veepanagandla",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Wanaparthy",
+  "link": "Wanaparthy",
+  "district_link": "Wanaparthy district"
+ },
+ {
+  "name": "Geesugonda",
+  "link": "Geesugonda",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Khila Warangal",
+  "link": null,
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Parvathagiri",
+  "link": "Parvathagiri",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Rayaparthy",
+  "link": "Rayaparthy",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Wardhannapet",
+  "link": "Wardhannapet",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Warangal",
+  "link": "Warangal mandal",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Sangem",
+  "link": null,
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Chennaraopet",
+  "link": "Chennaraopet",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Duggondi",
+  "link": "Duggondi",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Khanapur",
+  "link": null,
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Nallabelly",
+  "link": "Nallabelly",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Narsampet",
+  "link": "Narsampet",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Nekkonda",
+  "link": "Nekkonda",
+  "district_link": "Warangal (rural) district"
+ },
+ {
+  "name": "Addaguduru",
+  "link": null,
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Alair",
+  "link": "Aler, Nalgonda district",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Atmakur (M)",
+  "link": "Atmakur (M), Nalgonda district",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Bibinagar",
+  "link": "Bibinagar",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Bhongir",
+  "link": "Bhongir, Telangana",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Bommalaramaram",
+  "link": "Bommalaramaram",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Gundala",
+  "link": "Gundala, Bhadradri Kothagudem district",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Motakondur",
+  "link": "Motakondur",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Mothkur",
+  "link": "Mothkur",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Rajapet",
+  "link": "Rajapet",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Turkapally",
+  "link": "Turkapally",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Yadagirigutta",
+  "link": "Yadagirigutta, Telangana",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Bhoodan Pochampally",
+  "link": "Bhoodan Pochampally",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Choutuppal",
+  "link": "Choutuppal",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Narayanpur",
+  "link": null,
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Ramannapet",
+  "link": "Ramannapeta",
+  "district_link": "Yadadri Bhuvanagiri district"
+ },
+ {
+  "name": "Valigonda",
+  "link": "Valigonda",
+  "district_link": "Yadadri Bhuvanagiri district"
+ }
+]

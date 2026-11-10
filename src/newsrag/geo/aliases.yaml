@@ -1,0 +1,72 @@
+# Extra spellings of a district, town or mandal (ticket 018 FR-3). One entry per spelling:
+#   - {alias: <as printed>, kind: district|town|mandal, id: <id in data/geo>}
+# Matching ignores case, spaces, dots and a trailing జిల్లా/district/మండలం/mandal.
+# Ticket 020 appends entries here in the same format.
+- {alias: Vizag, kind: town, id: visakhapatnam}
+- {alias: Vishakhapatnam, kind: town, id: visakhapatnam}
+- {alias: Visakha, kind: town, id: visakhapatnam}
+- {alias: విశాఖ, kind: town, id: visakhapatnam}
+- {alias: వైజాగ్, kind: town, id: visakhapatnam}
+- {alias: Bezawada, kind: town, id: vijayawada}
+- {alias: బెజవాడ, kind: town, id: vijayawada}
+- {alias: Rajahmundry, kind: town, id: rajamahendravaram}
+- {alias: Rajamundry, kind: town, id: rajamahendravaram}
+- {alias: రాజమండ్రి, kind: town, id: rajamahendravaram}
+- {alias: Anantapur, kind: town, id: anantapuramu}
+- {alias: అనంతపురము, kind: town, id: anantapuramu}
+- {alias: Cuddapah, kind: town, id: kadapa}
+- {alias: Anakapalle, kind: town, id: anakapalli}
+- {alias: Madanapalli, kind: town, id: madanapalle}
+- {alias: Markapur, kind: town, id: markapuram}
+- {alias: హైదరాబాదు, kind: town, id: hyderabad}
+- {alias: హనుమకొండ, kind: town, id: hanumakonda}
+- {alias: Hanamkonda, kind: town, id: hanumakonda}
+- {alias: హన్మకొండ, kind: town, id: hanumakonda}
+- {alias: నిజామాబాదు, kind: town, id: nizamabad}
+- {alias: ఆదిలాబాదు, kind: town, id: adilabad}
+- {alias: మహబూబాబాదు, kind: town, id: mahabubabad}
+- {alias: వికారాబాదు, kind: town, id: vikarabad}
+- {alias: నల్లగొండ, kind: town, id: nalgonda}
+- {alias: Nalagonda, kind: town, id: nalgonda}
+- {alias: Bhongir, kind: town, id: bhuvanagiri}
+- {alias: భువనగిరి, kind: town, id: bhuvanagiri}
+- {alias: సిద్ధిపేట, kind: town, id: siddipet}
+- {alias: జనగాం, kind: town, id: jangaon}
+- {alias: Jangaon, kind: town, id: jangaon}
+- {alias: Wanaparthi, kind: town, id: wanaparthy}
+- {alias: పెద్దపల్లె, kind: town, id: peddapalli}
+- {alias: Bhupalapally, kind: town, id: bhupalpally}
+- {alias: Nellore, kind: district, id: sri_potti_sriramulu_nellore}
+- {alias: నెల్లూరు, kind: district, id: sri_potti_sriramulu_nellore}
+- {alias: SPSR Nellore, kind: district, id: sri_potti_sriramulu_nellore}
+- {alias: Kadapa, kind: district, id: ysr_kadapa}
+- {alias: కడప, kind: district, id: ysr_kadapa}
+- {alias: YSR, kind: district, id: ysr_kadapa}
+- {alias: వైఎస్సార్, kind: district, id: ysr_kadapa}
+- {alias: వైఎస్సార్ కడప, kind: district, id: ysr_kadapa}
+- {alias: Konaseema, kind: district, id: dr_b_r_ambedkar_konaseema}
+- {alias: కోనసీమ, kind: district, id: dr_b_r_ambedkar_konaseema}
+- {alias: అంబేడ్కర్ కోనసీమ, kind: district, id: dr_b_r_ambedkar_konaseema}
+- {alias: Anantapur, kind: district, id: anantapuramu}
+- {alias: అల్లూరి, kind: district, id: alluri_sitharama_raju}
+- {alias: ASR, kind: district, id: alluri_sitharama_raju}
+- {alias: మన్యం, kind: district, id: parvathipuram_manyam}
+- {alias: పార్వతీపురం మన్యం, kind: district, id: parvathipuram_manyam}
+- {alias: సత్యసాయి, kind: district, id: sri_sathya_sai}
+- {alias: శ్రీసత్యసాయి, kind: district, id: sri_sathya_sai}
+- {alias: Hanamkonda, kind: district, id: hanumakonda}
+- {alias: హన్మకొండ, kind: district, id: hanumakonda}
+- {alias: Medchal, kind: district, id: medchal_malkajgiri}
+- {alias: మేడ్చల్, kind: district, id: medchal_malkajgiri}
+- {alias: Rangareddy, kind: district, id: ranga_reddy}
+- {alias: యాదాద్రి, kind: district, id: yadadri_bhuvanagiri}
+- {alias: కొత్తగూడెం, kind: district, id: bhadradri_kothagudem}
+- {alias: భద్రాద్రి, kind: district, id: bhadradri_kothagudem}
+- {alias: ఆసిఫాబాద్, kind: district, id: kumuram_bheem_asifabad}
+- {alias: కుమురంభీం, kind: district, id: kumuram_bheem_asifabad}
+- {alias: కొమురంభీం, kind: district, id: kumuram_bheem_asifabad}
+- {alias: సిరిసిల్ల, kind: district, id: rajanna_sircilla}
+- {alias: గద్వాల, kind: district, id: jogulamba_gadwal}
+- {alias: జోగులాంబ, kind: district, id: jogulamba_gadwal}
+- {alias: భూపాలపల్లి, kind: district, id: jayashankar_bhupalpally}
+- {alias: నల్లగొండ, kind: district, id: nalgonda}

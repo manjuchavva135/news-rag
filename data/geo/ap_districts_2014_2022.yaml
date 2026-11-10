@@ -1,0 +1,111 @@
+as_of: '2026-11-09'
+source_urls:
+- https://www.ap.gov.in/
+- https://web.archive.org/web/20141224033355/http://www.aponline.gov.in/quick%20links/apfactfile/info%20on%20districts/chittoor.html
+- https://en.wikipedia.org/w/index.php?title=List_of_mandals_of_Andhra_Pradesh&oldid=1075240456
+- https://www.wikidata.org/wiki/Q122987710
+districts:
+- id: anantapuramu
+  name_en: Anantapuramu
+  name_te: అనంతపురం
+  hq:
+    id: anantapuramu
+    name_en: Anantapuramu
+    name_te: అనంతపురం
+    mandal_id: anantapur_urban
+- id: chittoor
+  name_en: Chittoor
+  name_te: చిత్తూరు
+  hq:
+    id: chittoor
+    name_en: Chittoor
+    name_te: చిత్తూరు
+    mandal_id: chittoor_urban
+- id: east_godavari
+  name_en: East Godavari
+  name_te: తూర్పు గోదావరి
+  hq:
+    id: kakinada
+    name_en: Kakinada
+    name_te: కాకినాడ
+    mandal_id: kakinada_urban
+- id: guntur
+  name_en: Guntur
+  name_te: గుంటూరు
+  hq:
+    id: guntur
+    name_en: Guntur
+    name_te: గుంటూరు
+    mandal_id: guntur_west
+- id: krishna
+  name_en: Krishna
+  name_te: కృష్ణా
+  hq:
+    id: machilipatnam
+    name_en: Machilipatnam
+    name_te: మచిలీపట్నం
+    mandal_id: machilipatnam_north
+- id: kurnool
+  name_en: Kurnool
+  name_te: కర్నూలు
+  hq:
+    id: kurnool
+    name_en: Kurnool
+    name_te: కర్నూలు
+    mandal_id: kurnool_urban
+- id: prakasam
+  name_en: Prakasam
+  name_te: ప్రకాశం
+  hq:
+    id: ongole
+    name_en: Ongole
+    name_te: ఒంగోలు
+    mandal_id: ongole_urban
+- id: sri_potti_sriramulu_nellore
+  name_en: Sri Potti Sriramulu Nellore
+  name_te: శ్రీ పొట్టి శ్రీరాములు నెల్లూరు
+  hq:
+    id: nellore
+    name_en: Nellore
+    name_te: నెల్లూరు
+    mandal_id: nellore_urban
+- id: srikakulam
+  name_en: Srikakulam
+  name_te: శ్రీకాకుళం
+  hq:
+    id: srikakulam
+    name_en: Srikakulam
+    name_te: శ్రీకాకుళం
+    mandal_id: srikakulam
+- id: visakhapatnam
+  name_en: Visakhapatnam
+  name_te: విశాఖపట్నం
+  hq:
+    id: visakhapatnam
+    name_en: Visakhapatnam
+    name_te: విశాఖపట్నం
+    mandal_id: maharanipeta
+- id: vizianagaram
+  name_en: Vizianagaram
+  name_te: విజయనగరం
+  hq:
+    id: vizianagaram
+    name_en: Vizianagaram
+    name_te: విజయనగరం
+    mandal_id: vizianagaram_urban
+- id: west_godavari
+  name_en: West Godavari
+  name_te: పశ్చిమ గోదావరి
+  hq:
+    id: eluru
+    name_en: Eluru
+    name_te: ఏలూరు
+    mandal_id: eluru_urban
+- id: ysr_kadapa
+  name_en: YSR Kadapa
+  name_te: వైఎస్ఆర్ కడప
+  hq:
+    id: kadapa
+    name_en: Kadapa
+    name_te: కడప
+    mandal_id: kadapa
