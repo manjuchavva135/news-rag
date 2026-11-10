@@ -125,13 +125,9 @@ def ensure_pages_file(path: Path, sample_file: Path) -> list[str]:
     if path.is_file():
         return read_pages_file(path)
     pages = choose_pages(read_pages_file(sample_file))
-    header = (
-        "# Ticket 014 bake-off pages, chosen by `newsrag group bakeoff` from "
-        f"{sample_file.name} (FR-2 slots: 2020 main_01, 2026 main_01, 2025 ALL, "
-        "single-letter edition inner page, fea/splus; a slot with no match takes the next line)\n"
-    )
+    # no header line: the file is exactly one page id per line
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(header + "".join(f"{p}\n" for p in pages), encoding="utf-8")
+    path.write_text("".join(f"{p}\n" for p in pages), encoding="utf-8")
     return pages
 
 

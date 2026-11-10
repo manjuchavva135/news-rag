@@ -5,3 +5,4 @@
 indic_ocr_revision: cd50d301d0e17e8ecb32fc49c8ccbd7914dcfc25
 surya_version: 0.23.0
 group_model: qwen3-vl-32b
+judge_model: gemma4-31b

@@ -1,0 +1,2 @@
+$ wc -l < data/bakeoff-pages.txt
+5

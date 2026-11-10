@@ -1,0 +1,8 @@
+group_model set to qwen3-vl-32b
+judge_model set to gemma4-31b
+
+real	0m1.097s
+user	0m6.267s
+sys	0m0.153s
+group_model: qwen3-vl-32b
+judge_model: gemma4-31b
