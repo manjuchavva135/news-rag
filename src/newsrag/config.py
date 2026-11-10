@@ -68,6 +68,7 @@ REPO_ROOT_DERIVED = {
     "ocr_check_file": "data/ocr-check.txt",
     "ocr_fallback_file": "ocr_fallback.yaml",
     "geo_dir": "data/geo",
+    "editions_file": "data/editions.yaml",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -389,6 +390,23 @@ class Settings(BaseSettings):
     # Extra spellings -> district/town/mandal id. None = the file shipped in newsrag/geo/.
     geo_aliases_file: Path | None = None
 
+    # --- editions ---
+    # Stage `folio` (ticket 011): a block lying wholly in this top fraction of the page height
+    # is read as part of the folio, whatever its label (besides the folio_labels blocks).
+    folio_top_fraction: float = 0.08
+    # When the folio blocks give no place, the whole top band (folio_top_fraction) is read too,
+    # cut into this many side-by-side pieces (layout sometimes misses the folio strip). 0 = off.
+    folio_band_pieces: int = 2
+    editions_file: Path  # default {repo_root}/data/editions.yaml (committed, generated)
+    # A code's most common folio place names it when it has at least this share of the code's
+    # pages with a place, over at least this many pages; otherwise the code is `ambiguous`.
+    editions_min_agreement: float = 0.6
+    editions_min_pages: int = 3
+    # Pages of these sections are state pages shared by many editions: their folio names the
+    # printing centre, not the edition (011, decided 2026-11-10). They get the state only, no
+    # edition name or district, and do not feed the code -> name map.
+    editions_state_sections: tuple[str, ...] = ("main",)
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -449,6 +467,17 @@ class Settings(BaseSettings):
     @classmethod
     def _label_list(cls, value: Any) -> Any:
         """A label set from the environment: a JSON list or comma-separated names."""
+        if isinstance(value, str):
+            text = value.strip()
+            if text.startswith("["):
+                return tuple(json.loads(text))
+            return tuple(part.strip() for part in text.split(",") if part.strip())
+        return value
+
+    @field_validator("editions_state_sections", mode="before")
+    @classmethod
+    def _str_list(cls, value: Any) -> Any:
+        """Names from the environment: a JSON list or comma-separated names."""
         if isinstance(value, str):
             text = value.strip()
             if text.startswith("["):

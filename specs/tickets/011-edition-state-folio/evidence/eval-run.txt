@@ -1,0 +1,79 @@
+$ E-1: uv run pytest -q tests/test_folio_parse.py
+26 passed in 0.54s
+
+$ E-2 step 2 (non-front dev-sample pages, those with a place)
+13 11
+
+$ E-3 step 2
+wrote /home/admin1/news-rag/data/editions.yaml
+{}
+$ main pages with folio done, per year
+2024	746
+2025	2751
+
+$ E-4 step 1
+page_editions: 3497 rows
+$ E-4 step 2
+3497	36	0	3461
+$ E-4 step 3
+3497
+$ E-4 step 4
+0
+
+$ E-3 step 3: uv run newsrag editions report
+2024 codes=0 ok=0 ambiguous=0 unknown_edition=16 date_mismatch=11 state_pages=746
+2025 codes=0 ok=0 ambiguous=0 unknown_edition=20 date_mismatch=56 state_pages=2751
+ambiguous codes (year code n_pages agreement top-3 places):
+codes with unknown_edition pages (year code pages):
+  2024 AT 1
+  2024 BGNOP 1
+  2024 BGNOR 1
+  2024 BGNORCT 1
+  2024 BGNPRS 1
+  2024 BGOPRSVCT 1
+  2024 BGOPSCL 1
+  2024 BGVCT 2
+  2024 BSVAT 1
+  2024 GC 1
+  2024 GNOPSVACLT 1
+  2024 GNPRSACLT 1
+  2024 NOPL 1
+  2024 SVA 1
+  2024 VT 1
+  2025 ALL 2
+  2025 BGL 1
+  2025 BGNOPACLT 2
+  2025 BGNOPRSVAT 1
+  2025 BGNOPRVACL 1
+  2025 BGNOSVACLT 2
+  2025 BGNPSVACT 1
+  2025 BGNVT 1
+  2025 BGRVCT 1
+  2025 BGT 2
+  2025 BNRSVCL 1
+  2025 BNRSVCLT 1
+  2025 BOPRSV 1
+  2025 BPLT 1
+  2025 BRSVCLT 2
+state pages: folio places (year top-5, not used as editions):
+  2024 విజయవాడ:601, వైజాగ్:2, ఏలూరు జిల్లా:1, గంగాధర:1
+  2025 విజయవాడ:2084, హైదరాబాద్:6, అమరావతి:3, పోలవరం:3, వైజాగ్:3
+
+$ page_editions by source and states
+main	['andhra_pradesh']	3449
+main	[]	36
+main	['telangana']	12
+
+$ E-5
+9 passed, 18 deselected in 0.65s
+$ E-6
+4 passed, 23 deselected in 0.05s
+$ E-7
+3 passed, 24 deselected in 0.05s
+$ ruff
+All checks passed!
+93 files already formatted
+$ unit tests
+312 passed, 59 deselected in 94.48s (0:01:34)
+$ stores tests for 011
+1 passed, 26 deselected in 0.59s
