@@ -1,6 +1,6 @@
 # 011: Edition and state from the folio
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 010: reads `ocr_final`; waits for 018: place → district/state list
 

@@ -20,14 +20,14 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 008 | Split column-spanning blocks | done | solo | waits for 007: edits the OCR block output |
 | 009 | OCR sanity-check page and sign-off | done | solo | waits for 008: shows split OCR blocks |
 | 010 | Sarvam fallback for named page types | done | solo | waits for 008: wraps the OCR block output |
-| 011 | Edition and state from the folio | draft | solo | waits for 010: reads `ocr_final`; waits for 018: place → state list |
+| 011 | Edition and state from the folio | done | solo | waits for 010: reads `ocr_final`; waits for 018: place → state list |
 | 012 | VLM article grouping | draft | solo | waits for 010: reads `ocr_final`; waits for 006: model runner |
 | 013 | Grouping judge and retry | draft | solo | waits for 012: grades its output |
 | 014 | Grouping model bake-off | draft | solo | waits for 013: needs grouping + judge |
 | 015 | Tables, infographics and notices transcription | draft | solo | waits for 013: needs final article groups |
 | 016 | Continuation stitching (per date) | draft | solo | waits for 013: needs final article groups |
 | 017 | Cross-edition story dedup (per date) | draft | solo | waits for 016: needs stitched articles; waits for 015: standalone table/notice items |
-| 018 | District and mandal reference list | draft | solo | waits for 001: needs repo layout |
+| 018 | District and mandal reference list | done | solo | waits for 001: needs repo layout |
 | 019 | Enrichment: category, people/orgs, event date | draft | solo | waits for 017: enriches canonical stories |
 | 020 | Enrichment: places and districts | draft | solo | waits for 019: same enrich module; waits for 018: reference list |
 | 021 | Enrichment: amounts as structured facts | draft | solo | waits for 020: same enrich module |

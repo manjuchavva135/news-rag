@@ -1,6 +1,6 @@
 # 018: District and mandal reference list
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 001: needs repo layout
 
