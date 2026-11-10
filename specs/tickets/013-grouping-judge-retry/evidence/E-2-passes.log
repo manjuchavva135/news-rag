@@ -1,0 +1,66 @@
+done 2024-12-05_BGNOP_main_01
+done 2024-12-11_B_main_03
+done 2024-12-11_V_main_12
+done 2024-12-27_BGNOPRSVACLT_main_01
+done 2025-01-26_B_main_05
+done 2025-05-04_BGNOPRSVACLT_main_06
+done 2025-05-11_BGNOPRSVACLT_main_03
+done 2025-10-10_BGNOPRSVACLT_main_01
+done 2025-02-15_B_main_01
+done 2025-11-03_BG_main_01
+done 2025-12-16_BG_main_06-07
+Fetching 26 files:   0%|          | 0/26 [00:00<?, ?it/s]Fetching 26 files: 100%|██████████| 26/26 [00:00<00:00, 2392.59it/s]
+done 2025-12-17_B_main_01
+done 2024-12-09_R_main_03
+done 2024-12-06_GNOCLT_main_16
+done 2024-12-08_BGNOPSVACLT_main_10
+done 2025-10-15_B_main_10
+done 2025-10-20_ALL_main_02
+done 2024-12-02_BG_main_01
+done 2025-01-27_B_main_14
+done 2025-02-25_BGVC_main_14
+group_retry: done=20 failed=0 skipped=0 in 309.3s
+done 2024-12-05_BGNOP_main_01
+done 2024-12-11_B_main_03
+done 2024-12-27_BGNOPRSVACLT_main_01
+done 2024-12-11_V_main_12
+done 2025-02-15_B_main_01
+done 2025-01-26_B_main_05
+done 2025-10-10_BGNOPRSVACLT_main_01
+done 2025-05-11_BGNOPRSVACLT_main_03
+done 2025-05-04_BGNOPRSVACLT_main_06
+done 2025-12-16_BG_main_06-07
+done 2025-11-03_BG_main_01
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 2523.04it/s]
+done 2024-12-06_GNOCLT_main_16
+done 2025-02-25_BGVC_main_14
+done 2024-12-09_R_main_03
+done 2025-10-15_B_main_10
+done 2025-10-20_ALL_main_02
+done 2025-12-17_B_main_01
+done 2025-01-27_B_main_14
+done 2024-12-08_BGNOPSVACLT_main_10
+done 2024-12-02_BG_main_01
+judge_retry: done=20 failed=0 skipped=0 in 110.6s
+done 2024-12-05_BGNOP_main_01
+done 2024-12-11_B_main_03
+done 2024-12-06_GNOCLT_main_16
+done 2024-12-11_V_main_12
+done 2024-12-09_R_main_03
+done 2024-12-08_BGNOPSVACLT_main_10
+done 2024-12-27_BGNOPRSVACLT_main_01
+done 2024-12-02_BG_main_01
+done 2025-01-26_B_main_05
+done 2025-05-04_BGNOPRSVACLT_main_06
+done 2025-02-15_B_main_01
+done 2025-10-10_BGNOPRSVACLT_main_01
+done 2025-01-27_B_main_14
+done 2025-02-25_BGVC_main_14
+done 2025-05-11_BGNOPRSVACLT_main_03
+done 2025-10-15_B_main_10
+done 2025-11-03_BG_main_01
+done 2025-12-16_BG_main_06-07
+done 2025-12-17_B_main_01
+done 2025-10-20_ALL_main_02
+group_final: done=20 failed=0 skipped=0 in 0.2s
+ALLDONE

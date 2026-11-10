@@ -1,0 +1,13 @@
+tests/test_judge.py::test_same_family_refused PASSED                     [  4%]
+tests/test_judge.py::test_same_family_exits_2_before_any_db_access PASSED [  6%]
+tests/test_judge.py::test_score_formula PASSED                           [ 20%]
+tests/test_judge.py::test_high_score_passes_through_without_model_call[0.8] PASSED [ 47%]
+tests/test_judge.py::test_high_score_passes_through_without_model_call[0.9] PASSED [ 50%]
+tests/test_judge.py::test_high_score_passes_through_without_model_call[1.0] PASSED [ 52%]
+tests/test_judge.py::test_high_score_passes_through_without_model_call[None] PASSED [ 54%]
+tests/test_judge.py::test_low_score_regroups_at_1_5x PASSED              [ 56%]
+tests/test_judge.py::test_judge_retry_passes_through_when_not_retried PASSED [ 63%]
+tests/test_judge.py::test_better_grouping_kept PASSED                    [ 70%]
+tests/test_judge.py::test_still_low_flagged PASSED                       [ 75%]
+tests/test_judge.py::test_article_verdict_flags PASSED                   [ 77%]
+============================== 44 passed in 1.58s ==============================

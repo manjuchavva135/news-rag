@@ -1,0 +1,4 @@
+judge        done=20 failed=0 running=0 eligible=0
+group_retry  done=20 failed=0 running=0 eligible=0
+judge_retry  done=20 failed=0 running=0 eligible=0
+group_final  done=20 failed=0 running=0 eligible=0

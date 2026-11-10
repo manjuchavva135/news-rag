@@ -1,0 +1,8 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 2667.86it/s]
+2024-12-02_BG_main_01 stored=0.636 merged=0.6 lower
+2024-12-06_GNOCLT_main_16 stored=0.75 merged=1.0 NOT lower
+2024-12-08_BGNOPSVACLT_main_10 stored=0.6 merged=0.5 lower
+2024-12-11_B_main_03 stored=1.0 merged=1.0 NOT lower
+2024-12-11_V_main_12 stored=0.812 merged=0.8 lower
+lower: 3/5
+exit=0

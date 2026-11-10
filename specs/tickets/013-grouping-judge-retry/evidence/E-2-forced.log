@@ -1,0 +1,21 @@
+Fetching 26 files:   0%|          | 0/26 [00:00<?, ?it/s]Fetching 26 files: 100%|██████████| 26/26 [00:00<00:00, 2538.81it/s]
+done 2025-02-25_BGVC_main_14
+done 2025-01-27_B_main_14
+done 2025-10-15_B_main_10
+done 2024-12-02_BG_main_01
+done 2024-12-11_V_main_12
+group_retry: done=5 failed=0 skipped=0 in 241.6s
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 2690.66it/s]
+done 2025-02-25_BGVC_main_14
+done 2025-10-15_B_main_10
+done 2025-01-27_B_main_14
+done 2024-12-02_BG_main_01
+done 2024-12-11_V_main_12
+judge_retry: done=5 failed=0 skipped=0 in 108.6s
+done 2024-12-02_BG_main_01
+done 2025-01-27_B_main_14
+done 2025-10-15_B_main_10
+done 2024-12-11_V_main_12
+done 2025-02-25_BGVC_main_14
+group_final: done=5 failed=0 skipped=0 in 0.0s
+exit=0

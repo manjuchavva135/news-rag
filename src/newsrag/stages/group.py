@@ -149,17 +149,21 @@ def ask_blocks(
     ask: Ask,
     data: dict[str, Any],
     blocks: Sequence[dict[str, Any]],
+    image_long_side: int | None = None,
 ) -> dict[str, Any]:
     """Raw grouping of `blocks`, with the invalid-reply retries."""
-    messages = gin.messages_for(data, blocks)
+    messages = gin.messages_for(data, blocks, image_long_side)
     valid = {b["order"] for b in blocks}
     return parse.request_grouping(
         lambda sent: ask(sent, len(blocks)), messages, valid, config.settings.group_parse_retries
     )
 
 
-def group_page(data: dict[str, Any], ask: Ask, model: str) -> dict[str, Any]:
+def group_page(
+    data: dict[str, Any], ask: Ask, model: str, image_long_side: int | None = None
+) -> dict[str, Any]:
     """The `group` artifact of one page from its `ocr_final` artifact (`data`).
+    `image_long_side` overrides `group_image_max_px` (ticket 013's regroup pass).
 
     `ask(messages, max_items)` is the model call (see `send`). A page that does not fit the model is
     grouped in two halves and the answers are merged; a half that still fails fails the page.
@@ -184,13 +188,18 @@ def group_page(data: dict[str, Any], ask: Ask, model: str) -> dict[str, Any]:
 
     extra: list[str] = []
     try:
-        raw = ask_blocks(ask, data, blocks)
+        raw = ask_blocks(ask, data, blocks, image_long_side)
     except parse.TooLong:
         width, _ = gin.page_size(data)
         left, right = split_halves(blocks, width)
         if not left or not right:
             raise parse.GroupingError("page does not fit the model and cannot be split") from None
-        raw = parse.merge_raw([ask_blocks(ask, data, left), ask_blocks(ask, data, right)])
+        raw = parse.merge_raw(
+            [
+                ask_blocks(ask, data, left, image_long_side),
+                ask_blocks(ask, data, right, image_long_side),
+            ]
+        )
         extra.append(SPLIT_HALVES)
 
     built = geometry.build_grouping(raw["articles"], raw["unassigned"], blocks, page_id, params)
