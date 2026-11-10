@@ -1,0 +1,17 @@
+['blocks_omitted'] ['b023']
+2024-12-06_GNOCLT_main_16#a01 masthead ['b001', 'b002', 'b003'] ['disconnected'] '14 శుక్రవారం | 6 | డిసెంబర్ | 2024\nవిజయవాడ | www.s'
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a02 news ['b005', 'b004', 'b007', 'b008', 'b006'] ['overlaps_other'] 'హామీలను నెరవేర్చలేకే డైవర్సన్ పాలిటిక్స్'
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a03 news ['b009', 'b014', 'b013'] ['order_changed'] "మాయ 'లేడి'.."
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a04 news ['b010', 'b015', 'b016'] [] 'జగత్ కిలాడి!'
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a05 news ['b012', 'b011'] ['disconnected', 'overlaps_other'] 'నేకే డైవర్సన్ పాలిటిక్స్'
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a06 masthead ['b017', 'b018', 'b019', 'b020'] ['disconnected'] '32.9X18 C\nTATA MOTORS - RANGE'
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a07 ad_commercial ['b022', 'b027', 'b028', 'b029', 'b024', 'b025', 'b026', 'b030', 'b032', 'b034', 'b035', 'b036', 'b037', 'b038', 'b039', 'b040', 'b021', 'b031', 'b033'] ['headline_below_body', 'duplicate_block', 'order_from_model'] 'ఇదే సరైన సమయం! TVS IQUBE ELECTRIC ₹40 000* వరకు ప్'
+    ['block_id', 'role']
+2024-12-06_GNOCLT_main_16#a08 masthead ['b042', 'b041', 'b043', 'b044', 'b045', 'b046', 'b047'] ['order_changed'] ''
+    ['block_id', 'role']
