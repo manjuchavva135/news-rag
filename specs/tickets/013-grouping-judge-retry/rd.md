@@ -1,6 +1,6 @@
 # 013: Grouping judge and retry
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 012: grades its output
 
