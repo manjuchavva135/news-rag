@@ -12,7 +12,7 @@ Return one JSON object and nothing else (no explanation, no code fence). Write i
 
 - `n` is a block number from the list. Each block number must appear exactly once in the whole answer, either in one article or in `unassigned`.
 - List the blocks of an article in the order a reader reads them: headline first, then the text in column order (down the first column, then the next column to the right), then pictures, captions and other parts.
-- `unassigned` holds blocks that belong to no article and need no role (page numbers, stray marks). Use it rarely: mastheads, ads and notices are articles of their own kind, not unassigned.
+- `unassigned` holds blocks that belong to no article and need no role (stray marks). Use it rarely: mastheads, ads and notices are articles of their own kind, not unassigned.
 
 ### kind (one per article)
 
