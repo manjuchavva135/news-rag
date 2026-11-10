@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-a5ca9232307937aae/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a5ca9232307937aae
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 31 items / 19 deselected / 12 selected
+
+tests/test_grouping_geometry.py::test_duplicate_block_flag PASSED        [  8%]
+tests/test_grouping_geometry.py::test_column_order_two_columns PASSED    [ 16%]
+tests/test_grouping_geometry.py::test_column_order_ties_go_to_lower_order PASSED [ 25%]
+tests/test_grouping_geometry.py::test_column_order_same_column_needs_half_of_narrower PASSED [ 33%]
+tests/test_grouping_geometry.py::test_column_order_wide_block_cuts_bands PASSED [ 41%]
+tests/test_grouping_geometry.py::test_column_order_wide_block_on_top_goes_first PASSED [ 50%]
+tests/test_grouping_geometry.py::test_column_order_single_and_empty PASSED [ 58%]
+tests/test_grouping_geometry.py::test_column_order_009_page PASSED       [ 66%]
+tests/test_grouping_geometry.py::test_order_from_model_when_unsure PASSED [ 75%]
+tests/test_grouping_geometry.py::test_order_changed_flag PASSED          [ 83%]
+tests/test_grouping_geometry.py::test_duplicate_block_detected_inside_bigger_box PASSED [ 91%]
+tests/test_grouping_geometry.py::test_duplicate_needs_text_match PASSED  [100%]
+
+====================== 12 passed, 19 deselected in 0.05s =======================

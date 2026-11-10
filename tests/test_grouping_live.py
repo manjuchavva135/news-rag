@@ -35,4 +35,9 @@ def test_009_page_grouped_with_the_real_model():
     ids2 = [b["block_id"] for b in second["blocks"]]
     assert {"b005", "b004", "b007", "b008"} <= set(ids1)  # b012 repeats the headline
     assert ids1.index("b007") < ids1.index("b008")
-    assert {"b009", "b010", "b014", "b013", "b015", "b016", "b011"} <= set(ids2)
+    # b012 repeats b005's headline: grouped with it, marked as its duplicate, text not repeated
+    assert "b012" in ids1
+    assert first["blocks"][ids1.index("b012")].get("duplicate_of") == "b005"
+    assert first["headline"].count("డైవర్సన్") == 1
+    story2 = ["b009", "b010", "b014", "b013", "b015", "b016", "b011"]
+    assert [i for i in ids2 if i in story2] == story2
