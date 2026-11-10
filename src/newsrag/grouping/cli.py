@@ -1,4 +1,5 @@
-"""`newsrag group`: overlay of a page's articles and the unassigned share (ticket 012)."""
+"""`newsrag group`: overlay of a page's articles, the unassigned share (ticket 012) and the
+model bake-off (ticket 014)."""
 
 from __future__ import annotations
 
@@ -98,3 +99,63 @@ def stats(
         n_text, n_left = count_page(load_ocr_final(row["page_id"]), artifact)
         pages, blocks, unassigned = pages + 1, blocks + n_text, unassigned + n_left
     typer.echo(stats_line(pages, failed, blocks, unassigned))
+
+
+@app.command()
+def bakeoff(
+    candidates: Annotated[
+        str | None,
+        typer.Option("--candidates", help="Comma-separated profiles (default bakeoff_candidates)."),
+    ] = None,
+    judge: Annotated[
+        str | None, typer.Option("--judge", help="Judge profile (default judge_model).")
+    ] = None,
+    pages_file: Annotated[
+        Path | None,
+        typer.Option("--pages-file", help="Bake-off pages (default bakeoff_pages_file)."),
+    ] = None,
+    rerun: Annotated[bool, typer.Option("--rerun", help="Ignore saved outputs.")] = False,
+    apply: Annotated[
+        bool,
+        typer.Option("--apply", help="Write the existing report's winner into pipeline.yaml."),
+    ] = False,
+) -> None:
+    """Grouping model bake-off (ticket 014): candidates group the same pages, the judge scores
+    them, the report names the winner; `--apply` writes it as group_model (and the judge as
+    judge_model)."""
+    from newsrag.grouping import bakeoff as bk
+
+    s = config.settings
+    if apply:
+        try:
+            winner, judge_name = bk.apply_report()
+        except (FileNotFoundError, ValueError) as exc:
+            raise _fail(str(exc), 1) from None
+        typer.echo(f"group_model set to {winner}")
+        typer.echo(f"judge_model set to {judge_name}")
+        return
+    names = (
+        [c.strip() for c in candidates.split(",") if c.strip()]
+        if candidates
+        else list(s.bakeoff_candidates)
+    )
+    judge_name = judge or s.judge_model
+    try:
+        bk.check_request(names, judge_name)
+    except bk.BakeoffError as exc:
+        raise _fail(str(exc), 2) from None
+    pages = bk.ensure_pages_file(pages_file or s.bakeoff_pages_file, s.dev_sample_file)
+    headlines = bk.ensure_headlines_file(s.bakeoff_telugu_file, s.dev_sample_file, _load_ocr_final)
+    _rows, winner, path = bk.run_bakeoff(
+        names, judge_name, pages, headlines, rerun=rerun, echo=typer.echo
+    )
+    typer.echo(path.read_text(encoding="utf-8"))
+    typer.echo(str(path))
+    if winner is None:
+        raise typer.Exit(1)
+
+
+def _load_ocr_final(page_id: str) -> dict:
+    from newsrag.grouping.input import load_ocr_final
+
+    return load_ocr_final(page_id)

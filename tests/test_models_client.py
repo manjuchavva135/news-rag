@@ -206,6 +206,7 @@ def test_repo_profiles():
     profiles = load_profiles()
     assert list(profiles) == [
         "qwen3-vl-32b",
+        "qwen3-vl-30b-a3b",
         "gemma3-27b",
         "gemma4-31b",
         "internvl3.5-38b",
@@ -216,6 +217,13 @@ def test_repo_profiles():
     assert qwen_vl.hf_id == "Qwen/Qwen3-VL-32B-Instruct" and qwen_vl.kind == "vlm"
     assert qwen_vl.max_model_len == 65536
     assert '{"max_pixels": 20000000}' in qwen_vl.extra_args
+    moe_vl = profiles["qwen3-vl-30b-a3b"]
+    assert (moe_vl.hf_id, moe_vl.family, moe_vl.kind) == (
+        "Qwen/Qwen3-VL-30B-A3B-Instruct",
+        "qwen",
+        "vlm",
+    )
+    assert moe_vl.extra_args == qwen_vl.extra_args
     assert '{"do_pan_and_scan": true}' in profiles["gemma3-27b"].extra_args
     assert '{"max_soft_tokens": 1120}' in profiles["gemma4-31b"].extra_args
     assert profiles["internvl3.5-38b"].family == "internvl"

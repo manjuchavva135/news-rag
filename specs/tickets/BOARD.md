@@ -23,7 +23,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 011 | Edition and state from the folio | done | solo | waits for 010: reads `ocr_final`; waits for 018: place → state list |
 | 012 | VLM article grouping | done | solo | waits for 010: reads `ocr_final`; waits for 006: model runner |
 | 013 | Grouping judge and retry | done | solo | waits for 012: grades its output |
-| 014 | Grouping model bake-off | draft | solo | waits for 013: needs grouping + judge |
+| 014 | Grouping model bake-off | ready | solo | waits for 013: needs grouping + judge |
 | 015 | Tables, infographics and notices transcription | draft | solo | waits for 013: needs final article groups |
 | 016 | Continuation stitching (per date) | draft | solo | waits for 013: needs final article groups |
 | 017 | Cross-edition story dedup (per date) | draft | solo | waits for 016: needs stitched articles; waits for 015: standalone table/notice items |

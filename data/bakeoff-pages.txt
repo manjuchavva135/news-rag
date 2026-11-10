@@ -1,0 +1,6 @@
+# Ticket 014 bake-off pages, chosen by `newsrag group bakeoff` from dev-sample.txt (FR-2 slots: 2020 main_01, 2026 main_01, 2025 ALL, single-letter edition inner page, fea/splus; a slot with no match takes the next line)
+2024-12-02_BG_main_01
+2024-12-05_BGNOP_main_01
+2025-10-20_ALL_main_02
+2024-12-06_GNOCLT_main_16
+2024-12-08_BGNOPSVACLT_main_10

@@ -17,6 +17,21 @@ profiles:
       - --mm-processor-kwargs
       - '{"max_pixels": 20000000}'  # so a 5376-px page is not silently shrunk
 
+  - name: qwen3-vl-30b-a3b
+    hf_id: Qwen/Qwen3-VL-30B-A3B-Instruct
+    family: qwen
+    kind: vlm
+    dtype: bfloat16
+    # 014 FR-1 asked for 32768; 65536 like qwen3-vl-32b so ticket 013's 5376-px regroup pass
+    # (about 20k image tokens + block list + 8192 output) fits without splitting the page
+    max_model_len: 65536
+    gpu_memory_utilization: 0.90
+    extra_args:
+      - --limit-mm-per-prompt
+      - '{"image": 1}'
+      - --mm-processor-kwargs
+      - '{"max_pixels": 20000000}'  # so a 5376-px page is not silently shrunk
+
   - name: gemma3-27b
     hf_id: google/gemma-3-27b-it
     family: gemma
