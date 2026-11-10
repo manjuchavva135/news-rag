@@ -24,12 +24,12 @@ model fits at a time, this is done as four separate passes.
   - Function `newsrag.grouping.judge.judge_grouping(page, grouping, image_long_side=3584) -> {score, verdicts}` is used by the stages, the sanity check and ticket 014; it draws the overlay with `draw_articles(mark_flags=False, kinds=<judged kinds>)` so the judge only sees numbered judged articles.
   - Failures: invalid JSON after the retries fails that `judge`/`judge_retry` item; unknown or repeated numbers left after the retries are ignored (first use kept); missing numbers stay in the denominator. If `judge` fails for good, `group_final` passes the original grouping through with `judge_score: null` and flag `low_confidence:judge_failed`; if `group_retry` or `judge_retry` fails for good, `group_final` keeps the original grouping with flag `low_confidence:retry_failed`. (`group_final` depends on those stages being done *or* failed at max attempts.)
   - `group_retry` and `judge_retry` use `concurrency = group_concurrency` (16). `retry_gain=n/a` when nothing was retried.
-  - NFR-1 corrupts the `group` grouping and compares with that page's `judge` score.
+  - NFR-1 corrupts the `group` grouping, choosing the pair from that page's stored `judge` verdicts.
   - E-2 adds a forced retry: `NEWSRAG_JUDGE_THRESHOLD=1.0 uv run newsrag stage run group_retry judge_retry group_final --pages-file <5 densest sample pages> --force` must give 0 failures and `retried:true` on all 5.
 
 ## Non-functional requirements
 
-- **NFR-1** - Sanity of the judge: `uv run newsrag judge sanity --pages-file data/dev-sample.txt --n 5` takes the first 5 sample pages with ≥ 2 news articles, merges (in memory only, nothing written) the two articles with the longest text into one (blocks united, headline of the first, text rebuilt), judges the corrupted grouping, and prints `lower: k/5`, where lower means below that page's stored `judge` score; k must be ≥ 4.
+- **NFR-1** - Sanity of the judge: `uv run newsrag judge sanity --pages-file data/dev-sample.txt --n 5` takes the first 5 sample pages that have a *clean pair*: two `news` articles that the page's stored `judge` called `correct` and whose headlines are distinct (they share fewer than two words and neither word set contains the other, so a broken-off piece of the same story is never used). Of those pairs it takes the one with the longest texts, merges the two articles in memory only (nothing written; blocks united, id and headline of the earlier one, text rebuilt), judges the corrupted grouping and prints one line per page plus `caught: k/5`, where caught means the judge's verdict on the merged article is not `correct` (and not missing); k must be ≥ 4. Pages without a clean pair are skipped with a `skip` line. (Changed after the first build: the old test merged the two longest articles and compared page scores, which sometimes repaired a split story and moved with unrelated verdicts.)
 
 ## Affected areas
 

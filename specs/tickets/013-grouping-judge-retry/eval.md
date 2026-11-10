@@ -46,7 +46,7 @@ PY`
 - **Type:** CLI
 - **Steps:**
   1. `uv run newsrag judge sanity --pages-file data/dev-sample.txt --n 5`
-- **Expected:** prints `lower: k/5` with k ≥ 4.
+- **Expected:** one `pair=aNN+aMM verdict=<v> ... caught|missed` line per page (no page pairs an article with a piece of its own story), then `caught: k/5` with k ≥ 4.
 
 ## Edge cases
 

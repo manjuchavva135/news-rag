@@ -318,21 +318,63 @@ def judge_grouping(
     }
 
 
-# --- helper for the sanity check ---------------------------------------------------------------
+# --- helpers for the sanity check (NFR-1) -------------------------------------------------------
 
 
-def merge_two_longest(grouping: Mapping[str, Any], kind: str = "news") -> dict[str, Any] | None:
-    """A copy of the grouping with the two `kind` articles of longest text merged into one (blocks
-    united, headline of the earlier one, text rebuilt, bbox united, no flags); None when the page
-    has fewer than two such articles. Nothing is written anywhere."""
+def headline_words(article: Mapping[str, Any]) -> set[str]:
+    """The words of an article's headline with punctuation and symbols stripped (Telugu vowel
+    signs are combining marks, so words are split on whitespace, not on `\\W`)."""
+    import unicodedata
+
+    words = set()
+    for raw in str(article.get("headline") or "").split():
+        word = "".join(ch for ch in raw if not unicodedata.category(ch).startswith(("P", "S")))
+        if word:
+            words.add(word)
+    return words
+
+
+def distinct_headlines(a: Mapping[str, Any], b: Mapping[str, Any]) -> bool:
+    """True when both articles have a headline and neither looks like a piece of the other: they
+    share fewer than two words and neither word set contains the other."""
+    wa, wb = headline_words(a), headline_words(b)
+    if not wa or not wb:
+        return False
+    shared = wa & wb
+    return len(shared) < 2 and not (wa <= wb or wb <= wa)
+
+
+def pick_clean_pair(
+    grouping: Mapping[str, Any], verdicts: Mapping[str, str], kind: str = "news"
+) -> tuple[str, str] | None:
+    """Two `kind` articles that are surely different stories: both judged `correct` in
+    `verdicts` (the page's stored `judge` verdicts) and with distinct headlines. Of those pairs,
+    the one with the longest texts; the ids come back in grouping order. None when no such pair."""
+    articles = list(grouping.get("articles") or [])
+    order = {a["article_id"]: k for k, a in enumerate(articles)}
+    ok = [
+        a
+        for a in articles
+        if a["kind"] == kind and verdicts.get(a["article_id"]) == "correct" and headline_words(a)
+    ]
+    ok.sort(key=lambda a: -len(a.get("text") or ""))
+    for x in range(len(ok)):
+        for y in range(x + 1, len(ok)):
+            if distinct_headlines(ok[x], ok[y]):
+                pair = sorted((ok[x]["article_id"], ok[y]["article_id"]), key=order.__getitem__)
+                return pair[0], pair[1]
+    return None
+
+
+def merge_articles(grouping: Mapping[str, Any], first_id: str, second_id: str) -> dict[str, Any]:
+    """A copy of the grouping with two articles merged into one (blocks united, id and headline of
+    the earlier one, text rebuilt, bbox united, no flags). Nothing is written anywhere."""
     from newsrag.grouping import geometry
 
     articles = list(grouping.get("articles") or [])
-    news = [(i, a) for i, a in enumerate(articles) if a["kind"] == kind]
-    if len(news) < 2:
-        return None
-    longest = sorted(news, key=lambda ia: -len(ia[1].get("text") or ""))[:2]
-    (i, first), (j, second) = sorted(longest, key=lambda ia: ia[0])
+    idx = {a["article_id"]: k for k, a in enumerate(articles)}
+    i, j = sorted((idx[first_id], idx[second_id]))
+    first, second = articles[i], articles[j]
     merged = {
         **first,
         "blocks": [*first["blocks"], *second["blocks"]],
@@ -343,3 +385,8 @@ def merge_two_longest(grouping: Mapping[str, Any], kind: str = "news") -> dict[s
     out = dict(grouping)
     out["articles"] = [merged if k == i else a for k, a in enumerate(articles) if k != j]
     return out
+
+
+def merge_caught(verdict: str) -> bool:
+    """The judge noticed a merged article: any verdict other than `correct` and `missing`."""
+    return verdict not in ("correct", MISSING)

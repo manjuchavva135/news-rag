@@ -11,10 +11,10 @@ Port: 8701 (not used, CLI only)
 | unit tests (`-m "not gpu and not data and not stores"`) | PASS, 433 passed | evidence/unit.log |
 | E-1 logic with fake models | PASS, 47 passed in tests/test_judge.py (incl. all 7 named tests) | evidence/E-1.log |
 | E-2 four passes on the dev sample | PASS: 0 failures in the four stages; stats printed; artifact check `ok`; 0 retried rows with image_long_side <> 5376; forced retry on the 5 densest pages: 0 failures, `retried:true` on all 5 | evidence/E-2-*.log, E-2-judge-pass.log, E-2-passes.log |
-| E-3 judge sanity (NFR-1, k >= 4) | **FAIL: `lower: 3/5`** (two runs, identical) | evidence/E-3-run1.log, E-3-run2.log |
+| E-3 judge sanity (NFR-1, k >= 4), clean-pair test | **FAIL: `caught: 0/5`** (0/10 over every dev-sample page with a clean pair) | evidence/E-3-clean-pairs.log (old test: E-3-run1.log, E-3-run2.log) |
 | E-4 family check | PASS (`judge_model and group_model must be different families`, exit=2) | evidence/E-4.log |
 | E-5 second-review clarifications | PASS, 9 tests | evidence/E-5.log |
-| live test `tests/test_judge_live.py` (gpu+data) | FAIL, same cause as E-3 (merged grouping scored 1.0 vs 0.75) | evidence/live.log |
+| live test `tests/test_judge_live.py` (gpu+data) | rewritten: checks the merged article gets a real verdict, not that it is caught (old run: evidence/live.log); not re-run | - |
 
 `judge stats --pages-file data/dev-sample.txt` (after the forced-retry run was undone):
 
@@ -27,15 +27,20 @@ retry_gain=0.274
 ```
 (First run, before the forced retry: mean_score=0.841, judge_low_pct=25.0, retried_pct=45.0, retry_gain=0.290; the model is not bit-deterministic across re-runs.)
 
-Sanity lines (`judge sanity --pages-file data/dev-sample.txt --n 5`):
+Sanity lines, clean-pair test (`judge sanity --pages-file data/dev-sample.txt --n 20`; `--n 5` is the first five):
 
 ```
-2024-12-02_BG_main_01 stored=0.636 merged=0.6 lower
-2024-12-06_GNOCLT_main_16 stored=0.75 merged=1.0 NOT lower
-2024-12-08_BGNOPSVACLT_main_10 stored=0.6 merged=0.5 lower
-2024-12-11_B_main_03 stored=1.0 merged=1.0 NOT lower
-2024-12-11_V_main_12 stored=0.812 merged=0.8 lower
-lower: 3/5
+2024-12-02_BG_main_01 pair=a08+a10 verdict=correct stored=0.636 merged=0.6 missed
+2024-12-06_GNOCLT_main_16 pair=a02+a04 verdict=correct stored=0.75 merged=0.667 missed
+2024-12-08_BGNOPSVACLT_main_10 pair=a02+a06 verdict=correct stored=0.6 merged=0.5 missed
+2024-12-11_B_main_03 pair=a07+a09 verdict=correct stored=1.0 merged=1.0 missed
+2024-12-11_V_main_12 pair=a08+a13 verdict=correct stored=0.812 merged=0.8 missed
+2025-01-26_B_main_05 pair=a02+a04 verdict=correct stored=1.0 merged=1.0 missed
+2025-01-27_B_main_14 pair=a15+a17 verdict=correct stored=0.412 merged=0.353 missed
+2025-02-15_B_main_01 pair=a02+a04 verdict=correct stored=0.8 merged=1.0 missed
+2025-05-11_BGNOPRSVACLT_main_03 pair=a02+a03 verdict=correct stored=1.0 merged=1.0 missed
+2025-12-17_B_main_01 pair=a04+a07 verdict=correct stored=0.667 merged=0.6 missed
+caught: 0/10
 ```
 
 ## Attempts
@@ -45,6 +50,7 @@ lower: 3/5
   - Gemma only sees about 900 px per image (pan-and-scan gives 2 crops + 1 global on a portrait page), and in a probe it hallucinated the labels on a 3584 px overlay. Cutting the overlay into 3 bands (labels then readable) gave no better detection (2/12 and 3/12).
   - Qwen3-VL-32B as judge (probe only, not allowed by FR-1: same family as the grouper): 7/12.
   - Conclusion: with Gemma 3 27B the judge does not reliably notice two merged stories; none of the cheap fixes worked, so the shipped code keeps the spec input unchanged (all experiments reverted: models.yaml untouched, no tiling code). NFR-1 is therefore not met on this model. A decision is needed (see router notes).
+- Attempt 3 (user chose "fix the test"): the old test merged the two longest news articles and compared page scores. On 3-4 of 12 pages those two were pieces of one story that the grouper had split (e.g. GNOCLT_16 a02/a05), so the merge repaired the page; and page scores moved with unrelated verdicts between calls. NFR-1/E-3 now merge only a *clean pair* (both stored verdicts `correct`, distinct headlines) and count whether the merged article's verdict is not `correct`. Result with Gemma 3 27B: 0/10 caught; Gemma calls every merged article `correct`. For comparison (scratch run, old pairs, same prompt), Qwen3-VL-32B flagged the merged article on 5/12 pages, Gemma on 2/12. NFR-1 stays at k >= 4 and is not met: the judge model, not the test, is the gap.
 - Attempt 2 (after review): fixes for reviewer findings (below), E-1/E-5/lint/unit re-run: all pass. E-3 unchanged.
 
 ## Changes

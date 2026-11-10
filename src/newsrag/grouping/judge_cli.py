@@ -78,8 +78,9 @@ def sanity(
     pages_file: Annotated[Path, typer.Option("--pages-file", help="Page ids, one per line.")],
     n: Annotated[int, typer.Option("--n", help="How many pages to corrupt.")] = 5,
 ) -> None:
-    """Merge the two longest news articles of each page (in memory only), judge the corrupted
-    grouping and count the pages that now score below their stored `judge` score."""
+    """Merge two articles that are surely different stories (both judged `correct` by the stored
+    `judge`, distinct headlines) in memory only, judge the corrupted grouping and count the pages
+    where the judge does not call the merged article `correct`."""
     from newsrag import config, models
     from newsrag.grouping import input as gin
     from newsrag.grouping import judge as jg
@@ -101,22 +102,27 @@ def sanity(
         if group_path is None or row is None or row["status"] != "done":
             typer.echo(f"skip {page_id}: group and judge are not both done")
             continue
-        corrupted = jg.merge_two_longest(gin.load_artifact(group_path))
-        stored = gin.load_artifact(row["artifact_path"]).get("score")
-        if corrupted is None or stored is None:
+        grouping = gin.load_artifact(group_path)
+        stored = gin.load_artifact(row["artifact_path"])
+        pair = jg.pick_clean_pair(grouping, stored.get("verdicts") or {})
+        if pair is None:
+            typer.echo(f"skip {page_id}: no two correct news articles with distinct headlines")
             continue
-        chosen.append((page_id, corrupted, stored))
+        chosen.append((page_id, pair, jg.merge_articles(grouping, *pair), stored.get("score")))
     if not chosen:
-        typer.echo("no page with two news articles and a stored judge score", err=True)
+        typer.echo("no page with a clean pair of news articles and a stored judge score", err=True)
         raise typer.Exit(1)
-    lower = 0
+    caught = 0
     with models.use(config.settings.judge_model) as client:
         ask = send(jg.make_create(client))
-        for page_id, corrupted, stored in chosen:
+        for page_id, (first, second), corrupted, stored in chosen:
             result = jg.judge_grouping(gin.load_ocr_final(page_id), corrupted, ask=ask)
-            score = result["score"]
-            is_lower = score is not None and score < stored
-            lower += is_lower
-            verdict = "lower" if is_lower else "NOT lower"
-            typer.echo(f"{page_id} stored={stored} merged={score} {verdict}")
-    typer.echo(f"lower: {lower}/{len(chosen)}")
+            verdict = result["verdicts"].get(first, jg.MISSING)
+            hit = jg.merge_caught(verdict)
+            caught += hit
+            pair = f"{first.rsplit('#', 1)[-1]}+{second.rsplit('#', 1)[-1]}"
+            typer.echo(
+                f"{page_id} pair={pair} verdict={verdict} stored={stored} "
+                f"merged={result['score']} {'caught' if hit else 'missed'}"
+            )
+    typer.echo(f"caught: {caught}/{len(chosen)}")

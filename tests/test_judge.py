@@ -815,25 +815,91 @@ def test_other_stages_still_need_current_dependencies(done_upstream):
 # --- sanity helper and stats ----------------------------------------------------------------------
 
 
-def test_merge_two_longest_news_articles(original):
+def test_merge_articles_unites_two_articles(original):
     grouping = json.loads(json.dumps(original))
-    grouping["articles"][0]["text"] = "short"
-    grouping["articles"][1]["text"] = "a much longer text"
-    extra = dict(grouping["articles"][0], article_id=f"{PAGE}#a05", text="x" * 50, headline="Third")
-    grouping["articles"].append(extra)
+    a01, a02 = (a["article_id"] for a in grouping["articles"][:2])
     before = json.dumps(grouping)
-    merged = jg.merge_two_longest(grouping)
+    merged = jg.merge_articles(grouping, a02, a01)  # order of the ids does not matter
     assert json.dumps(grouping) == before  # nothing changed in place
     assert len(merged["articles"]) == len(grouping["articles"]) - 1
-    first = merged["articles"][1]  # a02 (long) is merged with a05 (longest): a02 comes first
+    first = merged["articles"][0]
+    assert first["article_id"] == a01 and first["headline"] == grouping["articles"][0]["headline"]
+    assert len(first["blocks"]) == 4 and first["flags"] == []
     assert (
-        first["article_id"].endswith("#a02")
-        and first["headline"] == grouping["articles"][1]["headline"]
+        first["text"] == grouping["articles"][0]["text"] + "\n\n" + grouping["articles"][1]["text"]
     )
-    assert len(first["blocks"]) == 4 and first["text"].startswith("a much longer text\n\n")
-    assert merged["articles"][0]["article_id"].endswith("#a01")  # untouched
-    assert jg.merge_two_longest(dict(original, articles=original["articles"][:1])) is None
-    assert jg.merge_two_longest(dict(original, articles=original["articles"][2:])) is None
+
+
+def test_distinct_headlines_rejects_a_fragment_of_the_same_story():
+    # 2024-12-06_GNOCLT_main_16: a05 is the broken-off tail of a02's headline
+    whole = {"headline": "హామీలను నెరవేర్చలేకే డైవర్సన్ పాలిటిక్స్"}
+    tail = {"headline": "నేకే డైవర్సన్ పాలిటిక్స్"}
+    other = {"headline": "జగత్ కిలాడి!"}
+    assert not jg.distinct_headlines(whole, tail)
+    assert jg.distinct_headlines(whole, other)
+    assert not jg.distinct_headlines(other, {"headline": "జగత్ కిలాడి"})  # same words
+    assert not jg.distinct_headlines(other, {"headline": ""})  # no headline: not sure
+    assert jg.headline_words({"headline": "‘అన్నదాతకు  అండ’"}) == {"అన్నదాతకు", "అండ"}
+
+
+def test_pick_clean_pair_needs_two_correct_articles(original):
+    grouping = json.loads(json.dumps(original))
+    a01, a02 = (a["article_id"] for a in grouping["articles"][:2])
+    third = dict(grouping["articles"][0], article_id=f"{PAGE}#a05", text="x" * 500)
+    third["headline"] = "Longest story"
+    grouping["articles"].append(third)
+    correct = {a01: "correct", a02: "correct", third["article_id"]: "correct"}
+    grouping["articles"][0]["text"] = "a" * 100
+    grouping["articles"][1]["text"] = "b" * 50
+    # the two longest texts (a05 then a01), returned in grouping order
+    assert jg.pick_clean_pair(grouping, correct) == (a01, third["article_id"])
+    # an article the stored judge did not call correct is never used
+    assert jg.pick_clean_pair(grouping, {**correct, third["article_id"]: "merged"}) == (a01, a02)
+    assert jg.pick_clean_pair(grouping, {a01: "correct", a02: "split"}) is None
+    assert jg.pick_clean_pair(dict(grouping, articles=grouping["articles"][2:4]), correct) is None
+
+
+def test_merge_caught():
+    assert (
+        jg.merge_caught("merged") and jg.merge_caught("split") and jg.merge_caught("wrong_blocks")
+    )
+    assert not jg.merge_caught("correct") and not jg.merge_caught(jg.MISSING)
+
+
+@pytest.mark.parametrize(
+    ("verdict", "line", "total"), [("merged", "caught", 1), ("correct", "missed", 0)]
+)
+def test_sanity_counts_the_merged_article_verdict(
+    world, original, fake_models, tmp_path, verdict, line, total
+):
+    from newsrag.cli import app
+
+    world.put("group", original)
+    world.put("judge", judge_artifact(original, 1.0))
+    pages = tmp_path / "pages.txt"
+    pages.write_text(PAGE + "\n")
+    fake_models.replies["gemma3-27b"] = [jreply({1: verdict})]
+    result = CliRunner().invoke(app, ["judge", "sanity", "--pages-file", str(pages), "--n", "5"])
+    assert result.exit_code == 0, result.output
+    assert f"pair=a01+a02 verdict={verdict}" in result.output and line in result.output
+    assert f"caught: {total}/1" in result.output
+    judged = text_of(fake_models.requests["gemma3-27b"][0])
+    assert "#2 " not in judged  # the second article was merged into #1
+
+
+def test_sanity_skips_a_page_without_a_clean_pair(world, original, fake_models, tmp_path):
+    from newsrag.cli import app
+
+    a02 = original["articles"][1]["article_id"]
+    verdicts = {original["articles"][0]["article_id"]: "correct", a02: "merged"}
+    world.put("group", original)
+    world.put("judge", judge_artifact(original, 0.5, verdicts))
+    pages = tmp_path / "pages.txt"
+    pages.write_text(PAGE + "\n")
+    result = CliRunner().invoke(app, ["judge", "sanity", "--pages-file", str(pages)])
+    assert result.exit_code == 1
+    assert "no two correct news articles with distinct headlines" in result.output
+    assert fake_models.opened == []
 
 
 def test_stats_lines():

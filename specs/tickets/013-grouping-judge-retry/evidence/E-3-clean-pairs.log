@@ -1,0 +1,24 @@
+skip 2024-12-05_BGNOP_main_01: no two correct news articles with distinct headlines
+skip 2024-12-09_R_main_03: no two correct news articles with distinct headlines
+skip 2024-12-27_BGNOPRSVACLT_main_01: no two correct news articles with distinct headlines
+skip 2025-02-25_BGVC_main_14: no two correct news articles with distinct headlines
+skip 2025-05-04_BGNOPRSVACLT_main_06: no two correct news articles with distinct headlines
+skip 2025-10-10_BGNOPRSVACLT_main_01: no two correct news articles with distinct headlines
+skip 2025-10-15_B_main_10: no two correct news articles with distinct headlines
+skip 2025-10-20_ALL_main_02: no two correct news articles with distinct headlines
+skip 2025-11-03_BG_main_01: no two correct news articles with distinct headlines
+skip 2025-12-16_BG_main_06-07: no two correct news articles with distinct headlines
+2024-12-02_BG_main_01 pair=a08+a10 verdict=correct stored=0.636 merged=0.6 missed
+2024-12-06_GNOCLT_main_16 pair=a02+a04 verdict=correct stored=0.75 merged=0.667 missed
+2024-12-08_BGNOPSVACLT_main_10 pair=a02+a06 verdict=correct stored=0.6 merged=0.5 missed
+2024-12-11_B_main_03 pair=a07+a09 verdict=correct stored=1.0 merged=1.0 missed
+2024-12-11_V_main_12 pair=a08+a13 verdict=correct stored=0.812 merged=0.8 missed
+2025-01-26_B_main_05 pair=a02+a04 verdict=correct stored=1.0 merged=1.0 missed
+2025-01-27_B_main_14 pair=a15+a17 verdict=correct stored=0.412 merged=0.353 missed
+2025-02-15_B_main_01 pair=a02+a04 verdict=correct stored=0.8 merged=1.0 missed
+2025-05-11_BGNOPRSVACLT_main_03 pair=a02+a03 verdict=correct stored=1.0 merged=1.0 missed
+2025-12-17_B_main_01 pair=a04+a07 verdict=correct stored=0.667 merged=0.6 missed
+caught: 0/10
+
+[exited with code 0]
+exit=0
