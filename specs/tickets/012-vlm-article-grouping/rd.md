@@ -1,6 +1,6 @@
 # 012: VLM article grouping
 
-**Status:** draft
+**Status:** ready
 **Mode:** solo
 **Runs:** waits for 010: needs final OCR blocks; waits for 006: model runner
 
