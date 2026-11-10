@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import datetime as dt
+import io
 import json
 from pathlib import Path
 from typing import Any
@@ -24,7 +25,7 @@ def folio_records() -> list[dict[str, Any]]:
     with db.conn() as c:
         rows = db.fetch_all(
             c,
-            "select p.page_id, p.pub_date, p.edition_code, s.artifact_path "
+            "select p.page_id, p.pub_date, p.edition_code, p.section, s.artifact_path "
             "from stage_runs s join pages p using (page_id) "
             "where s.stage = 'folio' and s.status = 'done' order by p.page_id",
         )
@@ -39,6 +40,7 @@ def folio_records() -> list[dict[str, Any]]:
                 "page_id": row["page_id"],
                 "pub_date": row["pub_date"],
                 "edition_code": row["edition_code"],
+                "section": row["section"],
                 "place_te": art.get("place_te"),
                 "place_districts_current": art.get("place_districts_current"),
                 "place_districts_at_print": art.get("place_districts_at_print"),
@@ -94,6 +96,19 @@ def write_editions(built: dict[int, dict[str, dict[str, Any]]], path: Path | Non
 
     path = Path(path or settings.editions_file)
     data = load_editions(path)
+    # Codes no longer built lose their generated keys; an entry left empty is dropped.
+    for ykey in list(data):
+        year_map = data[ykey] or {}
+        for code in list(year_map):
+            if code in built.get(int(ykey), {}):
+                continue
+            entry = year_map[code] or {}
+            for k in mapping.GENERATED_KEYS:
+                entry.pop(k, None)
+            if not entry:
+                del year_map[code]
+        if not year_map:
+            del data[ykey]
     for year, codes in built.items():
         key = next((k for k in data if int(k) == year), year)
         year_map = data.get(key)
@@ -112,17 +127,24 @@ def write_editions(built: dict[int, dict[str, dict[str, Any]]], path: Path | Non
     for k in sorted(data, key=int):
         data.move_to_end(k)
     path.parent.mkdir(parents=True, exist_ok=True)
+    buf = io.StringIO()
+    _yaml().dump(data, buf)
+    # the loaded file's own header comes back with the data: write HEADER once
+    lines = buf.getvalue().splitlines(keepends=True)
+    while lines and lines[0].startswith("#"):
+        lines.pop(0)
     tmp = path.with_suffix(path.suffix + ".tmp")
-    with tmp.open("w", encoding="utf-8") as fh:
-        fh.write(HEADER)
-        _yaml().dump(data, fh)
+    tmp.write_text(HEADER + "".join(lines), encoding="utf-8")
     tmp.replace(path)
     return path
 
 
 def build(path: Path | None = None) -> tuple[Path, dict[int, dict[str, dict[str, Any]]]]:
     built = mapping.build_map(
-        folio_records(), settings.editions_min_agreement, settings.editions_min_pages
+        folio_records(),
+        settings.editions_min_agreement,
+        settings.editions_min_pages,
+        settings.editions_state_sections,
     )
     return write_editions(built, path), built
 
@@ -135,7 +157,18 @@ def apply(path: Path | None = None) -> int:
     from newsrag.ledger import db
 
     editions = as_plain(load_editions(path))
-    rows = [mapping.page_edition(r, editions.get(r["pub_date"].year, {})) for r in folio_records()]
+    sections = settings.editions_state_sections
+    records = folio_records()
+    code_states = mapping.state_page_states(records, sections)
+    rows = [
+        mapping.page_edition(
+            r,
+            editions.get(r["pub_date"].year, {}),
+            sections,
+            code_states.get((r["pub_date"].year, r["edition_code"])),
+        )
+        for r in records
+    ]
     with db.conn() as c:
         c.execute("delete from page_editions")
         with c.cursor() as cur:
@@ -171,4 +204,6 @@ def report(path: Path | None = None) -> list[str]:
     triples: list[tuple[dt.date, str, list[str]]] = [
         (r["pub_date"], r["edition_code"], list(r["flags"] or [])) for r in pages
     ]
-    return mapping.report_lines(editions, triples, folio_records())
+    return mapping.report_lines(
+        editions, triples, folio_records(), settings.editions_state_sections
+    )

@@ -25,9 +25,25 @@ learns a per-year code → edition name map from it, and gives every page its ed
   - `editions report` also lists every `ambiguous` code (`year code n_pages agreement top-3 places`) and every code with `unknown_edition` pages.
   - E-2's glob is limited to the dev-sample page_ids under `folio/<current version>/`.
 
+- **FR-7** - State pages (decided with the user 2026-11-10, after building): every page in the
+  2024/2025 archives is a `-MAIN` page, and its folio prints the printing centre (విజయవాడ on
+  2,685 of the 2,727 pages with a place), whatever the edition code. So pages whose `section` is
+  in setting `editions_state_sections` (default `["main"]`):
+  - never feed the code → name map (`editions build` skips them);
+  - get, in `editions apply`: no edition names, no districts, `states` = the page's folio
+    `place_state`, else the most common folio `place_state` of the same year's state pages
+    with the same edition code; `source = 'main'`; the informational flag
+    `state_page` (plus `low_confidence:unknown_edition` when no state is found at all;
+    `date_mismatch` as for any page);
+  - are counted in `editions report` (`state_pages=<n>` on the year line), which also lists the
+    top folio places of the state pages, for information only.
+  A story's district comes from its text (ticket 020), never from a state page's folio.
+
 ## Non-functional requirements
 
-- **NFR-1** - On the dev sample, `place_te` is found for ≥ 15 of 20 pages.
+- **NFR-1** - On the dev sample, `place_te` is found for ≥ 80% of the pages that are not front
+  pages (page 1). (Changed 2026-11-10: was "≥ 15 of 20 pages"; 7 of the 20 sample pages are
+  front pages, whose masthead prints no place.)
 
 ## Affected areas
 
@@ -57,6 +73,8 @@ learns a per-year code → edition name map from it, and gives every page its ed
 | D-6 | Edition district form | both current and at-print district id lists | ticket 018 returns both; 020 stores edition districts next to story districts |
 | D-7 | Flags | only `low_confidence:unknown_edition` marks doubt; `edition_from_folio`, `edition_letters_partial`, `date_mismatch` are informational | grill D-20 and the `low_confidence:` convention |
 | D-8 | Hand edits to `editions.yaml` | kept on rebuild | English names may be added by hand |
+| D-9 | `-MAIN` pages, whose folio names the printing centre | state only, no edition name or district; not used for the code map (FR-7) | user chose 2026-11-10; tagging them with the printing centre's district would put nearly every story in NTR district |
+| D-10 | E-3 year | 2025 | the archives hold 2024-12 and 2025 pages only (as in 010) |
 
 ## Open questions
 

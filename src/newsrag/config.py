@@ -402,6 +402,10 @@ class Settings(BaseSettings):
     # pages with a place, over at least this many pages; otherwise the code is `ambiguous`.
     editions_min_agreement: float = 0.6
     editions_min_pages: int = 3
+    # Pages of these sections are state pages shared by many editions: their folio names the
+    # printing centre, not the edition (011, decided 2026-11-10). They get the state only, no
+    # edition name or district, and do not feed the code -> name map.
+    editions_state_sections: tuple[str, ...] = ("main",)
 
     @classmethod
     def settings_customise_sources(
@@ -463,6 +467,17 @@ class Settings(BaseSettings):
     @classmethod
     def _label_list(cls, value: Any) -> Any:
         """A label set from the environment: a JSON list or comma-separated names."""
+        if isinstance(value, str):
+            text = value.strip()
+            if text.startswith("["):
+                return tuple(json.loads(text))
+            return tuple(part.strip() for part in text.split(",") if part.strip())
+        return value
+
+    @field_validator("editions_state_sections", mode="before")
+    @classmethod
+    def _str_list(cls, value: Any) -> Any:
+        """Names from the environment: a JSON list or comma-separated names."""
         if isinstance(value, str):
             text = value.strip()
             if text.startswith("["):
