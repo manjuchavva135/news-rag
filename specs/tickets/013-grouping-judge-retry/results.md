@@ -4,7 +4,46 @@ Branch: ticket/013-grouping-judge-retry
 Worktree: /home/admin1/news-rag/.claude/worktrees/agent-a12b7ea621129d1c4
 Port: 8701 (not used, CLI only)
 
-## Checks
+## Checks (final: Gemma 4 judge + one-story check, FR-8)
+| Check | Result | Evidence |
+|-------|--------|----------|
+| lint (`ruff check .`, `ruff format --check .`) | PASS | - |
+| unit tests (`-m "not gpu and not data and not stores"`) | PASS, 447 passed | - |
+| E-1 logic with fake models | PASS, 61 passed in tests/test_judge.py (incl. the 7 named tests and the one-story tests) | - |
+| E-2 four passes on the dev sample (judge_model=gemma4-31b) | PASS: 20 done, 0 failed in each of judge / group_retry / judge_retry / group_final; stats printed; artifact check ok on the 20 current `group_final` files; 0 retried rows with image_long_side <> 5376 | evidence/E-2-gemma4-*.log |
+| E-3 judge sanity (NFR-1, k >= 4) | **PASS: `caught: 5/5`** | evidence/E-3-gemma4.log |
+| E-4 family check | PASS (`judge_model and group_model must be different families`, exit=2) | evidence/E-4-gemma4.log |
+| E-5 second-review clarifications | PASS (inside the 61) | - |
+| live test `tests/test_judge_live.py` (gpu+data) | PASS, 1 passed | evidence/live-gemma4.log |
+
+Note on E-2 step 4: the eval's glob `group_final/*/*.json` also matches stale directories of earlier
+versions (the Gemma 3 run and the forced `t1.0` run); the check was run on the current version's
+directory.
+
+`judge stats --pages-file data/dev-sample.txt` with Gemma 4 + one-story check:
+
+```
+pages=20
+mean_score=0.458
+judge_low_pct=70.0
+retried_pct=75.0
+retry_gain=0.123
+```
+
+The drop from Gemma 3 (mean 0.832, judge_low 30%) is mostly real grouping failures that Gemma 3
+did not see, not false alarms: Gemma 4 reports 48 missed stories over the sample against Gemma 3's 2.
+Two examples checked by eye:
+- 2024-12-27_BGNOPRSVACLT_main_01 is a full front page (about 10 stories); the ticket-012 grouping put
+  all 63 blocks into one `masthead`. Gemma 3: no judged articles, score null (passing). Gemma 4: 10
+  missed regions, score 0.
+- 2025-12-16_BG_main_06-07 (two-page spread): only the big story was grouped; the stories along the
+  top strip were not. Gemma 4: 4 missed regions.
+The one-story check changed 5 of 90 verdicts (correct -> merged). Group quality is ticket 014's job;
+the phase-1 bar (mean judge >= 0.90, <= 5% flagged) is far from met by the current grouping.
+
+## Earlier results (Gemma 3 judge, before FR-8)
+
+### Checks with Gemma 3
 | Check | Result | Evidence |
 |-------|--------|----------|
 | lint (`ruff check .`, `ruff format --check .`) | PASS | evidence/lint.log |
@@ -44,6 +83,7 @@ caught: 0/10
 ```
 
 ## Attempts
+- Attempt 4 (user chose "bake off both", then "build it"): judge bake-off on the 10 clean pairs (evidence/judge-bakeoff/README.md): page judge Gemma 3 0/10, InternVL3.5-38B 0/10, Gemma 4 31B 6/10; a per-article text-only one-story check 9/10 with Gemma 3 or Gemma 4; Gemma 4 page judge + check 10/10. Built FR-8 (one-story check), default judge_model gemma4-31b, PROMPT_VERSION 2. InternVL3.5 needs fp8 on load and `--hf-overrides` for its tile count (vLLM 0.33 passes `--mm-processor-kwargs` to its video processor too).
 - Attempt 1: E-3 gave 3/5 (< 4). Investigated whether it is the prompt, the input or the model (scratch experiments, all over the 12 dev-sample pages that have >= 2 news articles, `lower` count of merged vs original score):
   - Gemma 3 27B, spec input (one overlay at 3584 px, 300-char list): 4/12.
   - + stricter prompt (count headlines, check connectivity): 4/12. + bigger overlay labels: 4/12. + structural cues in the list (blocks, headline boxes, area): about 3/5 on the first five.

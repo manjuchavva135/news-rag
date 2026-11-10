@@ -103,14 +103,27 @@ def text_of(messages):
     return "\n".join(p["text"] for p in messages[0]["content"] if p["type"] == "text")
 
 
-class Scripted:
-    """A fake `ask(messages, max_items)`: the scripted replies in order (an Exception is raised)."""
+ONE_STORY = '{"stories": 1}'
+TWO_STORIES = '{"stories": 2}'
 
-    def __init__(self, *replies):
+
+class Scripted:
+    """A fake `ask(messages, max_items)`: the scripted replies in order (an Exception is raised).
+    One-story requests are answered from `stories` in order, then with one story."""
+
+    def __init__(self, *replies, stories=()):
         self.replies = list(replies)
+        self.stories = list(stories)
         self.calls: list[list[dict]] = []
+        self.story_calls: list[list[dict]] = []
 
     def __call__(self, messages, max_items=None):
+        if max_items == jg.STORY_CHECK:
+            self.story_calls.append(messages)
+            item = self.stories.pop(0) if self.stories else ONE_STORY
+            if isinstance(item, Exception):
+                raise item
+            return item
         self.calls.append(messages)
         item = self.replies.pop(0)
         if isinstance(item, Exception):
@@ -166,6 +179,8 @@ class FakeModels:
         self.closed: list[str] = []
         self.requests: dict[str, list] = {}
         self.replies: dict[str, list] = {}
+        self.stories: dict[str, list] = {}  # one-story replies per profile (default: one story)
+        self.story_requests: dict[str, list] = {}
 
     @contextlib.contextmanager
     def use(self, name):
@@ -177,6 +192,10 @@ class FakeModels:
 
     def make_create(self, client):
         def create(messages, max_items=None):
+            if max_items == jg.STORY_CHECK:
+                self.story_requests.setdefault(client.profile, []).append(messages)
+                queued = self.stories.get(client.profile) or []
+                return completion(queued.pop(0) if queued else ONE_STORY)
             self.requests.setdefault(client.profile, []).append(messages)
             return completion(self.replies[client.profile].pop(0))
 
@@ -258,7 +277,7 @@ def judge_artifact(grouping, score, verdicts=None):
 
 def test_settings_defaults():
     s = config.settings
-    assert s.judge_model == "gemma3-27b" and s.judge_threshold == 0.8
+    assert s.judge_model == "gemma4-31b" and s.judge_threshold == 0.8
 
 
 def test_same_family_refused(set_settings):
@@ -285,7 +304,7 @@ def test_every_profile_has_a_family():
 
     profiles = load_profiles()
     assert all(p.family for p in profiles.values())
-    assert profiles["gemma3-27b"].family != profiles["qwen3-vl-32b"].family
+    assert profiles["gemma4-31b"].family != profiles["qwen3-vl-32b"].family
 
 
 def test_stage_wiring_and_versions(set_settings):
@@ -295,17 +314,17 @@ def test_stage_wiring_and_versions(set_settings):
     assert stages["group_retry"].depends_on == ("group", "judge")
     assert stages["judge_retry"].depends_on == ("group_retry",)
     assert stages["group_final"].depends_on == ("group", "judge", "group_retry", "judge_retry")
-    assert stages["judge"].models_needed == ("gemma3-27b",)
-    assert stages["judge_retry"].models_needed == ("gemma3-27b",)
+    assert stages["judge"].models_needed == ("gemma4-31b",)
+    assert stages["judge_retry"].models_needed == ("gemma4-31b",)
     assert stages["group_retry"].models_needed == ("qwen3-vl-32b",)
     assert stages["group_final"].models_needed == ()
-    assert re.fullmatch(r"gemma3-27b-judge-p1-[0-9a-f]{8}", stages["judge"].version)
-    assert re.fullmatch(r"gemma3-27b-judge-p1-t0\.8-[0-9a-f]{8}", stages["judge_retry"].version)
+    assert re.fullmatch(r"gemma4-31b-judge-p2-[0-9a-f]{8}", stages["judge"].version)
+    assert re.fullmatch(r"gemma4-31b-judge-p2-t0\.8-[0-9a-f]{8}", stages["judge_retry"].version)
     assert re.fullmatch(r"qwen3-vl-32b-regroup-p1-t0\.8-[0-9a-f]{8}", stages["group_retry"].version)
     assert re.fullmatch(r"final-t0\.8-[0-9a-f]{8}", stages["group_final"].version)
     set_settings(judge_threshold=0.9)
     assert GroupRetryStage().version.startswith("qwen3-vl-32b-regroup-p1-t0.9-")
-    assert JudgeRetryStage().version.startswith("gemma3-27b-judge-p1-t0.9-")
+    assert JudgeRetryStage().version.startswith("gemma4-31b-judge-p2-t0.9-")
     assert GroupFinalStage().version.startswith("final-t0.9-")
 
 
@@ -393,10 +412,10 @@ def test_article_text_cut_at_300_chars(data, original):
 
 
 def test_judge_grouping_function_returns_score_and_verdicts(data, original, fake_models):
-    fake_models.replies["gemma3-27b"] = [jreply({1: "correct", 2: "wrong_blocks"})]
+    fake_models.replies["gemma4-31b"] = [jreply({1: "correct", 2: "wrong_blocks"})]
     result = jg.judge_grouping(data, original)  # opens the judge model itself
     assert set(result) >= {"score", "verdicts"} and result["score"] == 0.5
-    assert fake_models.opened == ["gemma3-27b"] and fake_models.closed == ["gemma3-27b"]
+    assert fake_models.opened == ["gemma4-31b"] and fake_models.closed == ["gemma4-31b"]
     assert list(result["verdicts"].values()) == ["correct", "wrong_blocks"]
 
 
@@ -476,12 +495,12 @@ def test_overlay_hides_unjudged(data, original):
 
 def test_judge_stage_writes_artifact_and_opens_model_once(world, original, fake_models, tmp_path):
     world.put("group", original)
-    fake_models.replies["gemma3-27b"] = [jreply({1: "correct", 2: "merged"})] * 3
+    fake_models.replies["gemma4-31b"] = [jreply({1: "correct", 2: "merged"})] * 3
     stage = JudgeStage()
     stage.open()
     results = [world.run(stage) for _ in range(3)]
     stage.close()
-    assert fake_models.opened == ["gemma3-27b"] and fake_models.closed == ["gemma3-27b"]
+    assert fake_models.opened == ["gemma4-31b"] and fake_models.closed == ["gemma4-31b"]
     artifact = json.loads(Path(results[0].artifact_path).read_text())
     assert artifact["score"] == 0.5 and artifact["source"] == "group"
     assert results[0].detail["score"] == 0.5 and results[0].detail["judge_skipped"] is False
@@ -489,7 +508,7 @@ def test_judge_stage_writes_artifact_and_opens_model_once(world, original, fake_
 
 def test_judge_stage_skipped_page_has_null_score(world, original, fake_models):
     world.put("group", dict(original, articles=original["articles"][2:]))
-    fake_models.replies["gemma3-27b"] = [jreply({}, 0)]
+    fake_models.replies["gemma4-31b"] = [jreply({}, 0)]
     stage = JudgeStage()
     stage.open()
     result = world.run(stage)
@@ -565,13 +584,13 @@ def test_judge_retry_passes_through_when_not_retried(world, original, fake_model
 def test_judge_retry_judges_the_regrouping(world, original, fake_models, data):
     regrouped = group_page(data, Scripted(RETRY_REPLY), "qwen3-vl-32b")
     world.put("group_retry", regrouped, detail={"retried": True})
-    fake_models.replies["gemma3-27b"] = [jreply({1: "correct"})]
+    fake_models.replies["gemma4-31b"] = [jreply({1: "correct"})]
     stage = JudgeRetryStage()
     stage.open()
     assert fake_models.opened == []  # lazy
     result = world.run(stage)
     stage.close()
-    assert fake_models.opened == ["gemma3-27b"]
+    assert fake_models.opened == ["gemma4-31b"]
     assert result.detail["retried"] is True and result.detail["score"] == 1.0
     assert json.loads(Path(result.artifact_path).read_text())["source"] == "group_retry"
 
@@ -878,12 +897,12 @@ def test_sanity_counts_the_merged_article_verdict(
     world.put("judge", judge_artifact(original, 1.0))
     pages = tmp_path / "pages.txt"
     pages.write_text(PAGE + "\n")
-    fake_models.replies["gemma3-27b"] = [jreply({1: verdict})]
+    fake_models.replies["gemma4-31b"] = [jreply({1: verdict})]
     result = CliRunner().invoke(app, ["judge", "sanity", "--pages-file", str(pages), "--n", "5"])
     assert result.exit_code == 0, result.output
     assert f"pair=a01+a02 verdict={verdict}" in result.output and line in result.output
     assert f"caught: {total}/1" in result.output
-    judged = text_of(fake_models.requests["gemma3-27b"][0])
+    judged = text_of(fake_models.requests["gemma4-31b"][0])
     assert "#2 " not in judged  # the second article was merged into #1
 
 
@@ -975,3 +994,109 @@ def test_judge_result_records_the_text_length_sent(data, original):
     assert result["text_chars"] == 300
     ask = Scripted(parse.TooLong("context length"), jreply({1: "correct", 2: "correct"}))
     assert jg.judge_grouping(data, original, ask=ask)["text_chars"] == 100
+
+
+# --- the one-story check (FR-2, second build) ---------------------------------------------------
+
+
+def test_story_check_turns_a_correct_article_into_merged(data, original):
+    ids = [a["article_id"] for a in original["articles"]]
+    ask = Scripted(jreply({1: "correct", 2: "correct"}), stories=[TWO_STORIES, ONE_STORY])
+    result = jg.judge_grouping(data, original, ask=ask)
+    assert result["verdicts"] == {ids[0]: "merged", ids[1]: "correct"}
+    assert result["page_verdicts"] == {ids[0]: "correct", ids[1]: "correct"}
+    assert result["stories"] == {ids[0]: 2, ids[1]: 1}
+    assert result["score"] == 0.5
+    assert len(ask.story_calls) == 2 and ask.story_calls[0][0]["content"] == jg.story_prompt(
+        data, original["articles"][0], config.settings.judge_story_chars
+    )
+
+
+def test_story_check_asks_only_correct_articles_of_story_kinds(data, original, set_settings):
+    ask = Scripted(jreply({1: "split", 2: "correct"}))
+    result = jg.judge_grouping(data, original, ask=ask)
+    assert len(ask.story_calls) == 1 and list(result["stories"]) == [
+        original["articles"][1]["article_id"]
+    ]
+    set_settings(judge_story_kinds=())  # the check is off
+    ask = Scripted(jreply({1: "correct", 2: "correct"}))
+    result = jg.judge_grouping(data, original, ask=ask)
+    assert ask.story_calls == [] and result["stories"] == {} and result["score"] == 1.0
+
+
+def test_story_check_without_a_usable_answer_keeps_the_verdict(data, original):
+    ids = [a["article_id"] for a in original["articles"]]
+    bad = ["not json", '{"stories": 3}', '{"stories": true}']  # first try + 2 retries
+    ask = Scripted(jreply({1: "correct", 2: "correct"}), stories=[*bad, TWO_STORIES])
+    result = jg.judge_grouping(data, original, ask=ask)
+    assert result["stories"] == {ids[0]: None, ids[1]: 2}
+    assert result["verdicts"] == {ids[0]: "correct", ids[1]: "merged"}
+
+
+def test_story_check_shortens_a_text_that_is_too_long(data, original, set_settings):
+    set_settings(judge_story_chars=9)
+    ask = Scripted(
+        jreply({1: "correct", 2: "correct"}),
+        stories=[parse.TooLong("context"), TWO_STORIES, parse.TooLong("x"), parse.TooLong("y")],
+    )
+    result = jg.judge_grouping(data, original, ask=ask)
+    first, second = ask.story_calls[0][0]["content"], ask.story_calls[1][0]["content"]
+    text = original["articles"][0]["text"].strip()
+    assert first.endswith(text[:9] + "\n") and second.endswith(text[:3] + "\n")
+    ids = [a["article_id"] for a in original["articles"]]
+    assert result["stories"] == {ids[0]: 2, ids[1]: None}  # the second never fits: verdict stands
+
+
+def test_story_prompt_lists_the_headline_boxes(data, original):
+    prompt = jg.story_prompt(data, original["articles"][0], 6000)
+    assert "Headline boxes: First headline\n" in prompt
+    assert prompt.rstrip().endswith(original["articles"][0]["text"].strip())
+    assert "{headlines}" not in prompt and "{text}" not in prompt
+
+
+def test_make_create_sends_the_story_schema(monkeypatch):
+    sent = []
+
+    class Completions:
+        def create(self, **kw):
+            sent.append(kw)
+            return completion("{}")
+
+    raw = SimpleNamespace(
+        with_options=lambda **_: SimpleNamespace(chat=SimpleNamespace(completions=Completions()))
+    )
+    create = jg.make_create(SimpleNamespace(raw=raw, profile="gemma4-31b"))
+    create([{"role": "user", "content": "x"}], jg.STORY_CHECK)
+    create([{"role": "user", "content": "x"}], 5)
+    assert sent[0]["response_format"] is jg.STORY_FORMAT and sent[0]["max_tokens"] == 32
+    assert sent[1]["response_format"]["json_schema"]["name"] == "judgement"
+
+
+def test_judge_detail_counts_story_merges(world, original, fake_models):
+    world.put("group", original)
+    fake_models.replies["gemma4-31b"] = [jreply({1: "correct", 2: "correct"})]
+    fake_models.stories["gemma4-31b"] = [TWO_STORIES]
+    stage = JudgeStage()
+    stage.open()
+    result = world.run(stage)
+    stage.close()
+    assert result.detail["story_merged"] == 1 and result.detail["score"] == 0.5
+    artifact = json.loads(Path(result.artifact_path).read_text())
+    assert (
+        artifact["prompt_version"] == 2
+        and artifact["stories"][original["articles"][0]["article_id"]] == 2
+    )
+
+
+def test_sanity_counts_a_merge_found_by_the_story_check(world, original, fake_models, tmp_path):
+    from newsrag.cli import app
+
+    world.put("group", original)
+    world.put("judge", judge_artifact(original, 1.0))
+    pages = tmp_path / "pages.txt"
+    pages.write_text(PAGE + "\n")
+    fake_models.replies["gemma4-31b"] = [jreply({1: "correct"})]
+    fake_models.stories["gemma4-31b"] = [TWO_STORIES]
+    result = CliRunner().invoke(app, ["judge", "sanity", "--pages-file", str(pages)])
+    assert result.exit_code == 0, result.output
+    assert "verdict=merged" in result.output and "caught: 1/1" in result.output

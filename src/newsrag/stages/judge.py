@@ -107,6 +107,7 @@ def judge_detail(result: dict[str, Any]) -> dict[str, Any]:
         "judge_skipped": result["score"] is None,
         "text_chars": result.get("text_chars"),
         "verdicts": counts,
+        "story_merged": sum(1 for v in (result.get("stories") or {}).values() if v == 2),
     }
 
 
@@ -125,7 +126,7 @@ class JudgeStage(PageStage):
         return versioned(
             f"{config.settings.judge_model}-judge-p{jg.PROMPT_VERSION}",
             jg.JUDGE_SETTINGS,
-            [jg.PROMPT_FILE],
+            jg.PROMPT_FILES,
         )
 
     @property
@@ -182,7 +183,7 @@ class JudgeRetryStage(JudgeStage):
             f"{config.settings.judge_model}-judge-p{jg.PROMPT_VERSION}"
             f"-t{config.settings.judge_threshold}",
             jg.JUDGE_SETTINGS,
-            [jg.PROMPT_FILE],
+            jg.PROMPT_FILES,
         )
 
     def grouping_path(self, page_id: str) -> str | None:

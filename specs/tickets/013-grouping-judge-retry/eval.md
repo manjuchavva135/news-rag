@@ -20,7 +20,7 @@
 - **Type:** CLI
 - **Steps:**
   1. `uv run pytest -q tests/test_judge.py -v`
-- **Expected:** all pass, including `test_same_family_refused`, `test_score_formula`, `test_high_score_passes_through_without_model_call`, `test_low_score_regroups_at_1_5x`, `test_better_grouping_kept`, `test_still_low_flagged`, `test_article_verdict_flags`.
+- **Expected:** all pass, including the one-story tests (`test_story_check_*`, `test_story_prompt_lists_the_headline_boxes`, `test_make_create_sends_the_story_schema`) and `test_same_family_refused`, `test_score_formula`, `test_high_score_passes_through_without_model_call`, `test_low_score_regroups_at_1_5x`, `test_better_grouping_kept`, `test_still_low_flagged`, `test_article_verdict_flags`.
 
 ### E-2: Four passes on the dev sample (covers FR-2..FR-6)
 
@@ -76,6 +76,7 @@ PY`
 | FR-6 | E-2 |
 | NFR-1 | E-3 |
 | FR-7 | E-5 |
+| FR-8 | E-1, E-3 |
 
 ## Definition of done
 

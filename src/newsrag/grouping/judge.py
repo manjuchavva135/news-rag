@@ -19,7 +19,8 @@ from newsrag.grouping.overlay import article_number, draw_articles
 from newsrag.models.client import parse_json_reply
 
 PROMPT_FILE = Path(__file__).resolve().parents[1] / "prompts" / "judge_v1.md"
-PROMPT_VERSION = 1
+STORY_PROMPT_FILE = Path(__file__).resolve().parents[1] / "prompts" / "judge_story_v1.md"
+PROMPT_VERSION = 2  # 2: page judgement plus the one-story check per article
 VERDICTS = ("correct", "merged", "split", "wrong_blocks", "not_an_article")
 MISSING = "missing"  # an article the judge never answered for: counts as not correct
 JPEG_QUALITY = 92
@@ -31,8 +32,12 @@ JUDGE_SETTINGS = [
     "judge_text_chars",
     "judge_skip_kinds",
     "judge_max_tokens",
+    "judge_story_kinds",
+    "judge_story_chars",
     "group_parse_retries",
 ]
+PROMPT_FILES = [PROMPT_FILE, STORY_PROMPT_FILE]  # every prompt a judging stage reads
+STORY_CHECK = -1  # `max_items` of a one-story request: `make_create` sends the one-story schema
 
 Ask = Callable[..., str]  # ask(messages, max_items=None) -> the model's reply text
 
@@ -107,6 +112,66 @@ def overlay_image(page: Mapping[str, Any], grouping: Mapping[str, Any], long_sid
     return buf.getvalue()
 
 
+STORY_FORMAT = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "stories",
+        "schema": {
+            "type": "object",
+            "properties": {"stories": {"type": "integer", "enum": [1, 2]}},
+            "required": ["stories"],
+            "additionalProperties": False,
+        },
+    },
+}
+
+
+def story_prompt(page: Mapping[str, Any], article: Mapping[str, Any], text_chars: int) -> str:
+    """The one-story question for one article: its headline-role boxes and its text."""
+    texts = {b["block_id"]: " ".join(str(b.get("text") or "").split()) for b in page["blocks"]}
+    blocks = article.get("blocks") or []
+    heads = [texts.get(b["block_id"], "") for b in blocks if b.get("role") == "headline"]
+    heads = [h for h in heads if h]
+    template = STORY_PROMPT_FILE.read_text(encoding="utf-8")
+    text = str(article.get("text") or "").strip()[:text_chars]
+    return template.replace("{headlines}", " / ".join(heads) or "(none)").replace(
+        "{text}", text or "(none)"
+    )
+
+
+def parse_story(reply: str) -> int:
+    """1 or 2 from a one-story reply; `parse.SchemaError` otherwise."""
+    try:
+        data = parse_json_reply(reply)
+    except ValueError as exc:
+        raise parse.SchemaError(str(exc)) from None
+    stories = data.get("stories") if isinstance(data, dict) else None
+    if stories not in (1, 2) or isinstance(stories, bool):
+        raise parse.SchemaError(
+            f'the reply must be {{"stories": 1}} or {{"stories": 2}}: {reply!r}'
+        )
+    return stories
+
+
+def check_story(page: Mapping[str, Any], article: Mapping[str, Any], ask: Ask) -> int | None:
+    """1 (one story), 2 (two or more) or None (no usable answer: the page verdict stands)."""
+    from newsrag.models.client import build_messages
+
+    s = config.settings
+    for text_chars in dict.fromkeys((s.judge_story_chars, s.judge_story_chars // 3)):
+        messages = build_messages(story_prompt(page, article, text_chars), [])
+        for _ in range(s.group_parse_retries + 1):
+            try:
+                return parse_story(ask(messages, STORY_CHECK))
+            except parse.TooLong:
+                break  # a shorter text
+            except parse.SchemaError:
+                continue
+        else:
+            return None
+    return None
+
+
 def response_format(max_items: int) -> dict[str, Any]:
     """The reply's JSON schema (known verdicts, no list longer than the article count)."""
     cap = max(1, max_items)
@@ -140,17 +205,19 @@ def response_format(max_items: int) -> dict[str, Any]:
 
 
 def make_create(client: Any) -> Callable[..., Any]:
-    """`create(messages, max_items)` on a `ModelClient`: temperature 0, the reply schema."""
+    """`create(messages, max_items)` on a `ModelClient`: temperature 0, the reply schema (the
+    one-story schema when `max_items` is `STORY_CHECK`)."""
     s = config.settings
     raw = client.raw.with_options(timeout=s.group_request_timeout_s, max_retries=0)
 
     def create(messages: list[dict[str, Any]], max_items: int | None = None) -> Any:
+        story = max_items == STORY_CHECK
         return raw.chat.completions.create(
             model=client.profile,
             messages=messages,
             temperature=0,
-            max_tokens=s.judge_max_tokens,
-            response_format=response_format(max_items or 1000),
+            max_tokens=32 if story else s.judge_max_tokens,
+            response_format=STORY_FORMAT if story else response_format(max_items or 1000),
             stop=["\n\n"],  # the reply is one compact line; blank lines are a loop
         )
 
@@ -308,6 +375,15 @@ def judge_grouping(
     else:
         raise JudgeError("the page does not fit the judge model")
     by_id = {article_id: verdicts.get(n, MISSING) for n, article_id in numbers.items()}
+    # the page view rarely notices two stories in one colour: ask about each such article alone
+    stories: dict[str, int | None] = {}
+    story_kinds = set(s.judge_story_kinds)
+    for article in articles:
+        aid = article["article_id"]
+        if article["kind"] in story_kinds and by_id[aid] == "correct":
+            stories[aid] = check_story(data, article, ask)
+            if stories[aid] == 2:
+                by_id[aid] = "merged"
     correct = sum(1 for v in by_id.values() if v == "correct")
     return {
         "score": page_score(correct, len(by_id), missed),
@@ -315,6 +391,8 @@ def judge_grouping(
         "missed_regions": missed,
         "n_judged": len(by_id),
         "text_chars": text_chars,  # article text length sent (shorter than judge_text_chars = fallback)
+        "page_verdicts": {aid: verdicts.get(n, MISSING) for n, aid in numbers.items()},
+        "stories": stories,  # one-story answers (1, 2, None = no usable answer) of the checked ones
     }
 
 

@@ -1,0 +1,10 @@
+skip 2024-12-05_BGNOP_main_01: no two correct news articles with distinct headlines
+skip 2024-12-08_BGNOPSVACLT_main_10: no two correct news articles with distinct headlines
+skip 2024-12-09_R_main_03: no two correct news articles with distinct headlines
+skip 2024-12-27_BGNOPRSVACLT_main_01: no two correct news articles with distinct headlines
+2024-12-02_BG_main_01 pair=a08+a10 verdict=merged stored=0.615 merged=0.462 caught
+2024-12-06_GNOCLT_main_16 pair=a02+a04 verdict=split stored=0.75 merged=0.0 caught
+2024-12-11_B_main_03 pair=a07+a09 verdict=merged stored=0.909 merged=0.8 caught
+2024-12-11_V_main_12 pair=a08+a13 verdict=merged stored=0.824 merged=0.667 caught
+2025-01-26_B_main_05 pair=a04+a06 verdict=merged stored=0.5 merged=0.0 caught
+caught: 5/5

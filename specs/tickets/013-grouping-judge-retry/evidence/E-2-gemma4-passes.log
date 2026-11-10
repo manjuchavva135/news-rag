@@ -1,0 +1,20 @@
+== judge
+done 2025-01-27_B_main_14
+done 2024-12-11_V_main_12
+judge: done=20 failed=0 skipped=0 in 143.3s
+real 144.28s
+== group_retry
+done 2025-01-27_B_main_14
+done 2025-10-15_B_main_10
+group_retry: done=20 failed=0 skipped=0 in 490.1s
+real 491.20s
+== judge_retry
+done 2024-12-02_BG_main_01
+done 2025-05-11_BGNOPRSVACLT_main_03
+judge_retry: done=20 failed=0 skipped=0 in 130.1s
+real 131.16s
+== group_final
+done 2025-12-16_BG_main_06-07
+done 2025-11-03_BG_main_01
+group_final: done=20 failed=0 skipped=0 in 0.2s
+real 1.20s
