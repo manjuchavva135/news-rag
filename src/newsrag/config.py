@@ -68,6 +68,7 @@ REPO_ROOT_DERIVED = {
     "ocr_check_file": "data/ocr-check.txt",
     "ocr_fallback_file": "ocr_fallback.yaml",
     "geo_dir": "data/geo",
+    "editions_file": "data/editions.yaml",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -388,6 +389,19 @@ class Settings(BaseSettings):
     geo_dir: Path  # default {repo_root}/data/geo
     # Extra spellings -> district/town/mandal id. None = the file shipped in newsrag/geo/.
     geo_aliases_file: Path | None = None
+
+    # --- editions ---
+    # Stage `folio` (ticket 011): a block lying wholly in this top fraction of the page height
+    # is read as part of the folio, whatever its label (besides the folio_labels blocks).
+    folio_top_fraction: float = 0.08
+    # When the folio blocks give no place, the whole top band (folio_top_fraction) is read too,
+    # cut into this many side-by-side pieces (layout sometimes misses the folio strip). 0 = off.
+    folio_band_pieces: int = 2
+    editions_file: Path  # default {repo_root}/data/editions.yaml (committed, generated)
+    # A code's most common folio place names it when it has at least this share of the code's
+    # pages with a place, over at least this many pages; otherwise the code is `ambiguous`.
+    editions_min_agreement: float = 0.6
+    editions_min_pages: int = 3
 
     @classmethod
     def settings_customise_sources(

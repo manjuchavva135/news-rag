@@ -1,0 +1,259 @@
+folio version: folio-v1-416979b5
+$ E-1: uv run pytest -q tests/test_folio_parse.py -v
+============================== 26 passed in 0.55s ==============================
+
+$ E-2 step 2 (glob limited to the dev-sample page_ids under folio/<current version>/, FR-6)
+20 11
+
+$ E-2 step 2 as written (glob over every folio artifact)
+3497 2727
+
+$ E-3: uv run newsrag editions build
+2024: 146 codes, 29 ok
+2025: 130 codes, 36 ok
+wrote /home/admin1/news-rag/data/editions.yaml
+$ E-3 step 2 for 2024
+146 29
+$ E-3 step 2 for 2025
+130 36
+$ E-3 step 2 for 2026
+no 2026 entries
+
+$ E-4 step 1: uv run newsrag editions apply
+page_editions: 3497 rows
+$ E-4 step 2
+3497	2	3495
+$ E-4 step 3
+3497
+
+$ E-3 step 3: uv run newsrag editions report
+2024 codes=146 ok=29 ambiguous=117 unknown_edition=0 date_mismatch=11
+2025 codes=130 ok=36 ambiguous=94 unknown_edition=2 date_mismatch=56
+ambiguous codes (year code n_pages agreement top-3 places):
+  2024 ACL 2 1.00 విజయవాడ:2
+  2024 ACT 1 1.00 విజయవాడ:1
+  2024 ALT 2 1.00 విజయవాడ:2
+  2024 AT 0 0.00 -
+  2024 BGC 1 1.00 విజయవాడ:1
+  2024 BGCVT 1 1.00 విజయవాడ:1
+  2024 BGNOP 0 0.00 -
+  2024 BGNOPACL 2 1.00 విజయవాడ:2
+  2024 BGNOPRS 2 1.00 విజయవాడ:2
+  2024 BGNOPRSACL 1 1.00 విజయవాడ:1
+  2024 BGNOPRSACT 1 1.00 విజయవాడ:1
+  2024 BGNOPRSVACL 2 1.00 విజయవాడ:2
+  2024 BGNOPRSVACT 2 1.00 విజయవాడ:2
+  2024 BGNOPRV 1 1.00 విజయవాడ:1
+  2024 BGNOPSVACT 2 1.00 విజయవాడ:2
+  2024 BGNOR 0 0.00 -
+  2024 BGNORCLT 2 1.00 విజయవాడ:2
+  2024 BGNORCT 0 0.00 -
+  2024 BGNORSVACLT 1 1.00 విజయవాడ:1
+  2024 BGNOSACLT 1 1.00 విజయవాడ:1
+  2024 BGNPRS 0 0.00 -
+  2024 BGNPSACLT 1 1.00 విజయవాడ:1
+  2024 BGNR 1 1.00 విజయవాడ:1
+  2024 BGNSACLT 1 1.00 విజయవాడ:1
+  2024 BGOACLT 1 1.00 విజయవాడ:1
+  2024 BGOP 1 1.00 విజయవాడ:1
+  2024 BGOPACL 1 1.00 విజయవాడ:1
+  2024 BGOPRAC 1 1.00 విజయవాడ:1
+  2024 BGOPRSAC 1 1.00 విజయవాడ:1
+  2024 BGOPRSACL 1 1.00 విజయవాడ:1
+  2024 BGOPRSACLT 1 1.00 వైజాగ్:1
+  2024 BGOPRSVACL 1 1.00 విజయవాడ:1
+  2024 BGOPRSVCT 0 0.00 -
+  2024 BGOPSCL 0 0.00 -
+  2024 BGOPSVACL 1 1.00 విజయవాడ:1
+  2024 BGPRVACLT 1 1.00 విజయవాడ:1
+  2024 BGPV 2 1.00 విజయవాడ:2
+  2024 BGRSACL 1 1.00 విజయవాడ:1
+  2024 BGVCT 0 0.00 -
+  2024 BN 2 1.00 విజయవాడ:2
+  2024 BNOPRSACL 1 1.00 విజయవాడ:1
+  2024 BNOPRVACLT 1 1.00 విజయవాడ:1
+  2024 BNSVALT 1 1.00 విజయవాడ:1
+  2024 BSVAT 0 0.00 -
+  2024 GC 0 0.00 -
+  2024 GNOCL 1 1.00 విజయవాడ:1
+  2024 GNOCLT 1 1.00 విజయవాడ:1
+  2024 GNOPACL 1 1.00 విజయవాడ:1
+  2024 GNOPRSA 2 1.00 విజయవాడ:2
+  2024 GNOPRSACLT 2 1.00 విజయవాడ:2
+  2024 GNOPRSACT 1 1.00 విజయవాడ:1
+  2024 GNOPRSV 1 1.00 విజయవాడ:1
+  2024 GNOPRSVACT 1 1.00 విజయవాడ:1
+  2024 GNOPSACLT 1 1.00 విజయవాడ:1
+  2024 GNOPSVACLT 0 0.00 -
+  2024 GNOPSVACT 2 1.00 విజయవాడ:2
+  2024 GNORCLT 1 1.00 విజయవాడ:1
+  2024 GNORSVACLT 2 1.00 విజయవాడ:2
+  2024 GNPRSACLT 0 0.00 -
+  2024 GNSACT 1 1.00 విజయవాడ:1
+  2024 GNSVACT 1 1.00 విజయవాడ:1
+  2024 GO 1 1.00 విజయవాడ:1
+  2024 GOL 1 1.00 విజయవాడ:1
+  2024 GOPCT 1 1.00 విజయవాడ:1
+  2024 GOPRC 1 1.00 విజయవాడ:1
+  2024 GOPRS 1 1.00 విజయవాడ:1
+  2024 GOPRSLT 1 1.00 విజయవాడ:1
+  2024 GOPRSVACLT 1 1.00 విజయవాడ:1
+  2024 GOPSAC 1 1.00 విజయవాడ:1
+  2024 GOPSC 1 1.00 విజయవాడ:1
+  2024 GOPSL 1 1.00 విజయవాడ:1
+  2024 GOPSV 1 1.00 విజయవాడ:1
+  2024 GPRSVACLT 1 1.00 విజయవాడ:1
+  2024 GPS 1 1.00 విజయవాడ:1
+  2024 GPSAC 1 1.00 విజయవాడ:1
+  2024 GPSCLT 1 1.00 విజయవాడ:1
+  2024 GRCT 1 1.00 విజయవాడ:1
+  2024 GRSVAT 1 1.00 విజయవాడ:1
+  2024 GV 1 1.00 విజయవాడ:1
+  2024 K 1 1.00 విజయవాడ:1
+  2024 LR 2 1.00 విజయవాడ:2
+  2024 LT 1 1.00 విజయవాడ:1
+  2024 NO 1 1.00 విజయవాడ:1
+  2024 NOCL 1 1.00 విజయవాడ:1
+  2024 NOPCL 1 1.00 విజయవాడ:1
+  2024 NOPL 0 0.00 -
+  2024 NOPRSACL 2 1.00 విజయవాడ:2
+  2024 NOPRSACLT 1 1.00 విజయవాడ:1
+  2024 NOPRST 1 1.00 విజయవాడ:1
+  2024 NOPRSVACT 1 1.00 విజయవాడ:1
+  2024 NORSACLT 1 1.00 విజయవాడ:1
+  2024 NORV 1 1.00 విజయవాడ:1
+  2024 NOSACLT 1 1.00 విజయవాడ:1
+  2024 NOSAL 1 1.00 విజయవాడ:1
+  2024 NOSVAL 1 1.00 విజయవాడ:1
+  2024 NR 2 1.00 విజయవాడ:2
+  2024 NSAL 1 1.00 విజయవాడ:1
+  2024 NSLT 1 1.00 విజయవాడ:1
+  2024 NV 1 1.00 విజయవాడ:1
+  2024 OACLT 1 1.00 విజయవాడ:1
+  2024 OP 1 1.00 విజయవాడ:1
+  2024 OPACL 1 1.00 విజయవాడ:1
+  2024 OPRSAC 1 1.00 విజయవాడ:1
+  2024 OPRSAL 1 1.00 విజయవాడ:1
+  2024 OPRSC 1 1.00 విజయవాడ:1
+  2024 OPS 2 1.00 విజయవాడ:2
+  2024 OR 1 1.00 విజయవాడ:1
+  2024 PRSAC 1 1.00 విజయవాడ:1
+  2024 PRSL 1 1.00 విజయవాడ:1
+  2024 PSVA 2 1.00 విజయవాడ:2
+  2024 Q 1 1.00 ఏలూరు జిల్లా:1
+  2024 RN 1 1.00 విజయవాడ:1
+  2024 RS 2 1.00 విజయవాడ:2
+  2024 RSV 1 1.00 విజయవాడ:1
+  2024 RV 1 1.00 విజయవాడ:1
+  2024 SVA 0 0.00 -
+  2024 VT 0 0.00 -
+  2025 ACLT 1 1.00 విజయవాడ:1
+  2025 ALL 0 0.00 -
+  2025 BAC 1 1.00 విజయవాడ:1
+  2025 BAT 1 1.00 విజయవాడ:1
+  2025 BCL 1 1.00 విజయవాడ:1
+  2025 BGCT 1 1.00 విజయవాడ:1
+  2025 BGL 0 0.00 -
+  2025 BGNO 1 1.00 విజయవాడ:1
+  2025 BGNOAC 1 1.00 విజయవాడ:1
+  2025 BGNOPACL 1 1.00 విజయవాడ:1
+  2025 BGNOPACLT 0 0.00 -
+  2025 BGNOPCL 1 1.00 విజయవాడ:1
+  2025 BGNOPR 2 1.00 విజయవాడ:2
+  2025 BGNOPRS 1 1.00 విజయవాడ:1
+  2025 BGNOPRSACL 2 1.00 విజయవాడ:2
+  2025 BGNOPRSALT 1 1.00 విజయవాడ:1
+  2025 BGNOPRSVACT 2 1.00 విజయవాడ:2
+  2025 BGNOPRSVAT 0 0.00 -
+  2025 BGNOPRSVL 2 1.00 విజయవాడ:2
+  2025 BGNOPRVACL 0 0.00 -
+  2025 BGNOPRVALT 2 1.00 విజయవాడ:2
+  2025 BGNOPSACL 2 1.00 విజయవాడ:2
+  2025 BGNOPSV 1 1.00 విజయవాడ:1
+  2025 BGNOPSVACLT 2 1.00 విజయవాడ:2
+  2025 BGNOPVACLT 2 1.00 విజయవాడ:2
+  2025 BGNOSACLT 2 1.00 విజయవాడ:2
+  2025 BGNOSVACLT 0 0.00 -
+  2025 BGNP 2 1.00 విజయవాడ:2
+  2025 BGNPR 1 1.00 విజయవాడ:1
+  2025 BGNPRSACL 1 1.00 విజయవాడ:1
+  2025 BGNPRSVACL 1 1.00 విజయవాడ:1
+  2025 BGNPSCL 1 1.00 విజయవాడ:1
+  2025 BGNPSVACT 0 0.00 -
+  2025 BGNRVCT 1 1.00 విజయవాడ:1
+  2025 BGNVT 0 0.00 -
+  2025 BGOPRSAC 1 1.00 విజయవాడ:1
+  2025 BGOPRSAL 1 1.00 విజయవాడ:1
+  2025 BGOPRSV 1 1.00 విజయవాడ:1
+  2025 BGOPRSVACL 2 1.00 విజయవాడ:2
+  2025 BGORS 1 1.00 విజయవాడ:1
+  2025 BGPORS 1 1.00 విజయవాడ:1
+  2025 BGPRSV 1 1.00 విజయవాడ:1
+  2025 BGPRSVACLT 1 1.00 విజయవాడ:1
+  2025 BGPRSVCT 1 1.00 విజయవాడ:1
+  2025 BGPS 1 1.00 విజయవాడ:1
+  2025 BGRS 1 1.00 విజయవాడ:1
+  2025 BGRSAT 1 1.00 విజయవాడ:1
+  2025 BGRSV 1 1.00 విజయవాడ:1
+  2025 BGRSVT 1 1.00 విజయవాడ:1
+  2025 BGRV 1 1.00 విజయవాడ:1
+  2025 BGRVCT 0 0.00 -
+  2025 BGSVAT 1 1.00 విజయవాడ:1
+  2025 BGT 0 0.00 -
+  2025 BGV 1 1.00 విజయవాడ:1
+  2025 BGVC 1 1.00 విజయవాడ:1
+  2025 BNC 1 1.00 విజయవాడ:1
+  2025 BNOPRS 1 1.00 విజయవాడ:1
+  2025 BNOPRSACL 2 1.00 విజయవాడ:2
+  2025 BNOPRSACLT 2 1.00 విజయవాడ:2
+  2025 BNOPRSAT 1 1.00 విజయవాడ:1
+  2025 BNOPRSV 1 1.00 విజయవాడ:1
+  2025 BNOPRSVACL 1 1.00 విజయవాడ:1
+  2025 BNOPRSVCT 1 1.00 విజయవాడ:1
+  2025 BNOPS 1 1.00 విజయవాడ:1
+  2025 BNOPSACL 1 1.00 విజయవాడ:1
+  2025 BNOPSVAC 1 1.00 విజయవాడ:1
+  2025 BNORSACL 1 1.00 విజయవాడ:1
+  2025 BNP 1 1.00 విజయవాడ:1
+  2025 BNPAT 1 1.00 విజయవాడ:1
+  2025 BNPRA 1 1.00 విజయవాడ:1
+  2025 BNRSACLT 1 1.00 విజయవాడ:1
+  2025 BNRSCL 1 1.00 విజయవాడ:1
+  2025 BNRSVCL 0 0.00 -
+  2025 BNRSVCLT 0 0.00 -
+  2025 BNST 1 1.00 విజయవాడ:1
+  2025 BNSV 1 1.00 విజయవాడ:1
+  2025 BNSVL 1 1.00 విజయవాడ:1
+  2025 BNT 1 1.00 విజయవాడ:1
+  2025 BOP 1 1.00 విజయవాడ:1
+  2025 BOPR 1 1.00 విజయవాడ:1
+  2025 BOPRSACLT 1 1.00 విజయవాడ:1
+  2025 BOPRSV 0 0.00 -
+  2025 BOPSVC 1 1.00 విజయవాడ:1
+  2025 BPLT 0 0.00 -
+  2025 BPRSV 1 1.00 విజయవాడ:1
+  2025 BPSLT 2 1.00 విజయవాడ:2
+  2025 BPSVLT 1 1.00 విజయవాడ:1
+  2025 BRC 1 1.00 విజయవాడ:1
+  2025 BRSVCLT 0 0.00 -
+  2025 BRV 2 1.00 విజయవాడ:2
+  2025 BRVT 1 1.00 విజయవాడ:1
+  2025 BS 1 1.00 విజయవాడ:1
+  2025 BSV 1 1.00 విజయవాడ:1
+  2025 BVT 2 1.00 విజయవాడ:2
+codes with unknown_edition pages (year code pages):
+  2025 ALL 2
+
+$ sources
+letters	1793
+code_map	1699
+folio	3
+unknown	2
+
+$ E-5
+============================== 23 passed in 1.08s ==============================
+$ E-6
+4 passed, 19 deselected in 0.04s
+$ ruff
+All checks passed!
+93 files already formatted

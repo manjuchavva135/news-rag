@@ -3,6 +3,7 @@
 import typer
 
 from newsrag import config_cli
+from newsrag.editions import cli as editions_cli
 from newsrag.geo import cli as geo_cli
 from newsrag.ingest import cli as ingest_cli
 from newsrag.ledger import cli as ledger_cli
@@ -32,6 +33,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (models_cli.app, "models"),
     (ocr_cli.app, "ocr"),
     (geo_cli.app, "geo"),
+    (editions_cli.app, "editions"),
 ]
 
 for sub_app, name in SUB_APPS:
