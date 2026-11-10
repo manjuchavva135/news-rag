@@ -48,6 +48,13 @@ scores them, and the winner is written to `pipeline.yaml` for the full run (gril
 | D-3 | Tie rule | within 0.01 → faster | grill D-11 quality first, speed only breaks ties |
 | D-4 | A candidate that won't start | reported `failed` and excluded; the bake-off continues | a missing candidate must not block the pick |
 
+## Inherited from 012 (2026-11-10)
+
+Ticket 012 was merged with two checks failing; the user deferred both to this bake-off (see `specs/tickets/012-vlm-article-grouping/results.md`):
+
+- **012 NFR-2 throughput:** Qwen3-VL-32B bf16 at the 012 defaults (`group_image_max_px` 3584, 80-char block list) ran 0.07 pages/s against the required 0.2; an fp8 profile of the same model ran 0.10. A request is about 13.6k prompt tokens and the bf16 KV cache holds about 5 requests at once. The seconds/page column here should show whether any candidate reaches 0.2.
+- **012 E-7 grouping of `2024-12-06_GNOCLT_main_16`:** Qwen3-VL-32B splits story 2 (headline in two boxes, three text columns) into three articles and attaches the duplicate headline box to the wrong story. Check this page with every candidate. Note that the block ids in 012's E-6/E-7 differ from the real `ocr_final` ids (ticket b012 = real b007, b032 = real b012, b007 = real b016).
+
 ## Open questions
 
 None.
