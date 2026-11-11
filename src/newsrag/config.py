@@ -79,6 +79,7 @@ REPORTS_DIR_DERIVED = {
     "ocr_check_dir": "ocr-check",
     "transcribe_spotcheck_file": "transcription-spotcheck.json",
     "stitch_verify_file": "stitch-verify.json",
+    "dedup_verify_file": "dedup-verify.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -526,6 +527,35 @@ class Settings(BaseSettings):
     stitch_verify_workers: int = 8  # parallel requests
     stitch_verify_file: Path  # default {reports_dir}/stitch-verify.json
 
+    # --- dedup ---
+    # Stage `dedup` (ticket 017): near-identical printings of a story in different editions of
+    # one print date become one story. MinHash over character shingles finds the candidates, the
+    # embedding cosine confirms them.
+    dedup_jaccard: float = 0.85  # estimated MinHash Jaccard a duplicate pair needs
+    dedup_cosine: float = 0.90  # ... and this embedding cosine
+    dedup_device: str = "cuda"  # "cuda" or "cpu" (cpu: the model loads without the GPU lock)
+    dedup_model: str = "bge-m3"  # embed profile of models.yaml (fixed, independent of search)
+    dedup_num_perm: int = 128  # MinHash permutations
+    dedup_shingle_size: int = 5  # characters per shingle
+    dedup_lsh_threshold: float = 0.5  # LSH candidate net, wider than dedup_jaccard (recall)
+    dedup_embed_batch: int = 64
+    dedup_kinds: tuple[str, ...] = (
+        "news",
+        "editorial",
+        "brief_item",
+        "notice_tender",
+        "table_only",
+    )  # article kinds that become units
+    # `newsrag dedup verify` (NFR-1): the text model answers "same story? yes/no" for merged pairs.
+    dedup_verify_model: str = "qwen3-30b-a3b"
+    dedup_verify_n: int = 30
+    dedup_verify_seed: int = 5
+    dedup_verify_min_yes_ratio: float = 28 / 30  # at least 28 of 30
+    dedup_verify_part_chars: int = 1200  # headline + start of each printing shown to the model
+    dedup_verify_max_tokens: int = 8
+    dedup_verify_workers: int = 8  # parallel requests
+    dedup_verify_file: Path  # default {reports_dir}/dedup-verify.json
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -600,6 +630,7 @@ class Settings(BaseSettings):
         "transcribe_article_kinds",
         "transcribe_standalone_kinds",
         "stitch_kinds",
+        "dedup_kinds",
         mode="before",
     )
     @classmethod
