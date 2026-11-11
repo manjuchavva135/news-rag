@@ -1,6 +1,6 @@
 # 029: Pipeline orchestrator and incremental ingest
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 024: drives every stage up to indexing
 
