@@ -8,6 +8,7 @@ installed files lazily.
 from __future__ import annotations
 
 from newsrag.stages.base import Stage
+from newsrag.stages.dedup import DedupStage
 from newsrag.stages.folio import FolioStage
 from newsrag.stages.group import GroupStage
 from newsrag.stages.group_final import GroupFinalStage
@@ -33,3 +34,4 @@ REGISTRY["judge_retry"] = JudgeRetryStage()
 REGISTRY["group_final"] = GroupFinalStage()
 REGISTRY["transcribe"] = TranscribeStage()
 REGISTRY["stitch"] = StitchStage()
+REGISTRY["dedup"] = DedupStage()

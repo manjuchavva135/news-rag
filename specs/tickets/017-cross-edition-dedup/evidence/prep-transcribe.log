@@ -1,0 +1,23 @@
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2970.12it/s]
+done 2025-06-10_BGVCT_main_01
+done 2025-06-10_BO_main_03
+done 2025-06-10_BGNOPRSVACLT_main_14
+done 2025-06-10_B_main_05
+transcribe: done=4 failed=0 skipped=2 in 175.5s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2922.52it/s]
+done 2025-08-02_BGNOPRSVACLT_main_02
+done 2025-08-02_BGNOPRSVACLT_main_03
+done 2025-08-02_BGNOPRSVACL_main_01
+transcribe: done=3 failed=0 skipped=4 in 107.4s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2731.85it/s]
+done 2025-04-11_B_main_01
+done 2025-04-11_BGNOPRSVCLT_main_14
+done 2025-04-11_BG_main_03
+done 2025-04-11_BGNOP_main_10
+done 2025-04-11_B_main_05
+transcribe: done=5 failed=0 skipped=2 in 180.0s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2290.82it/s]
+done 2025-01-28_B_main_05
+done 2025-01-28_B_main_03
+done 2025-01-28_BGVCT_main_01
+transcribe: done=3 failed=0 skipped=2 in 198.2s

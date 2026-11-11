@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-aa843952b7b6a3b87/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-aa843952b7b6a3b87
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 25 items / 20 deselected / 5 selected
+
+tests/test_dedup.py::test_untranscribed_notice PASSED                    [ 20%]
+tests/test_dedup.py::test_item_flags_unioned PASSED                      [ 40%]
+tests/test_dedup.py::test_standalone_item_printing PASSED                [ 60%]
+tests/test_dedup.py::test_plan_ids_most_members_keep_id PASSED           [ 80%]
+tests/test_dedup.py::test_cpu_device PASSED                              [100%]
+
+======================= 5 passed, 20 deselected in 0.44s =======================
