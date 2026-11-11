@@ -94,7 +94,7 @@ def run_verify(
             "reply": reply.strip()[:80],
         }
 
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=max(1, config.settings.stitch_verify_workers)) as pool:
         items = list(pool.map(one, chosen))
     return {
         "model": s.stitch_verify_model,

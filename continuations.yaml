@@ -8,7 +8,7 @@
 
 # (a) "continues on page N": the article is a source part.
 continues_on:
-  # from the old system (/home/admin1/RAG/config/settings.py): "మిగతా Nవ పేజీలో"
+  # from the ticket (FR-1): "మిగతా Nవ పేజీలో"
   - 'మిగతా\s*(?P<page>\d+)\s*వ?\s*పేజీలో'
   # added after reading the dev sample (581 marker blocks in 3497 pages):
   # OCR reads the ordinal "వ" as "న" ("మిగతా 9న పేజీలో") and "మిగతా" as "బుగతా"

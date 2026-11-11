@@ -523,6 +523,7 @@ class Settings(BaseSettings):
     stitch_verify_seed: int = 3
     stitch_verify_part_chars: int = 600  # source end / continuation start shown to the model
     stitch_verify_max_tokens: int = 8
+    stitch_verify_workers: int = 8  # parallel requests
     stitch_verify_file: Path  # default {reports_dir}/stitch-verify.json
 
     @classmethod

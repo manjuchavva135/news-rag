@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-abe4341b4d16a053e/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-abe4341b4d16a053e
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 48 items / 47 deselected / 1 selected
+
+tests/test_stitch.py::test_date_waits_for_all_pages_then_stitches PASSED [100%]
+
+======================= 1 passed, 47 deselected in 0.63s =======================

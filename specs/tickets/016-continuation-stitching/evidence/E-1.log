@@ -1,0 +1,58 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-abe4341b4d16a053e/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-abe4341b4d16a053e
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 48 items
+
+tests/test_stitch.py::test_patterns_file_loads_both_kinds PASSED         [  2%]
+tests/test_stitch.py::test_find_markers[... \u0c2e\u0c3f\u0c17\u0c24\u0c3e 9\u0c35 \u0c2a\u0c47\u0c1c\u0c40\u0c32\u0c4b-a-9] PASSED [  4%]
+tests/test_stitch.py::test_find_markers[... \u0c2e\u0c3f\u0c17\u0c24\u0c3e 9\u0c28 \u0c2a\u0c47\u0c1c\u0c40\u0c32\u0c4b \u25b6-a-9] PASSED [  6%]
+tests/test_stitch.py::test_find_markers[... \u0c2e\u0c3f\u0c17\u0c24\u0c3e \u0c6d\u0c35 \u0c2a\u0c47\u0c1c\u0c40\u0c32\u0c4b-a-7] PASSED [  8%]
+tests/test_stitch.py::test_find_markers[\u0c2e\u0c3f\u0c17\u0c24\u0c3e \u0c12\u0c35 \u0c2a\u0c47\u0c1c\u0c40\u0c32\u0c4b-a-None] PASSED [ 10%]
+tests/test_stitch.py::test_find_markers[\u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c2a\u0c47\u0c1c\u0c40 \u0c24\u0c30\u0c41\u0c35\u0c3e\u0c2f\u0c3f-b-1] PASSED [ 12%]
+tests/test_stitch.py::test_find_markers[\u25b6 \u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c2a\u0c47\u0c1c\u0c40 \u0c24\u0c30\u0c41\u0c35\u0c3e\u0c2f\u0c3f \u0c2c\u0c3f\u0c32\u0c4d\u0c32\u0c41\u0c32\u0c41 \u0c07\u0c32\u0c3e-b-1] PASSED [ 14%]
+tests/test_stitch.py::test_find_markers[(...6\u0c35 \u0c2a\u0c47\u0c1c\u0c40 \u0c24\u0c30\u0c41\u0c35\u0c3e\u0c2f\u0c3f)-b-6] PASSED [ 16%]
+tests/test_stitch.py::test_find_markers[6 \u0c2a\u0c47\u0c1c\u0c40 \u0c24\u0c30\u0c41\u0c35\u0c3e\u0c2f\u0c3f-b-6] PASSED [ 18%]
+tests/test_stitch.py::test_find_markers[\u0c2a\u0c47\u0c1c\u0c40 \u0c24\u0c30\u0c41\u0c35\u0c3e\u0c2f\u0c3f-b-None] PASSED [ 20%]
+tests/test_stitch.py::test_find_markers[\u0c2e\u0c4a\u0c26\u0c1f\u0c3f \u0c0f\u0c1c\u0c40 \u0c24\u0c30\u0c41\u0c35\u0c3e\u0c2f\u0c3f \u0c28\u0c3f\u0c35\u0c47\u0c26\u0c3f\u0c15\u0c32\u0c4b-b-1] PASSED [ 22%]
+tests/test_stitch.py::test_find_markers_ignores_ordinary_text PASSED     [ 25%]
+tests/test_stitch.py::test_strip_markers_removes_phrase_and_glyphs PASSED [ 27%]
+tests/test_stitch.py::test_front_page_marker_means_page_1 PASSED         [ 29%]
+tests/test_stitch.py::test_page_ref_bonus PASSED                         [ 31%]
+tests/test_stitch.py::test_edition_overlap_required PASSED               [ 33%]
+tests/test_stitch.py::test_all_fh_overlap_both_sides PASSED              [ 35%]
+tests/test_stitch.py::test_section_must_match PASSED                     [ 37%]
+tests/test_stitch.py::test_ambiguous_flag PASSED                         [ 39%]
+tests/test_stitch.py::test_unmatched_reasons PASSED                      [ 41%]
+tests/test_stitch.py::test_one_link_per_continuation_and_taken_reason PASSED [ 43%]
+tests/test_stitch.py::test_greedy_once_per_edition PASSED                [ 45%]
+tests/test_stitch.py::test_spread_target_page PASSED                     [ 47%]
+tests/test_stitch.py::test_source_without_page_number_searches_later_pages PASSED [ 50%]
+tests/test_stitch.py::test_only_eligible_kinds_take_part PASSED          [ 52%]
+tests/test_stitch.py::test_chain_three_parts PASSED                      [ 54%]
+tests/test_stitch.py::test_no_link_cycles PASSED                         [ 56%]
+tests/test_stitch.py::test_marker_block_of_the_article_is_searched PASSED [ 58%]
+tests/test_stitch.py::test_unassigned_marker_attached PASSED             [ 60%]
+tests/test_stitch.py::test_orphan_markers PASSED                         [ 62%]
+tests/test_stitch.py::test_marker_block_in_non_eligible_article_is_attached PASSED [ 64%]
+tests/test_stitch.py::test_reverse_match PASSED                          [ 66%]
+tests/test_stitch.py::test_reverse_after_greedy PASSED                   [ 68%]
+tests/test_stitch.py::test_reverse_skips_sources_pointing_elsewhere_and_below_score PASSED [ 70%]
+tests/test_stitch.py::test_stitched_text_and_parts PASSED                [ 72%]
+tests/test_stitch.py::test_merged_fields_from_first_part PASSED          [ 75%]
+tests/test_stitch.py::test_unmatched_flag_added_at_read_time PASSED      [ 77%]
+tests/test_stitch.py::test_collect_parts_reports_markers_per_article PASSED [ 79%]
+tests/test_stitch.py::test_match_parts_without_artifacts PASSED          [ 81%]
+tests/test_stitch.py::test_tokens_are_telugu_words_of_two_characters PASSED [ 83%]
+tests/test_stitch.py::test_stats_command PASSED                          [ 85%]
+tests/test_stitch.py::test_parse_answer PASSED                           [ 87%]
+tests/test_stitch.py::test_verify_samples_with_seed_and_counts_yes PASSED [ 89%]
+tests/test_stitch.py::test_verify_command_exit_code PASSED               [ 91%]
+tests/test_stitch.py::test_link_pairs_carry_clean_texts PASSED           [ 93%]
+tests/test_stitch.py::test_stage_version_follows_file_and_thresholds PASSED [ 95%]
+tests/test_stitch.py::test_stage_is_registered_as_date_stage PASSED      [ 97%]
+tests/test_stitch.py::test_date_waits_for_all_pages_then_stitches PASSED [100%]
+
+============================== 48 passed in 0.62s ==============================

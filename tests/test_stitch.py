@@ -239,7 +239,7 @@ def test_one_link_per_continuation_and_taken_reason():
     assert reasons(out) == {s2["article_id"]: "taken"}
 
 
-def test_greedy_once_per_source_and_continuation():
+def test_greedy_once_per_edition():
     p1, p3 = page(1), page(3)
     s1 = art(p1, 1, f"{words(*range(20))} మిగతా 3వ పేజీలో")
     s2 = art(p1, 2, f"{words(*range(50, 70))} మిగతా 3వ పేజీలో")

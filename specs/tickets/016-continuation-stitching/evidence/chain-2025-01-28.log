@@ -1,0 +1,35 @@
+render: done=0 failed=0 skipped=5 in 0.0s
+ocr: done=0 failed=0 skipped=5 in 0.4s
+ocr_split: done=0 failed=0 skipped=5 in 0.0s
+ocr_final: done=0 failed=0 skipped=5 in 0.0s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2546.63it/s]
+done 2025-01-28_B_main_03
+done 2025-01-28_B_main_02
+done 2025-01-28_BGVCT_main_01
+done 2025-01-28_B_main_05
+group: 4 pages in 54.3 s (excl. model load) = 0.07 pages/s
+group: 4 requests, 23192 prompt tokens, 3507 completion tokens
+group: done=4 failed=0 skipped=1 in 136.9s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2175.56it/s]
+done 2025-01-28_B_main_02
+done 2025-01-28_B_main_03
+done 2025-01-28_B_main_05
+done 2025-01-28_BGVCT_main_01
+judge: done=4 failed=0 skipped=1 in 114.7s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 3014.05it/s]
+done 2025-01-28_B_main_03
+done 2025-01-28_B_main_02
+done 2025-01-28_BGVCT_main_01
+done 2025-01-28_B_main_05
+group_retry: done=4 failed=0 skipped=1 in 205.4s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2545.73it/s]
+done 2025-01-28_B_main_02
+done 2025-01-28_B_main_05
+done 2025-01-28_B_main_03
+done 2025-01-28_BGVCT_main_01
+judge_retry: done=4 failed=0 skipped=1 in 126.4s
+done 2025-01-28_BGVCT_main_01
+done 2025-01-28_B_main_02
+done 2025-01-28_B_main_03
+done 2025-01-28_B_main_05
+group_final: done=4 failed=0 skipped=1 in 0.0s
