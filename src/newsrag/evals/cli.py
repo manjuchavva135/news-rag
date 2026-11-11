@@ -1,4 +1,4 @@
-"""`newsrag eval build-retrieval | retrieval` (ticket 025 FR-3, FR-4)."""
+"""`newsrag eval build-retrieval | retrieval` (ticket 025) and `customer | customer-signoff` (028)."""
 
 from __future__ import annotations
 
@@ -66,3 +66,40 @@ def retrieval_cmd(
         typer.echo(str(e), err=True)
         raise typer.Exit(1) from None
     typer.echo(retrieval.summary_line(report))
+
+
+@app.command("customer")
+def customer_cmd(
+    k: Annotated[
+        int | None, typer.Option(help="Sources per question (default customer_k).")
+    ] = None,
+) -> None:
+    """Answer the 30 customer questions from the new stores and check every claim (ticket 028)."""
+    from newsrag import search
+    from newsrag.evals import customer
+
+    try:
+        report = customer.run_customer(k=k, echo=typer.echo)
+    except customer.FamilyError as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(2) from None
+    except (search.StoreNotConfigured, RuntimeError) as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(customer.summary_line(report))
+
+
+@app.command("customer-signoff")
+def customer_signoff_cmd(
+    name: Annotated[str, typer.Option("--name", help="Who read the answers.")],
+    note: Annotated[str, typer.Option("--note", help="Free text.")] = "",
+) -> None:
+    """Record that the current customer answers were read (ticket 028 FR-5)."""
+    from newsrag.evals import customer
+
+    try:
+        record = customer.signoff(name, note)
+    except customer.NothingToSign as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(f"signed by {record['name']} at {record['signed_at']} (run {record['run_id']})")

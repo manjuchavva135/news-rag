@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 21 items
+
+tests/test_eval_customer.py .....................                        [100%]
+
+============================== 21 passed in 0.75s ==============================

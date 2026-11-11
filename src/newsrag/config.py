@@ -79,6 +79,7 @@ REPO_ROOT_DERIVED = {
     "retrieval_set_file": "data/eval/retrieval-v1.jsonl",
     "baseline_compose_file": "docker/docker-compose.baseline.yml",
     "baseline_set_file": "data/eval/retrieval-baseline-v1.jsonl",
+    "customer_questions_file": "data/eval/customer-questions.json",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -98,6 +99,9 @@ REPORTS_DIR_DERIVED = {
     "baseline_calibration_file": "baseline-calibration.json",
     "baseline_compare_file": "baseline-compare.json",
     "runs_dir": "runs",
+    "customer_answers_md_file": "customer-answers.md",
+    "customer_answers_file": "customer-answers.json",
+    "customer_signoff_file": "customer-answers-signoff.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -673,6 +677,22 @@ class Settings(BaseSettings):
     retrieval_k: int = 10  # hits scored per question (recall@k)
     retrieval_ngram: int = 5  # characters per n-gram of the hit rule
     retrieval_hit_overlap: float = 0.3  # share of a hit's n-grams that must occur in the gold text
+    # Ticket 028: `newsrag eval customer` answers the customer's 30 questions with `answer_model`
+    # from the new stores and has the text judge (`answer_judge_model`, else `judge_model`) check
+    # every claim against the cited sources; `eval customer-signoff` records that they were read.
+    customer_questions_file: Path  # default {repo_root}/data/eval/customer-questions.json
+    customer_old_results_file: Path = Path("/home/admin1/RAG/evals/results-2026-07-11.md")
+    customer_answers_md_file: Path  # default {reports_dir}/customer-answers.md
+    customer_answers_file: Path  # default {reports_dir}/customer-answers.json
+    customer_signoff_file: Path  # default {reports_dir}/customer-answers-signoff.json
+    customer_k: int = 12  # sources (search hits) per question
+    customer_source_chars: int = 1500  # each source's text is cut to this for the prompts
+    customer_answer_max_tokens: int = 2048
+    customer_answer_repetition_penalty: float = 1.05  # vLLM; 1.0 = off (temp 0 loops without)
+    customer_answer_retries: int = 2  # a failed answer request is asked again this many times
+    customer_judge_retries: int = 2  # an unparseable judge reply is asked again this many times
+    customer_judge_max_tokens: int = 64
+    customer_concurrency: int = 16  # parallel answer / judge requests
 
     # --- embed_bakeoff ---
     # `newsrag embed bakeoff` (ticket 026): every candidate embeds the active generation's chunks

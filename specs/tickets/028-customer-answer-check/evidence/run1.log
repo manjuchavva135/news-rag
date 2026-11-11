@@ -1,0 +1,12 @@
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 33546.20it/s]
+pass 1: searched 30 questions in 15.6 s
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2625.82it/s]
+pass 2: answered 30, failed 0 in 168.8 s
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files: 100%|██████████| 19/19 [00:00<00:00, 2555.53it/s]
+pass 3: judged 215 units in 83.9 s
+supported_pct=68.24 n_claims=148 uncited=12 n_failed=0
+
+real	4m30.447s
+user	3m52.258s
+sys	1m24.646s
+exit=0

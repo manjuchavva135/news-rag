@@ -1,0 +1,9 @@
+signed by eval-tester at 2026-11-11T20:56:38Z (run 2026-11-11T20:52:01Z)
+{
+  "name": "eval-tester",
+  "note": "test",
+  "signed_at": "2026-11-11T20:56:38Z",
+  "supported_pct": 92.97,
+  "answers_sha1": "8e0d93624c72868ab3f4287e5fdcd392f8318af9",
+  "run_id": "2026-11-11T20:52:01Z"
+}
