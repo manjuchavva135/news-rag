@@ -1,0 +1,111 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a27b028abc992c7f2
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 48 items
+
+tests/test_enrich_core.py .............................................. [ 95%]
+.F                                                                       [100%]
+
+=================================== FAILURES ===================================
+_____________________________ test_yesterday_live ______________________________
+
+    @pytest.mark.gpu
+    def test_yesterday_live():
+        from newsrag import models
+    
+        text = (
+            "హైదరాబాద్: నిన్న విలేకరుల సమావేశంలో ఆరోగ్య శాఖ మంత్రి దామోదర రాజనర్సింహ మాట్లాడుతూ "
+            "రాష్ట్రంలోని ప్రభుత్వ ఆసుపత్రుల్లో కొత్త వైద్యులను నియమిస్తామని చెప్పారు."
+        )
+>       with models.use(config.settings.enrich_model) as client:
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/test_enrich_core.py:837: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../../../../.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+src/newsrag/models/client.py:276: in use
+    entry = _loaded = _open(profile, device, report)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/newsrag/models/client.py:236: in _open
+    server = stack.enter_context(run_server(profile, lock=handle))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/contextlib.py:526: in enter_context
+    result = _enter(cm)
+             ^^^^^^^^^^
+../../../../.local/share/uv/python/cpython-3.12.16-linux-x86_64-gnu/lib/python3.12/contextlib.py:137: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+profile = Profile(name='qwen3-30b-a3b', hf_id='Qwen/Qwen3-30B-A3B-Instruct-2507', family='qwen', kind='llm', dtype='bfloat16', m...um_speculative_tokens": 5, "prompt_lookup_max": 6, "prompt_lookup_min": 2}'), dim=None, query_prefix='', doc_prefix='')
+port = 8100, lock = <newsrag.models.lock.GpuLockHandle object at 0x76a235808440>
+
+    @contextlib.contextmanager
+    def run_server(
+        profile: Profile, port: int | None = None, lock: GpuLockHandle | None = None
+    ) -> Iterator[VllmServer]:
+        """Start vLLM for `profile`, wait until it answers, stop it when the scope exits.
+    
+        The caller holds the GPU lock; `lock` gets the server's pgid and base_url recorded.
+        """
+        s = config.settings
+        port = pick_port(port)
+        ts = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+        s.logs_dir.mkdir(parents=True, exist_ok=True)
+        log_path = s.logs_dir / f"vllm-{profile.name}-{ts}.log"
+        cmd = vllm_command(profile, port)
+        env = s.subprocess_env()
+        env["HF_HUB_OFFLINE"] = "1"  # weights were downloaded first; never block on the network
+        env["VLLM_NO_USAGE_STATS"] = "1"
+        env["DO_NOT_TRACK"] = "1"
+    
+        with log_path.open("ab") as log:
+            log.write(("$ " + " ".join(cmd) + "\n").encode())
+            log.flush()
+            proc = _spawn(
+                [sys.executable, "-I", "-c", DIE_WITH_PARENT, str(os.getpid()), *cmd],
+                stdin=subprocess.DEVNULL,
+                stdout=log,
+                stderr=subprocess.STDOUT,
+                env=env,
+                start_new_session=True,
+            )
+        server = VllmServer(profile=profile.name, port=port, proc=proc, log_path=log_path)
+        try:
+            if lock is not None:
+                lock.update(pgid=server.pgid, base_url=server.base_url, profile=profile.name)
+            deadline = time.monotonic() + s.model_start_timeout_s
+            while not _answers(server.base_url, profile.name):
+                code = proc.poll()
+                if code is not None:
+                    reason = f"vllm exited with code {code}"
+                    break
+                if time.monotonic() >= deadline:
+                    reason = f"no answer within {s.model_start_timeout_s:.0f} s"
+                    break
+                time.sleep(READY_POLL_S)
+            else:
+                reason = None
+            if reason is not None:
+                _stop(server)
+>               raise ModelStartError(
+                    f"vllm failed to start {profile.name}: {reason} (log {log_path})\n{_tail(log_path)}"
+                )
+E               newsrag.models.serve.ModelStartError: vllm failed to start qwen3-30b-a3b: vllm exited with code 1 (log /home/admin1/raw/logs/vllm-qwen3-30b-a3b-20261111T135210Z.log)
+E               $ /home/admin1/news-rag/.claude/worktrees/agent-a27b028abc992c7f2/envs/vllm/bin/vllm serve Qwen/Qwen3-30B-A3B-Instruct-2507 --host 127.0.0.1 --port 8100 --served-model-name qwen3-30b-a3b --dtype bfloat16 --max-model-len 32768 --gpu-memory-utilization 0.9 --quantization fp8 --speculative-config {"method": "ngram", "num_speculative_tokens": 5, "prompt_lookup_max": 6, "prompt_lookup_min": 2}
+E               Traceback (most recent call last):
+E                 File "<string>", line 1, in <module>
+E                 File "<frozen os>", line 610, in execvp
+E                 File "<frozen os>", line 633, in _execvpe
+E               FileNotFoundError: [Errno 2] No such file or directory
+
+src/newsrag/models/serve.py:196: ModelStartError
+----------------------------- Captured stderr call -----------------------------
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2839.10it/s]
+=========================== short test summary info ============================
+FAILED tests/test_enrich_core.py::test_yesterday_live - newsrag.models.serve....
+========================= 1 failed, 47 passed in 2.80s =========================

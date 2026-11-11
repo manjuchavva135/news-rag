@@ -1,0 +1,818 @@
+{
+ "model": "gemma3-27b",
+ "n_requested": 50,
+ "seed": 11,
+ "n_stories_available": 482,
+ "n": 50,
+ "category_ok": 46,
+ "names_ok": 47,
+ "items": [
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_5bd67760fcdb4eb5",
+   "category": "other",
+   "people": [
+    "బి.సుమతి"
+   ],
+   "organisations": [
+    "దుర్గా క్వాయర్ అండ్ ఇంపెక్స్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_ac111f3099d97872",
+   "category": "education",
+   "people": [
+    "వంగలపూడి అనిత",
+    "గండి నానాజీ",
+    "జి.రమ్యమాధురి",
+    "మెరుగు అచ్యుతరావు",
+    "డీజీపీ హరీశ్ కుమార్ గుప్తా",
+    "పోలీస్ నియామక మండలి చైర్మన్ ఆర్కే మీనా",
+    "అదనపు డీజీ ఎన్.మధుసూదన్‌రెడ్డి"
+   ],
+   "organisations": [
+    "పోలీసు నియామక మండలి"
+   ],
+   "category_ok": false,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": false, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_ebbd540b5c6c5f07",
+   "category": "other",
+   "people": [],
+   "organisations": [],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_9ac538b7135fdefe",
+   "category": "politics",
+   "people": [
+    "హఫీజ్ ఖాన్",
+    "వైఎస్ జగన్మోహన్‌రెడ్డి"
+   ],
+   "organisations": [
+    "వైఎస్సార్సీపీ",
+    "వైఎస్సార్సీపీ కేంద్ర కార్యాలయం"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_e54ac8f076ac6eba",
+   "category": "politics",
+   "people": [
+    "శుక్రవారం"
+   ],
+   "organisations": [
+    "రాష్ట్ర ఎన్నికల కమిషనర్",
+    "వైఎస్సార్ కడప జిల్లా",
+    "సర్పంచ్",
+    "ఎస్ఈసీ",
+    "వ్యవసాయ శాఖ"
+   ],
+   "category_ok": true,
+   "names_ok": false,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": false}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_3521530f5eec0a58",
+   "category": "other",
+   "people": [
+    "ఆలూరి యుగంధర్",
+    "చెరుకూరి శ్రీధర్",
+    "నారాయణ"
+   ],
+   "organisations": [
+    "సీఆర్డీఏ",
+    "హైకోర్టు"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_68ede4c6270901b6",
+   "category": "politics",
+   "people": [
+    "ఆర్. ధనంజయరెడ్డి",
+    "ఆనంద్ బాబు"
+   ],
+   "organisations": [
+    "సాక్షి",
+    "వైఎస్సార్సీపీ",
+    "టీడీపీ",
+    "డీజీపీ",
+    "పల్నాడు జిల్లా ఎస్పీ",
+    "బీఎన్ఎస్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_af5c4d881bc691e3",
+   "category": "other",
+   "people": [
+    "బచ్చింగారి సుగుణ",
+    "హరికృష్ణ",
+    "నర్సమ్మ",
+    "నాగూరు",
+    "నాగలక్ష్మి",
+    "అన్నమ్మ",
+    "నరేష్"
+   ],
+   "organisations": [
+    "పోలీసు స్టేషన్",
+    "రాజుపాళంలోని ఓ ప్రైవేట్ ఆసుపత్రి",
+    "నెల్లూరు ప్రభుత్వాస్పత్రి"
+   ],
+   "category_ok": false,
+   "names_ok": true,
+   "reply": "{\"category_ok\": false, \"names_ok\": true}"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_962878fb29736ca9",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "శ్రీశైలం నీలం సంజీవరెడ్డి సాగర్ ప్రాజెక్ట్",
+    "నాగార్జున సాగర్ ప్రాజెక్టు",
+    "ప్రాజెక్టు ఎస్ఈ వెంకటరమణ",
+    "ఈఈ సుబ్రమణ్యం"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_22e754b06e2aa7bc",
+   "category": "family",
+   "people": [],
+   "organisations": [
+    "శ్రీవారి ఆలయం"
+   ],
+   "category_ok": false,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": false, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_d8663906ac230cfd",
+   "category": "politics",
+   "people": [
+    "అమిత్ షా"
+   ],
+   "organisations": [
+    "కేంద్ర మంత్రి"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_c5b54db8644efe45",
+   "category": "family",
+   "people": [
+    "జస్టిస్ మండవ కిరణ్మయి",
+    "కృష్ణారావు"
+   ],
+   "organisations": [
+    "వీరవెంకట సత్యనారాయణ స్వామి"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_5a8a5c2d91aa9554",
+   "category": "other",
+   "people": [
+    "పల్లపాటి సుబ్రహ్మణ్యం",
+    "అభినవ్"
+   ],
+   "organisations": [
+    "చిలకలపూడి పోలీసులు",
+    "బందరు సబ్ జైలు",
+    "జిల్లా ఎస్పీ",
+    "ప్రజాసంఘాలు"
+   ],
+   "category_ok": false,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": false, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_b3f41c1bbe982873",
+   "category": "health",
+   "people": [
+    "వీర పాండియన్",
+    "గౌస్ పీర్"
+   ],
+   "organisations": [
+    "ఆరోగ్య, కుటుంబ సంక్షేమ శాఖ",
+    "హజ్ కమిటీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_7ef20b7b52d74156",
+   "category": "education",
+   "people": [],
+   "organisations": [
+    "నేషనల్ టెస్టింగ్ ఏజెన్సీ",
+    "సాక్షి"
+   ],
+   "category_ok": true,
+   "names_ok": false,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": false}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_5ab202fdcd696ae6",
+   "category": "other",
+   "people": [
+    "సుధాకర్",
+    "నార్ల రవి",
+    "ఐఎఫ్‌టీయూ ప్రసాద్",
+    "కొండారెడ్డి",
+    "ఘంటా పద్మశ్రీ",
+    "లావేటి శ్రీనివాసరావు"
+   ],
+   "organisations": [
+    "సీపీఐ (ఎంఎల్)",
+    "ఐఎఫ్‌టీయూ",
+    "ప్రగతిశీల కార్మిక సంఘం",
+    "జెడ్పీ",
+    "రాష్ట్ర తూర్పుకాపు కార్పొరేషన్",
+    "ప్రభుత్వం",
+    "ఆపరేషన్ కగార్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "{\"category_ok\": true, \"names_ok\": true}"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_385e1697901aa96a",
+   "category": "other",
+   "people": [
+    "రామ్",
+    "లక్ష్మణ్",
+    "చంద్రశేఖర్",
+    "కొండయ్య"
+   ],
+   "organisations": [
+    "వైఎస్సార్ జిల్లా",
+    "మైదుకూరు మండలం",
+    "బీటీపల్లె"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_4d5b52d73a560776",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "హైకోర్టు",
+    "సుప్రీంకోర్టు"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_d0b57c7d84fb29fa",
+   "category": "other",
+   "people": [
+    "కొండపల్లి శ్రీనివాస్",
+    "వి.మురళీకృష్ణ",
+    "మామిడి సుదర్శన్"
+   ],
+   "organisations": [
+    "ఎంఎస్ఎంఈ",
+    "ఫ్యాప్సియా",
+    "ప్రభుత్వం"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_720767bbfee6ab0c",
+   "category": "other",
+   "people": [],
+   "organisations": [],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_559e2889218cdfcb",
+   "category": "politics",
+   "people": [
+    "వైఎస్ జగన్ మోహన్‌రెడ్డి",
+    "ప్రధాని మోదీ",
+    "అమిత్ షా",
+    "బొత్స సత్యనారాయణ",
+    "ఎంపీ శ్రీకృష్ణదేవరాయులు",
+    "కారుమూరి నాగేశ్వరరావు",
+    "గుడివాడ అమర్‌నాథ్",
+    "తోపుదుర్తి ప్రకాష్‌రెడ్డి"
+   ],
+   "organisations": [
+    "వైఎస్సార్సీపీ",
+    "టీడీపీ",
+    "కూటమి ప్రభుత్వం",
+    "ప్రధాని మోదీ",
+    "కేంద్ర హోంమంత్రి",
+    "పోలీసులు",
+    "మాజీ సీఎం"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-01-28",
+   "story_id": "s_835927624003ad66",
+   "category": "education",
+   "people": [
+    "విజయ్ రామరాజు"
+   ],
+   "organisations": [
+    "రెవెన్యూ శాఖ",
+    "యూడైస్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_9788ce8506b163e3",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "ఆఫ్ఘనిస్తాన్",
+    "పాకిస్తాన్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_6cffbbff6b7fc221",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "భారతీయ రిజర్వ్ బ్యాంక్",
+    "14440",
+    "https://rbikehtahai.rbi.org.in/ia",
+    "rbikehtahai@rbi.org.in"
+   ],
+   "category_ok": true,
+   "names_ok": false,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": false}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_cbf54de6a70f9bcb",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "ప్రభుత్వం",
+    "డీజీపీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_6803b2fad98d8733",
+   "category": "politics",
+   "people": [
+    "గురుమూర్తి"
+   ],
+   "organisations": [
+    "వైఎస్సార్సీపీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_c8bc8eb970f2406c",
+   "category": "politics",
+   "people": [],
+   "organisations": [
+    "పార్లమెంట్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_c59c404ffc871939",
+   "category": "politics",
+   "people": [
+    "ముద్రగడ గిరిబాబు",
+    "ముద్రగడ పద్మనాభం",
+    "గిరిబాబు",
+    "చంద్రబాబు"
+   ],
+   "organisations": [
+    "వైఎస్సార్సీపీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_640bd3334de0f157",
+   "category": "other",
+   "people": [
+    "చంద్రబాబు",
+    "పవన్ కల్యాణ్"
+   ],
+   "organisations": [
+    "సాక్షి",
+    "టీడీపీ",
+    "సాక్షి నెట్‌వర్క్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_32fcf256d570722f",
+   "category": "other",
+   "people": [
+    "వీరజ్ శరా"
+   ],
+   "organisations": [
+    "ఫెర్రో అల్లాయిస్",
+    "శరా మెటల్స్ అండ్ అల్లాయిస్",
+    "సుప్రీం కోర్టు"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "{\"category_ok\": true, \"names_ok\": true}"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_25c728c6e50377d5",
+   "category": "other",
+   "people": [],
+   "organisations": [],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_1b499d48e19cb968",
+   "category": "politics",
+   "people": [
+    "చంద్రబాబు",
+    "వైఎస్ జగన్"
+   ],
+   "organisations": [
+    "ఎక్స్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_862c8a9d8fd72eca",
+   "category": "politics",
+   "people": [
+    "రేణుకా చౌదరి",
+    "వైఎస్ జగన్‌మోహన్‌రెడ్డి",
+    "వరుదు కళ్యాణి",
+    "పాముల పుష్ప శ్రీవాణి",
+    "కె.భాగ్యలక్ష్మి",
+    "రాయన భాగ్యలక్ష్మి"
+   ],
+   "organisations": [
+    "వైఎస్సార్‌సీపీ",
+    "కాంగ్రెస్",
+    "మహిళా విభాగం",
+    "ఎల్లో మీడియా ఛానల్స్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_fa4c7f57914cc274",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "ఈటీవీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_3eeebe0dbd69551e",
+   "category": "politics",
+   "people": [
+    "కొమ్మినేని శ్రీనివాసరావు",
+    "కృష్ణంరాజు"
+   ],
+   "organisations": [
+    "సాక్షి మీడియా యాజమాన్యం",
+    "కూటమి ప్రభుత్వం"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_80fb131991320b6d",
+   "category": "politics",
+   "people": [
+    "చంద్రబాబు",
+    "వెఎస్ జగన్"
+   ],
+   "organisations": [
+    "సాక్షి",
+    "టీడీపీ",
+    "కూటమి సర్కారు"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_a8373dbd4b9ea2ea",
+   "category": "other",
+   "people": [],
+   "organisations": [],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "{\"category_ok\": true, \"names_ok\": true}"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_53208f93f3a889c6",
+   "category": "politics",
+   "people": [
+    "చంద్రబాబు"
+   ],
+   "organisations": [
+    "ఈటీవీ",
+    "టీడీపీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_0c3c12d2941c8a40",
+   "category": "other",
+   "people": [
+    "గోపాలకృష్ణ",
+    "శివాజీ",
+    "శేషగిరి",
+    "పాపమ్మ"
+   ],
+   "organisations": [
+    "సాక్షి",
+    "భీమడోలు డిప్యూటీ ఎగ్జిక్యూటివ్ ఇంజనీర్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_7ec00bb39cdcbcad",
+   "category": "other",
+   "people": [
+    "కీర్తివర్షన్ సింగ్"
+   ],
+   "organisations": [
+    "కేంద్ర విదేశాంగశాఖ",
+    "వైఎస్సార్‌సీపీ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_be748766736403e4",
+   "category": "other",
+   "people": [
+    "ఆర్.ధనంజయరెడ్డి",
+    "నిర్మల",
+    "మురళి",
+    "హరిశ్చంద్ర",
+    "చంద్రబాబు"
+   ],
+   "organisations": [
+    "సాక్షి పత్రిక",
+    "టీడీపీ",
+    "వైఎస్సార్సీపీ",
+    "పల్నాడు జిల్లా ఎస్పీ",
+    "డీజీపీ",
+    "తెలంగాణలోని విజయపురి పోలీస్ స్టేషన్",
+    "యావత్ జర్నలిస్టు సంఘాలు"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_5172f827d9a18ad6",
+   "category": "family",
+   "people": [
+    "జస్టిస్ వెంకట రమణ"
+   ],
+   "organisations": [
+    "మధ్యప్రదేశ్ హైకోర్టు",
+    "శ్రీపద్మావతి అమ్మవారి",
+    "చంద్రగిరి"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_48029b4945b8c6ea",
+   "category": "other",
+   "people": [],
+   "organisations": [
+    "ఓఈసీడీ",
+    "అమెరికా",
+    "యూకే",
+    "జర్మనీ",
+    "ఫ్రాన్స్",
+    "కెనడా",
+    "జపాన్",
+    "ఆర్గనైజేషన్ ఫర్ ఎకనమిక్ కోపరేషన్ అండ్ డెవలప్‌మెంట్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_2f54d86fd5dcb58a",
+   "category": "other",
+   "people": [],
+   "organisations": [],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_b85b87fa967e0877",
+   "category": "cinema",
+   "people": [
+    "మనోజ్ కుమార్ శర్మ",
+    "దుష్యంత్"
+   ],
+   "organisations": [
+    "చంబల్ లోయ"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-01-28",
+   "story_id": "s_10276de3edc87a87",
+   "category": "politics",
+   "people": [
+    "బాబు"
+   ],
+   "organisations": [
+    "సూపర్ సిక్స్"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-06-10",
+   "story_id": "s_2aa0a689a74e63c0",
+   "category": "politics",
+   "people": [
+    "సజ్జల రామకృష్ణారెడ్డి",
+    "లేళ్ళ అప్పిరెడ్డి",
+    "జక్కంపూడి రాజా",
+    "టీజేఆర్ సుధాకర్ బాబు",
+    "బెరెడ్డి సిదార్ రెడ్డి"
+   ],
+   "organisations": [
+    "వైఎస్సార్సీపీ",
+    "వైఎస్సార్సీపీ కేంద్ర కార్యాలయం"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2024-12-26",
+   "story_id": "s_211c7706ff27de38",
+   "category": "other",
+   "people": [
+    "చంద్రబాబు",
+    "కొండపల్లి శ్రీనివాస్",
+    "వెలిశెట్టి అచ్చుత గణేష్",
+    "చిగురుపాటి మహేష్",
+    "సత్యనారాయణ శెట్టి",
+    "వి.మురళీకృష్ణ"
+   ],
+   "organisations": [
+    "టీడీపీ కూటమి",
+    "వైఎస్సార్ సీపీ",
+    "సుప్రీం కోర్టు",
+    "ఫెర్రో అల్లాయిస్ కంపెనీలు"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-08-02",
+   "story_id": "s_2fc3855ec207de87",
+   "category": "other",
+   "people": [],
+   "organisations": [],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "```json\n{\"category_ok\": true, \"names_ok\": true}\n```"
+  },
+  {
+   "pub_date": "2025-04-11",
+   "story_id": "s_6829a271514c13ef",
+   "category": "politics",
+   "people": [
+    "అంబటి రాంబాబు",
+    "పిన్నెల్లి రామకృష్ణారెడ్డి",
+    "హరిశ్చంద్ర",
+    "నిర్మల",
+    "మురళి",
+    "విరుల"
+   ],
+   "organisations": [
+    "టీడీపీ",
+    "వైఎస్సార్సీపీ",
+    "సాక్షి",
+    "పాత్రికేయులు",
+    "ఈనాడు",
+    "ఎల్లో మీడియా"
+   ],
+   "category_ok": true,
+   "names_ok": true,
+   "reply": "{\"category_ok\": true, \"names_ok\": true}"
+  }
+ ]
+}
