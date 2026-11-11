@@ -8,7 +8,6 @@ with the item's crop and its transcription split into numbered lines; the judge 
 from __future__ import annotations
 
 import random
-import re
 from collections.abc import Callable, Collection, Mapping, Sequence
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -25,19 +24,16 @@ NO_ANSWER = "unsure"  # a line the judge never answered for
 
 Ask = Callable[..., str]
 
-# a Markdown table separator row: `|---|:--:|`, `--- | ---`
-_SEPARATOR = re.compile(r"^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?$")
-
-
-def is_separator(line: str) -> bool:
-    return bool(_SEPARATOR.match(line.strip()))
+is_separator = tr.is_separator
 
 
 def item_lines(item: Mapping[str, Any]) -> list[str]:
     """The lines the judge checks: the title (when it is not already the first line of the
-    markdown) and every non-empty markdown line except table separator rows."""
-    lines = [ln.strip() for ln in str(item.get("markdown") or "").splitlines()]
-    lines = [ln for ln in lines if ln and not is_separator(ln)]
+    markdown) and every markdown line with a letter or digit, except table separator rows
+    (filler - image tags, dividers, empty rows - is removed first with `clean_markdown`: it prints
+    nothing that could be invented)."""
+    lines = [ln.strip() for ln in tr.clean_markdown(str(item.get("markdown") or "")).splitlines()]
+    lines = [ln for ln in lines if tr.has_text(ln) and not is_separator(ln)]
     title = str(item.get("title") or "").strip()
     if title and (not lines or lines[0].lstrip("#").strip() != title):
         lines.insert(0, title)

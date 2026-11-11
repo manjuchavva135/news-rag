@@ -24,6 +24,8 @@ Rules:
 - Copy the text and the numbers exactly as printed. Never compute, round or correct a value.
 - Keep Telugu as Telugu and English as English. Do not translate anything.
 - Where a word or number cannot be read, write `[illegible]` in its place. Never guess.
+- Write only printed text: no dividers (`***`, `---`), no image tags or picture descriptions
+  (`![...]`), no rows or lines without any printed word or number.
 
 {hint}
 

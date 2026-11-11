@@ -43,7 +43,8 @@ BLOCK_PROMPT_FILE = PROMPTS / "transcribe_v1.md"
 NOTICE_PROMPT_FILE = PROMPTS / "transcribe_notice_v1.md"
 PART_PROMPT_FILE = PROMPTS / "transcribe_part_v1.md"
 # 2: the indic-ocr text goes along as a spelling reference; big notices are read in strips
-PROMPT_VERSION = 2
+# 3: no filler lines (dividers, image tags, empty rows); filler is also removed from replies
+PROMPT_VERSION = 3
 JPEG_QUALITY = 92
 FAILED = "low_confidence:transcribe_failed"
 LOW = "low_confidence:"
@@ -389,6 +390,62 @@ def _opt_str(data: Mapping[str, Any], key: str) -> str | None:
 
 _DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
+# a Markdown table separator row: `|---|:--:|`, `--- | ---`
+_SEPARATOR = re.compile(r"^\|?\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)*\|?$")
+_IMAGE_TAG = re.compile(r"!\[[^\]]*\](\([^)]*\))?")
+
+
+def is_separator(line: str) -> bool:
+    return bool(_SEPARATOR.match(line.strip()))
+
+
+def has_text(line: str) -> bool:
+    """The line has at least one letter or digit (any script)."""
+    return any(ch.isalnum() for ch in line)
+
+
+def _is_row(line: str) -> bool:
+    return line.strip().startswith("|")
+
+
+def clean_markdown(text: str) -> str:
+    """The model's Markdown without filler: image tags, dividers and lines or table rows with no
+    letter or digit are removed (they carry nothing printed). A table whose header row was
+    removed takes its first remaining row as the header. Runs of blank lines become one."""
+    out: list[str] = []
+    for raw in text.splitlines():
+        line = _IMAGE_TAG.sub("", raw).rstrip()
+        if not line.strip():
+            if out and out[-1] != "":
+                out.append("")
+            continue
+        if is_separator(line):
+            out.append(line)
+            continue
+        if has_text(line):
+            out.append(line)
+    # a separator must follow a table row: else the header was filler (or the separator is a
+    # `---` divider): promote the next row, or drop it
+    fixed: list[str] = []
+    i = 0
+    while i < len(out):
+        line = out[i]
+        if is_separator(line) and not (fixed and _is_row(fixed[-1])):
+            nxt = out[i + 1] if i + 1 < len(out) else ""
+            if _is_row(nxt) and not is_separator(nxt):
+                fixed.extend([nxt, line])
+                i += 2
+                continue
+            i += 1
+            continue
+        fixed.append(line)
+        i += 1
+    while fixed and fixed[-1] == "":
+        fixed.pop()
+    while fixed and fixed[0] == "":
+        fixed.pop(0)
+    return "\n".join(fixed)
+
 
 def _deadline(value: str | None) -> str | None:
     """A valid `YYYY-MM-DD` date, else None (an unreadable date is not a reason to drop)."""
@@ -415,7 +472,7 @@ def parse_block(reply: str) -> dict[str, Any]:
     markdown = data.get("markdown")
     if not isinstance(markdown, str):
         raise parse.SchemaError("`markdown` must be a string")
-    return {"type": kind, "title": _opt_str(data, "title"), "markdown": markdown.strip()}
+    return {"type": kind, "title": _opt_str(data, "title"), "markdown": clean_markdown(markdown)}
 
 
 def parse_part(reply: str) -> dict[str, Any]:
@@ -427,7 +484,7 @@ def parse_part(reply: str) -> dict[str, Any]:
     markdown = data.get("markdown") if isinstance(data, dict) else None
     if not isinstance(markdown, str):
         raise parse.SchemaError('the reply must be {"markdown": <string>}')
-    return {"markdown": markdown.strip()}
+    return {"markdown": clean_markdown(markdown)}
 
 
 def parse_notice(reply: str) -> dict[str, Any]:
@@ -446,7 +503,7 @@ def parse_notice(reply: str) -> dict[str, Any]:
         raise parse.SchemaError("`markdown` must be a string")
     return {
         "class": klass,
-        "markdown": markdown.strip(),
+        "markdown": clean_markdown(markdown),
         "department": _opt_str(data, "department"),
         "notice_number": _opt_str(data, "notice_number"),
         "deadline": _deadline(_opt_str(data, "deadline")),

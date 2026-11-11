@@ -407,7 +407,7 @@ def test_lazy_model(data, tmp_path, monkeypatch, set_settings):
     stage = TranscribeStage()
     assert stage.models_needed == (config.settings.group_model,)
     assert stage.concurrency == config.settings.group_concurrency
-    assert stage.version.startswith(f"{config.settings.group_model}-transcribe-p2-")
+    assert stage.version.startswith(f"{config.settings.group_model}-transcribe-p3-")
     stage.open()
     first = stage.handle(page_row("P0"))
     assert fake.opened == []  # no target: no model
@@ -601,3 +601,33 @@ def test_spotcheck_judges_parts_separately(data):
         (2, "b", "not_present"),
         (3, "c", "not_present"),
     ]
+
+
+# --- filler lines (user request 2026-11-11) ---------------------------------------------------
+
+
+def test_clean_markdown_drops_filler():
+    text = "# శీర్షిక\n\n***\n![Emblem of India]\nటెక్స్ట్ ![logo](x.png) 12\n\n\n---\n| | |\nచివర"
+    assert tr.clean_markdown(text) == "# శీర్షిక\n\nటెక్స్ట్  12\n\nచివర"
+
+
+def test_clean_markdown_empty_header_row_promotes_first_row():
+    text = "| | | |\n|---|---|---|\n| 1 | KMCK | 6 |\n| 2 | SVMC | 5 |\n| | | |"
+    assert tr.clean_markdown(text) == "| 1 | KMCK | 6 |\n|---|---|---|\n| 2 | SVMC | 5 |"
+    # a table with a real header is unchanged
+    table = "| దేశం | పాయింట్లు |\n|---|---|\n| జర్మనీ | 28 |"
+    assert tr.clean_markdown(table) == table
+
+
+def test_filler_removed_from_replies():
+    reply = json.dumps({"type": "table", "title": None, "markdown": "| | |\n|---|---|\n| a | 1 |"})
+    assert tr.parse_block(reply)["markdown"] == "| a | 1 |\n|---|---|"
+    notice = json.loads(notice_reply())
+    notice["markdown"] = "***\nటెండర్\n***"
+    assert tr.parse_notice(json.dumps(notice))["markdown"] == "టెండర్"
+    assert tr.parse_part(json.dumps({"markdown": "![x]\nపార్ట్"}))["markdown"] == "పార్ట్"
+
+
+def test_spotcheck_skips_textless_lines():
+    item = {"title": None, "markdown": "***\n| | |\n|---|---|\n| a | 1 |\n![x]\n- 2024: 10"}
+    assert sc.item_lines(item) == ["| a | 1 |", "- 2024: 10"]
