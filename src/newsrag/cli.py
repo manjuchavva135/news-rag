@@ -19,6 +19,7 @@ from newsrag.sample import cli as sample_cli
 from newsrag.stages import cli as stages_cli
 from newsrag.stitch import cli as stitch_cli
 from newsrag.stores import cli as stores_cli
+from newsrag.textmodel import cli as textmodel_cli
 from newsrag.transcribe import cli as transcribe_cli
 
 app = typer.Typer(
@@ -48,6 +49,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (dedup_cli.app, "dedup"),
     (enrich_cli.app, "enrich"),
     (aliases_cli.app, "aliases"),
+    (textmodel_cli.app, "textmodel"),
 ]
 
 for sub_app, name in SUB_APPS:

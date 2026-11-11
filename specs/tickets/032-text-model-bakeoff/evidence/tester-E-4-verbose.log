@@ -1,0 +1,40 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-a026dd351198baf3e/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a026dd351198baf3e
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 29 items
+
+tests/test_textmodel_bakeoff.py::test_eligible_needs_telugu_and_length PASSED [  3%]
+tests/test_textmodel_bakeoff.py::test_choose_is_seeded_and_sorted PASSED [  6%]
+tests/test_textmodel_bakeoff.py::test_stories_file_written_then_reused PASSED [ 10%]
+tests/test_textmodel_bakeoff.py::test_no_self_judging PASSED             [ 13%]
+tests/test_textmodel_bakeoff.py::test_no_same_family_judging PASSED      [ 17%]
+tests/test_textmodel_bakeoff.py::test_judging_reloads_only_when_needed PASSED [ 20%]
+tests/test_textmodel_bakeoff.py::test_judged_is_mean_over_judges_scaled PASSED [ 24%]
+tests/test_textmodel_bakeoff.py::test_parse_scores PASSED                [ 27%]
+tests/test_textmodel_bakeoff.py::test_unusable_judge_replies_are_not_counted PASSED [ 31%]
+tests/test_textmodel_bakeoff.py::test_objective_scores_clean PASSED      [ 34%]
+tests/test_textmodel_bakeoff.py::test_objective_scores_catch_bad_work PASSED [ 37%]
+tests/test_textmodel_bakeoff.py::test_garbage_json_lowers_json_ok PASSED [ 41%]
+tests/test_textmodel_bakeoff.py::test_thinking_is_stripped PASSED        [ 44%]
+tests/test_textmodel_bakeoff.py::test_total_formula PASSED               [ 48%]
+tests/test_textmodel_bakeoff.py::test_tie_breaks PASSED                  [ 51%]
+tests/test_textmodel_bakeoff.py::test_winner_in_report PASSED            [ 55%]
+tests/test_textmodel_bakeoff.py::test_failed_candidate_excluded PASSED   [ 58%]
+tests/test_textmodel_bakeoff.py::test_candidate_without_other_family_judge_is_not_a_winner PASSED [ 62%]
+tests/test_textmodel_bakeoff.py::test_no_finisher_means_no_winner PASSED [ 65%]
+tests/test_textmodel_bakeoff.py::test_saved_outputs_are_reused PASSED    [ 68%]
+tests/test_textmodel_bakeoff.py::test_apply_picks_other_family_judge PASSED [ 72%]
+tests/test_textmodel_bakeoff.py::test_apply_skips_failed_candidates_as_judge PASSED [ 75%]
+tests/test_textmodel_bakeoff.py::test_apply_end_to_end_from_a_real_run PASSED [ 79%]
+tests/test_textmodel_bakeoff.py::test_no_winner_exits_1 PASSED           [ 82%]
+tests/test_textmodel_bakeoff.py::test_cli_bakeoff_then_apply PASSED      [ 86%]
+tests/test_textmodel_bakeoff.py::test_dead_server_during_generation_is_a_failed_candidate PASSED [ 89%]
+tests/test_textmodel_bakeoff.py::test_dead_judge_is_retried_on_the_next_run PASSED [ 93%]
+tests/test_textmodel_bakeoff.py::test_answer_judge_is_the_best_other_family_in_the_global_ranking PASSED [ 96%]
+tests/test_textmodel_bakeoff.py::test_sarvam_profile_turns_thinking_off_for_production_too PASSED [100%]
+
+============================== 29 passed in 4.86s ==============================
+exit=0

@@ -1,0 +1,5 @@
+sarvam-m-24b weights=43.9 kv_one_seq=5.0 budget=86.4 fit=yes
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files: 100%|██████████| 19/19 [00:00<00:00, 2364.39it/s]
+sarvam-m-24b reply: OK
+sarvam-m-24b latency=0.11s (open 58s)
+exit=0

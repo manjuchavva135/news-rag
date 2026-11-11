@@ -93,6 +93,19 @@ profiles:
       - --speculative-config
       - '{"method": "ngram", "num_speculative_tokens": 5, "prompt_lookup_max": 6, "prompt_lookup_min": 2}'
 
+  - name: sarvam-m-24b
+    hf_id: sarvamai/sarvam-m
+    family: mistral  # Mistral-Small-3.1 base with Indic post-training
+    kind: llm
+    dtype: bfloat16
+    max_model_len: 32768
+    gpu_memory_utilization: 0.90
+    extra_args:
+      # Sarvam-M thinks by default (<think> blocks eat the token budget and break the JSON
+      # replies of the enrich stages): thinking off, in the profile so every user gets it.
+      - --default-chat-template-kwargs
+      - '{"enable_thinking": false}'
+
   - name: bge-m3
     hf_id: BAAI/bge-m3
     family: bge

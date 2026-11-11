@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a026dd351198baf3e
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 29 items
+
+tests/test_textmodel_bakeoff.py .............................            [100%]
+
+============================== 29 passed in 4.81s ==============================
+exit=0

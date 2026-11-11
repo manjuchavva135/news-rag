@@ -1,0 +1,60 @@
+generating with gemma3-27b
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 2827.65it/s]
+  gemma3-27b: 68 s for 40 stories
+generating with gemma4-31b
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2480.49it/s]
+  gemma4-31b: 130 s for 40 stories
+generating with qwen3-30b-a3b
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3154.49it/s]
+  qwen3-30b-a3b: 32 s for 40 stories
+  qwen3-30b-a3b judges gemma3-27b
+  qwen3-30b-a3b judges gemma4-31b
+generating with sarvam-m-24b
+Fetching 19 files:   0%|          | 0/19 [00:00<?, ?it/s]Fetching 19 files: 100%|██████████| 19/19 [00:00<00:00, 2248.00it/s]
+  sarvam-m-24b: 48 s for 40 stories
+  sarvam-m-24b judges gemma3-27b
+  sarvam-m-24b judges gemma4-31b
+  sarvam-m-24b judges qwen3-30b-a3b
+judging with gemma3-27b
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 2423.05it/s]
+  gemma3-27b judges qwen3-30b-a3b
+  gemma3-27b judges sarvam-m-24b
+judging with gemma4-31b
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 1979.61it/s]
+  gemma4-31b judges qwen3-30b-a3b
+  gemma4-31b judges sarvam-m-24b
+judging with qwen3-30b-a3b
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2510.00it/s]
+  qwen3-30b-a3b judges sarvam-m-24b
+# Text model Telugu bake-off (ticket 032)
+
+stories: 40 (data/textmodel-bakeoff-stories.txt; print dates 2024-12-26, 2025-01-28, 2025-04-11, 2025-06-10, 2025-08-02)
+tasks: enrich_core, enrich_facts, summary, question (temperature 0)
+judged: mean over the judges of another family of the mean 1-5 score, scaled (x-1)/4
+total = 0.5 x judged + 0.125 x (json_ok + names_verbatim + facts_verbatim + telugu_output)
+wall time: 0.27 h
+
+| candidate | family | status | json_ok | names_verbatim | facts_verbatim | telugu_output | judged | total | seconds/story | note |
+|---|---|---|---|---|---|---|---|---|---|---|
+| gemma3-27b | gemma | done | 1.0000 | 0.9109 | 0.8367 | 1.0000 | 0.8823 | 0.9096 | 1.69 |  |
+| gemma4-31b | gemma | done | 1.0000 | 0.9167 | 0.7528 | 1.0000 | 0.8667 | 0.8920 | 3.25 |  |
+| qwen3-30b-a3b | qwen | done | 1.0000 | 0.9292 | 0.8028 | 1.0000 | 0.8844 | 0.9087 | 0.81 |  |
+| sarvam-m-24b | mistral | done | 1.0000 | 0.8493 | 0.8983 | 1.0000 | 0.9132 | 0.9250 | 1.21 |  |
+
+Judge matrix (mean score 0-1 that the column judge gave the row candidate):
+
+| candidate | gemma3-27b | gemma4-31b | qwen3-30b-a3b | sarvam-m-24b |
+|---|---|---|---|---|
+| gemma3-27b | - | - | 0.950 | 0.815 |
+| gemma4-31b | - | - | 0.956 | 0.777 |
+| qwen3-30b-a3b | 0.965 | 0.915 | - | 0.774 |
+| sarvam-m-24b | 0.931 | 0.885 | 0.923 | - |
+
+winner: sarvam-m-24b
+
+/home/admin1/raw/reports/textmodel-bakeoff.md
+
+real	15m59.892s
+user	17m11.023s
+sys	4m13.612s
+exit=0
