@@ -1,6 +1,6 @@
 # 025: Retrieval test set and hybrid search script
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 024: searches the stores
 

@@ -23,6 +23,7 @@ import json
 import os
 import sys
 from collections.abc import Mapping
+from datetime import date
 from pathlib import Path
 from typing import Any, get_args
 
@@ -74,6 +75,7 @@ REPO_ROOT_DERIVED = {
     "continuations_file": "continuations.yaml",
     "alias_overrides_file": "data/aliases/overrides.yaml",
     "textmodel_stories_file": "data/textmodel-bakeoff-stories.txt",
+    "retrieval_set_file": "data/eval/retrieval-v1.jsonl",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -635,6 +637,33 @@ class Settings(BaseSettings):
     index_generation_tag: str = "v1"  # change it to build a second generation of the same model
     index_write_batch: int = 256  # points / documents / rows per write request
     index_script_share: float = 0.2  # share of letters from a script to put a text in its field
+
+    # --- search ---
+    # Ticket 025: plain hybrid search (dense + BM25, reciprocal-rank fusion). No reranking.
+    search_candidates: int = 50  # top hits taken from each of Qdrant and OpenSearch
+    search_rrf_c: float = 60.0  # RRF: score = sum of 1 / (c + rank)
+    search_bm25_fields: tuple[str, ...] = ("headline_te^2", "text_te", "headline_en^2", "text_en")
+
+    # --- evals ---
+    # Ticket 025: the retrieval test set (`newsrag eval build-retrieval`) and its scoring
+    # (`newsrag eval retrieval`). The questions are written by `enrich_model`.
+    retrieval_set_file: Path  # default {repo_root}/data/eval/retrieval-v1.jsonl (committed)
+    retrieval_n: int = 300  # questions in a built set
+    retrieval_seed: int = 7
+    retrieval_window_n: int = 100  # questions from the baseline window (the old pipeline's pages)
+    retrieval_window_start: date = date(2026, 1, 1)
+    retrieval_window_end: date = date(2026, 6, 30)
+    retrieval_kinds: tuple[str, ...] = ("news", "editorial", "notice_tender")
+    retrieval_te_share: float = 0.7  # share of the questions written in Telugu (the rest English)
+    retrieval_copy_words: int = 4  # a question sharing this many consecutive headline words...
+    retrieval_max_tries: int = 3  # ...or an invalid reply is asked again up to this many times
+    retrieval_story_chars: int = 4000  # headline + text shown to the model, cut to this
+    retrieval_max_tokens: int = 256
+    retrieval_concurrency: int = 32  # parallel question requests
+    retrieval_lang_share: float = 0.5  # letters of the asked script a question needs at least
+    retrieval_k: int = 10  # hits scored per question (recall@k)
+    retrieval_ngram: int = 5  # characters per n-gram of the hit rule
+    retrieval_hit_overlap: float = 0.3  # share of a hit's n-grams that must occur in the gold text
 
     # --- textmodel ---
     # `newsrag textmodel bakeoff` (ticket 032): candidate text models run four Telugu tasks on the

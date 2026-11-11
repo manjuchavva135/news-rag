@@ -34,7 +34,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 022 | Name alias table | done | solo | waits for 021: same enrich module, uses its entities |
 | 023 | Chunking | done | solo | waits for 022: needs enriched stories; waits for 015: table/notice items |
 | 024 | Embed and index into stores | done | solo | waits for 023: needs chunks |
-| 025 | Retrieval test set and hybrid search script | draft | solo | waits for 024: searches the stores |
+| 025 | Retrieval test set and hybrid search script | done | solo | waits for 024: searches the stores |
 | 026 | Embedding model bake-off | draft | solo | waits for 025: needs the retrieval test |
 | 027 | Old-pipeline baseline comparison | draft | solo | waits for 025: needs the retrieval test and search script |
 | 028 | Customer-question answer check | draft | solo | waits for 025: needs the search script |

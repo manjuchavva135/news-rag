@@ -9,6 +9,7 @@ from newsrag.dedup import cli as dedup_cli
 from newsrag.editions import cli as editions_cli
 from newsrag.embed import cli as index_cli
 from newsrag.enrich import cli as enrich_cli
+from newsrag.evals import cli as eval_cli
 from newsrag.geo import cli as geo_cli
 from newsrag.grouping import cli as group_cli
 from newsrag.grouping import judge_cli
@@ -18,6 +19,7 @@ from newsrag.models import cli as models_cli
 from newsrag.ocr import cli as ocr_cli
 from newsrag.render import cli as render_cli
 from newsrag.sample import cli as sample_cli
+from newsrag.search import cli as search_cli
 from newsrag.stages import cli as stages_cli
 from newsrag.stitch import cli as stitch_cli
 from newsrag.stores import cli as stores_cli
@@ -56,6 +58,8 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (chunking_cli.app, "chunk"),
     (warehouse_cli.app, "warehouse"),
     (index_cli.app, "index"),
+    (search_cli.app, "search"),
+    (eval_cli.app, "eval"),
 ]
 
 for sub_app, name in SUB_APPS:
