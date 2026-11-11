@@ -1,0 +1,12 @@
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2801.04it/s]
+enrich_places 2025-06-10: 89 stories in 11.1 s (8.03 stories/s), 292 places, 132 resolved / 5 ambiguous / 21 unresolved, 0 failed, 34 dropped
+done 2025-06-10
+enrich_places: done=1 failed=0 skipped=0 in 70.3s
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3108.60it/s]
+enrich_places 2024-12-26: 117 stories in 15.7 s (7.47 stories/s), 438 places, 120 resolved / 1 ambiguous / 45 unresolved, 0 failed, 40 dropped
+done 2024-12-26
+enrich_places: done=1 failed=0 skipped=0 in 77.1s
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2822.55it/s]
+enrich_places 2025-08-02: 101 stories in 12.7 s (7.94 stories/s), 322 places, 117 resolved / 0 ambiguous / 20 unresolved, 0 failed, 38 dropped
+done 2025-08-02
+enrich_places: done=1 failed=0 skipped=0 in 72.0s
