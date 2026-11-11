@@ -7,6 +7,7 @@ from newsrag.aliases import cli as aliases_cli
 from newsrag.chunking import cli as chunking_cli
 from newsrag.dedup import cli as dedup_cli
 from newsrag.editions import cli as editions_cli
+from newsrag.embed import cli as index_cli
 from newsrag.enrich import cli as enrich_cli
 from newsrag.geo import cli as geo_cli
 from newsrag.grouping import cli as group_cli
@@ -22,6 +23,7 @@ from newsrag.stitch import cli as stitch_cli
 from newsrag.stores import cli as stores_cli
 from newsrag.textmodel import cli as textmodel_cli
 from newsrag.transcribe import cli as transcribe_cli
+from newsrag.warehouse import cli as warehouse_cli
 
 app = typer.Typer(
     name="newsrag",
@@ -52,6 +54,8 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (aliases_cli.app, "aliases"),
     (textmodel_cli.app, "textmodel"),
     (chunking_cli.app, "chunk"),
+    (warehouse_cli.app, "warehouse"),
+    (index_cli.app, "index"),
 ]
 
 for sub_app, name in SUB_APPS:

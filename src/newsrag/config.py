@@ -267,6 +267,9 @@ class Settings(BaseSettings):
     stores_up_timeout_s: float = 180.0  # `stores up` waits this long for all three to answer
     stores_ping_timeout_s: float = 2.0  # per-store timeout for `stores status`
     pg_pool_max_size: int = 10
+    # Ticket 024: where the index writes. Tests point both at throw-away values.
+    warehouse_schema: str = "warehouse"  # Postgres schema of the structured warehouse
+    store_alias_prefix: str = ""  # prefix of the `chunks` aliases and `chunks__<generation>` names
 
     # --- ledger ---
     ledger_schema: str = "ledger"  # Postgres schema holding the pipeline ledger tables
@@ -624,6 +627,14 @@ class Settings(BaseSettings):
     # The tokenizer is the one of this embed profile of models.yaml; a model change re-chunks.
     embed_model: str = "bge-m3"  # embed profile of models.yaml (ticket 026 may change it)
     chunk_max_tokens: int = 512  # the whole embedded string (prefix + text) fits this many tokens
+
+    # --- index ---
+    # Ticket 024: stage `index` embeds the chunks and writes Qdrant, OpenSearch and the warehouse.
+    # A generation is `<embed_model>__<index_generation_tag>`: one set of collections per model.
+    embed_batch_size: int = 64  # texts per embedding batch
+    index_generation_tag: str = "v1"  # change it to build a second generation of the same model
+    index_write_batch: int = 256  # points / documents / rows per write request
+    index_script_share: float = 0.2  # share of letters from a script to put a text in its field
 
     # --- textmodel ---
     # `newsrag textmodel bakeoff` (ticket 032): candidate text models run four Telugu tasks on the

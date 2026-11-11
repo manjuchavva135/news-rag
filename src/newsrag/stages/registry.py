@@ -17,6 +17,7 @@ from newsrag.stages.folio import FolioStage
 from newsrag.stages.group import GroupStage
 from newsrag.stages.group_final import GroupFinalStage
 from newsrag.stages.group_retry import GroupRetryStage
+from newsrag.stages.index import IndexStage
 from newsrag.stages.judge import JudgeRetryStage, JudgeStage
 from newsrag.stages.ocr import OcrStage
 from newsrag.stages.ocr_final import OcrFinalStage
@@ -43,3 +44,4 @@ REGISTRY["enrich_core"] = EnrichCoreStage()
 REGISTRY["enrich_places"] = EnrichPlacesStage()
 REGISTRY["enrich_facts"] = EnrichFactsStage()
 REGISTRY["chunk"] = ChunkStage()
+REGISTRY["index"] = IndexStage()

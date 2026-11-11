@@ -116,6 +116,19 @@ def _format_value(value: object) -> str:
     return "NULL" if value is None else str(value)
 
 
+@db_app.command("init")
+def db_init() -> None:
+    """Create the ledger and the warehouse schemas and apply new migrations (safe to repeat)."""
+    from newsrag.ledger import db as ledger_db
+    from newsrag.warehouse import db as warehouse_db
+
+    for label, module in (("ledger", ledger_db), ("warehouse", warehouse_db)):
+        applied = module.migrate()
+        for name in applied:
+            typer.echo(f"applied {name}")
+        typer.echo(f"{label} schema {module.schema()}: up to date ({len(applied)} new migrations)")
+
+
 @db_app.command("sql")
 def sql(query: str = typer.Argument(..., help="One SQL statement.")) -> None:
     """Run one SQL statement (autocommit); print rows tab-separated, no header, NULL as NULL."""
