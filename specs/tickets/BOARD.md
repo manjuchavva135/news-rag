@@ -32,7 +32,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 020 | Enrichment: places and districts | done | solo | waits for 019: same enrich module; waits for 018: reference list |
 | 021 | Enrichment: amounts as structured facts | done | solo | waits for 020: same enrich module |
 | 022 | Name alias table | done | solo | waits for 021: same enrich module, uses its entities |
-| 023 | Chunking | draft | solo | waits for 022: needs enriched stories; waits for 015: table/notice items |
+| 023 | Chunking | ready | solo | waits for 022: needs enriched stories; waits for 015: table/notice items |
 | 024 | Embed and index into stores | draft | solo | waits for 023: needs chunks |
 | 025 | Retrieval test set and hybrid search script | draft | solo | waits for 024: searches the stores |
 | 026 | Embedding model bake-off | draft | solo | waits for 025: needs the retrieval test |

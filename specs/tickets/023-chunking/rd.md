@@ -1,6 +1,6 @@
 # 023: Chunking
 
-**Status:** draft
+**Status:** ready
 **Mode:** solo
 **Runs:** waits for 022: needs enriched stories and entity ids; waits for 015: table/notice items
 
