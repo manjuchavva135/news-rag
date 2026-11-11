@@ -1,0 +1,35 @@
+reusing the saved outputs of gemma3-27b
+reusing the saved outputs of gemma4-31b
+reusing the saved outputs of qwen3-30b-a3b
+reusing the saved outputs of sarvam-m-24b
+# Text model Telugu bake-off (ticket 032)
+
+stories: 40 (data/textmodel-bakeoff-stories.txt; print dates 2024-12-26, 2025-01-28, 2025-04-11, 2025-06-10, 2025-08-02)
+tasks: enrich_core, enrich_facts, summary, question (temperature 0)
+judged: mean over the judges of another family of the mean 1-5 score, scaled (x-1)/4
+total = 0.5 x judged + 0.125 x (json_ok + names_verbatim + facts_verbatim + telugu_output)
+wall time: 0.00 h
+
+| candidate | family | status | json_ok | names_verbatim | facts_verbatim | telugu_output | judged | total | seconds/story | note |
+|---|---|---|---|---|---|---|---|---|---|---|
+| gemma3-27b | gemma | done | 1.0000 | 0.9109 | 0.8367 | 1.0000 | 0.8823 | 0.9096 | 1.69 |  |
+| gemma4-31b | gemma | done | 1.0000 | 0.9167 | 0.7528 | 1.0000 | 0.8667 | 0.8920 | 3.25 |  |
+| qwen3-30b-a3b | qwen | done | 1.0000 | 0.9292 | 0.8028 | 1.0000 | 0.8844 | 0.9087 | 0.81 |  |
+| sarvam-m-24b | mistral | done | 1.0000 | 0.8493 | 0.8983 | 1.0000 | 0.9132 | 0.9250 | 1.21 |  |
+
+Judge matrix (mean score 0-1 that the column judge gave the row candidate):
+
+| candidate | gemma3-27b | gemma4-31b | qwen3-30b-a3b | sarvam-m-24b |
+|---|---|---|---|---|
+| gemma3-27b | - | - | 0.950 | 0.815 |
+| gemma4-31b | - | - | 0.956 | 0.777 |
+| qwen3-30b-a3b | 0.965 | 0.915 | - | 0.774 |
+| sarvam-m-24b | 0.931 | 0.885 | 0.923 | - |
+
+winner: sarvam-m-24b
+
+/home/admin1/raw/reports/textmodel-bakeoff.md
+
+real	0m1.141s
+user	0m6.476s
+sys	0m0.131s
