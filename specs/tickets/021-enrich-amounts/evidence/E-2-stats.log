@@ -1,0 +1,10 @@
+facts_per_story=1.36
+unit_INR=166
+unit_percent=36
+unit_count=172
+unit_acres=13
+unit_tonnes=3
+unit_km=8
+unit_other=21
+dropped_non_verbatim=41
+dropped_unparsed=47

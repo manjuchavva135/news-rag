@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a9424f9a6ce5fe905
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 83 items / 78 deselected / 5 selected
+
+tests/test_enrich_facts.py .....                                         [100%]
+
+======================= 5 passed, 78 deselected in 0.65s =======================
+exit 0
