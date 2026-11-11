@@ -100,6 +100,11 @@ profiles:
     dtype: bfloat16
     max_model_len: 32768
     gpu_memory_utilization: 0.90
+    extra_args:
+      # Sarvam-M thinks by default (<think> blocks eat the token budget and break the JSON
+      # replies of the enrich stages): thinking off, in the profile so every user gets it.
+      - --default-chat-template-kwargs
+      - '{"enable_thinking": false}'
 
   - name: bge-m3
     hf_id: BAAI/bge-m3

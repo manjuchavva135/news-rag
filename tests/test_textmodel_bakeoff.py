@@ -269,11 +269,13 @@ def test_unusable_judge_replies_are_not_counted(set_settings):
             return super().chat(messages, **params)
 
     setup = Setup({"qwen3-30b-a3b": Mute("qwen3-30b-a3b")})
-    rows, _, _ = setup.run()
+    rows, _, path = setup.run()
     by = {r.candidate: r for r in rows}
     assert "qwen3-30b-a3b" not in by["gemma3-27b"].judge_means
     assert by["gemma3-27b"].judged is not None  # the other judge still counts
-    assert "judge replies unusable" in by["gemma3-27b"].reason
+    # a judge with no usable reply at all is noted and nothing is saved for it
+    assert "qwen3-30b-a3b as judge: RuntimeError: judging: no usable reply" in path.read_text()
+    assert not bk.judged_path("qwen3-30b-a3b", "gemma3-27b").exists()
 
 
 # --- the objective scores ----------------------------------------------------------------------------
@@ -536,3 +538,59 @@ def test_cli_bakeoff_then_apply(set_settings, monkeypatch):
     assert bad.exit_code == 2
     embed = runner.invoke(app, ["textmodel", "bakeoff", "--candidates", "gemma3-27b,bge-m3"])
     assert embed.exit_code == 2
+
+
+# --- a server that dies is not a model that answers badly ----------------------------------------------
+
+
+class Dead(Fake):
+    def chat(self, messages, **params):
+        raise ConnectionError("server gone")
+
+
+def test_dead_server_during_generation_is_a_failed_candidate(set_settings):
+    setup = Setup({"sarvam-m-24b": Dead("sarvam-m-24b")})
+    rows, winner, _ = setup.run()
+    by = {r.candidate: r for r in rows}
+    assert by["sarvam-m-24b"].status == bk.FAILED and "requests failed" in by["sarvam-m-24b"].reason
+    assert not bk.gen_path("sarvam-m-24b").exists()  # nothing saved: the next run tries again
+    assert winner != "sarvam-m-24b"
+
+
+def test_dead_judge_is_retried_on_the_next_run(set_settings):
+    class DeadJudge(Fake):
+        dead = True
+
+        def chat(self, messages, **params):
+            if self.dead and "strict reviewer" in messages[-1]["content"]:
+                raise ConnectionError("server gone")
+            return super().chat(messages, **params)
+
+    judge = DeadJudge("qwen3-30b-a3b")
+    rows, _, path = Setup({"qwen3-30b-a3b": judge}).run()
+    assert "qwen3-30b-a3b" not in {r.candidate: r for r in rows}["gemma3-27b"].judge_means
+    assert "as judge" in path.read_text()
+    judge.dead = False
+    rows2, _, _ = Setup({"qwen3-30b-a3b": judge}).run()
+    assert "qwen3-30b-a3b" in {r.candidate: r for r in rows2}["gemma3-27b"].judge_means
+
+
+def test_answer_judge_is_the_best_other_family_in_the_global_ranking(set_settings):
+    items = [
+        R("gemma3-27b", 0.900, 0.5, 1),
+        R("gemma4-31b", 0.899, 0.6, 1),
+        R("qwen3-30b-a3b", 0.895, 0.7, 1),
+        R("sarvam-m-24b", 0.888, 0.9, 1),
+    ]
+    expected = next(n for n in bk.rank(items) if FAMILY[n] != "gemma")
+    assert bk.choose_applied("gemma3-27b", items) == ("gemma3-27b", expected)
+
+
+def test_sarvam_profile_turns_thinking_off_for_production_too():
+    from newsrag.models.profiles import get_profile
+
+    args = get_profile("sarvam-m-24b").extra_args
+    assert "--default-chat-template-kwargs" in args
+    assert json.loads(args[args.index("--default-chat-template-kwargs") + 1]) == {
+        "enable_thinking": False
+    }

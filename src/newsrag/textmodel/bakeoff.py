@@ -21,6 +21,7 @@ import json
 import random
 import re
 import secrets
+import threading
 import time
 import unicodedata
 from collections.abc import Callable, Mapping, Sequence
@@ -47,6 +48,8 @@ THINK_OFF = {
     "chat_template_kwargs": {"enable_thinking": False}
 }  # Sarvam-M, Gemma 4 think by default
 _THINK = re.compile(r"<think>.*?</think>|^.*?</think>", re.DOTALL)
+
+MAX_ERROR_SHARE = 0.5  # more failed requests than this and the candidate/judge counts as failed
 
 DONE, FAILED, UNJUDGED = "done", "failed", "unjudged"
 
@@ -166,16 +169,32 @@ def strip_thinking(reply: str) -> str:
 
 
 class TextClient:
-    """A `ModelClient` for the bake-off: thinking off (reasoning models would spend the token
-    budget on it) and no `raw` attribute, so `core.ask` goes through `chat`."""
+    """A `ModelClient` for the bake-off: thinking off (also in the profile, so production runs
+    the same way) and no `raw` attribute, so `core.ask` goes through `chat`. Counts the requests
+    that raised, so a server that died mid-run is not scored as a model that answered badly."""
 
     def __init__(self, client: Any) -> None:
         self._client = client
         self.profile = client.profile
+        self.requests = 0
+        self.errors = 0
+        self._lock = threading.Lock()
 
     def chat(self, messages: Any, **params: Any) -> str:
-        reply = self._client.chat(messages, extra_body=THINK_OFF, **params)
+        with self._lock:
+            self.requests += 1
+        try:
+            reply = self._client.chat(messages, extra_body=THINK_OFF, **params)
+        except Exception:
+            with self._lock:
+                self.errors += 1
+            raise
         return strip_thinking(reply)
+
+    def check_alive(self, what: str) -> None:
+        """Raise when more than `MAX_ERROR_SHARE` of the requests raised."""
+        if self.requests and self.errors / self.requests > MAX_ERROR_SHARE:
+            raise RuntimeError(f"{what}: {self.errors} of {self.requests} requests failed")
 
 
 # --- the four tasks -----------------------------------------------------------------------------
@@ -259,6 +278,7 @@ def generate(
     with ThreadPoolExecutor(max_workers=workers) as pool:
         results = list(pool.map(run, jobs))
     seconds = time.monotonic() - started
+    tc.check_alive("generation")
     records: dict[str, dict[str, Any]] = {st["story_id"]: {} for st in stories}
     for (i, task), result in zip(jobs, results, strict=True):
         records[stories[i]["story_id"]][task] = result
@@ -398,6 +418,8 @@ def judge_subject(
         for _ in range(s.textmodel_judge_retries + 1):
             try:
                 scores = parse_scores(core.ask(tc, messages, **extra))
+            except core.TransportFailed:
+                raise  # the server is gone: not an unusable reply
             except Exception:  # noqa: BLE001 - an unusable reply is asked again
                 scores = None
             if scores is not None:
@@ -406,6 +428,9 @@ def judge_subject(
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         results = list(pool.map(one, stories))
+    tc.check_alive("judging")
+    if stories and all(r is None for r in results):
+        raise RuntimeError("judging: no usable reply")
     return {st["story_id"]: r for st, r in zip(stories, results, strict=True)}
 
 
@@ -603,7 +628,8 @@ def choose_applied(winner: str | None, items: Sequence[Ranked]) -> tuple[str, st
         raise ValueError(
             f"no finished candidate of a different family from {winner} to be the answer judge"
         )
-    ordered = rank(others)
+    other_names = {r.candidate for r in others}
+    ordered = [name for name in rank(items) if name in other_names]
     return winner, ordered[0]
 
 
@@ -651,7 +677,12 @@ def gen_fingerprint(candidate: str, stories: Sequence[Mapping[str, Any]]) -> str
                 s.enrich_max_listed,
                 s.enrich_max_facts,
                 s.enrich_input_chars,
+                s.enrich_format_retries,
+                s.enrich_event_past_years,
+                s.enrich_event_future_days,
+                s.enrich_facts_scale_window,
                 s.textmodel_summary_max_tokens,
+                THINK_OFF,
             ]
         ),
         get_profile(candidate).model_dump_json(),
@@ -852,7 +883,9 @@ def run_bakeoff(
         else:
             row.status, row.reason = UNJUDGED, "no judge of another family finished"
         if unusable:
-            row.reason = f"{unusable} judge replies unusable"
+            row.reason = "; ".join(
+                x for x in (row.reason, f"{unusable} judge replies unusable") if x
+            )
         rows.append(row)
     winner = pick_winner(ranked_rows(rows))
     path = Path(report_path) if report_path is not None else s.textmodel_report_file
