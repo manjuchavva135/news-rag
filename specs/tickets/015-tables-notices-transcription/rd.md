@@ -1,6 +1,6 @@
 # 015: Tables, infographics and notices transcription
 
-**Status:** draft
+**Status:** ready
 **Mode:** solo
 **Runs:** waits for 013: needs final article groups
 
