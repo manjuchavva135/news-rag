@@ -71,7 +71,7 @@ Markdown, while commercial ads, classifieds and photos are dropped (grill D-9, A
 | D-3 | Format | Markdown; infographics as title + labelled values | grill A-25, A-40 |
 | D-4 | Notice vs ad | the VLM classifies each ad-like region | grill A-25 |
 | D-5 | Invented-text bar | ≤ 2% of lines judged not present | grill D-21 |
-| D-7 | Filler lines (`***`, `| | |`, `![…]`) counted as invented | removed from the replies and not counted by the spot-check | user decision 2026-11-11 |
+| D-7 | Filler lines (dividers, empty table rows, image tags) counted as invented | removed from the replies and not counted by the spot-check | user decision 2026-11-11 |
 | D-6 | Big notices misread (100-page check 2.87 %) | read big notices in full-resolution strips and send the indic-ocr text as a reference with every request | user decision 2026-11-11 |
 
 ## Open questions
