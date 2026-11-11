@@ -31,7 +31,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 019 | Enrichment: category, people/orgs, event date | done | solo | waits for 017: enriches canonical stories |
 | 020 | Enrichment: places and districts | done | solo | waits for 019: same enrich module; waits for 018: reference list |
 | 021 | Enrichment: amounts as structured facts | done | solo | waits for 020: same enrich module |
-| 022 | Name alias table | draft | solo | waits for 021: same enrich module, uses its entities |
+| 022 | Name alias table | ready | solo | waits for 021: same enrich module, uses its entities |
 | 023 | Chunking | draft | solo | waits for 022: needs enriched stories; waits for 015: table/notice items |
 | 024 | Embed and index into stores | draft | solo | waits for 023: needs chunks |
 | 025 | Retrieval test set and hybrid search script | draft | solo | waits for 024: searches the stores |
