@@ -43,14 +43,13 @@ def stats(
 ) -> None:
     """Prints source_markers, continuation_markers, linked, unmatched_<reason>, ambiguous (and
     orphan_markers) over the done `stitch` artifacts."""
-    from newsrag.stitch import load
+    from newsrag.stitch.stats import stats as stitch_stats
 
-    pub_date = date.fromisoformat(day) if day else None
-    done = load.done_stitch(pub_date)
-    if not done:
+    numbers = stitch_stats(date.fromisoformat(day) if day else None)
+    if numbers is None:
         typer.echo(f"no done stitch artifact for {day or 'any date'}", err=True)
         raise typer.Exit(1)
-    for key, value in totals([load.load_stitch(p) for p in done.values()]).items():
+    for key, value in numbers.items():
         typer.echo(f"{key}={value}")
 
 

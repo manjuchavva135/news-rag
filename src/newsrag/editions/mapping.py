@@ -222,6 +222,37 @@ def page_edition(
 # --- report --------------------------------------------------------------------------------------
 
 
+def year_counts(
+    editions: dict[int, dict[str, dict[str, Any]]],
+    pages: list[tuple[dt.date, str, list[str]]],
+) -> dict[int, dict[str, int]]:
+    """Per year: codes, ok and ambiguous codes, unknown_edition / date_mismatch / state pages.
+    `pages` = (pub_date, edition_code, flags) of page_editions."""
+    unknown: Counter = Counter()
+    mismatch: Counter = Counter()
+    state_pages: Counter = Counter()
+    for pub_date, _code, flags in pages:
+        if UNKNOWN in flags:
+            unknown[pub_date.year] += 1
+        if DATE_MISMATCH in flags:
+            mismatch[pub_date.year] += 1
+        if STATE_PAGE in flags:
+            state_pages[pub_date.year] += 1
+    years = sorted(set(editions) | set(unknown) | set(mismatch) | set(state_pages))
+    out = {}
+    for year in years:
+        entries = editions.get(year, {})
+        out[year] = {
+            "codes": len(entries),
+            "ok": sum(1 for e in entries.values() if e.get("status") == "ok"),
+            "ambiguous": sum(1 for e in entries.values() if e.get("status") == "ambiguous"),
+            "unknown_edition": unknown[year],
+            "date_mismatch": mismatch[year],
+            "state_pages": state_pages[year],
+        }
+    return out
+
+
 def report_lines(
     editions: dict[int, dict[str, dict[str, Any]]],
     pages: list[tuple[dt.date, str, list[str]]],
@@ -232,15 +263,9 @@ def report_lines(
     unknown_edition pages and the places the state pages' folios print.
     `pages` = (pub_date, edition_code, flags) of page_editions."""
     unknown: dict[int, Counter] = defaultdict(Counter)
-    mismatch: Counter = Counter()
-    state_pages: Counter = Counter()
     for pub_date, code, flags in pages:
         if UNKNOWN in flags:
             unknown[pub_date.year][code] += 1
-        if DATE_MISMATCH in flags:
-            mismatch[pub_date.year] += 1
-        if STATE_PAGE in flags:
-            state_pages[pub_date.year] += 1
     places: dict[tuple[int, str], Counter] = defaultdict(Counter)
     state_places: dict[int, Counter] = defaultdict(Counter)
     for r in records:
@@ -250,17 +275,14 @@ def report_lines(
             state_places[r["pub_date"].year][r["place_te"]] += 1
         else:
             places[(r["pub_date"].year, r["edition_code"])][r["place_te"]] += 1
-    years = sorted(set(editions) | set(unknown) | set(mismatch) | set(state_pages))
-    lines = []
-    for year in years:
-        entries = editions.get(year, {})
-        n_ok = sum(1 for e in entries.values() if e.get("status") == "ok")
-        n_amb = sum(1 for e in entries.values() if e.get("status") == "ambiguous")
-        lines.append(
-            f"{year} codes={len(entries)} ok={n_ok} ambiguous={n_amb} "
-            f"unknown_edition={sum(unknown[year].values())} date_mismatch={mismatch[year]} "
-            f"state_pages={state_pages[year]}"
-        )
+    counts = year_counts(editions, pages)
+    years = sorted(counts)
+    lines = [
+        f"{year} codes={n['codes']} ok={n['ok']} ambiguous={n['ambiguous']} "
+        f"unknown_edition={n['unknown_edition']} date_mismatch={n['date_mismatch']} "
+        f"state_pages={n['state_pages']}"
+        for year, n in counts.items()
+    ]
 
     def top(counter: Counter, n: int) -> str:
         items = sorted(counter.items(), key=lambda kv: (-kv[1], kv[0]))[:n]

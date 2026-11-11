@@ -102,6 +102,7 @@ REPORTS_DIR_DERIVED = {
     "customer_answers_md_file": "customer-answers.md",
     "customer_answers_file": "customer-answers.json",
     "customer_signoff_file": "customer-answers-signoff.json",
+    "quality_report_dir": "quality",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -766,6 +767,10 @@ class Settings(BaseSettings):
     runs_dir: Path  # default {reports_dir}/runs: one <UTC timestamp>.json per run
     run_stop_grace_s: float = 600  # after SIGINT/SIGTERM, items in flight get this long to finish
     run_requeue_older_than: str = "2h"  # `stage requeue-stale --older-than` before every run
+
+    # --- report ---
+    # `newsrag report build` (ticket 030): the phase-1 quality report, index.html + report.json.
+    quality_report_dir: Path  # default {reports_dir}/quality
 
     @classmethod
     def settings_customise_sources(

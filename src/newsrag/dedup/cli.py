@@ -35,14 +35,16 @@ def stats(
 ) -> None:
     """Prints units, stories, mean and max printings per story and the number of stories with
     5 or more printings, over the done `dedup` artifacts."""
-    from newsrag.dedup import load
+    from newsrag.dedup.stats import BUCKETS_KEY
+    from newsrag.dedup.stats import stats as dedup_stats
 
-    done = load.done_dedup(date.fromisoformat(day) if day else None)
-    if not done:
+    numbers = dedup_stats(date.fromisoformat(day) if day else None)
+    if numbers is None:
         typer.echo(f"no done dedup artifact for {day or 'any date'}", err=True)
         raise typer.Exit(1)
-    for key, value in totals([load.load_dedup(p) for p in done.values()]).items():
-        typer.echo(f"{key}={value}")
+    for key, value in numbers.items():
+        if key != BUCKETS_KEY:
+            typer.echo(f"{key}={value}")
 
 
 @app.command()

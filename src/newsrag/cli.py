@@ -19,6 +19,7 @@ from newsrag.ledger import cli as ledger_cli
 from newsrag.models import cli as models_cli
 from newsrag.ocr import cli as ocr_cli
 from newsrag.render import cli as render_cli
+from newsrag.report import cli as report_cli
 from newsrag.sample import cli as sample_cli
 from newsrag.search import cli as search_cli
 from newsrag.stages import cli as stages_cli
@@ -64,6 +65,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (eval_cli.app, "eval"),
     (baseline_cli.app, "baseline"),
     (orchestrator_cli.app, "run"),
+    (report_cli.app, "report"),
 ]
 
 for sub_app, name in SUB_APPS:

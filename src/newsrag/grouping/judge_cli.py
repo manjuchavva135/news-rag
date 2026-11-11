@@ -10,30 +10,24 @@ import typer
 app = typer.Typer(help="Grouping judge: statistics and sanity check.", no_args_is_help=True)
 
 
-def _mean(values: list[float]) -> float | None:
-    return sum(values) / len(values) if values else None
-
-
 def stats_lines(pages: list[dict], original_scores: dict[str, float | None]) -> list[str]:
     """The five lines of `judge stats` from `group_final` artifacts (each with a `page_id`);
     `original_scores` are the `judge` scores of the first groupings."""
-    n = len(pages)
-    kept = [p["judge_score"] for p in pages if p["judge_score"] is not None]
-    low = sum(1 for p in pages if "low_confidence:judge_low" in p.get("page_flags", []))
-    retried = [p for p in pages if p["retried"]]
-    gains = [
-        p["judge_score"] - original_scores[p["page_id"]]
-        for p in retried
-        if p["judge_score"] is not None and original_scores.get(p["page_id"]) is not None
-    ]
-    mean_score = _mean(kept)
-    gain = _mean(gains)
+    from newsrag.grouping.stats import summarize
+
+    return lines_of(summarize(pages, original_scores))
+
+
+def lines_of(n: dict) -> list[str]:
+    def fmt(key: str, spec: str) -> str:
+        return f"{key}={n[key]:{spec}}" if n[key] is not None else f"{key}=n/a"
+
     return [
-        f"pages={n}",
-        f"mean_score={mean_score:.3f}" if mean_score is not None else "mean_score=n/a",
-        f"judge_low_pct={low / n * 100:.1f}" if n else "judge_low_pct=n/a",
-        f"retried_pct={len(retried) / n * 100:.1f}" if n else "retried_pct=n/a",
-        f"retry_gain={gain:.3f}" if gain is not None else "retry_gain=n/a",
+        f"pages={n['pages']}",
+        fmt("mean_score", ".3f"),
+        fmt("judge_low_pct", ".1f"),
+        fmt("retried_pct", ".1f"),
+        fmt("retry_gain", ".3f"),
     ]
 
 
@@ -46,30 +40,11 @@ def stats(
 ) -> None:
     """Pages judged, mean score of the kept groupings, share below the threshold, share regrouped
     and the mean score gain of the regrouped pages."""
-    from newsrag.grouping.input import load_artifact
-    from newsrag.ledger import db
+    from newsrag.grouping.stats import stats as judge_stats
     from newsrag.stages.runner import read_pages_file
 
-    where = "stage = %s and status = 'done' and artifact_path is not null"
-    params: list = ["group_final"]
-    if pages_file is not None:
-        where += " and page_id = any(%s)"
-        params.append(read_pages_file(pages_file))
-    with db.conn() as c:
-        rows = db.fetch_all(
-            c,
-            f"select page_id, artifact_path from stage_runs where {where} order by page_id",
-            params,
-        )
-        judged = db.fetch_all(
-            c,
-            "select page_id, artifact_path from stage_runs where stage = 'judge' "
-            "and status = 'done' and artifact_path is not null and page_id = any(%s)",
-            [[r["page_id"] for r in rows]],
-        )
-    pages = [{**load_artifact(r["artifact_path"]), "page_id": r["page_id"]} for r in rows]
-    original = {r["page_id"]: load_artifact(r["artifact_path"]).get("score") for r in judged}
-    for line in stats_lines(pages, original):
+    page_ids = read_pages_file(pages_file) if pages_file is not None else None
+    for line in lines_of(judge_stats(page_ids)):
         typer.echo(line)
 
 

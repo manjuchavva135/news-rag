@@ -3,7 +3,6 @@
 
 from __future__ import annotations
 
-import json
 import math
 from typing import Annotated
 
@@ -40,13 +39,17 @@ def build() -> None:
 def stats() -> None:
     """Prints `names=<n> entities=<n> auto_pairs=<n> review_pairs=<n> largest_group=<n>` of the
     last build."""
-    from newsrag.aliases import version_dir
+    from newsrag.aliases.stats import stats as alias_stats
+    from newsrag.aliases.stats import stats_path
 
-    path = version_dir() / "stats.json"
-    if not path.is_file():
-        typer.echo(f"no alias build yet ({path} is missing): run `newsrag aliases build`", err=True)
+    numbers = alias_stats()
+    if numbers is None:
+        typer.echo(
+            f"no alias build yet ({stats_path()} is missing): run `newsrag aliases build`",
+            err=True,
+        )
         raise typer.Exit(1)
-    typer.echo(stats_line(json.loads(path.read_text(encoding="utf-8"))))
+    typer.echo(stats_line(numbers))
 
 
 @app.command()

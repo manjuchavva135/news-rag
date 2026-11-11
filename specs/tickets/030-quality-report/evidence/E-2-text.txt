@@ -1,0 +1,143 @@
+PHASE 1: FAIL (4 bars)
+
+Generated 2026-11-11T21:10:56Z by newsrag report build. Numbers also in report.json.
+
+Pass bars
+Bar	Value	Threshold	Result
+1. Pages
+1 filename rejects + 0 quarantined pages of 4538 registered + 1 rejects
+	0.02%	<= 1%	PASS
+2. Indexed
+4522 pages not indexed; active generation bge-m3__v1 is not multilingual-e5-large-instruct__v1
+	0.35%	= 100% and index validate ok	FAIL
+3. Grouping
+159 pages, 154 scored
+	mean 0.801, judge_low 35.22%	mean >= 0.90, judge_low <= 5%	FAIL
+4. Transcription
+1303 lines of 130 items
+	1.53%	<= 2%	PASS
+5. OCR sanity check
+signed by manju at 2026-11-09T15:49:31+00:00
+	signed	signed	PASS
+6. Retrieval vs old
+input missing
+	missing	new recall@10 > old	FAIL
+7. Customer answers
+not signed
+	92.97% supported, not signed	supported >= 90%, n_failed = 0, signed	FAIL
+Corpus
+generation	bge-m3__v1
+per_year
+year	pages	stories	chunks
+2024	746	106	175
+2025	2751	180	257
+2026	1041	0	0
+render
+rendered	3497
+multi_page	0
+small_render	0
+quarantined	0
+Dedup
+units	830
+stories	612
+mean_printings	1.36
+max_printings	10
+stories_with_5plus_printings	13
+printings_buckets
+1	522
+2	46
+3-4	31
+>=5	13
+Continuations
+source_markers	9
+continuation_markers	12
+linked	9
+unmatched_no_target_page	0
+unmatched_no_candidate	0
+unmatched_below_score	0
+unmatched_taken	0
+unmatched_no_source	3
+ambiguous	2
+orphan_markers	0
+Low confidence
+generation	bge-m3__v1
+stories	286
+low_confidence_stories	261
+reasons
+geometry	261
+judge_low	100
+continuation_unmatched	1
+Editions
+year	codes	ok	ambiguous	unknown_edition	date_mismatch	state_pages
+2024	0	0	0	16	11	746
+2025	0	0	0	20	56	2751
+Aliases
+names	1633
+entities	1533
+auto_pairs	112
+review_pairs	0
+largest_group	5
+Bake-offs
+embedding
+
+winner: multilingual-e5-large-instruct
+
+# Embedding model bake-off (ticket 026)
+
+questions: 200
+corpus: 432 chunks of generation bge-m3__v1
+
+| candidate | recall@10 | mrr | recall@10 te | recall@10 en | embed seconds |
+|---|---|---|---|---|---|
+| bge-m3 | 0.9950 | 0.8236 | 0.9929 | 1.0000 | 0.8 |
+| qwen3-embedding-8b | 0.9850 | 0.8416 | 0.9929 | 0.9667 | 59.5 |
+| multilingual-e5-large-instruct | 0.9850 | 0.8446 | 0.9929 | 0.9667 | 0.8 |
+
+winner: multilingual-e5-large-instruct
+
+
+grouping
+
+winner: gemma4-31b
+
+# Grouping model bake-off (ticket 014)
+
+judge: gemma4-31b
+pages: 5 (2024-12-02_BG_main_01, 2024-12-05_BGNOP_main_01, 2025-10-20_ALL_main_02, 2024-12-06_GNOCLT_main_16, 2024-12-08_BGNOPSVACLT_main_10)
+judge_threshold: 0.8
+
+| candidate | status | mean judge score | pages below judge_threshold | seconds/page | telugu_read | note |
+|---|---|---|---|---|---|---|
+| qwen3-vl-32b | done | 0.461 | 4 | 12.36 | 0.343 |  |
+| qwen3-vl-30b-a3b | done | 0.300 | 4 | 6.86 | 0.394 |  |
+| gemma3-27b | done | 0.356 | 5 | 12.41 | 0.662 |  |
+| gemma4-31b | done | 0.865 | 1 | 30.76 | 0.848 |  |
+
+Per page (judge score as counted; `*` = see notes):
+
+| page | qwen3-vl-32b | qwen3-vl-30b-a3b | gemma3-27b | gemma4-31b |
+|---|---|---|---|---|
+| 2024-12-02_BG_main_01 | 0.222 | 0.000 | 0.371 | 0.938 |
+| 2024-12-05_BGNOP_main_01 | 1.000* | 1.000* | 0.400 | 1.000* |
+| 2025-10-20_ALL_main_02 | 0.333 | 0.000 | 0.560 | 0.818 |
+| 2024-12-06_GNOCLT_main_16 | 0.750 | 0.500 | 0.333 | 1.000 |
+| 2024-12-08_BGNOPSVACLT_main_10 | 0.000 | 0.000 | 0.114 | 0.571 |
+
+Notes:
+
+- qwen3-vl-32b 2024-12-05_BGNOP_main_01: judge_skipped (null score counted as 1)
+- qwen3-vl-30b-a3b 2024-12-05_BGNOP_main_01: judge_skipped (null score counted as 1)
+- gemma4-31b 2024-12-05_BGNOP_main_01: judge_skipped (null score counted as 1)
+
+winner: gemma4-31b
+
+
+OCR fallback
+rules	-
+n_rules	0
+pages_sent	0
+Runs
+file	started_at	seconds	tag	models_loaded	interrupted
+20261111T194352.679728Z.json	2026-11-11T19:43:52.679728+00:00	130.228	-	indic-ocr	no
+20261111T194625.694488Z.json	2026-11-11T19:46:25.694488+00:00	1467.288	-	gemma4-31b, bge-m3, qwen3-30b-a3b, multilingual-e5-large-instruct, indic-ocr	no
+20261111T201121.490973Z.json	2026-11-11T20:11:21.490973+00:00	0.409	-	-	no

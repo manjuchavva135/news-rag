@@ -1,0 +1,13 @@
+PASS  1. Pages: 0.02% (<= 1%)
+FAIL  2. Indexed: 0.35% (= 100% and index validate ok)
+FAIL  3. Grouping: mean 0.801, judge_low 35.22% (mean >= 0.90, judge_low <= 5%)
+PASS  4. Transcription: 1.53% (<= 2%)
+PASS  5. OCR sanity check: signed (signed)
+FAIL  6. Retrieval vs old: missing (new recall@10 > old)
+FAIL  7. Customer answers: 92.97% supported, not signed (supported >= 90%, n_failed = 0, signed)
+PHASE 1: FAIL (4 bars)
+report: /home/admin1/raw/reports/quality/index.html (0.9s)
+
+real	0m1.798s
+user	0m6.968s
+sys	0m0.209s
