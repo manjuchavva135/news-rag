@@ -1,5 +1,6 @@
 """`newsrag enrich`: statistics and the quality check of `enrich_core` (ticket 019 FR-5, NFR-1),
-and the place statistics (ticket 020 FR-5)."""
+the place statistics (ticket 020 FR-5) and the facts statistics and quality check (ticket 021
+FR-4, NFR-1)."""
 
 from __future__ import annotations
 
@@ -40,14 +41,17 @@ def totals(artifacts: list[dict[str, Any]], details: list[dict[str, Any]]) -> di
     return out
 
 
-def _done_runs(days: list[str] | None) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
-    """(artifacts, run details) of the done `enrich_core` runs of the given dates (default all)."""
+def _done_runs(
+    days: list[str] | None, stage: str = "enrich_core"
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """(artifacts, run details) of the done `stage` runs of the given dates (default all)."""
     from datetime import date
 
     from newsrag import enrich
     from newsrag.ledger import db
 
-    where, params = "stage = 'enrich_core' and status = 'done' and artifact_path is not null", []
+    where = "stage = %s and status = 'done' and artifact_path is not null"
+    params: list[Any] = [stage]
     if days:
         where += " and pub_date = any(%s)"
         params.append([date.fromisoformat(d) for d in days])
@@ -101,6 +105,20 @@ def _places_stats(days: list[str] | None) -> None:
         typer.echo(f"{count} {name}")
 
 
+def _facts_stats(days: list[str] | None) -> None:
+    from newsrag.enrich import facts
+
+    artifacts, details = _done_runs(days, "enrich_facts")
+    if not artifacts:
+        typer.echo(
+            f"no done enrich_facts artifact for {', '.join(days) if days else 'any date'}",
+            err=True,
+        )
+        raise typer.Exit(1)
+    for key, value in facts.fact_totals(artifacts, details).items():
+        typer.echo(f"{key}={value}")
+
+
 @app.command()
 def stats(
     day: Annotated[
@@ -111,14 +129,22 @@ def stats(
         bool,
         typer.Option("--places", help="Statistics of `enrich_places` instead of `enrich_core`."),
     ] = False,
+    facts: Annotated[
+        bool,
+        typer.Option("--facts", help="Statistics of `enrich_facts` instead of `enrich_core`."),
+    ] = False,
 ) -> None:
     """Prints category counts, people and organisations per story, dropped names, event dates that
     differ from the print date, failed stories and stories per second of `enrich_core`; with
     `--places` the place statistics of `enrich_places`: places per story, the share of resolved /
     ambiguous / unresolved district, mandal and city places, `combined_resolved` and the most
-    frequent unresolved names."""
+    frequent unresolved names; with `--facts` the statistics of `enrich_facts`: `facts_per_story`,
+    the facts per unit and the facts dropped (not verbatim, not parseable)."""
     if places:
         _places_stats(day)
+        return
+    if facts:
+        _facts_stats(day)
         return
     artifacts, details = _done_runs(day)
     if not artifacts:
@@ -161,4 +187,36 @@ def verify_core(
     )
     need = math.ceil(report["n"] * s.enrich_verify_min_ok_ratio - 1e-9)
     if report["category_ok"] < need or report["names_ok"] < need:
+        raise typer.Exit(1)
+
+
+@app.command("verify-facts")
+def verify_facts(
+    n: Annotated[int | None, typer.Option("--n", help="Facts to check.")] = None,
+    seed: Annotated[int | None, typer.Option("--seed", help="Sampling seed.")] = None,
+    day: Annotated[
+        str | None, typer.Option("--date", help="Only the facts of this date (default: all).")
+    ] = None,
+) -> None:
+    """A second model judges random enriched facts (value, unit, scale and what it refers to);
+    prints `correct: <k>/<n>` and exits 1 below the threshold."""
+    from newsrag import config
+    from newsrag.enrich import facts
+    from newsrag.stages.base import write_json_atomic
+
+    s = config.settings
+    items = facts.collect_facts(day)
+    if not items:
+        typer.echo("no enriched facts to verify", err=True)
+        raise typer.Exit(1)
+    report = facts.run_verify(
+        items,
+        n if n is not None else s.enrich_facts_verify_n,
+        seed if seed is not None else s.enrich_facts_verify_seed,
+    )
+    path = write_json_atomic(s.enrich_facts_verify_file, report)
+    typer.echo(f"model={report['model']} facts={report['n_facts_available']} report={path}")
+    typer.echo(f"correct: {report['correct']}/{report['n']}")
+    need = math.ceil(report["n"] * s.enrich_verify_min_ok_ratio - 1e-9)
+    if report["correct"] < need:
         raise typer.Exit(1)

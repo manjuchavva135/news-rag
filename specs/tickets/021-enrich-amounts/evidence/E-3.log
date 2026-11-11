@@ -1,0 +1,2 @@
+model=gemma3-27b facts=419 report=/home/admin1/raw/reports/enrich-facts-verify.json
+correct: 46/50

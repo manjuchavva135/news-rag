@@ -1,0 +1,12 @@
+=== 2025-06-10
+enrich_facts 2025-06-10: 89 stories in 18.5 s (4.8 stories/s), 73 facts, 12 non-verbatim / 7 unparsed dropped, 0 failed
+done 2025-06-10
+enrich_facts: done=1 failed=0 skipped=0 in 155.8s
+=== 2024-12-26
+enrich_facts 2024-12-26: 117 stories in 35.2 s (3.32 stories/s), 198 facts, 18 non-verbatim / 22 unparsed dropped, 0 failed
+done 2024-12-26
+enrich_facts: done=1 failed=0 skipped=0 in 100.3s
+=== 2025-08-02
+enrich_facts 2025-08-02: 101 stories in 31.1 s (3.24 stories/s), 148 facts, 11 non-verbatim / 18 unparsed dropped, 0 failed
+done 2025-08-02
+enrich_facts: done=1 failed=0 skipped=0 in 95.9s

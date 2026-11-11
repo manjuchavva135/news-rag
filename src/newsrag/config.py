@@ -81,6 +81,7 @@ REPORTS_DIR_DERIVED = {
     "stitch_verify_file": "stitch-verify.json",
     "dedup_verify_file": "dedup-verify.json",
     "enrich_verify_file": "enrich-core-verify.json",
+    "enrich_facts_verify_file": "enrich-facts-verify.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -581,6 +582,13 @@ class Settings(BaseSettings):
     enrich_verify_max_tokens: int = 128
     enrich_verify_workers: int = 16  # parallel requests
     enrich_verify_file: Path  # default {reports_dir}/enrich-core-verify.json
+    # Stage `enrich_facts` (ticket 021): amounts, counts and percentages as structured facts.
+    enrich_max_facts: int = 16  # facts listed per story, at most (the reply must fit max_tokens)
+    enrich_facts_scale_window: int = 40  # characters before a number searched for a scale phrase
+    # `newsrag enrich verify-facts` (NFR-1): the judge model (`enrich_verify_model`) checks facts.
+    enrich_facts_verify_n: int = 50
+    enrich_facts_verify_seed: int = 13
+    enrich_facts_verify_file: Path  # default {reports_dir}/enrich-facts-verify.json
 
     @classmethod
     def settings_customise_sources(
