@@ -1,0 +1,8 @@
+# Non-secret pipeline choices (model names, thresholds). Committed.
+# Precedence: real environment > .env > this file > code default (src/newsrag/config.py).
+# Keys are setting names (no NEWSRAG_ prefix). Edit by hand or with
+# newsrag.config.set_pipeline_key(key, value), which keeps other keys, their order and comments.
+indic_ocr_revision: cd50d301d0e17e8ecb32fc49c8ccbd7914dcfc25
+surya_version: 0.23.0
+group_model: gemma4-31b
+judge_model: gemma4-31b
