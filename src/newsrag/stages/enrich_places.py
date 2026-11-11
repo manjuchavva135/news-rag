@@ -38,7 +38,7 @@ def geo_files() -> list[Path]:
 
     s = config.settings
     aliases = Path(s.geo_aliases_file) if s.geo_aliases_file else PACKAGED_ALIASES
-    return [*sorted(Path(s.geo_dir).glob("*.yaml")), aliases]
+    return [*sorted(Path(s.geo_dir).glob("*.yaml")), *([aliases] if aliases.is_file() else [])]
 
 
 class EnrichPlacesStage(EnrichCoreStage):
@@ -46,6 +46,17 @@ class EnrichPlacesStage(EnrichCoreStage):
 
     name = "enrich_places"
     depends_on = ("enrich_core",)
+
+    def preflight(self) -> None:
+        """The model checks of `enrich_core`, and the geo files must load (before any request)."""
+        from newsrag import geo
+        from newsrag.stages.base import StageUnavailable
+
+        super().preflight()
+        try:
+            geo.resolve("")
+        except Exception as exc:  # noqa: BLE001 - GeoDataError, a bad YAML, a missing key
+            raise StageUnavailable(f"geo data: {exc}") from None
 
     @property
     def version(self) -> str:  # type: ignore[override]

@@ -497,6 +497,13 @@ def test_preflight(monkeypatch):
     from newsrag.stages.base import StageUnavailable
 
     EnrichPlacesStage().preflight()
+    monkeypatch.setattr(
+        places.geo, "resolve", lambda *a: (_ for _ in ()).throw(places.geo.GeoDataError("gone"))
+    )
+    with pytest.raises(StageUnavailable, match="geo data"):
+        EnrichPlacesStage().preflight()
+    monkeypatch.undo()
+    set_settings(monkeypatch, enrich_retry_backoff_s=(0.0, 0.0, 0.0))
     for model in ("no-such-model", "bge-m3"):
         set_settings(monkeypatch, enrich_model=model)
         with pytest.raises(StageUnavailable):

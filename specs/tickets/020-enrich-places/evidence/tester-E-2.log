@@ -1,0 +1,29 @@
+enrich_places: deleted 3 rows
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3072.92it/s]
+enrich_places 2025-06-10: 89 stories in 10.8 s (8.21 stories/s), 284 places, 132 resolved / 4 ambiguous / 20 unresolved, 0 failed, 27 dropped
+done 2025-06-10
+enrich_places: done=1 failed=0 skipped=0 in 70.0s
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2960.14it/s]
+enrich_places 2024-12-26: 117 stories in 15.7 s (7.47 stories/s), 421 places, 123 resolved / 1 ambiguous / 42 unresolved, 0 failed, 40 dropped
+done 2024-12-26
+enrich_places: done=1 failed=0 skipped=0 in 75.0s
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2938.48it/s]
+enrich_places 2025-08-02: 101 stories in 12.7 s (7.93 stories/s), 307 places, 118 resolved / 0 ambiguous / 21 unresolved, 0 failed, 42 dropped
+done 2025-08-02
+enrich_places: done=1 failed=0 skipped=0 in 78.1s
+places_per_story=3.3
+district: resolved=90.2 ambiguous=0.0 unresolved=9.8
+mandal: resolved=69.0 ambiguous=7.0 unresolved=23.9
+city: resolved=78.5 ambiguous=0.0 unresolved=21.5
+combined_resolved=80.9
+top_unresolved (count name):
+11 తిరుమల
+4 ఢిల్లీ
+3 బెంగళూరు
+2 అన్నవరం
+2 చిక్‌బళ్లాపురం జిల్లా
+2 న్యూఢిల్లీ
+2 గోదావరి జిల్లా
+2 తిరుచానూరు
+2 తిరుపతి రూరల్ మండలం
+2 కాకినాడ సిటీ
