@@ -1,6 +1,6 @@
 # 020: Enrichment: places and districts
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 019: same enrich module; waits for 018: reference list
 
