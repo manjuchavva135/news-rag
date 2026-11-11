@@ -22,7 +22,11 @@ def stale_dates() -> list[date]:
 
     stale = []
     for day, detail in load.done_dates().items():
-        current = build.compute_lookup_hash(load.load_inputs(day))
+        try:
+            current = build.compute_lookup_hash(load.load_lookup_inputs(day))
+        except FileNotFoundError:  # an input was reset: the chunks cannot be trusted
+            stale.append(day)
+            continue
         if current != detail.get("lookup_hash"):
             stale.append(day)
     return stale

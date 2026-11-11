@@ -298,6 +298,34 @@ def test_table_split_repeats_header():
     assert body == rows
 
 
+def test_table_story_with_several_tables_keeps_each_header():
+    one = "| d | n |\n|---|---|\n" + "\n".join(f"| a{i} | {i} |" for i in range(8))
+    two = "| school | pass | fail |\n|---|---|---|\n" + "\n".join(
+        f"| s{i} | {i} | 1 |" for i in range(8)
+    )
+    c = chunker(24)
+    windows = c.split_table("H", f"{one}\n\n{two}")
+    assert len(windows) > 2
+    for window in windows:
+        assert c.n_tokens("H", window) <= 24
+        first = window.split("\n")[0]
+        rows = window.split("\n")[2:]
+        if first == "| d | n |":
+            assert all(r.startswith("| a") for r in rows)
+        else:
+            assert first == "| school | pass | fail |"
+            assert all(r.startswith("| s") for r in rows)
+
+
+def test_stale_date_with_reset_inputs(monkeypatch):
+    def gone(day):
+        raise FileNotFoundError("no done dedup artifact")
+
+    monkeypatch.setattr(load, "load_lookup_inputs", gone)
+    monkeypatch.setattr(load, "done_dates", lambda: {DAY: {"lookup_hash": "x"}})
+    assert chunking.stale_dates() == [DAY]
+
+
 def test_table_in_continuation_part_found():
     # the story's first printing starts on page 1 and continues on page 2; the table sits on
     # the continuation's article id, which is only a *part* of the story
@@ -495,7 +523,7 @@ def test_stale_dates_only_changed(monkeypatch):
     def hash_of(day):
         return build.compute_lookup_hash(load_inputs(day))
 
-    monkeypatch.setattr(load, "load_inputs", load_inputs)
+    monkeypatch.setattr(load, "load_lookup_inputs", load_inputs)
     stored = {DAY: {"lookup_hash": hash_of(DAY)}, other: {"lookup_hash": hash_of(other)}}
     monkeypatch.setattr(load, "done_dates", lambda: stored)
     assert chunking.stale_dates() == []

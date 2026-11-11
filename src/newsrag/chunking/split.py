@@ -87,7 +87,10 @@ class Chunker:
 
         if fits(headline):
             return headline
-        return _longest_prefix(headline, fits).rstrip() or headline[:1]
+        cut = len(_longest_prefix(headline, fits))
+        while 1 < cut < len(headline) and unicodedata.category(headline[cut]).startswith("M"):
+            cut -= 1  # not between a letter and its vowel sign
+        return headline[:cut].rstrip() or headline[:1]
 
     # --- splitting -----------------------------------------------------------------------------
 
@@ -125,7 +128,15 @@ class Chunker:
         text = text.strip()
         if self.n_tokens(prefix, text) <= self.max_tokens:
             return [text]
-        lines = [ln.rstrip() for ln in text.split("\n") if ln.strip()]
+        # several tables (a `table_only` story) are separated by blank lines: each keeps its header
+        windows: list[str] = []
+        for block in PARAGRAPH_BREAK.split(text):
+            if block.strip():
+                windows.extend(self._split_rows(prefix, block))
+        return windows
+
+    def _split_rows(self, prefix: str, block: str) -> list[str]:
+        lines = [ln.rstrip() for ln in block.split("\n") if ln.strip()]
         header: list[str] = []
         if len(lines) >= 2 and is_separator_row(lines[1]):
             header, lines = lines[:2], lines[2:]

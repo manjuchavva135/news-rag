@@ -46,7 +46,8 @@ def load_page_editions(page_ids: list[str]) -> dict[str, dict[str, Any]]:
     return {r["page_id"]: r for r in rows}
 
 
-def load_inputs(pub_date: date) -> DateInputs:
+def load_lookup_inputs(pub_date: date) -> DateInputs:
+    """Only what `compute_lookup_hash` reads (no page artifacts): for `stale_dates`."""
     from newsrag import aliases, enrich
     from newsrag.dedup import load as dedup_load
     from newsrag.editions import store
@@ -57,26 +58,33 @@ def load_inputs(pub_date: date) -> DateInputs:
         raise FileNotFoundError(f"no done dedup artifact for {day}")
     stories = dedup_load.load_dedup(path)["stories"]
     page_ids = sorted({p for s in stories if chunkable(s) for p in story_page_ids(s)})
+    return DateInputs(
+        pub_date=pub_date,
+        stories=stories,
+        enriched=enrich.load(pub_date),
+        items={},
+        page_editions=load_page_editions(page_ids),
+        page_flags={},
+        name_to_entity=aliases.load_entities()["name_to_entity"],
+        editions=store.as_plain(store.load_editions()).get(pub_date.year, {}),
+    )
+
+
+def load_inputs(pub_date: date) -> DateInputs:
+    """Everything the chunks of a date are built from."""
+    inputs = load_lookup_inputs(pub_date)
+    page_ids = sorted({p for s in inputs.stories if chunkable(s) for p in story_page_ids(s)})
     transcribed = page_artifacts("transcribe", page_ids)
     missing = [p for p in page_ids if p not in transcribed]
     if missing:
         raise FileNotFoundError(f"no done transcribe artifact for {', '.join(missing[:3])}")
     grouped = page_artifacts("group_final", page_ids)
-    page_flags = {
+    inputs.items = {p: list(transcribed[p].get("items") or []) for p in page_ids}
+    inputs.page_flags = {
         p: [
             *(grouped.get(p, {}).get("page_flags") or []),
             *(transcribed[p].get("page_flags") or []),
         ]
         for p in page_ids
     }
-    editions = store.as_plain(store.load_editions()).get(pub_date.year, {})
-    return DateInputs(
-        pub_date=pub_date,
-        stories=stories,
-        enriched=enrich.load(pub_date),
-        items={p: list(transcribed[p].get("items") or []) for p in page_ids},
-        page_editions=load_page_editions(page_ids),
-        page_flags=page_flags,
-        name_to_entity=aliases.load_entities()["name_to_entity"],
-        editions=editions,
-    )
+    return inputs

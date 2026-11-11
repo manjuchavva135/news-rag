@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a3cff284c73df078b
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 39 items
+
+tests/test_chunking.py .......................................           [100%]
+
+============================== 39 passed in 6.68s ==============================
