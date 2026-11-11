@@ -17,6 +17,7 @@ from newsrag.stages.ocr import OcrStage
 from newsrag.stages.ocr_final import OcrFinalStage
 from newsrag.stages.ocr_split import OcrSplitStage
 from newsrag.stages.render import RenderStage
+from newsrag.stages.stitch import StitchStage
 from newsrag.stages.transcribe import TranscribeStage
 
 REGISTRY: dict[str, Stage] = {}
@@ -31,3 +32,4 @@ REGISTRY["group_retry"] = GroupRetryStage()
 REGISTRY["judge_retry"] = JudgeRetryStage()
 REGISTRY["group_final"] = GroupFinalStage()
 REGISTRY["transcribe"] = TranscribeStage()
+REGISTRY["stitch"] = StitchStage()

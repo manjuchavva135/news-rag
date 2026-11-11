@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-abe4341b4d16a053e/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-abe4341b4d16a053e
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 48 items / 44 deselected / 4 selected
+
+tests/test_stitch.py::test_one_link_per_continuation_and_taken_reason PASSED [ 25%]
+tests/test_stitch.py::test_orphan_markers PASSED                         [ 50%]
+tests/test_stitch.py::test_reverse_after_greedy PASSED                   [ 75%]
+tests/test_stitch.py::test_merged_fields_from_first_part PASSED          [100%]
+
+======================= 4 passed, 44 deselected in 0.12s =======================

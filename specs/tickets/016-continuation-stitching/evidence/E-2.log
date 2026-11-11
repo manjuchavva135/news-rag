@@ -1,0 +1,69 @@
+## newsrag stage run stitch --date 2025-08-02
+done 2025-08-02
+stitch: done=1 failed=0 skipped=0 in 0.1s
+## newsrag stage run stitch --date 2025-04-11
+stitch: done=0 failed=0 skipped=1 in 0.0s
+## newsrag stage run stitch --date 2025-01-28
+stitch: done=0 failed=0 skipped=1 in 0.0s
+## newsrag stage run stitch --date 2025-06-10
+stitch: done=0 failed=0 skipped=1 in 0.0s
+## newsrag stitch stats --date 2025-08-02
+source_markers=3
+continuation_markers=3
+linked=3
+unmatched_no_target_page=0
+unmatched_no_candidate=0
+unmatched_below_score=0
+unmatched_taken=0
+unmatched_no_source=0
+ambiguous=0
+orphan_markers=0
+## newsrag stitch stats --date 2025-04-11
+source_markers=3
+continuation_markers=4
+linked=3
+unmatched_no_target_page=0
+unmatched_no_candidate=0
+unmatched_below_score=0
+unmatched_taken=0
+unmatched_no_source=1
+ambiguous=0
+orphan_markers=0
+## newsrag stitch stats --date 2025-01-28
+source_markers=2
+continuation_markers=3
+linked=2
+unmatched_no_target_page=0
+unmatched_no_candidate=0
+unmatched_below_score=0
+unmatched_taken=0
+unmatched_no_source=1
+ambiguous=1
+orphan_markers=0
+## newsrag stitch stats --date 2025-06-10
+source_markers=0
+continuation_markers=0
+linked=0
+unmatched_no_target_page=0
+unmatched_no_candidate=0
+unmatched_below_score=0
+unmatched_taken=0
+unmatched_no_source=0
+ambiguous=0
+orphan_markers=0
+## newsrag stitch stats (all done dates)
+source_markers=8
+continuation_markers=10
+linked=8
+unmatched_no_target_page=0
+unmatched_no_candidate=0
+unmatched_below_score=0
+unmatched_taken=0
+unmatched_no_source=2
+ambiguous=1
+orphan_markers=0
+## date_runs
+2025-01-28	done	stitch-v1-581f9e0c
+2025-04-11	done	stitch-v1-581f9e0c
+2025-06-10	done	stitch-v1-581f9e0c
+2025-08-02	done	stitch-v1-581f9e0c

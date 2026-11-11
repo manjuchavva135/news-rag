@@ -1,0 +1,32 @@
+# Continuation markers (ticket 016 FR-1). Each entry is a regular expression, searched in an
+# article's text and in its continuation_marker blocks (Telugu digits are turned into 0-9 first).
+# A named group `page` captures the page number where the marker gives one. An entry may be a
+# plain string or a mapping {pattern, page}: `page` is the page used when the pattern has no
+# `page` group (front-page wording without a number means page 1).
+# Overlapping matches: the longest wins, then the one with a page number.
+# Editing this file changes the `stitch` version, so the date is stitched again.
+
+# (a) "continues on page N": the article is a source part.
+continues_on:
+  # from the ticket (FR-1): "మిగతా Nవ పేజీలో"
+  - 'మిగతా\s*(?P<page>\d+)\s*వ?\s*పేజీలో'
+  # added after reading the dev sample (581 marker blocks in 3497 pages):
+  # OCR reads the ordinal "వ" as "న" ("మిగతా 9న పేజీలో") and "మిగతా" as "బుగతా"
+  - '(?:మిగతా|బుగతా)\s*(?P<page>\d+)\s*[వన]\s*పేజీలో'
+  # OCR cannot read the number ("మిగతా ఒవ పేజీలో", "మిగతా ఓవ పేజీలో"): it continues on a later page
+  - 'మిగతా\s*[^\s\d]{1,2}\s*వ\s*పేజీలో'
+
+# (b) "continued from page N / front page": the article is a continuation part.
+continued_from:
+  # from the old system: "మొదటి పేజీ తరువాయి" (front page, no number)
+  - pattern: 'మొదటి\s*పేజీ\s*తరువాయి'
+    page: 1
+  # from the old system: "పేజీ తరువాయి" (some page, no number)
+  - 'పేజీ\s*తరువాయి'
+  # numbered form, also "(...9వ పేజీ తరువాయి)"
+  - '(?P<page>\d+)\s*వ?\s*పేజీ\s*తరువాయి'
+  # added after reading the dev sample: OCR drops letters of "పేజీ" ("మొదటి ఏజీ తరువాయి")
+  - pattern: 'మొదటి\s*[ఏపె]?జీ\s*తరువాయి'
+    page: 1
+  # OCR reads the ordinal "వ" as "న"
+  - '(?P<page>\d+)\s*న\s*పేజీ\s*తరువాయి'

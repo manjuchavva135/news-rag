@@ -1,0 +1,50 @@
+render: done=0 failed=0 skipped=7 in 0.0s
+ocr: done=0 failed=0 skipped=7 in 0.4s
+ocr_split: done=0 failed=0 skipped=7 in 0.0s
+ocr_final: done=0 failed=0 skipped=7 in 0.0s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2796.36it/s]
+done 2025-08-02_BGNOPRSVACLT_main_03
+done 2025-08-02_BGNOPRSVACLT_main_02
+done 2025-08-02_B_main_10
+done 2025-08-02_BGNOPRSVACL_main_01
+done 2025-08-02_BGNOPRSVACLT_main_12
+done 2025-08-02_BGNOPRVACLT_main_14
+done 2025-08-02_B_main_05
+group: 7 pages in 57.4 s (excl. model load) = 0.12 pages/s
+group: 7 requests, 40004 prompt tokens, 5515 completion tokens
+group: done=7 failed=0 skipped=0 in 140.0s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2095.84it/s]
+done 2025-08-02_BGNOPRSVACLT_main_03
+done 2025-08-02_BGNOPRSVACLT_main_02
+done 2025-08-02_BGNOPRSVACL_main_01
+done 2025-08-02_BGNOPRSVACLT_main_12
+done 2025-08-02_BGNOPRVACLT_main_14
+done 2025-08-02_B_main_10
+done 2025-08-02_B_main_05
+judge: done=7 failed=0 skipped=0 in 120.2s
+done 2025-08-02_BGNOPRSVACL_main_01
+done 2025-08-02_BGNOPRSVACLT_main_03
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2551.80it/s]
+done 2025-08-02_B_main_10
+done 2025-08-02_BGNOPRSVACLT_main_02
+done 2025-08-02_BGNOPRSVACLT_main_12
+done 2025-08-02_B_main_05
+done 2025-08-02_BGNOPRVACLT_main_14
+group_retry: done=7 failed=0 skipped=0 in 141.4s
+done 2025-08-02_BGNOPRSVACL_main_01
+done 2025-08-02_BGNOPRSVACLT_main_03
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2657.15it/s]
+done 2025-08-02_BGNOPRSVACLT_main_02
+done 2025-08-02_B_main_10
+done 2025-08-02_BGNOPRSVACLT_main_12
+done 2025-08-02_B_main_05
+done 2025-08-02_BGNOPRVACLT_main_14
+judge_retry: done=7 failed=0 skipped=0 in 117.8s
+done 2025-08-02_BGNOPRSVACLT_main_03
+done 2025-08-02_BGNOPRSVACL_main_01
+done 2025-08-02_BGNOPRSVACLT_main_12
+done 2025-08-02_BGNOPRSVACLT_main_02
+done 2025-08-02_B_main_10
+done 2025-08-02_B_main_05
+done 2025-08-02_BGNOPRVACLT_main_14
+group_final: done=7 failed=0 skipped=0 in 0.1s

@@ -1,0 +1,7 @@
+## newsrag stage run stitch --date 2025-09-01 (only 3 pages have group_final)
+stitch: done=0 failed=0 skipped=1 in 0.0s
+## date_runs rows for stitch on 2025-09-01
+0
+## group_final done pages / pages of the date
+3
+6
