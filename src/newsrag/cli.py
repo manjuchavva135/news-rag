@@ -15,6 +15,7 @@ from newsrag.render import cli as render_cli
 from newsrag.sample import cli as sample_cli
 from newsrag.stages import cli as stages_cli
 from newsrag.stores import cli as stores_cli
+from newsrag.transcribe import cli as transcribe_cli
 
 app = typer.Typer(
     name="newsrag",
@@ -38,6 +39,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (editions_cli.app, "editions"),
     (group_cli.app, "group"),
     (judge_cli.app, "judge"),
+    (transcribe_cli.app, "transcribe"),
 ]
 
 for sub_app, name in SUB_APPS:

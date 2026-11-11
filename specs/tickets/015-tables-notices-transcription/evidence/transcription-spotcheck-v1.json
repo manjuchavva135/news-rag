@@ -1,0 +1,1042 @@
+{
+ "judge_model": "gemma4-31b",
+ "n_requested": 50,
+ "seed": 1,
+ "n_items": 19,
+ "n_lines": 175,
+ "verdicts": {
+  "present": 164,
+  "not_present": 11,
+  "unsure": 0
+ },
+ "invented_pct": 6.29,
+ "items": [
+  {
+   "page_id": "2024-12-08_BGNOPSVACLT_main_10",
+   "item_id": "2024-12-08_BGNOPSVACLT_main_10#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- 2021 Blue: 0.72",
+     "verdict": "not_present"
+    },
+    {
+     "n": 2,
+     "text": "- 2021 Red: 0.55",
+     "verdict": "not_present"
+    },
+    {
+     "n": 3,
+     "text": "- 2021 Green: 1.27",
+     "verdict": "not_present"
+    },
+    {
+     "n": 4,
+     "text": "- 2022 Blue: 3.10",
+     "verdict": "not_present"
+    },
+    {
+     "n": 5,
+     "text": "- 2022 Red: 1.09",
+     "verdict": "not_present"
+    },
+    {
+     "n": 6,
+     "text": "- 2022 Green: 4.19",
+     "verdict": "not_present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-09_R_main_03",
+   "item_id": "2024-12-09_R_main_03#t01",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "0000625643-00001-",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "KIA India Priva",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "25.00x16.00",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "KIA India Private",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Limited",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-09_R_main_03",
+   "item_id": "2024-12-09_R_main_03#t02",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "0000625637-00001-",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "Tvs Motor Compa",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "25.00x32.89",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "Tvs Motor Company",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Limited",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-11_B_main_03",
+   "item_id": "2024-12-11_B_main_03#t02",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "వయసుల వారీగా 2024లో నమోదైన క్లెయిమ్‌ల వాటా",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| వయసు | క్లెయిమ్‌ల శాతం |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| 18-35 | 38.20 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| 36-45 | 29.50 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| 46-60 | 25.30 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| 61-75 | 6.40 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| 75+ | 0.50 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-11_B_main_03",
+   "item_id": "2024-12-11_B_main_03#t03",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- మహారాష్ట్ర: రూ. 5,495 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- కర్ణాటక: రూ. 1,985 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- గుజరాత్: రూ. 1,982 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- తమిళనాడు: రూ. 1,559 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- ఢిల్లీ: రూ. 1,462 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- ఉత్తరప్రదేశ్: రూ. 1,152 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- రాజస్థాన్: రూ. 1,102 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "- తెలంగాణ: రూ. 1,007 కోట్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "ఆధారం : కేంద్ర కార్పొరేట్ వ్యవహారాల [illegible]",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-11_V_main_12",
+   "item_id": "2024-12-11_V_main_12#t02",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ఈస్ట్ కోస్ట్ రైల్వే",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "(1) టెండరు ప్రకటన నెం. VSKP-ELG-TL-AC-24-25-8, తేదీ: 05.12.2024",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "పని పేరు: LHB టైపు ఎ.సి కోచ్లలో MPCB సప్లయి, ఇన్స్టలేషన్/మోడిఫికేషన్ మరియు కమిషనింగ్ చేయుట మరియు రాణి హీటర్ కాంట్రాక్టర్ తోటి ఇంటర్ లాకింగ్ చేయుట.",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "టెండరు విలువ: ₹ 8,34,880/-, బిడ్ సెక్యూరిటీ: ₹ 16,700/-.",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "(2) టెండరు ప్రకటన నెం. VSKP-ELG-TL-AC-24-25-9, తేదీ: 05.12.2024",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "పని పేరు: విశాఖపట్నం కోచింగ్ డిపో వద్ద కోచ్లలోని ప్యాంట్రీ ఎలక్ట్రికల్ ఎక్విప్మెంట్స్ మరియు LHB రైల్స్ యొక్క ప్యాంట్రీ కార్ల కొరకు మూడు సంవత్సరాల కాలనకకు వార్షిక మెయింటెనెన్స్ కాంట్రాక్ట్.",
+     "verdict": "not_present"
+    },
+    {
+     "n": 7,
+     "text": "టెండరు విలువ: ₹ 42,03,629.04, బిడ్ సెక్యూరిటీ: ₹ 84,100/-.",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "పూర్తి చేయు కాలం: (ప.నెం. 1 కొరకు) 120 రోజులు & (ప.నెం. 2 కొరకు) 36 నెలలు.",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "టెండరు ముగింపు తేదీ మరియు సమయం: 06.01.2025న 1330 గంటలు (రెండు టెండర్లకు).",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "టెండరు తెరచు తేదీ మరియు సమయం: 06.01.2025న 1600 గంటలు (రెండు టెండర్లకు).",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "జారీ చేసే ఏదైన సవరణ కొరకు టెండరుదారులు వెబ్‌సైటన్‌ను గమనించవలసినది కోరుచున్నాము.",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "పూర్తి వివరములు మరియు టెండరు డాక్యుమెంట్లు లభించు వెబ్‌సైట్: www.ireps.gov.in",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "డిప్యూటీ చీఫ్ సిగ్నల్ & టెలికాం ఇంజనీరు/ప్రాజెక్టు, వాల్టెరు",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "PR-791/P/24-25",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-27_BGNOPRSVACLT_main_01",
+   "item_id": "2024-12-27_BGNOPRSVACLT_main_01#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- వివరాలు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- వివరాలు: 6, 7 పేజీల్లో",
+     "verdict": "not_present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-01-27_B_main_14",
+   "item_id": "2025-01-27_B_main_14#t01",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| | 25 మిలియన్ డాలర్లు | 26-50 మిలియన్ డాలర్లు |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| బ్రెజిల్ | 86 | 12 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| యూపతూ | 78 | 15 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| భారత్ | 71 | 15 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| అమెరికా | 59 | 23 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| యూకే | 65 | 18 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| జపాన్ | 53 | 26 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| ఫ్రాన్స్ | 69 | 17 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| సింగపూర్ | 63 | 25 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-15_B_main_01",
+   "item_id": "2025-02-15_B_main_01#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- సంపుటి: 17",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- సంచిక: 325",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t01",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| దేశం | పాయింట్లు 2023 అక్టోబరు | పాయింట్లు 2024 నవంబరు |",
+     "verdict": "not_present"
+    },
+    {
+     "n": 2,
+     "text": "| జర్మనీ | 28 | 49 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| కెనడా | 22 | 43 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| చైనా | 42 | 42 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| దక్షిణాఫ్రికా | 47 | 40 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| జపాన్ | 30 | 34 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| ఫ్రాన్స్ | 21 | 33 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| యూకే | 16 | 26 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| భారత్ | 18 | 24 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "[illegible]",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- [illegible]: 6,21,000",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- [illegible]: 1,27,000",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t03",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- 1,25,000",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t04",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- వివిధ సంస్థలకు ఎన్నికైన అభ్యర్థులు: 82,077",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- ఇందులో శిక్షణాకు హాజరైనవారు: 28,141",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-04_BGNOPRSVACLT_main_06",
+   "item_id": "2025-05-04_BGNOPRSVACLT_main_06#t03",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| 10 | DCMS-Deccan College of Medical Sciences College in Hyderabad, Telangana | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| 11 | BASK-Bhaskar Medical College, Moinabad | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| 12 | GWNP-Government Medical College, Wanaparthy | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| 13 | SIMS-Singareni Institute of Medical Sciences, Telangana | 8 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| 14 | RVMC-RVM Institute of Medical Sciences and Research Center, Muluru | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| 15 | GJTL-Government Medical College. Jagtial | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| 16 | GMHR-GOVT Medical College, Maheshwaram | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| 17 | AIMD-Arundhati Institute of Medical Sciences, Dundigal | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| 18 | MMTA-Mamata Medical College, Khammam | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| 19 | GVKB-Govt Medical College, Vikarabad | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| 20 | SVSM-S.V.S. Medical College, Mahabubnagar | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| 21 | GMHB-GOVT Medical College, Mahabubabad | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "| 22 | GJGN-GOVT Medical College, Jangaon | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "| 23 | GMBK-Govt Medical College, Bhadradri, Kothagudem | 7 |",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "| 24 | PRTM-Prathima Institute of Medical Sciences, Karimnagar | 6 |",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "| 25 | PRIW-Pratima Relief Institute of Medical Sciences, Warangal | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "| 26 | GNRM-Govt Medical College, Nirmal | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "| 27 | GNGK-Govt Medical College, Nagarkurnool | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 19,
+     "text": "| 28 | MAHE-Maheshwara Medical College, Patancheru, Medak | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 20,
+     "text": "| 29 | FCIM - Father Colombo Institute of Medical Sciences, Warangal | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 21,
+     "text": "| 30 | GJBP-Govt Medical College, Jayashankar Bhupalpally | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 22,
+     "text": "| 31 | GNRN-Govt Medical College, Narayanpet | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 23,
+     "text": "| 32 | GASF - Govt Medical College, Kumuram | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 24,
+     "text": "| 33 | MNRS-MNR Medical College, Sangareddy | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 25,
+     "text": "| 34 | ESIM-ESI Medical College, Sanathnagar, Hyd | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 26,
+     "text": "| 35 | GQTB-Govt Medical College, Quthbullapur | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 27,
+     "text": "| 36 | KMHD-Kamineni Academy of Medical Sci And Research, Hyd | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 28,
+     "text": "| 37 | KMNI-Kamineni Institute of Medical Sciences ., Narketpally | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 29,
+     "text": "| 39 | MEDI-Medicity Institute of Medical Sciences | 6 |",
+     "verdict": "present"
+    },
+    {
+     "n": 30,
+     "text": "| 40 | NIMG-Neelima Institute of Medical Sciences, Ghatkesar | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 31,
+     "text": "| 41 | NOVA-Nova Institute of Medical Sciecnes, Hayathnagar, | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 32,
+     "text": "| 42 | SURB-Surabhi Institute of Medical Sciences, Siddipet | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 33,
+     "text": "| 43 | TRRM-TRR Institute of Medical Sciences, Inole, Patancheru | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 34,
+     "text": "| 44 | Mallareddy Institute of Medical Sciences, Hyderabad | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 35,
+     "text": "| 45 | APLO-Apollo Institute of Medical Sciences and Research, Hyd | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 36,
+     "text": "| 46 | CAN-Cananda Rao linstitute of Medical Sciences, Karimnagar | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 37,
+     "text": "| 47 | CMR-CMR Institute of Medical Sciences, Kandalkoya | 1 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-04_BGNOPRSVACLT_main_06",
+   "item_id": "2025-05-04_BGNOPRSVACLT_main_06#t05",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| | | |",
+     "verdict": "not_present"
+    },
+    {
+     "n": 2,
+     "text": "| 1 | KMCK-Kurnool Medical College, Kurnool | 6 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| 2 | SVMC-Sri Venkateswara Medical College, Tirupati | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| 3 | GMCA-Government Medical College, Anantapur | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| 4 | ACSR-ACSR Government Medical College, Nellore | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| 5 | GMCG-Guntur Medical College, Guntur | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| 6 | GMCK-RIIMS, KADAPA | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| 7 | PADT-Sri Padmavathi Medical College for Women (SVIMS), Tirupati | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| 8 | NARN-Narayana Medical College, Nellore | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| 9 | KONA-Konaseema Institute of Medical Sciences, Amalapuram | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| 10 | RMCK-Rangaraya Medical College, Kakinada | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| 11 | AMCV-Andhra Medical College, Visakhapatnam | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "| 12 | GMCS-RIIMS, Srikakulam | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "| 13 | VMCK-Viswabharathi Medical College&General Hospital, Kurnool | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "| 14 | GSLR-GSL Medical College & General Hospital, Rajahmundry | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "| 15 | SMCV-Siddhartha Medical College, Vijayawada | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "| 16 | NRIM-Nrim Medical College, Guntur | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "| 17 | GMCO-RIIMS, Ongole | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 19,
+     "text": "| 18 | SRMC-Santhiram Medical College, Nandyal | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 20,
+     "text": "| 19 | GVPT-Gayatri Vidya Parishad Medical College, Vizag | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 21,
+     "text": "| 20 | PESK-P.E.S. Institute of Medical Sciences and Research, Kuppam | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 22,
+     "text": "| 21 | GMCN-Government Medical College, Nandyal | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 23,
+     "text": "| 22 | BMCT-Sri Balaji Medical College & Hospital, Tirupati | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 24,
+     "text": "| 23 | GEMS-Great Eastern Medical School & Hospital, Srikakulam | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 25,
+     "text": "| 24 | FIMS-Fathima Institute of Medical Sciences, Kadapa | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 26,
+     "text": "| 25 | APLC-Apollo Institute of Medical Sciences & Research, Chittoor | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 27,
+     "text": "| 26 | NIMR-Nimra Institute of Medical Sciences, Ibrahimpatnam | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 28,
+     "text": "| 27 | ASRA-Alluri Sitarama Raju Academy of Medical Sciences, Eluru | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 29,
+     "text": "| 28 | PSIM-Dr.Pinnamaneni Siddhartha Institute of Medical Sciences & Research Foundation, Gannavaram | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 30,
+     "text": "| 29 | MAHA-Maharajah's Institute of Medical Sciences, Vizianagaram | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 31,
+     "text": "| 30 | NRVP-NRI Medical College, Vizag | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 32,
+     "text": "| 31 | GMCM-Government Medical College, Machilipatnam | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 33,
+     "text": "| 32 | GMCE-Government Medical College, Eluru | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 34,
+     "text": "| 33 | GMCV-Government Medical College, Vijayanagaram | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 35,
+     "text": "| 34 | GMCR-Government Medical College, Rajahmundry | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 36,
+     "text": "| 35 | KATR-Katuri Medical College & Hospital, Guntur | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 37,
+     "text": "| 36 | GMCP-Government Medical College, Peeleru |  |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-04_BGNOPRSVACLT_main_06",
+   "item_id": "2025-05-04_BGNOPRSVACLT_main_06#t07",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "NAME OF THE MEDICAL COLLEGE",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| No. | NAME OF THE MEDICAL COLLEGE | [illegible] |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| 1 | KRISHNAGIRI MC | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| 2 | S Niranjanappa MC | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| 3 | Raichur IMS | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| 4 | YIMS Yadgiri | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| 5 | SHIMOGA I M S., SHIMOGA | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| 6 | Jawahar Lal Nehru MC | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| 7 | K.S Hegde MC | 3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| 8 | Raja Rajeswari MC | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| 9 | SDU MC | 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| | Total | 12 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-11_BGNOPRSVACLT_main_03",
+   "item_id": "2025-05-11_BGNOPRSVACLT_main_03#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "2019-24 మధ్య నిధుల వెల్లువ (రూ.కోట్లలో)",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- 2019: 1,15,326",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- 2020: 97,782",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- 2021: 3,26,800",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- 2022: 2,16,720",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- 2023: 97,180",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- 2024: 1,24,184",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-11_BGNOPRSVACLT_main_03",
+   "item_id": "2025-05-11_BGNOPRSVACLT_main_03#t03",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "2024లో డీల్స్ సంఖ్యలో టాప్-5 నగరాలు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- పుణే: డీల్స్ సంఖ్య 47, విలువ (రూ.కోట్లలో) 5,547",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- ఢిల్లీ: డీల్స్ సంఖ్య 332, విలువ (రూ.కోట్లలో) 26,832",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- బెంగళూరు: డీల్స్ సంఖ్య 485, విలువ (రూ.కోట్లలో) 43,516",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- ముంబై: డీల్స్ సంఖ్య 231, విలువ (రూ.కోట్లలో) 32,336",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- హైదరాబాద్: డీల్స్ సంఖ్య 56, విలువ (రూ.కోట్లలో) 3,625",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-11-03_BG_main_01",
+   "item_id": "2025-11-03_BG_main_01#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "5X3 C EGG & CHICKEN RATES (POINTER) ALL",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- BLANK SPACE",
+     "verdict": "not_present"
+    }
+   ],
+   "error": null
+  }
+ ]
+}
