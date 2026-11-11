@@ -1,6 +1,6 @@
 # 017: Cross-edition story dedup (per date)
 
-**Status:** draft
+**Status:** ready
 **Mode:** solo
 **Runs:** waits for 016: needs stitched articles; waits for 015: standalone table/notice items
 
