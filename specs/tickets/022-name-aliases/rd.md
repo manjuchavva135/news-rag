@@ -1,6 +1,6 @@
 # 022: Name alias table
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 021: same enrich module, uses its entities
 
