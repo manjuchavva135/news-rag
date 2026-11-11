@@ -1,6 +1,6 @@
 """Stage `judge` (ticket 013 FR-1, FR-2) and the model holder shared with the retry stages.
 
-A vision-language model of another family than the grouping model scores each page's `group`
+A vision-language model (another family than the grouping model unless `judge_allow_same_family`) scores each page's `group`
 artifact (`newsrag.grouping.judge`). The model is loaded once per `stage run` (`open`).
 """
 

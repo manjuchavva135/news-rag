@@ -1,0 +1,7 @@
+Fetching 25 files:   0%|          | 0/25 [00:00<?, ?it/s]Fetching 25 files: 100%|██████████| 25/25 [00:00<00:00, 2552.09it/s]
+qwen3-vl-30b-a3b reply: NEWS 2026
+qwen3-vl-30b-a3b latency=0.20s (open 232s)
+
+real	3m54.678s
+user	83m46.772s
+sys	3m4.696s

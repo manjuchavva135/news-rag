@@ -1,0 +1,7 @@
+30
+judge: gemma4-31b
+| candidate | status | mean judge score | pages below judge_threshold | seconds/page | telugu_read | note |
+winner: gemma4-31b
+group_model: gemma4-31b
+judge_model: gemma4-31b
+4 passed, 20 deselected in 0.45s

@@ -20,7 +20,7 @@
 - **Type:** CLI
 - **Steps:**
   1. `for p in qwen3-vl-30b-a3b internvl3.5-38b; do uv run newsrag models smoke $p; done`
-- **Expected:** both replies contain `NEWS 2026`; if `internvl3.5-38b` cannot start on this GPU, the failure is recorded in `results.md` and E-2 must show it as `failed` (the check still passes).
+- **Expected:** both replies contain `NEWS 2026` (`internvl3.5-38b` is no longer in the bake-off, D-5; its smoke is still run); if `internvl3.5-38b` cannot start on this GPU, the failure is recorded in `results.md` and E-2 must show it as `failed` (the check still passes).
 
 ### E-2: Bake-off runs and reports (covers FR-2, FR-3, NFR-1)
 
@@ -28,7 +28,7 @@
 - **Steps:**
   1. `time uv run newsrag group bakeoff`
   2. `wc -l < data/bakeoff-pages.txt; cat /home/admin1/raw/reports/group-bakeoff.md`
-- **Expected:** real time < 3 h; `5`; the report has one row per candidate with the five columns of FR-3 and a line `winner: <one of the candidates>`.
+- **Expected:** real time < 3 h; `5`; the report has one row per candidate with the five columns of FR-3 no `skipped` rows (D-6), and a line `winner: <one of the candidates>`.
 
 ### E-3: Apply (covers FR-4)
 
@@ -54,8 +54,8 @@
   1. `grep -v '^#' data/telugu-headlines.txt | wc -l`
   2. `grep -E 'telugu_read|winner:' /home/admin1/raw/reports/group-bakeoff.md`
   3. `grep -E '^(group_model|judge_model):' pipeline.yaml`
-  4. `uv run pytest -q tests/test_bakeoff.py -k "telugu_read_score or judge_model_set_by_apply or internvl_is_judge_not_candidate"`
-- **Expected:** `30`; the report has a `telugu_read` column for the three candidates and a `winner:` line; `judge_model` is `qwen3-vl-32b` if `group_model` is a Gemma model, else `gemma3-27b`; tests pass.
+  4. `uv run pytest -q tests/test_bakeoff.py -k "telugu_read_score or judge_model_set_by_apply or gemma_candidate_skipped_by_gemma_judge or same_family_candidates_run_by_default"`
+- **Expected:** `30`; the report has a `telugu_read` column for every candidate that ran, a `judge:` line and a `winner:` line; `judge_model` in `pipeline.yaml` equals the report's judge (`gemma4-31b`); tests pass.
 
 ## Traceability
 

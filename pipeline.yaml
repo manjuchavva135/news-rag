@@ -4,4 +4,5 @@
 # newsrag.config.set_pipeline_key(key, value), which keeps other keys, their order and comments.
 indic_ocr_revision: cd50d301d0e17e8ecb32fc49c8ccbd7914dcfc25
 surya_version: 0.23.0
-group_model: qwen3-vl-32b
+group_model: gemma4-31b
+judge_model: gemma4-31b

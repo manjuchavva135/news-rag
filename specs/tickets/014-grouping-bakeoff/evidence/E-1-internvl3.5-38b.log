@@ -1,0 +1,7 @@
+Fetching 36 files:   0%|          | 0/36 [00:00<?, ?it/s]Fetching 36 files: 100%|██████████| 36/36 [00:00<00:00, 2952.29it/s]
+internvl3.5-38b reply: NEWS 2026
+internvl3.5-38b latency=3.46s (open 84s)
+
+real	1m28.828s
+user	4m28.776s
+sys	0m41.952s

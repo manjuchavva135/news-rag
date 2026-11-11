@@ -23,7 +23,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 011 | Edition and state from the folio | done | solo | waits for 010: reads `ocr_final`; waits for 018: place → state list |
 | 012 | VLM article grouping | done | solo | waits for 010: reads `ocr_final`; waits for 006: model runner |
 | 013 | Grouping judge and retry | done | solo | waits for 012: grades its output |
-| 014 | Grouping model bake-off | draft | solo | waits for 013: needs grouping + judge |
+| 014 | Grouping model bake-off | ready | solo | waits for 013: needs grouping + judge |
 | 015 | Tables, infographics and notices transcription | draft | solo | waits for 013: needs final article groups |
 | 016 | Continuation stitching (per date) | draft | solo | waits for 013: needs final article groups |
 | 017 | Cross-edition story dedup (per date) | draft | solo | waits for 016: needs stitched articles; waits for 015: standalone table/notice items |
@@ -42,3 +42,4 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 030 | Quality report | draft | solo | waits for 029: reads all run stats; waits for 026, 027, 028: their scores |
 | 031 | Full-corpus run and phase-1 sign-off | draft | solo | waits for 030: needs report; waits for 014: chosen grouping model; waits for 032: chosen text model |
 | 032 | Text model Telugu bake-off | draft | solo | waits for 017: needs canonical stories; waits for 006: model runner |
+| 033 | Grouping retry for Gemma 4 (second sample, not resolution) | draft | solo | waits for 014: group_model is gemma4-31b |

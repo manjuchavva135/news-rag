@@ -69,6 +69,8 @@ REPO_ROOT_DERIVED = {
     "ocr_fallback_file": "ocr_fallback.yaml",
     "geo_dir": "data/geo",
     "editions_file": "data/editions.yaml",
+    "bakeoff_pages_file": "data/bakeoff-pages.txt",
+    "bakeoff_telugu_file": "data/telugu-headlines.txt",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -436,7 +438,9 @@ class Settings(BaseSettings):
     group_dup_text_frac: float = 0.8
 
     # --- judge ---
-    # The VLM that scores a grouping: another family than group_model (checked by `judge`).
+    # The VLM that scores a grouping. Since 2026-11-11 (user decision, ticket 014 D-6) it may be of
+    # the same family as group_model, even the same model; False brings back the family check.
+    judge_allow_same_family: bool = True
     # Gemma 4 won the 013 bake-off (6/10 merges caught on the page view; Gemma 3 and InternVL 0/10).
     judge_model: str = "gemma4-31b"
     judge_threshold: float = 0.8  # a page scoring below this is grouped again at higher resolution
@@ -451,6 +455,27 @@ class Settings(BaseSettings):
     # turns the verdict into `merged`. Empty turns the check off.
     judge_story_kinds: tuple[str, ...] = ("news", "editorial")
     judge_story_chars: int = 6000  # characters of the article's text sent to the one-story check
+
+    # --- bakeoff ---
+    # `newsrag group bakeoff` (ticket 014): candidate grouping VLMs group the same pages, the
+    # judge scores them, each candidate also reads Telugu headline crops; the winner goes to
+    # pipeline.yaml with `--apply`.
+    bakeoff_candidates: tuple[str, ...] = (
+        "qwen3-vl-32b",
+        "qwen3-vl-30b-a3b",
+        "gemma3-27b",
+        "gemma4-31b",
+    )
+    bakeoff_pages_file: Path  # default {repo_root}/data/bakeoff-pages.txt (committed, generated)
+    bakeoff_telugu_file: (
+        Path  # default {repo_root}/data/telugu-headlines.txt (committed, generated)
+    )
+    bakeoff_telugu_count: int = 30  # headline blocks read by every candidate
+    bakeoff_telugu_min_share: float = 0.8  # share of Telugu letters (non-space) in a chosen block
+    bakeoff_telugu_min_chars: int = 8  # non-space characters of a chosen block
+    bakeoff_crop_pad_px: int = 8  # margin around a headline box in its crop (300-DPI pixels)
+    bakeoff_read_max_tokens: int = 256  # reply length of one headline reading
+    bakeoff_tie: float = 0.01  # mean judge scores this close are a tie
 
     @classmethod
     def settings_customise_sources(
@@ -519,7 +544,9 @@ class Settings(BaseSettings):
             return tuple(part.strip() for part in text.split(",") if part.strip())
         return value
 
-    @field_validator("editions_state_sections", "judge_skip_kinds", mode="before")
+    @field_validator(
+        "editions_state_sections", "judge_skip_kinds", "bakeoff_candidates", mode="before"
+    )
     @classmethod
     def _str_list(cls, value: Any) -> Any:
         """Names from the environment: a JSON list or comma-separated names."""
