@@ -92,3 +92,20 @@ Evidence: evidence/transcription-spotcheck-100p-n50-v2.json, transcription-spotc
 
 Unit tests: 496 passed (24 in tests/test_transcribe.py, incl. 7 for strips, the reference and the
 per-strip spot-check).
+
+## After D-7: filler lines removed (FR-9), same 100 pages
+
+`transcribe` (p3): 100/100 done, 0 failed, 672 s. Items: table 37, infographic 57, notice_tender 36,
+commercial 125. No filler line (no letter or digit, not a separator) is left in any artifact; Telugu present.
+Evidence: evidence/run-100-pages-v3.log.
+
+| Spot-check | Items | Lines | not_present | invented_pct |
+|------------|-------|-------|-------------|--------------|
+| `--n 50` (ticket's E-3) | 50 | 492 | 1 | **0.20** (PASS) |
+| all kept items | 130 | 1303 | 20 | **1.53** (PASS) |
+
+The 20 remaining lines: 9 in notices (4 from one Hindi/English notice whose Hindi is misread), 7 in small
+infographics (misread Telugu), 4 table header cells. Evidence: evidence/transcription-spotcheck-100p-n50-v3.json,
+transcription-spotcheck-100p-all-v3.json.
+
+Unit tests: 500 passed (28 in tests/test_transcribe.py).
