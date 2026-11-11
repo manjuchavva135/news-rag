@@ -1,6 +1,6 @@
 # 021: Enrichment: amounts as structured facts
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 020: same enrich module
 
