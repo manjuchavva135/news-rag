@@ -4,6 +4,7 @@ import typer
 
 from newsrag import config_cli
 from newsrag.aliases import cli as aliases_cli
+from newsrag.chunking import cli as chunking_cli
 from newsrag.dedup import cli as dedup_cli
 from newsrag.editions import cli as editions_cli
 from newsrag.enrich import cli as enrich_cli
@@ -50,6 +51,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (enrich_cli.app, "enrich"),
     (aliases_cli.app, "aliases"),
     (textmodel_cli.app, "textmodel"),
+    (chunking_cli.app, "chunk"),
 ]
 
 for sub_app, name in SUB_APPS:

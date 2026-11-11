@@ -8,6 +8,7 @@ installed files lazily.
 from __future__ import annotations
 
 from newsrag.stages.base import Stage
+from newsrag.stages.chunk import ChunkStage
 from newsrag.stages.dedup import DedupStage
 from newsrag.stages.enrich_core import EnrichCoreStage
 from newsrag.stages.enrich_facts import EnrichFactsStage
@@ -41,3 +42,4 @@ REGISTRY["dedup"] = DedupStage()
 REGISTRY["enrich_core"] = EnrichCoreStage()
 REGISTRY["enrich_places"] = EnrichPlacesStage()
 REGISTRY["enrich_facts"] = EnrichFactsStage()
+REGISTRY["chunk"] = ChunkStage()
