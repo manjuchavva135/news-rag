@@ -5,10 +5,16 @@ Decide what it is and transcribe it:
 
 - `"table"`: a grid of rows and columns. Write it as one Markdown table: the header row first,
   then the `|---|` separator row, then one Markdown row per printed row. Keep every row and every
-  column in the printed order. Put the table's printed title (if any) in `title`, not in the table.
+  column in the printed order. If no header row is printed, use the first printed row as the
+  header row; never write an empty header row. Put the table's printed title (if any) in `title`,
+  not in the table.
 - `"infographic"`: a chart, map or fact box. Write its title as the first line, then one line
   per value, `- <label>: <value>` (for a bar or pie chart: each bar or slice; for a fact box: each
-  fact). Put the same title in `title`.
+  fact). Put the same title in `title`. Labels are printed words only: never name a colour, a
+  shape or a position ("Blue", "left bar") as a label. A value with no printed label of its own
+  takes the nearest printed heading (e.g. the year above it) as its label, or is written
+  `- <value>`. A box of plain text with no values (a pointer such as "details on page 6", a
+  slogan) is copied line by line as printed, without `label: value` reshaping.
 - `"photo_no_text"`: a photo, a drawing or a cartoon with no table or figures to read. Use an
   empty `markdown` and `title: null`.
 
