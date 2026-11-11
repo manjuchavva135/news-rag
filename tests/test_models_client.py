@@ -211,6 +211,7 @@ def test_repo_profiles():
         "gemma4-31b",
         "internvl3.5-38b",
         "qwen3-30b-a3b",
+        "sarvam-m-24b",
         "bge-m3",
     ]
     qwen_vl = profiles["qwen3-vl-32b"]

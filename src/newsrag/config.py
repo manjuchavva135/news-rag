@@ -73,6 +73,7 @@ REPO_ROOT_DERIVED = {
     "bakeoff_telugu_file": "data/telugu-headlines.txt",
     "continuations_file": "continuations.yaml",
     "alias_overrides_file": "data/aliases/overrides.yaml",
+    "textmodel_stories_file": "data/textmodel-bakeoff-stories.txt",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -85,12 +86,14 @@ REPORTS_DIR_DERIVED = {
     "enrich_facts_verify_file": "enrich-facts-verify.json",
     "alias_review_file": "alias-review.csv",
     "alias_verify_file": "alias-verify.json",
+    "textmodel_report_file": "textmodel-bakeoff.md",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
 WORK_DIR_DERIVED = {
     "sarvam_cache_dir": "sarvam-cache",
     "alias_dir": "aliases",
+    "textmodel_dir": "textmodel-bakeoff",
 }
 
 # The layout-label groups of labels.yaml (ticket 007 FR-6), and the label-set settings derived
@@ -616,6 +619,36 @@ class Settings(BaseSettings):
     alias_verify_min_ok_ratio: float = 0.95  # share of pairs the judge must call the same entity
     alias_verify_file: Path  # default {reports_dir}/alias-verify.json
 
+    # --- textmodel ---
+    # `newsrag textmodel bakeoff` (ticket 032): candidate text models run four Telugu tasks on the
+    # same canonical stories and are cross-judged by candidates of another family; `--apply` writes
+    # the winner as `enrich_model` and `answer_model`, and `answer_judge_model` (ticket 028 uses
+    # it for its claim check when set).
+    textmodel_candidates: tuple[str, ...] = (
+        "gemma3-27b",
+        "gemma4-31b",
+        "qwen3-30b-a3b",
+        "sarvam-m-24b",
+    )
+    textmodel_stories_file: (
+        Path  # default {repo_root}/data/textmodel-bakeoff-stories.txt (committed)
+    )
+    textmodel_report_file: Path  # default {reports_dir}/textmodel-bakeoff.md
+    textmodel_dir: Path  # default {work_dir}/textmodel-bakeoff: saved outputs and judgements
+    textmodel_n: int = 40
+    textmodel_seed: int = 21
+    textmodel_min_telugu_share: float = 0.7  # a sampled story: share of Telugu letters
+    textmodel_min_chars: int = 300  # a sampled story: length of its text
+    textmodel_max_chars: int = 4000
+    textmodel_output_telugu_share: float = 0.9  # a summary / question counts as Telugu from here
+    textmodel_summary_max_tokens: int = 512  # summary and question replies
+    textmodel_judge_max_tokens: int = 256
+    textmodel_judge_retries: int = 2  # unparseable judge reply: asks again this many times
+    textmodel_tie: float = 0.01  # totals this close are a tie (broken by judged, then speed)
+    # Models that answer the customer questions (ticket 028): set by `textmodel bakeoff --apply`.
+    answer_model: str = "qwen3-30b-a3b"
+    answer_judge_model: str | None = None  # text judge of 028's claim check; judge_model when unset
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -691,6 +724,7 @@ class Settings(BaseSettings):
         "transcribe_standalone_kinds",
         "stitch_kinds",
         "dedup_kinds",
+        "textmodel_candidates",
         mode="before",
     )
     @classmethod
