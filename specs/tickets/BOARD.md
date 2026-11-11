@@ -25,7 +25,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 013 | Grouping judge and retry | done | solo | waits for 012: grades its output |
 | 014 | Grouping model bake-off | done | solo | waits for 013: needs grouping + judge |
 | 015 | Tables, infographics and notices transcription | done | solo | waits for 013: needs final article groups |
-| 016 | Continuation stitching (per date) | draft | solo | waits for 013: needs final article groups |
+| 016 | Continuation stitching (per date) | ready | solo | waits for 013: needs final article groups |
 | 017 | Cross-edition story dedup (per date) | draft | solo | waits for 016: needs stitched articles; waits for 015: standalone table/notice items |
 | 018 | District and mandal reference list | done | solo | waits for 001: needs repo layout |
 | 019 | Enrichment: category, people/orgs, event date | draft | solo | waits for 017: enriches canonical stories |
