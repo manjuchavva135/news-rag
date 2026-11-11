@@ -1,6 +1,6 @@
 # 030: Quality report
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 029: reads all run stats; waits for 026, 027, 028: their scores
 
