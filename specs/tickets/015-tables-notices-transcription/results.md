@@ -57,3 +57,20 @@ Second run: `invented_pct=0.45` (1/224 lines, 24 items).
 - No `transcribe_failed` on the dev sample.
 - Only 24 kept items exist on the 20-page sample, so the spot-check has a small base; one bad line ≈ 0.45 pp.
 - `group` now shows `eligible=3477`: the rest of the corpus has never been grouped (unchanged by this ticket).
+
+## 100-page check (user request: the 20-page base was too small)
+
+Pages: `data/transcribe-check-100.txt` = the 20 dev-sample pages + 80 random non-quarantined pages
+(seed 15). Grouping chain re-run with Gemma 4 on the 80 new pages (all done), then `transcribe`:
+99 done, 1 failed (`2024-12-04_B_main_10`: request timeout at 300 s). Evidence: evidence/run-100-pages.log.
+
+| Spot-check | Items | Lines | not_present | invented_pct |
+|------------|-------|-------|-------------|--------------|
+| `--n 50` (ticket's E-3) | 50 | 584 | 15 | **2.57** (FAIL, bar 2.0) |
+| all kept items | 127 | 1254 | 36 | **2.87** (FAIL) |
+
+Of the 36 not-present lines, 28 are in notices, 4 in tables, 4 in infographics. The notices fail
+mostly by misreading clearly printed Telugu (e.g. "స్టయిఫండరీ స్కీమ్" read as "స్వయంబందీ సీఎం"
+in a 2681×3915 px notice): a whole-notice crop is shrunk to Gemma 4's ~2.6 MP image budget, and small
+Telugu becomes unreadable. A few lines are invented table headers (`| అంశం | వివరాలు |`, `| | |`) and
+garbled Hindi. **NFR-1 is not met on 100 pages; open.**

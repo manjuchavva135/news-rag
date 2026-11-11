@@ -1,0 +1,3335 @@
+{
+ "judge_model": "gemma4-31b",
+ "n_requested": 50,
+ "seed": 1,
+ "n_items": 50,
+ "n_lines": 584,
+ "verdicts": {
+  "present": 569,
+  "not_present": 15,
+  "unsure": 0
+ },
+ "invented_pct": 2.57,
+ "items": [
+  {
+   "page_id": "2024-12-11_K_main_05",
+   "item_id": "2024-12-11_K_main_05#t06",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| ADJUSTMENTS | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| TrueUp Charges(29/36) | 52.46 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| AP GOVT SUBSIDY | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| Loss/Gain ( + / - ) | 0.25 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| BILL AMT | Rs. 1042.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| ARREARS | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| TOTAL DUE | Rs. 1042.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| AGL Demand | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| ACD Amount | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| Development Charges | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| DUE DATE | 18-Dec-2024 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| DISCONNECTION DATE | 03-Jan-2025 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-04-17_B_main_01",
+   "item_id": "2025-04-17_B_main_01#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "‘స్వచ్ఛమైన రక్షిత జలాలను",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "అందిస్తేనే గోండు, చెంచు, ఆదివాసి",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "గిరిజనులు ఆరోగ్యంగా ఉంటారు.’",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-10-06_BGPRSV_main_12",
+   "item_id": "2025-10-06_BGPRSV_main_12#t04",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "గుంటూరు నగరపాలక సంస్థ",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "“ఇ” - ప్రాక్యూర్‌మెంట్ టెండరు ప్రకటన",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "ఇ.టి.నం. 41/2025-2026",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "తేదీ:04-10-2025",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "గుంటూరు నగరపాలక సంస్థ పరిధిలో వివిధ అభివృద్ధి పనులు చేపట్టటకు గాను “ఇ” ప్రాక్యూర్‌మెంట్ ప్లాట్‌ఫా برم ద్వారా టెండర్ పద్ధతిన రిజిస్టర్ కాంట్రాక్టు దారుల నుండి టెండర్ కోరబడుచున్నవి. ఇతర వివరములకు www.apeprocurement.gov.in (procurement platform) వద్ద చూడవచ్చును.",
+     "verdict": "not_present"
+    },
+    {
+     "n": 6,
+     "text": "“ఇ” ప్రాక్యూర్‌మెంట్ టెండర్ ఇ.టి.నం.41/2025-2026",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| అంశం | వివరాలు |",
+     "verdict": "not_present"
+    },
+    {
+     "n": 8,
+     "text": "| మొత్తం పనుల సంఖ్య | - 1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| అంచనా మొత్తం | - 1,96,54,000.00/- |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| పనుల వివరములు | - E.O.I For Mosquito Eradication |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| టెండరు బిడ్ కనబడు తేదీ | - 06.10.2025 ఉ॥10:30 గంటలకు |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| టెండరు బిడ్లను వేయుటకు ఆఖరు తేదీ | - 16.10.2025 సా॥3:00 గంటలకు |",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "| టెండరు బిడ్లను తెరచు తేదీ | - 16.10.2025 సా॥3:30 గంటలకు |",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "Superintending Engineer(FAC)",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "Municipal Corporation, Guntur",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-08-07_BGNOPRSVACL_main_14",
+   "item_id": "2025-08-07_BGNOPRSVACL_main_14#t04",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "దిగుమతులు..",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| ఉత్పత్తులు | బి.డాలర్లు |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| ముడిచమురు | 4.5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| పెట్రోలియం ప్రాడక్టులు | 3.6 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| బొగ్గు, కోక్ | 3.4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| కట్, పాలిష్డ్ డైమండ్స్ | 2.6 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| ఎలక్ట్రిక్ మెషినరీ | 1.4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| ఎయిర్క్రాఫ్ట్, స్పేన్క్రాఫ్ట్ విడిభాగాలు | 1.3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| పసిడి | 1.3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "(2024 గణాంకాలు)",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-08-03_BGNOPRSVACLT_main_05",
+   "item_id": "2025-08-03_BGNOPRSVACLT_main_05#t01",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| భారీ పారిశ్రామిక పార్కులు | ఎకరాలు | ఎంఎస్ఎంఈ పార్కులు | |",
+     "verdict": "not_present"
+    },
+    {
+     "n": 2,
+     "text": "| దొనకొండ, ప్రకాశం జిల్లా | 380 | పలుగురపల్లి, వైఎస్ఆర్ కడప జిల్లా | 98.94 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| జయంతిపురం, ఎన్టీఆర్ జిల్లా | 498.93 | మనగాడు, చిత్తూరు జిల్లా | 90 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| కొత్తపల్లి, పలదు జిల్లా | 477.88 | టీ.చౌడూరు, వైఎస్ఆర్ కడప జిల్లా | 60 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| మాచర్ల, పలదు జిల్లా | 100.45 | పరవాడ, అనకాపల్లి జిల్లా | 50 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| నందిగామ, ఎన్టీఆర్ జిల్లా | 107.50 | ఆర్.కృష్ణపురం, నంద్యాల జిల్లా | 44 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| చిలమత్తూరు, సత్యసాయి జిల్లా | 124.36 | అడ్డుకొండ, శ్రీకాకుళం జిల్లా | 30 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| కూడేరు, సత్యసాయి జిల్లా | 253.48 | గుండలమడుగు, వైఎస్ఆర్ కడప జిల్లా | 25.26 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| గుట్టపాడు, కర్నూలు జిల్లా | 245.66 | చేదెళ్ల, చిత్తూరు జిల్లా | 21.80 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| కొమరోలు, కర్నూలు జిల్లా | 300 | అనంతపురం | 4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| కోనల నగరం, చిత్తూరు జిల్లా | 500 | సత్యవేడు, తిరుపతి జిల్లా | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| రాతు సురమాల, తిరుపతి జిల్లా | 481.50 | వైకోట్, అన్నమయ్య జిల్లా | 20 |",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "| తలుపుల, సత్యసాయి జిల్లా | 203.80 | నిడదవోలు, తూర్పుగోదావరి జిల్లా | 2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "| తిమ్మనముద్రం, అనంతపురం జిల్లా | 433.75 | గోవాడ, బాపట్ల జిల్లా | 6.86 |",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "| అచ్యుతాపురం, అనకాపల్లి జిల్లా | 280.55 | ముత్యాలంపాడు, ఎన్టీఆర్ జిల్లా | 5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "| సంతబొమ్మాళి, శ్రీకాకుళం జిల్లా | 350 | చెరుకుమిల్లి, తూర్పుగోదావరి జిల్లా | 13 |",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "| | | కేశనపల్లి, పలదు జిల్లా | 7.37 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-09_R_main_03",
+   "item_id": "2024-12-09_R_main_03#t01",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "0000625643-00001-",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "KIA India Priva",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "25.00x16.00",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "KIA India Private",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Limited",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-24_BGNR_main_10",
+   "item_id": "2024-12-24_BGNR_main_10#t04",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "తిరుమల ఆలయం వెలుపల ఏపీ హైకోర్టు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "న్యాయమూర్తి జస్టిన్స్ చల్లా గుణరంజన్",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "మణిపూర్ హైకోర్టు ప్రధాన",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "న్యాయమూర్తి జస్టిస్ డి.కృష్ణకుమార్",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-11_K_main_05",
+   "item_id": "2024-12-11_K_main_05#t04",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "NET BILL: 348.97",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "DUE DATE: 19-11-2024",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "DISC DATE: 05-12-2024",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "NET BILL: 463.51",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "DUE DATE: 19-12-2024",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "DISC DATE: 04-01-2025",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-03-16_B_main_12",
+   "item_id": "2025-03-16_B_main_12#t04",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "अखिल भारतीय आयुर्विज्ञान संस्थान, बीबीनगर",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "ALL INDIA INSTITUTE OF MEDICAL SCIENCES, BIBINAGAR",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "“An INI under the aegis of Ministry of Health & Family Welfare, Govt. of India”",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "हैदराबाद मेट्रोपॉलिटन क्षेत्र (एच एम आर), तेलंगाना – 508126, भारत",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Hyderabad Metropolitan Region (HMR), Telangana-508126, India",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "संख्या/No. AIIMS/BBN/RECT/FACULTY/2025/29/584 दिनांक / Dtd.: 08.03.2025",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "RECRUITMENT NOTICE",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "ADVERTISEMENT FOR RECRUITMENT OF VARIOUS FACULTY POSTS AT AIIMS, BIBINAGAR ON DEPUTATION/CONTRACT BASIS INCLUDING RETIRED FACULTY ON CONTRACT BASIS",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| The starting date for receiving offline applications with self-attested copies of certificates and documents in support of the candidature | 10th March 2025 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| Closing date for receipt of offline applications | 08th April 2025 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| Cut-off date for counting age limit, qualification, and experience for eligibility of candidates | 08th April 2025 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "Professor 08 (4-UR, 2-OBC, 2-SC), Additional Professor 02 (1-UR, 1-ST), Associate Professor 03 (1-UR, 2-OBC), Assistant Professor 04 (1-OBC, 3-SC)",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "The total numbers of vacancies are 17",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "For further details of Vacancies, educational qualifications, age, experiences, fees, other eligibility criteria, submission of application through offline mode etc., please visit Institute's website i.e., https://aiimsbibinagar.edu.in.",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "Sd/-",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "पप निदेशक प्रशासन / Deputy Director Administration",
+     "verdict": "not_present"
+    },
+    {
+     "n": 17,
+     "text": "घमस, बीबीनगर /AIIMS, Bibinagar",
+     "verdict": "not_present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-12-27_B_main_05",
+   "item_id": "2025-12-27_B_main_05#t02",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "భారత రాజపత్రం",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "సీ.జీ.-డి.ఎల్.-అ.-11122025-268381",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "CG-DL-E-11122025-268381",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "అసాధారణ",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "అసాధారణం",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "భాగ II- ఖండ 3- ఉప-ఖండ (ii)",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "భాగం-II, సెక్షన్ 3, సబ్-సెక్షన్ (ii)",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "प्रराधन सरकार से प्रकाशति",
+     "verdict": "not_present"
+    },
+    {
+     "n": 9,
+     "text": "అధికారం ద్వారా ప్రచురించబడింది",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "సం. 5487]",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "న్యూఢిల్లీ, సోమవారం, డిసెంబర్ 8, 2025/ఆగ్రహాయణం 17, 1947",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "No. 5487]",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "NEW DELHI, MONDAY, DECEMBER 8, 2025/AGRAHAYANA 17, 1947",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "రోడ్డు రవాణా మరియు రహదారుల మంత్రిత్వ శాఖ",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "ప్రకటన",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "న్యూఢిల్లీ, డిసెంబర్ 8, 2025",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "SO. 5675(E) – జాతీయ రహదారుల చట్టం, 1956(48 ఆక్ 1956) (ఒక ముందు చట్టంగా వ్యవహరించెదరు) లోని సెక్షన్ 3ఎ సబ్ సెక్షన్ (1) క్రింద సంకల్పించిన అధికారాలను వినియోగించుకొనుచు కేంద్ర ప్రభుత్వం వారు ప్రజా ప్రయోజనార్థము క్రింద తెలిపిన షెడ్యూలో సంక్షిప్తంగా వివరించినట్లు ఆంధ్రప్రదేశ్ రాష్ట్రంలోని గుంటూరు జిల్లాలోని క్.మీ. 0.000 నుండి క్.మీ. 189.900 వరకు అమరావతి రాజధాని నగర బేటర్ రింగ్ రోడ్ కోసం భూమి నిర్మాణం (అరు లేసు మిల్లెనియం) నిర్వహణ మరియు కార్యకలాపాల కొరకు అవసరమై ఉందని భావించి తద్వారా భూమిని సేకరించుటకు ఉద్దేశించి ఈ ప్రకటన జారీ చేయినారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "సదరు భూమి పై ఎవరైనా వ్యక్తి ప్రయోజనం ఉన్నట్లయితే అధికారిక గెజెట్లోని ఈ ప్రకటన ప్రచుర తేదీ నుండి ఇరవై ఒక్క రోజులలోగా సదరు చట్టంలోని సెక్షన్ 3(సి) సబ్ సెక్షన్ (1) క్రింద పైన తెలిపిన ప్రజాపయోజనం సదరు భూమి వినియోగించుకొనుపు పై వారి అభ్యంతరములను తెలియజేయవచ్చును.",
+     "verdict": "present"
+    },
+    {
+     "n": 19,
+     "text": "అటువంటి ప్రతి అభ్యంతరములను అర్హత కలిగిన అధికారి మరియు జాయింట్ కలెక్టర్, గుంటూరు జిల్లా, వారికి వాతాప్రపూర్వకంగా తెలిన ఆధారాలను చూపుతూ అందజేయవలెను. సదరు అభ్యంతరములను వ్యక్తిగతంగా లేదా వారి న్యాయవాదుల ద్వారా వాదనలను వినిపటకు తగు అవకాశం కల్పించి మరియు అభ్యంతరములను విన్న తరువాత సంబంధిత అర్హత కలిగిన అధికారి మరియు జాయింట్ కలెక్టర్ వారు, తదుపరి విచారణ అవసరమైనదని భావించినట్లైతే వాటిపై తదుపరి విచారణ జరిపి anschließend సదరు అభ్యంతరములను స్వీకరించుటకు లేదా నిరాకరించుటకు క్షుణ్ణంగా యోచించి తగిన నిర్ణయాలను జారీ చేయుదురు.",
+     "verdict": "present"
+    },
+    {
+     "n": 20,
+     "text": "సదరు చట్టం లోని సెక్షన్ 3 సి లోని సబ్ సెక్షన్ (2) క్రింద సంబంధిత అధికారి జారీ చేసిన ఉత్తర్లేలు తుది నిర్ణయము. సదరు భూమి యొక్క స్థానము మరియు భూమి యొక్క ఇతర వివరములు ఈ ప్రకటనలో లభ్యముగును మరియు ప్రయోజనం గల వ్యక్తి సంబంధిత అధికారి యొక్క పైన తెలిపిన కార్యాలయము వద్ద తనిఖీ చేసుకోవచ్చును.",
+     "verdict": "present"
+    },
+    {
+     "n": 21,
+     "text": "షెడ్యూలు",
+     "verdict": "present"
+    },
+    {
+     "n": 22,
+     "text": "ఆంధ్రప్రదేశ్ రాష్ట్రంలోని గుంటూరు జిల్లాలోని క్.మీ. 0.000 నుండి క్.మీ. 189.900 వరకు అమరావతి రాజధాని నగర బేటర్ రింగ్ రోడ్ కోసం భూమి పరిధిలోకి వచ్చే నిర్మాణాలతో లేదా లేకుండా సేకరించాల్సిన భూమి యొక్క సంక్షిప్త వివరణ. వివరాల కోసం క్రింద ఉన్న QR కోడ్లిన్స్‌ స్కాన్ చేయండి:",
+     "verdict": "present"
+    },
+    {
+     "n": 23,
+     "text": "జిల్లా : గుంటూరు",
+     "verdict": "present"
+    },
+    {
+     "n": 24,
+     "text": "https://egazette.gov.in/",
+     "verdict": "present"
+    },
+    {
+     "n": 25,
+     "text": "Publication date 08.12.2025",
+     "verdict": "present"
+    },
+    {
+     "n": 26,
+     "text": "https://egazette.gov.in/",
+     "verdict": "present"
+    },
+    {
+     "n": 27,
+     "text": "https://morth.gov.in/",
+     "verdict": "present"
+    },
+    {
+     "n": 28,
+     "text": "[F.No. NHAI/PIU-Amaravati/11014/02/2025/Vol.1/3A2]",
+     "verdict": "present"
+    },
+    {
+     "n": 29,
+     "text": "SHAIKH AMINKHAN, Director",
+     "verdict": "present"
+    },
+    {
+     "n": 30,
+     "text": "గమనిక: ఈ ప్రకటన CALA/PIU/RO కార్యాలయము లో కూడా అందుబాటులో ఉంది మరియు భూ యజమానులు అక్కడ కూడా ఈ ప్రకటనను చూడవచ్చును.",
+     "verdict": "present"
+    },
+    {
+     "n": 31,
+     "text": "రిజిస్ట్రీ సం. డి. ఎల్. 33004/99",
+     "verdict": "present"
+    },
+    {
+     "n": 32,
+     "text": "REGD. No. D. L.-33004/99",
+     "verdict": "present"
+    },
+    {
+     "n": 33,
+     "text": "భారత రాజపత్రం",
+     "verdict": "present"
+    },
+    {
+     "n": 34,
+     "text": "The Gazette of India",
+     "verdict": "present"
+    },
+    {
+     "n": 35,
+     "text": "సీ.జీ.-డి.ఎల్.-అ.-10122025-268380",
+     "verdict": "present"
+    },
+    {
+     "n": 36,
+     "text": "CG-DL-E-10122025-268380",
+     "verdict": "present"
+    },
+    {
+     "n": 37,
+     "text": "అసాధారణ",
+     "verdict": "present"
+    },
+    {
+     "n": 38,
+     "text": "అసాధారణం",
+     "verdict": "present"
+    },
+    {
+     "n": 39,
+     "text": "భాగ II - ఖండ 3- ఉప-ఖండ (ii)",
+     "verdict": "present"
+    },
+    {
+     "n": 40,
+     "text": "భాగం-II, సెక్షన్ 3, సబ్-సెక్షన్ (ii)",
+     "verdict": "present"
+    },
+    {
+     "n": 41,
+     "text": "प्राधिकार से प्रकाशित",
+     "verdict": "present"
+    },
+    {
+     "n": 42,
+     "text": "అధికారం ద్వారా ప్రచురించబడినది",
+     "verdict": "present"
+    },
+    {
+     "n": 43,
+     "text": "సం. 5464]",
+     "verdict": "present"
+    },
+    {
+     "n": 44,
+     "text": "న్యూఢిల్లీ, సోమవారం, డిసెంబర్ 8, 2025/ఆగ్రహాయణం 17, 1947",
+     "verdict": "present"
+    },
+    {
+     "n": 45,
+     "text": "No. 5464]",
+     "verdict": "present"
+    },
+    {
+     "n": 46,
+     "text": "NEW DELHI, MONDAY, DECEMBER 8, 2025/AGRAHAYANA 17, 1947",
+     "verdict": "present"
+    },
+    {
+     "n": 47,
+     "text": "రోడ్డు రవాణా మరియు రహదారుల మంత్రిత్వ శాఖ",
+     "verdict": "present"
+    },
+    {
+     "n": 48,
+     "text": "ప్రకటన",
+     "verdict": "present"
+    },
+    {
+     "n": 49,
+     "text": "న్యూఢిల్లీ, డిసెంబర్ 8, 2025",
+     "verdict": "present"
+    },
+    {
+     "n": 50,
+     "text": "SO. 5652(E) – జాతీయ రహదారుల చట్టం, 1956(48 ఆక్ 1956) (ఒక ముందు చట్టంగా వ్యవహరించెదరు) లోని సెక్షన్ 3ఎ సబ్ సెక్షన్ (1) క్రింద సంకల్పించిన అధికారాలను వినియోగించుకొనుచు కేంద్ర ప్రభుత్వం వారు ప్రజా ప్రయోజనార్థము క్రింద తెలిపిన షెడ్యూలో సంక్షిప్తంగా వివరించినట్లు ఆంధ్రప్రదేశ్ రాష్ట్రంలోని కృష్ణా జిల్లాలోని క్.మీ. 0.000 నుండి క్.మీ. 189.900 వరకు అమరావతి రాజధాని నగర బేటర్ రింగ్ రోడ్ కోసం భూమి నిర్మాణం (అరు లేసు మిల్లెనియం) నిర్వహణ మరియు కార్యకలాపాల కొరకు అవసరమై ఉందని భావించి తద్వారా భూమిని సేకరించుటకు ఉద్దేశించి ఈ ప్రకటన జారీ చేసినారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 51,
+     "text": "సదరు భూమి పై ఎవరైనా వ్యక్తి ప్రయోజనం ఉన్నట్లయితే అధికారిక గెజెట్లోని ఈ ప్రకటన ప్రచుర తేదీ నుండి ఇరవై ఒక్క రోజులలోగా సదరు చట్టంలోని సెక్షన్ 3(సి) సబ్ సెక్షన్ (1) క్రింద పైన తెలిపిన ప్రజాపయోజనం సదరు భూమి వినియోగించుకొనుపు పై వారి అభ్యంతరములను తెలియజేయవచ్చును.",
+     "verdict": "present"
+    },
+    {
+     "n": 52,
+     "text": "అటువంటి ప్రతి అభ్యంతరములను అర్హత కలిగిన అధికారి మరియు జాయింట్ కలెక్టర్, కృష్ణా జిల్లా, వారికి వాతాప్రపూర్వకంగా తెలిన ఆధారాలను చూపుతూ అందజేయవలెను. సదరు అభ్యంతరములను వ్యక్తిగతంగా లేదా వారి న్యాయవాదుల ద్వారా వాదనలను వినిపటకు తగు అవకాశం కల్పించి మరియు అభ్యంతరములను విన్న తరువాత సంబంధిత అర్హత కలిగిన అధికారి మరియు జాయింట్ కలెక్టర్ వారు, తదుపరి విచారణ అవసరమైనదని భావించినట్లైతే వాటిపై తదుపరి విచారణ జరిపి anschließend సదరు అభ్యంతరములను స్వీకరించుటకు లేదా నిరాకరించుటకు క్షుణ్ణంగా యోచించి తగిన నిర్ణయాలను జారీ చేయుదురు.",
+     "verdict": "present"
+    },
+    {
+     "n": 53,
+     "text": "సదరు చట్టం లోని సెక్షన్ 3 సి లోని సబ్ సెక్షన్ (2) క్రింద సంబంధిత అధికారి జారీ చేసిన ఉత్తర్లేలు తుది నిర్ణయము. సదరు భూమి యొక్క స్థానము మరియు భూమి యొక్క ఇతర వివరములు ఈ ప్రకటనలో లభ్యముగును మరియు ప్రయోజనం గల వ్యక్తి సంబంధిత అధికారి యొక్క పైన తెలిపిన కార్యాలయము వద్ద తనిఖీ చేసుకోవచ్చును.",
+     "verdict": "present"
+    },
+    {
+     "n": 54,
+     "text": "షెడ్యూలు",
+     "verdict": "present"
+    },
+    {
+     "n": 55,
+     "text": "ఆంధ్రప్రదేశ్ రాష్ట్రంలోని కృష్ణా జిల్లాలోని క్.మీ. 0.000 నుండి క్.మీ. 189.900 వరకు అమరావతి రాజధాని నగర బేటర్ రింగ్ రోడ్ కోసం భూమి పరిధిలోకి వచ్చే నిర్మాణాలతో లేదా లేకుండా సేకరించాల్సిన భూమి యొక్క సంక్షిప్త వివరణ.",
+     "verdict": "present"
+    },
+    {
+     "n": 56,
+     "text": "జిల్లా : కృష్ణా",
+     "verdict": "present"
+    },
+    {
+     "n": 57,
+     "text": "https://egazette.gov.in/",
+     "verdict": "present"
+    },
+    {
+     "n": 58,
+     "text": "Publication date 08.12.2025",
+     "verdict": "present"
+    },
+    {
+     "n": 59,
+     "text": "https://egazette.gov.in/",
+     "verdict": "present"
+    },
+    {
+     "n": 60,
+     "text": "https://morth.gov.in/",
+     "verdict": "present"
+    },
+    {
+     "n": 61,
+     "text": "[ఫైల్ నెం. NHAI/PIU-Amaravati/11014/02/2025/Vol.1/3A1]",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t06",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "JUSTICE FOR GROUP - 2",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "29321 members, 2943 online",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "REPORT SPAM AND LEAVE",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "Pinned Message",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "మిత్రులకు విజ్ఞప్తి రేపు 23/02/2025...",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "[illegible] invited you to this group",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "27th Graduate MLC elections lo mana power chupidham....andaru ready ga undandi....",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "Target groups",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "మా ఆశలని, మా కలలని, మా భవిష్యత్తు ని, చంపుతున్నారు, మేము మీ ఆశలని, కలలని, భవిష్యత్తు ని చంపగలము.",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "ఆట మీరు మొదలుపెట్టారు, మేము ముగిస్తాము.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-03-16_B_main_12",
+   "item_id": "2025-03-16_B_main_12#t01",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "JAWAHARLAL NEHRU TECHNOLOGICAL UNIVERSITY ANANTAPUR",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "ANANTHAPURAMU-515002. (A.P.) INDIA",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "XIV CONVOCATION NOTIFICATION",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "The XIV Convocation of Jawaharlal Nehru Technological University Anantapur, Ananthapuramu is tentatively scheduled in the month of April/May, 2025. All UG, PG and Ph.D. Candidates who are qualified for the award of degree during the Academic year 2023-24 are hereby informed to submit the applications through Online only (https://jntuaebranchpayment.in/originaldegree) on or before 15-04-2025. Only Ph.D. Awardees and Gold Medalists will receive the degrees on the dais and others will receive their degrees through registered Post/Courier. Further details can be seen in the web site: www.jntua.ac.in under Examinations section.",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Date: 15-03-2025",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "Sd/- REGISTRAR",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-05_BGNOPRSVACLT_main_01",
+   "item_id": "2025-05-05_BGNOPRSVACLT_main_01#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "3. The developers, who have been issued Letter of Award (LoA) have suo-moto offered",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "9GW under Tranche-II, III & IV under this scheme at a tariff of Rs. 2.49 / kWh including",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "SECI's trading margin, considering reduction of solar tariff in the recent tenders for",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "solar projects conducted nationwide and considering bulk capacity being offered.",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Accordingly, offer is being made to Andhra Pradesh for the above bulk quantity that",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "has been offered by these developers.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-02_BOAL_main_16",
+   "item_id": "2025-02-02_BOAL_main_16#t03",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| విద్యార్థులు | మొత్తం వర్గాల్లో శాతం |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| ప్రాథమిక విద్య లేదా అనియత విద్య | 52.4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| మాధ్యమిక విద్య | 37.8 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| డిగ్రీ | 7.6 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| పోస్ట్ గ్రాడ్యుయేషన్ | 2.2 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-08-07_BGNOPRSVACL_main_14",
+   "item_id": "2025-08-07_BGNOPRSVACL_main_14#t02",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "అమెరికాకు ఇతరత్రా ఎగుమతులు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| ఉత్పత్తులు | బిలియన్ డాలర్లలో |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| డ్రగ్స్ ఫార్ములేషన్స్, బయోలాజికల్స్ | 8.1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| టెలికమ్ ఇన్స్ట్రుమెంట్స్ | 6.5 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| విలువైన రాళ్లు | 5.3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| పెట్రోలియం ఉత్పత్తులు | 4.1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| వాహనాలు, ఆటో విడిభాగాలు | 2.8 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| బంగారం, విలువైన లోహాల జ్యువెలరీ | 3.2 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| రెడీమేడ్ గార్మెంట్స్, యాక్సెసరీలు | 2.8 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| ఇనుము, ఉక్కు | 2.7 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-19_G_main_05",
+   "item_id": "2024-12-19_G_main_05#t03",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "No:- ITBP/4th Bn/Estt-2/CT (GD) Ragidi Ramesh Babu",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "Absent Corp./2024-కమాండెంట్ కార్యాలయం, 4వ Bn",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "ఇండో-టిబెటన్ బోర్డర్ పోలీస్ ఫోర్స్",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "MHA/భారత ప్రభుత్వం",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "PO- దిరాంగ్, జిల్లా- వెస్ట్ కమెంగ్, అరుణాచల్ ప్రదేశ్-790101",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "నోటీసు",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "రెజిమెంటల్ నం. 110280667 CT/GD రాగిడి రమేష్ బాబు తండ్రి శ్రీ రాగిడి వెంకటేశ్వర్లు, నివాసం: ఇంటి నం. 17/248, జంగమహేశ్వరుపురం, PS-గురజాల, జిల్లా- గుంటూరు, ఆంధ్రప్రదేశ్-522415 వారికి ఈ నోటీసు ద్వారా ఇందుమూలంగా తెలియజేయునది ఏమనగా మీరు 04 రోజుల ప్రయాణకాలంతో 08.01.2024 నుండి 06.02.2024 వరకు వర్తింపుతో మంజూరైన 30 రోజుల ఎర్న్డ్ లీవ్ నుండి సమర్థ అధికారికి ఎటువంటి సమాచారం మరియు ముందుస్తు అనుమతి లేకుండా 11.02.2024 (FN) నుండి వర్తింపుతో గైర్హాజరు అవుతున్నారు. ఇది ITBPF యాక్ట్, 1992లోని సెక్షన్ 21(b) క్రింద అపరాధం. పలుసార్లు సంప్రదించుపులు/రిమైండర్లు పంపినప్పటికీ, మీరు డ్యూటీలో చేరలేదు మరియు మీ ప్రతివాదంలో ఎట్టి వివరణ దాఖలు చేయలేదు. 4వ Bn ఆర్డర్ నం. 2544-45, తేది : 18.07.2024 ప్రకారం సమర్థ అధికారికి ఎటువంటి సమాచారం మరియు ముందుస్తు అనుమతి లేకుండా సెలవు నుండి మీరు గైర్హాజరు అయిన పరిస్థితులను విచారించేందుకు ITBPF యాక్ట్, 1992లోని సెక్షన్ 74(1)లో పేర్కొన్న నిబంధన క్రింద కోర్ట్ ఆఫ్ ఎంక్వైరీ ఏర్పాటు చేయబడినది. COI సిఫార్సుల మేరకు, మీరు ITBPF యాక్ట్, 1992లోని సెక్షన్ 74(2)లో పేర్కొన్న నిబంధన క్రింద 4వ Bn ఆర్డర్ నం. 3121-33 తేది : 14.08.2024 ప్రకారం 11.02.2024 (FN) నుండి వర్తింపుతో ఫోర్స్ నుండి “డిజర్టర్”గా ప్రకటించబడినారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "2. అందువలన రెజిమెంటల్ నం. 110280667 CT/GD రాగిడి రమేష్ బాబు తండ్రి శ్రీ రాగిడి వెంకటేశ్వర్లుకు ఈ నోటీసు ప్రచురణ నుండి 30 రోజులలోగా BHQ, 4వ Bn ITBP, P.O. దిరాంగ్, జిల్లా- వెస్ట్ కమెంగ్ (అరుణాచల్ ప్రదేశ్) వద్ద విధులకు హాజరుగటుకు ఈ నోటీసు ద్వారా మరలా తెలియజేయడమైనది. లేనిచో అతను ITBPF రూల్స్, 1994లోని రూల్ 20తో చదువబడే రూల్ 17 క్రింద పేర్కొన్న నిబంధనల ప్రకారం సర్వీస్ నుండి తొలగించబడతాడు.",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "సం/- కమాండెంట్",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-11_K_main_05",
+   "item_id": "2024-12-11_K_main_05#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Transaction No : PP014319BLWJRLCWNF12",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "Service No : 6511118010865",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "Date : 14-NOV-24",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "Consumer Name : AREPALLI SAHIL",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "Bill Amount : 861.0",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "RC : 0.0",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "ACD : 0.0",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "Total Amount Paid : 861.0",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "Counter : SBIUNIPAY",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "Transaction No : PP014342BHSZGYJAY4N2",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "Service No : 6511118010865",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "Date : 07-DEC-24",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "Consumer Name : AREPALLI SAHIL",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "Bill Amount : 1321.0",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "RC : 0.0",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "ACD : 0.0",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "Total Amount Paid : 1321.0",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "Counter : SBIUNIPAY",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-03-16_B_main_12",
+   "item_id": "2025-03-16_B_main_12#t03",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "దక్షిణ మధ్య రైల్వే",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "మమ్మల్ని అనుసరించండి @ SCRailwayindia",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "ద.మ. రైల్వే టెండర్ ప్రకటనల వివరాలను మా వెబ్‌సైట్: www.scr.indianrailways.gov.inలో చదవవచ్చు",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "ఓపెన్ ఇ-టెండర్ ప్రకటన",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "భారత రాష్ట్రపతి తరపున దిగువ సంతకందారు దిగువ పనుల కొరకు తేదీ: 10.04.2025న 15.30 గం. వరకు. ఇ-టెండర్లు కోరుచున్నారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "క్ర.సం.1, పని పేరు: టెండర్ ప్రకటన నం. & తేదీ: SCR-BZA-SnT-E41-OT-24-25, తేదీ: 14.03.2025; విజయవాడ డివిజన్: BZA-VSKP సెక్షన్ – 1) YLM-DVDస్టేషన్ మధ్య వాటర్ వే పెంచుటకు RCC బాక్స్‌తో సైజు 2.0mx1.5m RCC బాక్స్‌తో 8 నం.లు (ప్రిపుకల్వర్ట్లు, స్టోన్ స్లాబ్స్, వివిధ డయా 0.61m నుండి .76m వరకు RCC స్లాబ్స్) ఒకే విధమైన స్పాన్ గల బ్రిడ్జి నం.లు 590C UP, 591B UP, 592A UP, 595A UP, 617 DN, 643 UP, 643 DN మరియు 654 DN యొక్క రిప్లేస్‌మెంట్ కు సంబంధించి S&T పనులు. 2) NRP-YLM స్టేషన్ మధ్య వాటర్ వే పెంచుటకు RCC బాక్స్‌తో సైజు 2.0mx1.5m గల RCC బాక్స్‌తో 8 నం.లు (ప్రిపుకల్వర్ట్లు, స్టోన్ స్లాబ్స్, వివిధ డయా 0.61m నుండి .76m వరకు RCC స్లాబ్స్) ఒకే విధమైన స్పాన్ గల బ్రిడ్జి నం.లు 676 UP, 677 UP, 677A DN, 687 DN, 700 DN, 719 DN, 728 UP, 733 DN యొక్క రిప్లేస్‌మెంట్ కు సంబంధించి S&T పనులు. 3) ADEN/EE సబ్ డివిజన్ లో మేజర్ బ్రిడ్జి పియర్స్ ఎక్స్‌టెన్షన్, L రిటైనర్స్ పటిష్టపరచుట మరియు మైనర్ బ్రిడ్జిల రక్షిత పనులు ఏర్పాటుకు సంబంధించి S&T పనులు. టెండర్ విలువ: రూ.14227265.10; భయానా: రూ. 221100.00; ఆన్లైన్ లేదా బిడ్ సెక్యూరిటీ ద్వారా మాత్రమే CTB: రూ. లేదు. పూర్తిచేయ కాలము: 180 రోజులు.",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "క్ర.సం.2, పని పేరు: టెండర్ ప్రకటన నం. & తేదీ: SCR-BZA-SnT-E42-OT-24-25, తేదీ: 14.03.2025; విజయవాడ డివిజన్ – దిగువ వాటికి సంబంధించి సిగ్నల్ మరియు టెలికామ్ పనులు: 1) SSE/BR/BTTR సెక్షన్ 355/A UP&DN (2x9.15Mm) మరియు SSE/Br/I/RJY సెక్షన్ లో Br. No.236 UP & DN (3x12.19), 245 DN (3x12.19), 614 UP & DN (3x12.19), 628 UP (6x12.19) కొరకు రీగార్డింగ్ పని ద్వారా వంతెనల రిహాబిలిటేషన్. 2) GDR-BZA సెక్షన్ – ADEN/OGL సబ్ డివిజన్ లో రక్షిత పనులతో సహా ఓపెన్ కట్ విధానం ద్వారా RCC బాక్స్‌లతో Orn-3 Br. Nos.582 DN మరియు 582 UP యొక్క ఏర్పాటు మరియు పునర్నిర్మాణం. 3) BZA-VSKP సెక్షన్ – DAEN/BR/N/BZA అధికార పరిధిలో SSE/BR/I/RJY సెక్షన్ లోని BVM-AKPస్టేషన్ మధ్య కి.మీ.711/17-29 వద్ద 703 UP మరియు TUNI-GLUస్టేషన్ మధ్య కి.మీ.682/18-30 వద్ద 544 DN కొరకు TOP బూమ్ ఇంజన్క్షన్ అరేంజ్మెంట్స్ ఏర్పాటు మరియు TUNI-GLU స్టేషన్ మధ్య కి.మీ.682/18-30 వద్ద Br No.544 DN యొక్క అబ్యుట్మెంట్ 1 (తుని ఎండ్ పై రోలర్ & రాకర్ బేరింగ్ మరియు స్పాన్ నం.1 లో బే నం.1 యొక్క తుప్పుపట్టిన, పెర్ఫోరేటెడ్ బాటమ్ బూమ్ రిప్లేస్‌మెంట్ కు సంబంధించి S&T పనులు. 4) BZA-VSKP సెక్షన్ – ADEN/BR/N/BZA పరిధిలో SSE/BR/I/RJY సెక్షన్ లోని Br. Nos. 615 UP &DN, 510 UP & DN, 470 UP & DN, 460 UP & DN మరియు 452 UP & DN సెక్షనల్ బ్రిడ్జిలు మరియు BVM-AKP స్టేషన్ మధ్య కి.మీ.744/17-29 వద్ద Br. No. 703 UP మరియు TUNI-GLU స్టేషన్ మధ్య కి.మీ.682/18-30 వద్ద Br No. 544 DN యొక్క మెటలైజేషన్ SSE/Br-II/RJY సెక్షన్ లో Br. No. 248A (రైల్ కమ్ రోడ్ బ్రిడ్జ్) మరియు సెక్షనల్ బ్రిడ్జిలు (8 DN, 102 DN, 248/c & 248 E) యొక్క ఫ్లోర్ సిస్టమ్ లో క్రాస్ గార్టర్స్ మెటలైజింగ్ కు సంబంధించి S&T పనులు. 5) BZA-VSKP సెక్షన్ – ADEN/BR/N/BZA అధికార పరిధిలో SSE/Br-II/RJY సెక్షన్ లో EE-VAT స్టేషన్ మధ్య కి.మీ. 484/13-17 వద్ద BrNo.95 UP (6x12.19m) పై కొత్త గార్టర్లతో కాలం చెల్లిన మరియు ఊల్బింగ్ గార్టర్స్ రిప్లేస్‌మెంట్ కు సంబంధించి S&T పనులు. 6) BZA-VSKP సెక్షన్ – ADEN/BR/N/BZA అధికార పరిధిలో SSE/BR/I/RJY సెక్షన్ లోని SLO-PAP స్టేషన్ మధ్య కి.మీ. 630/18-22 వద్ద 383 DN (3x12.19m) మరియు కి.మీ.630/17-21 వద్ద బ్రిడ్జి నం.383 UP (3x12.19m) పై కొత్త గార్టర్లతో తుప్పుపట్టిన, కాలం చెల్లిన గార్టర్ల రిప్లేస్‌మెంట్ కు సంబంధించి S&T పనులు. టెండర్ విలువ: రూ.5573814.86; భయానా: రూ. 111500.00; ఆన్లైన్ లేదా బిడ్ సెక్యూరిటీ ద్వారా మాత్రమే CTB: రూ. లేదు. పూర్తిచేయ కాలము: 180 రోజులు.",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "ముగింపు తేదీ, సమయం: 10.04.2025, 15.30 గం.కు.",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "1. కాగోరు టెండరుదారులు ఏదేని టెండర్ కొరకు ఏవైనా మార్పులు/ సవరణలు గమనించుటకు టెండర్ ముగింపు తేదీకి ముందు వెబ్‌సైట్ www.ireps.gov.in చూడవలసిందీగా సూచించపదెని.",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "డివిజినల్ రైల్వే మేనేజర్ (S&T), విజయవాడ",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-06_V_main_03",
+   "item_id": "2024-12-06_V_main_03#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "FASHION FACTORY FREE SHOPPING WEEK",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "FASHION FACTORY",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "FREE",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "SHOPPING",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "WEEK",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "8 డిసెంబర్ వరకు",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "SCAN THIS QR CODE",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "TO CONNECT WITH",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "US ON WHATSAPP",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-10-06_BGPRSV_main_12",
+   "item_id": "2025-10-06_BGPRSV_main_12#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "సగటు ఈక్విటీ పెట్టుబడుల శాతం",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- ఆంధ్రప్రదేశ్: 6.0",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- తెలంగాణ: 8.4",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- కర్ణాటక: 11.6",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- తమిళనాడు: 9.8",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- కేరళ: 9.5",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- పాండిచ్చేరి: 16.4",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-02_BOAL_main_16",
+   "item_id": "2025-02-02_BOAL_main_16#t04",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "కూటమి ప్రభుత్వం ఏర్పాటుకు ముందు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "2024 మే నెల - 65,49,864",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "కూటమి ప్రభుత్వం ఏర్పాటు తర్వాత...",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- 2024 జులై: 65,18,496",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- 2024 ఆగస్టు: 64,82,052",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- 2024 సెప్టెంబర్: 64,61,485",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- 2024 అక్టోబరు: 64,38,884",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "- 2024 నవంబరు: 64,14,174",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "- 2024 డిసెంబరు: 63,92,702",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "- 2025 జనవరి: 63,77,943",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "- 2025 ఫిబ్రవరి: 63,59,907",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t04",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- వివిధ సంస్థలకు ఎన్నికైన అభ్యర్థులు: 82,077",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- ఇందులో శిక్షణాకు హాజరైనవారు: 28,141",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-04-28_BGNOPRSVACLT_main_10",
+   "item_id": "2025-04-28_BGNOPRSVACLT_main_10#t03",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| రాష్ట్రం | సమయం (సంవత్సరాల్లో) |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| ఆంధ్రప్రదేశ్ | 3.3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| బీహార్ | 3.3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| మహారాష్ట్ర | 12 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| గుజరాత్ | 13.1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| తమిళనాడు | 20.4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| తెలంగాణ | 22.4 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| కేరళ | 29.3 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| పంజాబ్ | 37.1 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| యూపీ | 44.9 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-11-25_B_main_02",
+   "item_id": "2025-11-25_B_main_02#t02",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "రూ.1,500 కోట్ల భూమి",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "'సత్వ్'కు రూ.45 కోట్లకుకే",
+     "verdict": "not_present"
+    },
+    {
+     "n": 3,
+     "text": "రియల్ ఎస్టేట్ కంపెనీకి మధురవాడలో విలువైన స్థలం",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "GOVERNMENT OF ANDHRA PRADESH",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "ABSTRACT",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "ITE&C Dept - Promotions Wing – Allotment of 30 Acres of land to M/s. Sattva Developers Private Limited at Hill No. 4, Madhurawada, Visakhapatnam for setting up IT / ITES Space, Retail, Residential, Data Centers, and consideration of the project under the AP IT & GCC Policy (4.0) 2024-29 for extending incentives towards a proposed investment of INR 1,500 crores with an employment potential of 25,000 jobs – Orders – Issued.",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "A. Approval for allotment of 30 acres of land at Plot Nos. UDL1, UDL2, and UDL3, Hill No. 4, Madhurawada, Visakhapatnam at INR 1.50 Cr per acre.",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "B. Approval of the project under the IT Infrastructure developer category in AP IT & GCC Policy (4.0) 2024-29 for extending incentives as per policy.",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "C. The project proponent is allowed to use mixed usage up to 50% in the allotted land.",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "D. The company shall commence commercial operations as per the following implementation schedule:",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "a. Year 1 to 3: Completion of 1 million sq. ft., including IT office space and other mixed development.",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "b. Year 3 to 5: Full-scale ramp-up and completion of remaining 9 million sq. ft. of mixed development.",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "సత్వ్ డెవలపర్సు ప్రైవేట్ లిమిటెడ్ కు మధురవాడ ఐటీ హిల్ లో 30 ఎకరాలను కేటాయిస్తూ జారీ చేసిన జీవో నంబర్ 27 ఇది. ఈ కంపెనీకి ఐటీఓపొర్టు రిటైల్, రియల్ ఎస్టేట్, రెసిడెన్షియల్ భవనాల నిర్మాణానికి కూడా ప్రభుత్వం అనుమతించింది",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "బెంగళూరుకు చెందిన సత్వ్ గ్రూపు రెండు దశాబ్దాలుగా రియల్ ఎస్టేట్ రంగంలో ఉంది. పుణే, బెంగళూరు, హైదరాబాద్ తదితర నగరాల్లో భారీ లగ్జరీ రియల్ ఎస్టేట్ వెంచర్లు వేసింది. బ్లాక్ స్టోన్ లాంటి పిఈఎ, వెంచర్ క్యాపిటల్ సంస్థల నుంచి నిధులు సేకరించి వ్యాపారం చేస్తోంది. 2017లో సత్వ్ గ్రూపు హైదరాబాద్ లోని హైటెక్ సిటీ వద్ద 10 ఎకరాల స్థలాన్ని భారీ ధరకు కొనుగోలు చేసింది. తాజాగా అక్కడే కోకాపేట వద్ద 25 ఎకరాల భూమిని రూ.వేల కోట్లు పెట్టి సొంతం చేసుకుంది. ఇలా ప్రైవేటుగా స్థలాలు కొనుగోలు చేసి రియల్ ఎస్టేట్ వ్యాపారం చేసే సత్వ్ సంస్థకు చంద్రబాబు సార్లరు విశాఖలో 30 ఎకరాల భూమిని కారుచొకగా కట్టబెట్టింది. విశాఖ గ్రామీణ మండలం మధురవాడ ఐటీ హిల్ నెం.4 వద్ద ప్లాట్ నంబర్లు యూడీఎల్ 1, యూడీఎల్ 2, యూడీఎల్ 3",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "వద్ద 30 ఎకరాల భూమిని ఎకరా రూ.1.5 కోట్ల సబ్సిడీ ధరకే ఇవ్వడానికి మంత్రివర్గం ఆమోదం తెలిపింది. ప్రస్తుతం మధురవాడ ఐటీ హిల్స్ లో ఎకరా రూ.50 కోట్లతోనే పలుకుతోంది. రూ.1,500 విలువైన భూమిని కేవలం రూ.45 కోట్లకు ఒక రియల్ ఎస్టేట్ కంపెనీకి అప్పగించడమే అధికారులు వ్యక్తపరుస్తున్నారు. సత్వ్ గ్రూపునకు సబ్సిడీ ధర మీద భూమి కేటాయించడమే కాకుండా ఏపీ ఐటీ, జీసీసీ పాలసీ 4.0 కింద పెట్టుబడి రాయితీ, విద్యుత్ సబ్సిడీ, ఎంజీఎస్టీ మినహాయింపు లాంటి అనేక అదానపు రాయితీలను కూడా ప్రభుత్వం కల్పిస్తోంది. సత్వ్ డెవలపర్సు హైదరాబాద్ లో 10,350 చదరపు అడుగుల విస్తీర్ణానికి నెలకు రూ.10 లక్షలకుపైగా అద్దెను వసూలు చేస్తోందిందని, ఈ ప్రాజెక్టు పూర్తి అయితే ఇక్కడ కూడా అదే స్టైల్లో అద్దెలను వసూలు చేస్తారని పేర్కొంటున్నారు.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-08-03_BGNOPRSVACLT_main_05",
+   "item_id": "2025-08-03_BGNOPRSVACLT_main_05#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "MSME PARK",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "PRAKASAM ZONE",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "(ISO:9001-2005)",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "MSME PARK",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "(MICRO,SMALL AND MEDIUM ENTERPRISE PARK)",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "APIIC",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "THE FUTURE IS HERE",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "www.apiic.in",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "RAGAMAKKAPALLI",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "DONAKONDA MANDAL",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "NO.OF PLOTS:269",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "EXTENT:43.70 A-s",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "ZONAL OFFICE: APIIC Ltd, FIRST FLOOR, DOOR NO.58-10-3/2, GOLLAPUDI VARI STREET, SANTHAPET, ONGOLE - 523001",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-03_B_main_05",
+   "item_id": "2024-12-03_B_main_05#t01",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| INTEREST ON ED | 12.44 |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| SURCHARGE | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| OTHER CHARGES | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| ADJUSTMENTS | 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| TrueUp Charges(24/36) | 17.49 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| AP GOVT SUBSIDY | 846.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| Loss/Gain (+ / - ) | -0.39 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| [illegible] | Rs. 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| BILL AMT | Rs. 0.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| ARREARS | 34965.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| TOTAL DUE | Rs. 34965.00 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| AGL Demand | 0.00 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-11_BGNOPRSVACLT_main_03",
+   "item_id": "2025-05-11_BGNOPRSVACLT_main_03#t03",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "2024లో డీల్స్ సంఖ్యలో టాప్-5 నగరాలు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- డీల్స్ సంఖ్య: పుణే: 47",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- విలువ (రూ.కోట్లలో): పుణే: 5,547",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- డీల్స్ సంఖ్య: ఢిల్లీ: 332",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- విలువ (రూ.కోట్లలో): ఢిల్లీ: 26,832",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- డీల్స్ సంఖ్య: బెంగళూరు: 485",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- విలువ (రూ.కోట్లలో): బెంగళూరు: 43,516",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "- డీల్స్ సంఖ్య: ముంబై: 231",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "- విలువ (రూ.కోట్లలో): ముంబై: 32,336",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "- డీల్స్ సంఖ్య: హైదరాబాద్: 56",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "- విలువ (రూ.కోట్లలో): హైదరాబాద్: 3,625",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-11-25_B_main_02",
+   "item_id": "2025-11-25_B_main_02#t01",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "రూ.1,375 కోట్ల భూమి..",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "కేవలం 99 పైసలకే",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "ఉద్యోగాలిచ్చే ఐటీ కంపెనీలు.. ప్రోత్సాహకాలు రియల్ ఎస్టేట్ సంస్థలకు",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "GOVERNMENT OF ANDHRA PRADESH",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "ABSTRACT",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "IT, E&C Dept - Promotions Wing – Approval for allotment of 27.10 acres of land at IT Hill No 3, Madhurawada, Visakhapatnam to M/s K Raheja Corp Real Estate Private Limited for developing IT/ITeS office space and residential space, and consideration of the project under AP IT & GCC Policy 4.0 (2024-29) for extending incentives, towards a proposed investment of INR 2,172 Crores with potential to create 9,681 jobs – Orders – Issued.",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "INFORMATION TECHNOLOGY, ELECTRONICS AND COMMUNICATION",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "[IT,E&C] (PROMOTIONS) DEPARTMENT",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "G.O.MS.No.56",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "Date: 12.11.2025",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "Read the following",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "కె.రహేజా కార్ప్ రియల్ ఎస్టేట్ ప్రైవేట్ లిమిటెడ్ కు విశాఖ మధురవాడలోని ఐటీ హిల్ 3లో 99 పైసలకే 27.10 ఎకరాలను కేటాయిస్తూ ప్రభుత్వం జారీ చేసిన జీవో నంబర్ 56 ఇది. ఈ భూముల్లో నివాస భవనాలను కూడా నిర్మించుకోవచ్చని ప్రభుత్వం స్పష్టంగా తెలియజేసింది",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "రియల్ ఎస్టేట్ డెవలప్‌మెంట్ కంపెనీ కె.రహేజా గ్రూపునకు చంద్రబాబు సార్యురు విశాఖలో అత్యంత కారుచాకగా కేవలం 99 పైసలకే ఎకనగా 27.10 ఎకరాలను కేటాయించినది. మధురవాడలోని ఐటీ హిల్ నంబర్ 3లో 27.10 ఎకరాలను ఏపీ ల్యాండ్ ఇన్సెంటివ్స్ ఫర్ టెక్ హబ్స్ (లిఫ్ట్) పాలసీ పేరుతో ఇచ్చింది. ప్రస్తుతం మధురవాడ ఐటీ హిల్ లో ఎకరా ధర రూ.50 కోట్లైపైనే ఉంది. ఈ లెక్కన సుమారు రూ.1,375 కోట్ల విలువైన భూమిని కేవలం 99 పైసలకే కట్టబెట్టింది. అంతేకాదు.. రహేజాకు కేటాయించిన 27.10 ఎకరాల్లో 45 శాతం భూమిని ఐటీ కాకుండా ఇతర కార్యకలా పాలకు వినియోగించుకునేందుకు అనుమతి",
+     "verdict": "not_present"
+    },
+    {
+     "n": 14,
+     "text": "చింది. ఐటీకి అదనంగా రూ.91.2 కోట్లతో రహదారులు, నీరు, విద్యుత్ వంటి మౌలిక వసతులు కూడా కల్పిస్తుమాంటూ హామీ ఇచ్చింది. ఈ కంపెనీ నిర్మించనున్న ఐటీ క్యాంపస్ ల ద్వారా 15,000 మందికి ఉపాధి లభిస్తుందని చెబుతున్నా ఆ ఉద్యోగాలెమీ రహేజా గ్రూపు సొంతంగా ఇవ్వదు. అది అభివృద్ధి చేసిన ఐటీ బిల్లింగ్ లో ఏర్పాటుచేయే ఐటీ కంపెనీలే ఆ ఉద్యోగాలను కల్పించాల్సి ఉంటుంది. ఈ నేపథ్యంలో ఉద్యోగాలు కల్పించున్న టీ.. ఆ పేరుతో పెట్టుబడి మొత్తంలో 60 నుంచి 70 శాతం ప్రోత్సాహకాల రూపంలో దోచిపెడు తుండటUponపై అధికారులు విన్యాసం వ్యక్తం చేస్తున్నారు.",
+     "verdict": "not_present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-26_N_main_05",
+   "item_id": "2024-12-26_N_main_05#t01",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "జనహితానికి జారీ చేయునది",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "భారతీయ రిజర్వ్ బ్యాంక్",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "RESERVE BANK OF INDIA",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "www.rbi.org.in",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-06-05_B_main_05",
+   "item_id": "2025-06-05_B_main_05#t03",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "Government of India",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "\"అవిష్కర్తలు, పెట్టుబడిదారులకు అవసరమైన వాటిని భారతదేశం అందిస్తోంది. ప్రతిభ, మార్కెట్, మూలధనం, పర్యావరణ వ్యవస్థ మరియు వికసిత సంస్కృతి యొక్క ఐదు స్తంభాల ఆధారంగా భారతదేశంలో పెట్టుబడి పెట్టవలసిందని ప్రపంచాన్ని ఆహ్వానిస్తున్నాను.\"",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "గా॥ శ్రీ నరేంద్ర మోదీ",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "ప్రధానమంత్రి",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "భారతదేశంలో పెట్టుబడి పెట్టండి",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "భవిష్యత్ కోసం పెట్టుబడి పెట్టండి",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "భారతదేశంలో FDI అపూర్వమైన వృద్ధికి అవకాశం",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| | |",
+     "verdict": "not_present"
+    },
+    {
+     "n": 9,
+     "text": "| $\\text{+}$ | USD 308.38 బిలియన్స్ (FY 2003-14) నుండి USD 748.78 బిలియన్ (FY 2014-25) వరకు FDI 143% వృద్ధి పొందింది. |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| $\\$$ | FY 2024-25లో USD 81.04 బిలియన్ FDI ఇన్ఫ్లో |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| $\\text{M}$ | గత సంవత్సరంలో 14% వృద్ధి |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| $\\text{N}$ | 3 సంవత్సరాలలో అత్యధికం |",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "| $\\text{B}$ | 2017 నుండి 1300 + ప్రతిపాదనల మంజూరు |",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "ప్రపంచ వ్యాపారం భారతదేశాన్ని ఎందుకు ఎంపిక చేస్తుంది ?",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "వినూత్నమైన మరియు R&D కేంద్రం : ప్రపంచవ్యాప్తంగా A1 సీల్ లో 1వ స్థానం",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "యువత, నైపుణ్యం గల సిబ్బంది : మధ్యవయసు 30 సంవత్సరాల కంటే తక్కువ, 954M+ ఇంటర్నెట్ యూజర్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "సరళీకృత రంగాలు : రక్షణ, టెలికామ్, అంతరిక్షం మరియు మరెన్నో",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "హరితవృద్ధి నిబద్ధత : G20 లో వేగవంతమైన పునరుత్పాదక ఇంధనం అవలంబించుట.",
+     "verdict": "present"
+    },
+    {
+     "n": 19,
+     "text": "2070 నాటికి నెట్-జీరో ఎమిషన్స్",
+     "verdict": "present"
+    },
+    {
+     "n": 20,
+     "text": "మీరు విశ్వసించదగిన ట్రాక్ రికార్డ్",
+     "verdict": "present"
+    },
+    {
+     "n": 21,
+     "text": "$\text{★}$ స్థిరమైన పాలసీ ఎకోసిస్టమ్ $\\quad$ $\text{★}$ సంస్కరణలతో కూడిన పాలన",
+     "verdict": "present"
+    },
+    {
+     "n": 22,
+     "text": "$\text{★}$ ఊహించదగిన రెగ్యులేటరీ ఫ్రేమ్‌వర్క్స్ $\\quad$ $\text{★}$ భారతదేశ ఆర్థిక మూలాలపై ప్రపంచవ్యాప్త విశ్వాసం",
+     "verdict": "present"
+    },
+    {
+     "n": 23,
+     "text": "#InvestInIndia | #FDIIndia | #MakeInIndia | #IndiaMeansBusiness",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-22_NT_main_14",
+   "item_id": "2024-12-22_NT_main_14#t01",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "మరణాలు నమోదుైన రాష్ట్రాలు..",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| కేసులు లక్షల్లో | రాష్ట్రం | మరణాలు |",
+     "verdict": "not_present"
+    },
+    {
+     "n": 3,
+     "text": "| 15.83 | కేరళ | 24,114 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| 14.65 | మహారాష్ట్ర | 6,899 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| 10.65 | కర్ణాటక | 1,980 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| 8.47 | తమిళనాడు | 1,284 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| 5.60 | ఢిల్లీ | 1,414 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| 4.83 | పశ్చిమబెంగాల్ | 1,775 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| 4.46 | గుజరాత్ | 925 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| 4.16 | ఉత్తరప్రదేశ్ | 718 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| 3.59 | రాజస్థాన్ | 690 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| 2.83 | హర్యానా | 651 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-04-28_BGNOPRSVACLT_main_10",
+   "item_id": "2025-04-28_BGNOPRSVACLT_main_10#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ఏపీలోనే వేగంగా సాధ్యం",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "2022తో పోలిస్తే..",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "దేశంలో మహిళా పోలీసుల సంఖ్య స్వల్పంగా పెరిగింది.",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "కానీ, మొత్తం పోలీసు సిబ్బందిలో ఇంకా మూడో వంతు అంటే",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "33 శాతం మాత్రం ఏ రాష్ట్రంలోనూ లేరు.",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "ఇప్పుడున్న రేటును బట్టి చూస్తే.. ఇలా రాష్ట్ర పోలీసుల్లో మహిళల వాటా 33 శాతం చేరడానికి అత్యంత తక్కువ సమయం పట్టే రాష్ట్రం ఆంధ్రప్రదేశ్. ఇది వైఎస్ జగన్ పాలనలోనే సాధ్యమైంది. 33 శాతం చేరడానికి అత్యధికంగా రుషార్ధ్ కు 175.1 సంవత్సరాలు పడుతుంది.",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "కర్ణాటకకు 115.7, రాజస్థాన్‌కు 92,",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "పశ్చిమ బెంగాల్ కు 80.2, ఒడిశాకు 73.9 సంవత్సరాలు పడతాయి.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-11_K_main_05",
+   "item_id": "2024-12-11_K_main_05#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "BILL AMT: Rs. 385.00",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "ARREARS: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "TOTAL DUE: Rs. 385.00",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "AGL Demand: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "ACD Amount: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "Development Charges: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "DUE DATE: 18-Nov-2024",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "ARREARS: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "TOTAL DUE: Rs. 679.00",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "AGL Demand: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "ACD Amount: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "Development Charges: 0.00",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "DUE DATE: 17-Dec-2024",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "DISCONNECTION DATE: 02-Jan-2025",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-29_T_main_03",
+   "item_id": "2024-12-29_T_main_03#t04",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "2024 లో వివిధ నేరాల వివరాలు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| నేరం | 2024 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| ఆస్తుల కోసం హత్యలు | 46 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| మహిళల హత్యలు | 49 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| దోపిడీ కేసులు | 246 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| దోపిడీలు, దొంగతనాలు | 17,282 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| గంజాయి, డ్రగ్స్‌కు సంబంధించిన ఎన్డీపీఎస్ కేసులు | 1,819 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| సైబర్ నేరాలపై ఫిర్యాదులు | 7,23,378 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| సైబర్ కేసులు | 916 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| సైబర్ నేరస్తులు కొల్లగొట్టిన సొమ్ము(రూ.కోట్లలో..) | 1,229 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-12-27_B_main_05",
+   "item_id": "2025-12-27_B_main_05#t04",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "భారత ప్రభుత్వం",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "కార్పొరేట్ వ్యవహారాల మంత్రిత్వ శాఖ",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "సెంటర్ ఫర్ ప్రాసెసింగ్ యాక్సిలరేటెడ్",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "కార్పొరేట్ ఎగ్జిట్ (C-PACE)",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "IICA బిల్డింగ్, 7వ అంతస్తు, ప్లాట్ పి-6, 7, 8, సెక్టార్-5,",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "IMT మనేసర్, గుర్గావ్, హర్యానా - 122050",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "ఇమెయిల్: roc.cpace@mca.gov.in",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "ఫారం నం. STK-6",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "బహిరంగ ప్రకటన",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "[కంపెనీల చట్టం, 2013లోని సెక్షన్ 248 లోని ఉప-సెక్షన్ (2) మరియు ఉప-సెక్షన్ (4) మరియు కంపెనీలు",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "(కంపెనీల రిజిస్టర్ నుండి కంపెనీల పేర్ల తొలగింపు) రూల్స్, 2016లోని రూల్ 7కు అనుగుణంగా]",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "బహిరంగ ప్రకటన నం. ROC/C-PACE/STK-2/248(2)/2025-26/1614",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "తేదీ: 19.12.2025",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "నిర్దేశం:",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "దిగువ పేర్లను కంపెనీలకు సంబంధించి కంపెనీల చట్టం, 2013లోని సెక్షన్ 248 క్రింద ఆంధ్రప్రదేశ్ రాష్ట్రంలోని (3) కంపెనీల పేర్ల కొట్టివేయడం లేదా తొలగింపు విషయంలో:",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "| క్ర.సం. | పని ఇటం | CIN | కంపెనీ పేరు |",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "| 1 | AB9170778 | U74999AP2018OPC109598 | ATIKIL SYSTEMS (OPC) PRIVATE LIMITED |",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "| 2 | AB9690070 | U74999AP2016PTC103819 | OM KRISHNA SAFETY & SECURITY PRIVATE LIMITED |",
+     "verdict": "present"
+    },
+    {
+     "n": 19,
+     "text": "| 3 | AB9690325 | U45202AP2016PTC103745 | OM KRISHNA PRANEETHA INFRA PRIVATE LIMITED |",
+     "verdict": "present"
+    },
+    {
+     "n": 20,
+     "text": "2. పైన పేర్కొన్న కంపెనీలు ప్రారంభమైన ఒక సంవత్సరంలోగా వ్యాపార కార్యకలాపాలు ప్రారంభించడంలో విఫలమయ్యారని లేదా రెండు ఆర్థిక సంవత్సరాలకు ముందు కాలవ్యవధిలోగా సదరు కంపెనీ(లు) ఏవైనా వ్యాపార కార్యకలాపాలు లేదా నిర్వహణ చేయని కారణంగా మరియు ఎటువంటి దరఖాస్తులు చేయని కారణంగా కంపెనీల చట్టం, 2013లోని సెక్షన్ 455 క్రింద నిద్రాణ స్థితిలో ఉన్న కంపెనీ స్థితిని పొందడం కోసం లేదా మెమోరాండంకు నిద్రాణ కంపెనీల కంపెనీ / సభ్యుల స్థాయిని పొందిన కంపెనీ(లు) కంపెనీ ప్రారంభ సమయంలో చెల్లించననికి చట్టబద్ధమైన సభ్యత్వం చెల్లించని కారణంగా మరియు సెక్షన్ 10ఎ/లోని ఉప-సెక్షన్ (1) క్రింద కంపెనీ ప్రారంభం నుండి 180 రోజులలో గా ఈ ప్రభావానికి సంబంధించి డిక్లరేషన్ దాఖలు చేయని కారణంగా సెక్షన్ 12లోని ఉప-సెక్షన్ (9) క్రింద భౌతిక పరిశీలన తరువాత వెల్లడైనందున ఎటువంటి వ్యాపార కార్యకలాపాలు లేదా నిర్వహణ చేయని కారణంగా తమ/ వారి రిజిస్ట్రేషన్ను కంపెనీలుగా కొనసాగించడానికి ఇష్టం లేనివారు కంపెనీల రిజిస్టర్ నుండి తమ/ వారి పేర్లను తొలగించడానికి/ కొట్టివేయడానికి అభ్యర్థించారు మరియు కంపెనీల చట్టం, 2013లోని సెక్షన్ 248 (2) క్రింద కంపెనీల రిజిస్టర్ నుండి తమ/ వారి పేరు(ల) తొలగింపు కోసం పైన పేర్కొన్న కంపెనీల నుండి రిజిస్ట్రార్ ఆఫ్ కంపెనీస్ దరఖాస్తులు స్వీకరించరానిందని ఇందుమూలంగా నోటీసు ఇవ్వడమైనది.",
+     "verdict": "present"
+    },
+    {
+     "n": 21,
+     "text": "3. తదనుగుణంగా, పైన పేర్కొన్న కంపెనీ పేర్లను కంపెనీల రిజిస్టర్ నుండి తొలగించడానికి లేదా కొట్టివేయడానికి కంపెనీల రిజిస్ట్రార్ ప్రతిపాదిస్తున్నారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 22,
+     "text": "4. కంపెనీల రిజిస్టర్ నుండి కంపెనీల పేర్ల తొలగింపు లేదా కొట్టివేయడం ప్రతిపాదనకు అభ్యంతరం తెలిపే ఎవరైతే వ్యక్తి అతని లేదా ఆమె అభ్యంతరాన్ని ఈ ప్రకటన ప్రచురణ తేదీ నుండి ముప్పై రోజులలోగా పైన తెలిపిన కార్యాలయ చిరునామాకు పంపగలరు.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-04_GOPRSVACLT_main_02",
+   "item_id": "2024-12-04_GOPRSVACLT_main_02#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "సూపర్ సిక్స్‌తో సహో కూటమి ప్రభుత్వం హోమిల ఎగవేతపై చర్చ",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "సాక్షి, అమరావతి: సూపర్ సిక్స్‌తో సహో",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "హోమిల ఎగవేత, సమస్యల పరిష్కారంలో",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "కూటమి ప్రభుత్వం అనుసరిస్తున్న నిర్లక్ష్య",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "వైఖరిపై విస్తృతంగా చర్చించి, ప్రజల పక్కన",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "ప్రభుత్వంపైన పోరాటం చేసేందుకు",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "కార్యాచరణ రూపొందించడమే అజెండాగా",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "వైఎస్ఆర్సీపీ అధ్యక్షుడు, మాజీ సీఎం వైఎస్",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "జగన్మోహనరెడ్డి పార్టీ కీలక నేతలతో",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "సమావేశం నిర్వహిస్తున్నారు. బుధవారం",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "ఉదయం 10.30 గంటలకు తాడేపల్లిలోని",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "వైఎస్ఆర్సీపీ కేంద్ర కార్యాలయంలో ఈ",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "సమావేశం జరుగుతుంది. పార్టీ జిల్లా",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "అధ్యక్షులు, రీజినల్ కో-ఆర్డినెటర్లు, ప్రధాన",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "కార్యదర్శులు, కార్యదర్శులు ఈ సమావేశం",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "లో పాల్గొననున్నారు. గ్రామ స్థాయి నుంచి",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "పార్టీని మరింత బలోపేతం చేయడం, పార్టీ",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "కమిటీల ఏర్పాటు, వాటి భర్తీపై సమావేశంలో",
+     "verdict": "present"
+    },
+    {
+     "n": 19,
+     "text": "నేతలకు వైఎస్ జగన్ మార్గనిర్దేశం",
+     "verdict": "present"
+    },
+    {
+     "n": 20,
+     "text": "చేయనున్నారు. కూటమి ప్రభుత్వం అధికారం",
+     "verdict": "present"
+    },
+    {
+     "n": 21,
+     "text": "లోకి వచ్చిన తర్వాత ప్రజలకు కలుగుతున్న",
+     "verdict": "present"
+    },
+    {
+     "n": 22,
+     "text": "ఇబ్బందులు, కరెంటు ఛార్జీలు భారీగా పెంచి",
+     "verdict": "present"
+    },
+    {
+     "n": 23,
+     "text": "ప్రజల నడ్డి విరుస్తున్న తీరుపై ఆందోళనలు",
+     "verdict": "present"
+    },
+    {
+     "n": 24,
+     "text": "చేపట్టడంపై సమావేశంలో చర్చిస్తారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 25,
+     "text": "సూపర్ సిక్స్‌తోసహ ఎన్నికల హోమిలు",
+     "verdict": "present"
+    },
+    {
+     "n": 26,
+     "text": "ఎగగొట్టిన వైనం, ధాన్యం సేకరణ సక్రమంగా",
+     "verdict": "present"
+    },
+    {
+     "n": 27,
+     "text": "లేకపోవడం, సేకరిస్తున్న ధాన్యానికి కూడా",
+     "verdict": "present"
+    },
+    {
+     "n": 28,
+     "text": "మద్ధతు ధర ఇవ్వకపోవడం, అటు మిల్లర్లు",
+     "verdict": "present"
+    },
+    {
+     "n": 29,
+     "text": "ఇటు దశారాలు కలిసి రైతులను దోచుకుం",
+     "verdict": "present"
+    },
+    {
+     "n": 30,
+     "text": "టున్న వైనంపై పోరాటం చేసే విషయంపైన",
+     "verdict": "present"
+    },
+    {
+     "n": 31,
+     "text": "చర్చించనున్నారని. ఫీజు రీయింబర్స్‌మెంట్",
+     "verdict": "present"
+    },
+    {
+     "n": 32,
+     "text": "అందక రాష్ట్రంలో విద్యార్థులు, తల్లిదండ్రులు",
+     "verdict": "present"
+    },
+    {
+     "n": 33,
+     "text": "పడుతున్న ఇబ్బందులు, ఆరోగ్య శ్రీ పథకాన్ని",
+     "verdict": "present"
+    },
+    {
+     "n": 34,
+     "text": "ప్రభుత్వం నిర్వీర్యం చేయడం, పేదలకు",
+     "verdict": "present"
+    },
+    {
+     "n": 35,
+     "text": "అత్యంత నష్టం చేకూరుస్తున్న ప్రభుత్వ",
+     "verdict": "present"
+    },
+    {
+     "n": 36,
+     "text": "విధానాలపై చర్చించి, వాటిని ఎండగట్టేం",
+     "verdict": "present"
+    },
+    {
+     "n": 37,
+     "text": "డుటకు సమావేశంలో కార్యాచరణ రూపొందిం",
+     "verdict": "present"
+    },
+    {
+     "n": 38,
+     "text": "చి, నేతలకు వైఎస్ జగన్ దిశానిర్దేశం",
+     "verdict": "present"
+    },
+    {
+     "n": 39,
+     "text": "చేయనున్నారు.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-09-15_BVT_main_03",
+   "item_id": "2025-09-15_BVT_main_03#t04",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "భారతీయ ప్రతిభూతి మరియు వినిమయ బోర్డ్",
+     "verdict": "not_present"
+    },
+    {
+     "n": 2,
+     "text": "Securities and Exchange Board of India",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "భారత్ స్కామ్ల",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "వలలో పడదు!",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "ఇప్పుడు భారత్ ఆ",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "తేడాను గుర్తిస్తుంది!",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "ఇక దేశం ఇన్వార్డ్ ఇన్వెస్టర్స్ దేశంగా",
+     "verdict": "not_present"
+    },
+    {
+     "n": 8,
+     "text": "అభివృద్ధి చెందుతుంది",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "#SEBIvsSCAM",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "ఒక పెట్టుబడి అవగాహన",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "కార్యక్రమం",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "భారతీయ ప్రతిభూతి మరియు వినిమయ బోర్డ్",
+     "verdict": "not_present"
+    },
+    {
+     "n": 13,
+     "text": "Securities and Exchange Board of India",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "అప్రమత్తంగా ఉండండి.",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "సరిగా పెట్టుబడి పెట్టండి.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-10-20_B_main_03",
+   "item_id": "2025-10-20_B_main_03#t05",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "సెలవు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "దీపావళి సందర్భంగా",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "నేడు సాక్షి కార్యాలయానికి సెలవు.",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "మంగళవారం సంచిక వెలువడదు.",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "పునదర్శనం బుధవారం.",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-04-10_BGNOPRSVACLT_main_14",
+   "item_id": "2025-04-10_BGNOPRSVACLT_main_14#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "కుబేరుల సంఖ్య",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- 1: 509",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- 2: 443",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-03_B_main_05",
+   "item_id": "2024-12-03_B_main_05#t02",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ఎస్సీ, ఎస్టీలకు జగన్ ఉచిత విద్యుత్తు ఇచ్చారితో..",
+     "verdict": "not_present"
+    },
+    {
+     "n": 2,
+     "text": "| వర్గం | కుటుంబాలు | లబ్ధి (రూ.కోట్లలో) |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| ఎస్సీలు | 15,29,017 | 2,361.95 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| ఎస్టీలు | 4,57,586 | 483.95 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| మొత్తం | 19,86,603 | 2,845.90 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "(నోట్ : 2024 జనవరి వరకు)",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-10-20_B_main_03",
+   "item_id": "2025-10-20_B_main_03#t03",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "న్యూయార్క్‌లోని టైమ్స్ స్క్వేర్ వద్ద..",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-19_G_main_05",
+   "item_id": "2024-12-19_G_main_05#t05",
+   "type": "notice_tender",
+   "lines": [
+    {
+     "n": 1,
+     "text": "దక్షిణ మధ్య రైల్వే",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "మమ్మల్ని అనుసరించండి X @SCRailwayindia",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "ద.మ. రైల్వే టెండరు ప్రకటనల వివరాలను మా వెబ్‌సైట్: www.scr.indianrailways.gov.inలో చూడవచ్చు",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "ఇ-టెండరు ప్రకటన",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "భారత రాష్ట్రపతి తరపున వ్యవహరిస్తున్న సీనియర్ డివిజినల్ ఎలక్ట్రికల్ ఇంజనీర్ (మెయింటెనెన్స్), గుంటూరు వారు GEM పోర్టల్ https://gem.gov.in ద్వారా దిగువ తెలిపిన ఇ-టెండర్లు కోరుతున్నారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "క్ర.సం. 01, టెండరు టైటిల్ : 03 సంవత్సరాల కాలము కొరకు గుంటూరు డివిజనల్ SSE/E/M/NLDA అధికార పరిధిలో అసెట్స్ యొక్క ఫెయిల్యూర్ అటెన్షన్ నిర్వహణ కొరకు నెలకు 2500 కి.మీ.లు నడపుట కొరకు క్యాబిన్‌లో 5 సీటర్ తో 2 టన్నుల కెపాసిటీ GVW యొక్క MUV హైరింగ్. టెండరు రిఫరెన్స్ నం. : GEM/2024/B/5710708. తేదీ : 16.12.2024, సుమారు విలువ: రూ. 22,51,440-00, బయానా : రూ.45,100-00, టెండరు ఫారం ధర (తిరిగి చెల్లించబడదు) : రూ. 0/- ఇ-బిడ్స్ ను ఆన్లైన్ లో దాఖలు చేయుటకు చివరి తేదీ & సమయం : 07.01.2025న 12.00 గం||ల వరకు",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "ఎడైనా తదుపరి సమాచారం/సవరణ ఇ-పోర్టల్ https://gem.gov.in లో మాత్రమే ప్రచురించబడుతుంది.",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "సీనియర్ డివిజినల్ ఎలక్ట్రికల్ ఇంజనీర్/ M/గుంటూరు",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "ఓపెన్ టెండరు ప్రకటన నం. B-E29-TRD-TNDR-17-24-25, తేదీ : 17.12.2024",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "దిగువ తెలిపిన పనుల కొరకు క్రింది సంతకందారు IREPSలో టెండర్లు కోరుతున్నారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "టెండరు నం. : B/E.29-TRD-TNDR-17-2024-25, పని పేరు : GLU: BZA డివిజన్ యొక్క GLU రైల్వే స్టేషన్ వద్ద డౌన్ సైడ్ లో అదనపు లూప్ లైన్ తో, డబుల్ లైన్ లో స్టాండర్డ్ లే అవుట్ యొక్క ఏర్పాటు కొరకు ప్రతిపాదనకు సంబంధించి ప్రతిపాదిత కొత్త లైన్స్ యొక్క ఎలక్ట్రిఫికేషన్. సుమారు విలువ : రూ. 2,42,80,549.95, పూర్తిచేయ కాలము : 12 నెలలు, బిడ్ సెక్యూరిటీ (బయానా) : రూ.2,71,400/- ముగింపు తేదీ : 06.01.2025న 15.00 గం||ల వరకు, క్ర.సం. 1- టెండరు ఫారం ధర: రూ. లేదు.",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "సీనియర్ డివిజినల్ ఎలక్ట్రికల్ ఇంజనీర్/ TrD/విజయవాడ",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "A1604",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "తదుపరి టెండరు నిబంధనలు / వివరాల కోసం మరియు టెండరు డాక్యుమెంట్ లు డౌన్ లోడింగ్ కోసం దర్శించండి వెబ్‌సైట్ https://www.ireps.gov.in లేదా www.scr.indianrailways.gov.in",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t03",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- 1,25,000",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-05-14_B_main_02",
+   "item_id": "2025-05-14_B_main_02#t01",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "ర్షను అదుపు",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "యస్థానంలో",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "ం",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "హైదరాబాద్ లో",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "వేధింపులు",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "కేసు",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-03-17_B_main_10",
+   "item_id": "2025-03-17_B_main_10#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "మీ వ్యక్తిగత డేటా లీక్నైట్ట్ భావిస్తున్నారా?",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- అవును: 87 శాతం",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- చెప్పలేం: 9 శాతం",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- లేదు: 4 శాతం",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "ఏ వివరాలు లీక్నైట్ట్ భావిస్తున్నారు?",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- మొబైల్ నంబర్: 91 %",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- ఈ-మెయిల్ అడ్రస్: 73 %",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "- ఆధార్ నంబర్: 54 %",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "- పాన్ కార్డ్: 52 %",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "- ఓటర్ ఐడి: 21 %",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "- క్రెడిట్, డెబిట్ కార్డు నంబర్లు: 21 %",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "మీ డేటా పబ్లిక్ డొమైన్లోకి రావడానికి కారణం ఎవరిని అనుకుంటున్నారు?",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "- టెలికమ్ సర్వీస్ ప్రొవైడర్స్: 65%",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "- ఈ-కామర్స్ వెబ్సైట్లు, యాప్‌లు: 63%",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "- బ్యాంక్, ఫైనాన్షియల్ సర్వీస్ ప్రొవైడర్స్: 56%",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "- రాష్ట్ర, స్థానిక ప్రభుత్వ కార్యాలయాల అధికారులు: 50%",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2024-12-19_G_main_05",
+   "item_id": "2024-12-19_G_main_05#t06",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "కోత అనంతరం కోల్పోతున్న పంట (మిలియన్ టన్నుల్లో..)",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- సగటు ఉత్పత్తి: 281.28",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- నష్టం అంచనా: 12.49",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "- కూరగాయలు సగటు ఉత్పత్తి: 164.74",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "- కూరగాయలు నష్టం అంచనా: 11.97",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "- పండ్లు సగటు ఉత్పత్తి: 90.82",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "- పండ్లు నష్టం అంచనా: 7.36",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "- నూనె గింజలు సగటు ఉత్పత్తి: 37.27",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "- నూనె గింజలు నష్టం అంచనా: 2.11",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "- పప్పు ధాన్యాలు సగటు ఉత్పత్తి: 21.55",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "- పప్పు ధాన్యాలు నష్టం అంచనా: 1.37",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-02-25_BGVC_main_14",
+   "item_id": "2025-02-25_BGVC_main_14#t05",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "రోస్టర్ మిస్టేక్స్ IN గ్రూప్ 2 (2023)",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "పలువురు అభ్యర్థులు చేసిన విజ్ఞప్తితో APSLPRB",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "పరీక్షను వాయిదా వేస్తున్నట్లు ప్రకటించింది. ఏపీ",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "అసెంబ్లీ సమావేశాలు, ఎమ్మెల్యేల ఎన్నికల నేపథ్యంలో",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "పరీక్షలను వాయిదా వేశామని.. త్వరలోనే కొత్త 0:45 PM",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "~ uma",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "Photo",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "Eppatidi e news 10:45 PM",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "\"మంచి ప్రభుత్వం కాదు-- ముంచే ప్రభుత్వం\".",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "పవన్ కళ్యాణ్ గారు ఎక్కడ ఉన్నారు? ఎక్కడ",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "దాక్కున్నారు రాష్ట్రంలో ఇంత సమస్యగా ఉంటే",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "మీరు గుళ్ళు గోపురాలు చుట్టూ తిరుగుతారా.",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "మీరు ఎలక్షన్ కి ముందు ఏం చెప్పారు",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "ఇప్పుడు ఏం చేస్తున్నారు.",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "మిమ్మల్ని చూసి ఓటు వేసిన పాపానికి మాకు",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "తగిన శిక్ష జరిగింది...",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "\"సిగ్గులేని ప్రభుత్వం సిగ్గులేని appsc\".",
+     "verdict": "present"
+    },
+    {
+     "n": 18,
+     "text": "10:48 PM",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-11-25_B_main_02",
+   "item_id": "2025-11-25_B_main_02#t04",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "| వాహనం | వాహన జీవిత కాలం | ఫీజు (రూపాయల్లో) |",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| క్యాబ్ | 15 ఏళ్ల వరకు | 944 |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| క్యాబ్ | 15 ఏళ్ల నుంచి 20 ఏళ్లు | 5,310 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| క్యాబ్ | 20 ఏళ్లు దాటితే | 10,620 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| ఎల్ఎమ్పీ(కార్లు) | 15 ఏళ్ల వరకు | 944 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| ఎల్ఎమ్పీ (కార్లు) | 15 ఏళ్ల నుంచి 20 ఏళ్లు | 10,030 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| ఎల్ఎమ్పీ (కార్లు) | 20 ఏళ్లు దాటితే... | 20,060 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| మీడియం సరుకు రవాణా వాహనాలు(ఎంజీపీ) | 10 ఏళ్ల వరకు | 1,416 |",
+     "verdict": "present"
+    },
+    {
+     "n": 9,
+     "text": "| ఎంజీపీ | 10 ఏళ్ల నుంచి 13 ఏళ్లు | 2,360 |",
+     "verdict": "present"
+    },
+    {
+     "n": 10,
+     "text": "| ఎంజీపీ | 13 ఏళ్ల నుంచి 15ఏళ్లు | 7,080 |",
+     "verdict": "present"
+    },
+    {
+     "n": 11,
+     "text": "| ఎంజీపీ | 15 ఏళ్ల నుంచి 20 ఏళ్లు | 13,334 |",
+     "verdict": "present"
+    },
+    {
+     "n": 12,
+     "text": "| ఎంజీపీ | 20 ఏళ్లు దాటితే.. | 26,668 |",
+     "verdict": "present"
+    },
+    {
+     "n": 13,
+     "text": "| భారీ రవాణా వాహనాలు(హెచ్ఎమ్పీ) | 10 ఏళ్ల వరకు | 1,416 |",
+     "verdict": "present"
+    },
+    {
+     "n": 14,
+     "text": "| హెచ్ఎమ్పీ | 10 ఏళ్ల నుంచి 13 ఏళ్లు | 2,360 |",
+     "verdict": "present"
+    },
+    {
+     "n": 15,
+     "text": "| హెచ్ఎమ్పీ | 13 ఏళ్ల నుంచి 15 ఏళ్లు | 7,080 |",
+     "verdict": "present"
+    },
+    {
+     "n": 16,
+     "text": "| హెచ్ఎమ్పీ | 15 ఏళ్ల నుంచి 20 ఏళ్లు | 16,520 |",
+     "verdict": "present"
+    },
+    {
+     "n": 17,
+     "text": "| హెచ్ఎమ్పీ | 20 ఏళ్లు దాటితే... | 33,040 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-04-10_BGNOPRSVACLT_main_14",
+   "item_id": "2025-04-10_BGNOPRSVACLT_main_14#t02",
+   "type": "infographic",
+   "lines": [
+    {
+     "n": 1,
+     "text": "- 5: 284",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "- 6: 277",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "- 7: 228",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  },
+  {
+   "page_id": "2025-07-06_BGNOPRSVACLT_main_14",
+   "item_id": "2025-07-06_BGNOPRSVACLT_main_14#t01",
+   "type": "table",
+   "lines": [
+    {
+     "n": 1,
+     "text": "సర్వేలో పేర్కొన్న ముఖ్య నగరాల్లో అనుభవాన్ని బట్టి నెలవారీ వేతనాలు..",
+     "verdict": "present"
+    },
+    {
+     "n": 2,
+     "text": "| నగరం | వేతనం (రూపాయల్లో) 0-2 సం. | వేతనం (రూపాయల్లో) 2-5 సం. | వేతనం (రూపాయల్లో) 5-8 సం. |",
+     "verdict": "present"
+    },
+    {
+     "n": 3,
+     "text": "| చెన్నై | 30,100 | 46,600 | 66,400 |",
+     "verdict": "present"
+    },
+    {
+     "n": 4,
+     "text": "| హైదరాబాద్ | 28,500 | 47,200 | 69,700 |",
+     "verdict": "present"
+    },
+    {
+     "n": 5,
+     "text": "| అహ్మదాబాద్ | 27,300 | 46,200 | 69,000 |",
+     "verdict": "present"
+    },
+    {
+     "n": 6,
+     "text": "| బెంగళూరు | 28,400 | 46,000 | 67,100 |",
+     "verdict": "present"
+    },
+    {
+     "n": 7,
+     "text": "| ఢిల్లీ | 26,300 | 43,600 | 64,400 |",
+     "verdict": "present"
+    },
+    {
+     "n": 8,
+     "text": "| చండీగఢ్ | 26,300 | 45,500 | 68,400 |",
+     "verdict": "present"
+    }
+   ],
+   "error": null
+  }
+ ]
+}
