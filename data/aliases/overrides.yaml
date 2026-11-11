@@ -1,0 +1,17 @@
+# Curated overrides of the name alias table (ticket 022 FR-6). They always win.
+#
+#   merge: names that are the same entity (applied after the automatic grouping)
+#   split: names that are different entities (a cannot-link constraint while grouping)
+#
+# Each entry is [type, name_a, name_b] with type `person` or `org`. Names match by their
+# normalised form (NFC, collapsed spaces, Latin lower-cased), so case and spacing do not matter.
+# A row of reports/alias-review.csv is accepted by copying its (type, name_a, name_b) here.
+# A merge naming an unknown name, or contradicting a split, is ignored with a warning.
+#
+# Example:
+#   merge:
+#     - [person, "చంద్రబాబు", "Chandrababu Naidu"]
+#   split:
+#     - [person, "జగన్", "జగన్ రెడ్డి"]
+merge: []
+split: []

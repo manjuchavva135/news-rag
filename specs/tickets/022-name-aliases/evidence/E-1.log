@@ -1,0 +1,95 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0 -- /home/admin1/news-rag/.claude/worktrees/agent-aa03a84c27bdd8589/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-aa03a84c27bdd8589
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collecting ... collected 41 items
+
+tests/test_aliases.py::test_key_helper PASSED                            [  2%]
+tests/test_aliases.py::test_folding_te_en PASSED                         [  4%]
+tests/test_aliases.py::test_transliteration_match_te_en PASSED           [  7%]
+tests/test_aliases.py::test_rule_b_jaro_winkler_in_blocks PASSED         [  9%]
+tests/test_aliases.py::test_rule_d_needs_shared_surname_and_two_common_stories PASSED [ 12%]
+tests/test_aliases.py::test_person_and_org_never_merge PASSED            [ 14%]
+tests/test_aliases.py::test_low_confidence_goes_to_review PASSED         [ 17%]
+tests/test_aliases.py::test_rule_d_never_auto_applied PASSED             [ 19%]
+tests/test_aliases.py::test_transitive_merge PASSED                      [ 21%]
+tests/test_aliases.py::test_invalid_llm_reply_to_review PASSED           [ 24%]
+tests/test_aliases.py::test_reply_is_parsed_and_asked_with_the_schema PASSED [ 26%]
+tests/test_aliases.py::test_loops_until_no_pending PASSED                [ 29%]
+tests/test_aliases.py::test_cache_is_used_by_pair_and_new_pairs_only PASSED [ 31%]
+tests/test_aliases.py::test_most_frequent_names_are_asked_first PASSED   [ 34%]
+tests/test_aliases.py::test_review_csv_header_even_without_rows PASSED   [ 36%]
+tests/test_aliases.py::test_review_csv_has_examples PASSED               [ 39%]
+tests/test_aliases.py::test_overrides_win PASSED                         [ 41%]
+tests/test_aliases.py::test_split_is_cannot_link PASSED                  [ 43%]
+tests/test_aliases.py::test_bad_merges_are_ignored_with_a_warning PASSED [ 46%]
+tests/test_aliases.py::test_load_overrides_file PASSED                   [ 48%]
+tests/test_aliases.py::test_entities_json_fields_and_order PASSED        [ 51%]
+tests/test_aliases.py::test_canonical_en_is_the_transliteration_when_there_is_no_latin_alias PASSED [ 53%]
+tests/test_aliases.py::test_canonical_is_the_most_frequent_spelling PASSED [ 56%]
+tests/test_aliases.py::test_ids_persist_when_canonical_changes PASSED    [ 58%]
+tests/test_aliases.py::test_id_split_two_groups PASSED                   [ 60%]
+tests/test_aliases.py::test_merge_keeps_the_oldest_id PASSED             [ 63%]
+tests/test_aliases.py::test_a_merge_points_the_loser_names_to_the_winner PASSED [ 65%]
+tests/test_aliases.py::test_entities_file_is_identical_on_rerun PASSED   [ 68%]
+tests/test_aliases.py::test_a_verdict_of_another_prompt_is_asked_again PASSED [ 70%]
+tests/test_aliases.py::test_examples_are_sentences_with_the_name PASSED  [ 73%]
+tests/test_aliases.py::test_sample_pairs PASSED                          [ 75%]
+tests/test_aliases.py::test_verify_counts_the_judge_agreeing PASSED      [ 78%]
+tests/test_aliases.py::test_stats_command PASSED                         [ 80%]
+tests/test_aliases.py::test_cli_group_is_registered PASSED               [ 82%]
+tests/test_aliases.py::test_settings_and_prompt_exist PASSED             [ 85%]
+tests/test_aliases.py::test_entity_ids_created_at PASSED                 [ 87%]
+tests/test_aliases.py::test_ids_stable_across_runs PASSED                [ 90%]
+tests/test_aliases.py::test_migration_creates_entity_ids PASSED          [ 92%]
+tests/test_aliases.py::test_a_contested_id_stays_with_the_group_of_its_oldest_name PASSED [ 95%]
+tests/test_aliases.py::test_rule_d_surname_may_come_first PASSED         [ 97%]
+tests/test_aliases.py::test_a_cut_off_cache_line_is_skipped PASSED       [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED tests/test_aliases.py::test_key_helper
+PASSED tests/test_aliases.py::test_folding_te_en
+PASSED tests/test_aliases.py::test_transliteration_match_te_en
+PASSED tests/test_aliases.py::test_rule_b_jaro_winkler_in_blocks
+PASSED tests/test_aliases.py::test_rule_d_needs_shared_surname_and_two_common_stories
+PASSED tests/test_aliases.py::test_person_and_org_never_merge
+PASSED tests/test_aliases.py::test_low_confidence_goes_to_review
+PASSED tests/test_aliases.py::test_rule_d_never_auto_applied
+PASSED tests/test_aliases.py::test_transitive_merge
+PASSED tests/test_aliases.py::test_invalid_llm_reply_to_review
+PASSED tests/test_aliases.py::test_reply_is_parsed_and_asked_with_the_schema
+PASSED tests/test_aliases.py::test_loops_until_no_pending
+PASSED tests/test_aliases.py::test_cache_is_used_by_pair_and_new_pairs_only
+PASSED tests/test_aliases.py::test_most_frequent_names_are_asked_first
+PASSED tests/test_aliases.py::test_review_csv_header_even_without_rows
+PASSED tests/test_aliases.py::test_review_csv_has_examples
+PASSED tests/test_aliases.py::test_overrides_win
+PASSED tests/test_aliases.py::test_split_is_cannot_link
+PASSED tests/test_aliases.py::test_bad_merges_are_ignored_with_a_warning
+PASSED tests/test_aliases.py::test_load_overrides_file
+PASSED tests/test_aliases.py::test_entities_json_fields_and_order
+PASSED tests/test_aliases.py::test_canonical_en_is_the_transliteration_when_there_is_no_latin_alias
+PASSED tests/test_aliases.py::test_canonical_is_the_most_frequent_spelling
+PASSED tests/test_aliases.py::test_ids_persist_when_canonical_changes
+PASSED tests/test_aliases.py::test_id_split_two_groups
+PASSED tests/test_aliases.py::test_merge_keeps_the_oldest_id
+PASSED tests/test_aliases.py::test_a_merge_points_the_loser_names_to_the_winner
+PASSED tests/test_aliases.py::test_entities_file_is_identical_on_rerun
+PASSED tests/test_aliases.py::test_a_verdict_of_another_prompt_is_asked_again
+PASSED tests/test_aliases.py::test_examples_are_sentences_with_the_name
+PASSED tests/test_aliases.py::test_sample_pairs
+PASSED tests/test_aliases.py::test_verify_counts_the_judge_agreeing
+PASSED tests/test_aliases.py::test_stats_command
+PASSED tests/test_aliases.py::test_cli_group_is_registered
+PASSED tests/test_aliases.py::test_settings_and_prompt_exist
+PASSED tests/test_aliases.py::test_entity_ids_created_at
+PASSED tests/test_aliases.py::test_ids_stable_across_runs
+PASSED tests/test_aliases.py::test_migration_creates_entity_ids
+PASSED tests/test_aliases.py::test_a_contested_id_stays_with_the_group_of_its_oldest_name
+PASSED tests/test_aliases.py::test_rule_d_surname_may_come_first
+PASSED tests/test_aliases.py::test_a_cut_off_cache_line_is_skipped
+============================== 41 passed in 0.93s ==============================
+exit 0

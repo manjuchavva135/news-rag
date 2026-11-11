@@ -88,8 +88,9 @@ def test_migrations_idempotent_and_tables(ledger):
             )
         ]
         applied = [r[0] for r in c.execute("select filename from schema_migrations")]
-    assert tables == ["date_runs", "pages", "quarantine", "schema_migrations", "stage_runs"]
-    assert applied == ["001_init.sql"]
+    assert {"date_runs", "pages", "quarantine", "schema_migrations", "stage_runs"} <= set(tables)
+    assert "entity_ids" in tables  # ticket 022
+    assert sorted(applied) == [p.name for p in db.migration_files()]
 
 
 @pytest.mark.stores
