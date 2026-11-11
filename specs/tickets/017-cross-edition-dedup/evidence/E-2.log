@@ -1,0 +1,56 @@
+== 2025-06-10
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 37158.94it/s]
+dedup 2025-06-10: 89 units, 89 stories in 0.2 s
+done 2025-06-10
+dedup: done=1 failed=0 skipped=0 in 24.3s
+
+real	0m26.280s
+user	0m23.015s
+sys	0m1.712s
+units=89
+stories=89
+mean_printings=1.0
+max_printings=1
+stories_with_5plus_printings=0
+== 2025-08-02
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 42986.37it/s]
+dedup 2025-08-02: 101 units, 101 stories in 0.2 s
+done 2025-08-02
+dedup: done=1 failed=0 skipped=0 in 14.3s
+
+real	0m16.233s
+user	0m23.038s
+sys	0m1.258s
+units=101
+stories=101
+mean_printings=1.0
+max_printings=1
+stories_with_5plus_printings=0
+== 2025-04-11
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 28652.82it/s]
+dedup 2025-04-11: 99 units, 99 stories in 0.2 s
+done 2025-04-11
+dedup: done=1 failed=0 skipped=0 in 12.6s
+
+real	0m14.530s
+user	0m23.027s
+sys	0m1.237s
+units=99
+stories=99
+mean_printings=1.0
+max_printings=1
+stories_with_5plus_printings=0
+== 2025-01-28
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 33135.45it/s]
+dedup 2025-01-28: 76 units, 76 stories in 0.1 s
+done 2025-01-28
+dedup: done=1 failed=0 skipped=0 in 12.8s
+
+real	0m14.780s
+user	0m22.986s
+sys	0m1.296s
+units=76
+stories=76
+mean_printings=1.0
+max_printings=1
+stories_with_5plus_printings=0

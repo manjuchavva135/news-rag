@@ -1,0 +1,13 @@
+== 2024-12-26
+dedup 2024-12-26: 246 units, 117 stories in 1.5 s
+done 2024-12-26
+dedup: done=1 failed=0 skipped=0 in 13.6s
+
+real	0m15.573s
+user	0m24.922s
+sys	0m1.804s
+units=246
+stories=117
+mean_printings=2.1
+max_printings=10
+stories_with_5plus_printings=13

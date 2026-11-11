@@ -1,0 +1,123 @@
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2931.37it/s]
+done 2024-12-26_A_main_05
+done 2024-12-26_L_main_05
+done 2024-12-26_B_main_05
+done 2024-12-26_C_main_05
+done 2024-12-26_BGNOPRSVACLT_main_02
+done 2024-12-26_BC_main_02
+done 2024-12-26_T_main_05
+done 2024-12-26_BGNOPRSVACLT_main_10
+done 2024-12-26_BGNOPRSVACLT_main_14
+done 2024-12-26_R_main_05
+done 2024-12-26_C_main_03
+done 2024-12-26_GNOPRSACLT_main_03
+done 2024-12-26_B_main_03
+done 2024-12-26_G_main_05
+done 2024-12-26_V_main_03
+done 2024-12-26_V_main_05
+done 2024-12-26_OPS_main_05
+done 2024-12-26_BGNOPRSVACLT_main_01
+group: 18 pages in 121.3 s (excl. model load) = 0.15 pages/s
+group: 18 requests, 100849 prompt tokens, 14280 completion tokens
+group: done=18 failed=0 skipped=1 in 211.0s
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2223.92it/s]
+done 2024-12-26_B_main_03
+done 2024-12-26_C_main_03
+done 2024-12-26_BGNOPRSVACLT_main_10
+done 2024-12-26_GNOPRSACLT_main_03
+done 2024-12-26_BGNOPRSVACLT_main_02
+done 2024-12-26_T_main_05
+done 2024-12-26_B_main_05
+done 2024-12-26_BC_main_02
+done 2024-12-26_V_main_03
+done 2024-12-26_A_main_05
+done 2024-12-26_BGNOPRSVACLT_main_14
+done 2024-12-26_G_main_05
+done 2024-12-26_L_main_05
+done 2024-12-26_C_main_05
+done 2024-12-26_R_main_05
+done 2024-12-26_OPS_main_05
+done 2024-12-26_BGNOPRSVACLT_main_01
+done 2024-12-26_V_main_05
+judge: done=18 failed=0 skipped=1 in 143.4s
+done 2024-12-26_BC_main_02
+done 2024-12-26_BGNOPRSVACLT_main_01
+done 2024-12-26_BGNOPRSVACLT_main_14
+done 2024-12-26_B_main_05
+done 2024-12-26_A_main_05
+done 2024-12-26_C_main_05
+done 2024-12-26_G_main_05
+done 2024-12-26_T_main_05
+done 2024-12-26_L_main_05
+done 2024-12-26_OPS_main_05
+done 2024-12-26_R_main_05
+done 2024-12-26_V_main_05
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2543.03it/s]
+done 2024-12-26_BGNOPRSVACLT_main_02
+done 2024-12-26_GNOPRSACLT_main_03
+done 2024-12-26_BGNOPRSVACLT_main_10
+done 2024-12-26_B_main_03
+done 2024-12-26_C_main_03
+done 2024-12-26_V_main_03
+group_retry: done=18 failed=0 skipped=1 in 188.3s
+done 2024-12-26_A_main_05
+done 2024-12-26_BC_main_02
+done 2024-12-26_BGNOPRSVACLT_main_14
+done 2024-12-26_C_main_05
+done 2024-12-26_BGNOPRSVACLT_main_01
+done 2024-12-26_B_main_05
+done 2024-12-26_L_main_05
+done 2024-12-26_G_main_05
+done 2024-12-26_R_main_05
+done 2024-12-26_T_main_05
+done 2024-12-26_OPS_main_05
+done 2024-12-26_V_main_05
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2265.86it/s]
+done 2024-12-26_V_main_03
+done 2024-12-26_B_main_03
+done 2024-12-26_GNOPRSACLT_main_03
+done 2024-12-26_C_main_03
+done 2024-12-26_BGNOPRSVACLT_main_02
+done 2024-12-26_BGNOPRSVACLT_main_10
+judge_retry: done=18 failed=0 skipped=1 in 104.2s
+done 2024-12-26_A_main_05
+done 2024-12-26_BGNOPRSVACLT_main_01
+done 2024-12-26_B_main_05
+done 2024-12-26_BGNOPRSVACLT_main_10
+done 2024-12-26_T_main_05
+done 2024-12-26_BC_main_02
+done 2024-12-26_BGNOPRSVACLT_main_14
+done 2024-12-26_C_main_05
+done 2024-12-26_BGNOPRSVACLT_main_02
+done 2024-12-26_R_main_05
+done 2024-12-26_G_main_05
+done 2024-12-26_OPS_main_05
+done 2024-12-26_C_main_03
+done 2024-12-26_L_main_05
+done 2024-12-26_B_main_03
+done 2024-12-26_GNOPRSACLT_main_03
+done 2024-12-26_V_main_05
+done 2024-12-26_V_main_03
+group_final: done=18 failed=0 skipped=1 in 0.2s
+done 2024-12-26_BGNOPRSVACLT_main_10
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2214.23it/s]
+done 2024-12-26_BGNOPRSVACLT_main_01
+done 2024-12-26_BGNOPRSVACLT_main_14
+done 2024-12-26_B_main_03
+done 2024-12-26_V_main_03
+done 2024-12-26_OPS_main_05
+done 2024-12-26_BGNOPRSVACLT_main_02
+done 2024-12-26_BC_main_02
+done 2024-12-26_A_main_05
+done 2024-12-26_B_main_05
+done 2024-12-26_C_main_03
+done 2024-12-26_V_main_05
+done 2024-12-26_GNOPRSACLT_main_03
+done 2024-12-26_C_main_05
+done 2024-12-26_L_main_05
+done 2024-12-26_R_main_05
+done 2024-12-26_G_main_05
+done 2024-12-26_T_main_05
+transcribe: done=18 failed=0 skipped=1 in 304.6s
+done 2024-12-26
+stitch: done=1 failed=0 skipped=0 in 0.1s

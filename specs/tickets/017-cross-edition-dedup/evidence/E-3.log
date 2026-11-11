@@ -1,0 +1,2 @@
+model=qwen3-30b-a3b pairs=129 report=/home/admin1/raw/reports/dedup-verify.json
+yes: 30/30

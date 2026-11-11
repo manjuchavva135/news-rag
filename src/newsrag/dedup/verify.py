@@ -43,7 +43,9 @@ def collect_pairs(pub_date: date | None = None) -> list[dict[str, Any]]:
         for story in art["stories"]:
             if story["canonical_unit_id"] not in wanted:
                 continue
-            best = by_id[story["canonical_unit_id"]]
+            best = by_id.get(story["canonical_unit_id"])
+            if best is None:  # the inputs changed after the dedup run
+                continue
             for pr in story["printings"]:
                 if pr["unit_id"] == best.unit_id or pr["unit_id"] not in by_id:
                     continue

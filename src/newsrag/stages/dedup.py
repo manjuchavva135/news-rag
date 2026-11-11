@@ -91,9 +91,8 @@ class DedupStage(DateStage):
             stack.close()
 
     def embed(self, texts: Sequence[str]) -> np.ndarray:
-        if self._embedder is None:  # handle() called outside a `stage run`
-            self.open()
-        assert self._embedder is not None
+        if self._embedder is None:
+            raise RuntimeError("dedup: the embedding model is not open (call open() first)")
         return self._embedder.embed(list(texts), "doc", config.settings.dedup_embed_batch)
 
     def handle(self, pub_date: date, pages: list[PageRow]) -> StageResult:
