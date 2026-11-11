@@ -1,0 +1,51 @@
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3184.02it/s]
+enrich_core 2025-06-10: 89 stories in 18.1 s (4.93 stories/s), 0 failed, 37 dropped names
+done 2025-06-10
+enrich_core: done=1 failed=0 skipped=0 in 76.9s
+category_sports=0
+category_politics=28
+category_health=1
+category_cinema=0
+category_family=2
+category_education=14
+category_other=44
+people_per_story=2.21
+orgs_per_story=2.35
+dropped_names=37
+event_date_differs=51
+enrich_failed=0
+stories_per_s=4.93
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 3250.37it/s]
+enrich_core 2024-12-26: 117 stories in 22.1 s (5.29 stories/s), 0 failed, 33 dropped names
+done 2024-12-26
+enrich_core: done=1 failed=0 skipped=0 in 81.9s
+category_sports=1
+category_politics=14
+category_health=1
+category_cinema=1
+category_family=20
+category_education=4
+category_other=76
+people_per_story=1.77
+orgs_per_story=2.48
+dropped_names=33
+event_date_differs=72
+enrich_failed=0
+stories_per_s=5.29
+Fetching 27 files:   0%|          | 0/27 [00:00<?, ?it/s]Fetching 27 files: 100%|██████████| 27/27 [00:00<00:00, 2979.14it/s]
+enrich_core 2025-08-02: 101 stories in 20.6 s (4.9 stories/s), 0 failed, 44 dropped names
+done 2025-08-02
+enrich_core: done=1 failed=0 skipped=0 in 79.6s
+category_sports=1
+category_politics=36
+category_health=1
+category_cinema=8
+category_family=3
+category_education=12
+category_other=40
+people_per_story=2.37
+orgs_per_story=2.42
+dropped_names=44
+event_date_differs=61
+enrich_failed=0
+stories_per_s=4.9

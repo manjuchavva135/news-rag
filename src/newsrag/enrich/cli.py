@@ -1,0 +1,117 @@
+"""`newsrag enrich`: statistics and the quality check of `enrich_core` (ticket 019 FR-5, NFR-1)."""
+
+from __future__ import annotations
+
+import math
+from typing import Annotated, Any
+
+import typer
+
+app = typer.Typer(help="Story enrichment.", no_args_is_help=True)
+
+
+def totals(artifacts: list[dict[str, Any]], details: list[dict[str, Any]]) -> dict[str, Any]:
+    """The FR-5 numbers over `enrich_core` artifacts and the details of their runs.
+
+    `stories_per_s` is the total of stories over the total request seconds of the runs.
+    """
+    from newsrag.enrich import validate as v
+
+    records = [r for art in artifacts for r in (art.get("stories") or {}).values()]
+    n = len(records)
+    out: dict[str, Any] = {
+        f"category_{name}": sum(1 for r in records if r["category"] == name)
+        for name in v.CATEGORIES
+    }
+    out["people_per_story"] = round(sum(len(r["people"]) for r in records) / n, 2) if n else 0.0
+    out["orgs_per_story"] = (
+        round(sum(len(r["organisations"]) for r in records) / n, 2) if n else 0.0
+    )
+    out["dropped_names"] = sum(int(d.get("dropped_names") or 0) for d in details)
+    out["event_date_differs"] = sum(
+        1 for art in artifacts for r in (art.get("stories") or {}).values()
+        if r["event_date"] != art["pub_date"]
+    )  # fmt: skip
+    out["enrich_failed"] = sum(1 for r in records if v.FAILED_FLAG in r["flags"])
+    seconds = sum(float(d.get("request_seconds") or 0) for d in details)
+    stories = sum(int(d.get("stories") or 0) for d in details)
+    out["stories_per_s"] = round(stories / seconds, 2) if seconds > 0 else 0.0
+    return out
+
+
+def _done_runs(days: list[str] | None) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    """(artifacts, run details) of the done `enrich_core` runs of the given dates (default all)."""
+    from datetime import date
+
+    from newsrag import enrich
+    from newsrag.ledger import db
+
+    where, params = "stage = 'enrich_core' and status = 'done' and artifact_path is not null", []
+    if days:
+        where += " and pub_date = any(%s)"
+        params.append([date.fromisoformat(d) for d in days])
+    with db.conn() as c:
+        rows = db.fetch_all(
+            c,
+            f"select pub_date, artifact_path, detail from date_runs where {where} "
+            "order by pub_date",
+            params,
+        )
+    artifacts, details = [], []
+    for row in rows:
+        artifacts.append(enrich.read_artifact(row["artifact_path"]))
+        details.append(row["detail"] or {})
+    return artifacts, details
+
+
+@app.command()
+def stats(
+    day: Annotated[
+        list[str] | None,
+        typer.Option("--date", help="Print date YYYY-MM-DD, repeatable (default: all done dates)."),
+    ] = None,
+) -> None:
+    """Prints category counts, people and organisations per story, dropped names, event dates that
+    differ from the print date, failed stories and stories per second of `enrich_core`."""
+    artifacts, details = _done_runs(day)
+    if not artifacts:
+        typer.echo(
+            f"no done enrich_core artifact for {', '.join(day) if day else 'any date'}", err=True
+        )
+        raise typer.Exit(1)
+    for key, value in totals(artifacts, details).items():
+        typer.echo(f"{key}={value}")
+
+
+@app.command("verify-core")
+def verify_core(
+    n: Annotated[int | None, typer.Option("--n", help="Stories to check.")] = None,
+    seed: Annotated[int | None, typer.Option("--seed", help="Sampling seed.")] = None,
+    day: Annotated[
+        str | None, typer.Option("--date", help="Only the stories of this date (default: all).")
+    ] = None,
+) -> None:
+    """A second model judges the category and the names of random enriched stories; prints
+    `category_ok=<a>/<n> names_ok=<b>/<n>` and exits 1 below the threshold."""
+    from newsrag import config
+    from newsrag.enrich import verify as vf
+    from newsrag.stages.base import write_json_atomic
+
+    s = config.settings
+    stories = vf.collect_stories(day)
+    if not stories:
+        typer.echo("no enriched stories to verify", err=True)
+        raise typer.Exit(1)
+    report = vf.run_verify(
+        stories,
+        n if n is not None else s.enrich_verify_n,
+        seed if seed is not None else s.enrich_verify_seed,
+    )
+    path = write_json_atomic(s.enrich_verify_file, report)
+    typer.echo(f"model={report['model']} stories={report['n_stories_available']} report={path}")
+    typer.echo(
+        f"category_ok={report['category_ok']}/{report['n']} names_ok={report['names_ok']}/{report['n']}"
+    )
+    need = math.ceil(report["n"] * s.enrich_verify_min_ok_ratio - 1e-9)
+    if report["category_ok"] < need or report["names_ok"] < need:
+        raise typer.Exit(1)

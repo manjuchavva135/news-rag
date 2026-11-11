@@ -80,6 +80,7 @@ REPORTS_DIR_DERIVED = {
     "transcribe_spotcheck_file": "transcription-spotcheck.json",
     "stitch_verify_file": "stitch-verify.json",
     "dedup_verify_file": "dedup-verify.json",
+    "enrich_verify_file": "enrich-core-verify.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -556,6 +557,30 @@ class Settings(BaseSettings):
     dedup_verify_workers: int = 8  # parallel requests
     dedup_verify_file: Path  # default {reports_dir}/dedup-verify.json
 
+    # --- enrich ---
+    # Stage `enrich_core` (ticket 019): category, people/organisations and event date of every
+    # canonical story, from a local text model. Later enrich stages add their own settings here.
+    enrich_model: str = "qwen3-30b-a3b"  # llm profile of models.yaml
+    enrich_concurrency: int = 64  # parallel requests inside one date (32 gives about 4.7 stories/s)
+    enrich_input_chars: int = 6000  # headline + text sent to the model, truncated to this
+    enrich_max_tokens: int = 1024
+    enrich_max_listed: int = 8  # people and organisations listed per story, at most each
+    enrich_request_timeout_s: float = 120.0  # one chat request
+    enrich_transport_retries: int = 3  # timeout / 5xx / connection errors
+    enrich_retry_backoff_s: tuple[float, ...] = (2.0, 5.0, 15.0)  # waits between those retries
+    enrich_format_retries: int = 2  # invalid JSON / schema errors: asks again this many times
+    enrich_fail_ratio: float = 0.20  # more failed stories than this share fails the date
+    enrich_event_past_years: int = 3  # an event date may lie this many years before the print date
+    enrich_event_future_days: int = 366  # ... and this many days after it
+    # `newsrag enrich verify-core` (NFR-1): a second model judges a sample of enriched stories.
+    enrich_verify_model: str = "gemma3-27b"
+    enrich_verify_n: int = 50
+    enrich_verify_seed: int = 11
+    enrich_verify_min_ok_ratio: float = 0.9  # category_ok and names_ok each need this share
+    enrich_verify_max_tokens: int = 128
+    enrich_verify_workers: int = 16  # parallel requests
+    enrich_verify_file: Path  # default {reports_dir}/enrich-core-verify.json
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -643,7 +668,9 @@ class Settings(BaseSettings):
             return tuple(part.strip() for part in text.split(",") if part.strip())
         return value
 
-    @field_validator("sarvam_retry_backoff_s", "group_retry_backoff_s", mode="before")
+    @field_validator(
+        "sarvam_retry_backoff_s", "group_retry_backoff_s", "enrich_retry_backoff_s", mode="before"
+    )
     @classmethod
     def _float_list(cls, value: Any) -> Any:
         """Waits from the environment: a JSON list or comma-separated numbers."""
