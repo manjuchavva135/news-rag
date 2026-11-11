@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from newsrag.stages.base import Stage
 from newsrag.stages.dedup import DedupStage
+from newsrag.stages.enrich_core import EnrichCoreStage
 from newsrag.stages.folio import FolioStage
 from newsrag.stages.group import GroupStage
 from newsrag.stages.group_final import GroupFinalStage
@@ -35,3 +36,4 @@ REGISTRY["group_final"] = GroupFinalStage()
 REGISTRY["transcribe"] = TranscribeStage()
 REGISTRY["stitch"] = StitchStage()
 REGISTRY["dedup"] = DedupStage()
+REGISTRY["enrich_core"] = EnrichCoreStage()

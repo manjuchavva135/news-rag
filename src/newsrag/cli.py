@@ -5,6 +5,7 @@ import typer
 from newsrag import config_cli
 from newsrag.dedup import cli as dedup_cli
 from newsrag.editions import cli as editions_cli
+from newsrag.enrich import cli as enrich_cli
 from newsrag.geo import cli as geo_cli
 from newsrag.grouping import cli as group_cli
 from newsrag.grouping import judge_cli
@@ -44,6 +45,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (transcribe_cli.app, "transcribe"),
     (stitch_cli.app, "stitch"),
     (dedup_cli.app, "dedup"),
+    (enrich_cli.app, "enrich"),
 ]
 
 for sub_app, name in SUB_APPS:

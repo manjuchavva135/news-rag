@@ -85,6 +85,13 @@ profiles:
     dtype: bfloat16
     max_model_len: 32768
     gpu_memory_utilization: 0.90
+    extra_args:
+      # ticket 019 NFR-2 (5 stories/s): fp8 weights and n-gram speculation (the answers copy
+      # names from the prompt) took the enrich_core run from 3.3 to about 5.2 stories/s.
+      - --quantization
+      - fp8
+      - --speculative-config
+      - '{"method": "ngram", "num_speculative_tokens": 5, "prompt_lookup_max": 6, "prompt_lookup_min": 2}'
 
   - name: bge-m3
     hf_id: BAAI/bge-m3
