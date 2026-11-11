@@ -2,7 +2,7 @@
 
 Rule (a): identical folded forms. Rule (b): Jaro-Winkler on the folded forms, only inside blocks
 (names that share their last word or their first three letters). Rule (d): a shared surname
-word plus several common stories. A pair is recorded under the strongest rule that matches.
+word (first or last) plus several common stories. A pair is recorded under the strongest rule that matches.
 """
 
 from __future__ import annotations
@@ -70,12 +70,14 @@ def candidate_pairs(
                 ):
                     add(a, b, "b")
 
-        surnames: dict[str, list[str]] = defaultdict(list)
+        # The surname is the last word or (Telugu house names come first) the first word.
+        surnames: dict[str, set[str]] = defaultdict(set)
         for nk in keys:
-            if len(tokens[nk][-1]) >= MIN_SURNAME_CHARS:
-                surnames[tokens[nk][-1]].append(nk)
+            for token in {tokens[nk][0], tokens[nk][-1]}:
+                if len(token) >= MIN_SURNAME_CHARS:
+                    surnames[token].add(nk)
         for group in surnames.values():
-            for a, b in combinations(group, 2):
+            for a, b in combinations(sorted(group), 2):
                 if len(names[a].stories & names[b].stories) >= min_shared_stories:
                     add(a, b, "d")
     return dict(sorted(found.items()))

@@ -137,7 +137,10 @@ class Verdicts:
             for line in self.path.read_text(encoding="utf-8").splitlines():
                 if not line.strip():
                     continue
-                row = json.loads(line)
+                try:
+                    row = json.loads(line)
+                except ValueError:  # a line cut off by a killed process: ask the pair again
+                    continue
                 if row.get("prompt") != self.prompt:
                     continue
                 self._data[row["type"], row["a"], row["b"]] = Verdict(

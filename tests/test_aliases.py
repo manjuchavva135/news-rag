@@ -658,3 +658,38 @@ def test_migration_creates_entity_ids(ledger):
         }
         applied = [r[0] for r in c.execute("select filename from schema_migrations order by 1")]
     assert "entity_ids" in tables and "004_entity_ids.sql" in applied
+
+
+def test_a_contested_id_stays_with_the_group_of_its_oldest_name():
+    k = aliases.key
+    x1, y1, y2, z1 = (k("person", n) for n in ("x1", "y1", "y2", "z1"))
+    rows = {
+        x1: ("e_A", T0),
+        y1: ("e_A", T0 + timedelta(days=1)),
+        y2: ("e_B", T0 + timedelta(days=5)),
+        z1: ("e_B", T0 + timedelta(days=2)),
+    }
+    ids = group.assign_ids([[x1], [y1, y2], [z1]], ["x", "y", "z"], rows)
+    assert ids[0] == "e_A" and ids[2] == "e_B"
+    assert ids[1] not in {"e_A", "e_B"} and ids[1].startswith("e_")
+
+
+def test_rule_d_surname_may_come_first():
+    arts = [
+        artifact(
+            s1=story(people=["Kakani Govardhan", "Kakani Sridhar"]),
+            s2=story(people=["Kakani Govardhan", "Kakani Sridhar"]),
+        )
+    ]
+    found = rules.candidate_pairs(names.collect(arts), 0.99, 2)
+    assert list(found.values()) == ["d"]
+
+
+def test_a_cut_off_cache_line_is_skipped(tmp_path):
+    path = tmp_path / "v.jsonl"
+    v = judge.Verdicts(path, prompt="aaaa")
+    v.add("person", "a", "b", Verdict(True, 0.9))
+    with path.open("a", encoding="utf-8") as fh:
+        fh.write('{"type": "person", "a": "c", "b"')
+    again = judge.Verdicts(path, prompt="aaaa")
+    assert again.get("person", "a", "b") == Verdict(True, 0.9) and len(again) == 1

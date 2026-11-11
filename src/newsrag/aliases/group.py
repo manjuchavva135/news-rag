@@ -176,14 +176,14 @@ def describe(names: Sequence[NameInfo]) -> dict[str, Any]:
     }
 
 
-def mint_id(kind: str, canonical: str, used: set[str]) -> str:
+def mint_id(kind: str, canonical: str, used: set[str], also: set[str] | None = None) -> str:
     """`e_<first 12 hex of sha1(type + canonical)>`; `#k` is added to the hash input until the id
-    is unused."""
+    is in neither `used` nor `also`."""
     k = 0
     while True:
         text = kind + canonical + (f"#{k}" if k else "")
         new = "e_" + hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
-        if new not in used:
+        if new not in used and not (also and new in also):
             return new
         k += 1
 
@@ -195,35 +195,31 @@ def assign_ids(
 ) -> list[str]:
     """The entity id of every group (same order as `groups`).
 
-    `rows` is the stored table `name_key -> (entity_id, created_at)`. A group whose names already
-    have ids keeps the oldest one (smallest created_at, then smallest id); when an id would end up
-    in two groups, the group holding the oldest name keeps it and the other takes its next id or
-    a fresh one. A group with no stored name gets `mint_id`.
+    `rows` is the stored table `name_key -> (entity_id, created_at)`. The stored names of all
+    groups are visited from the oldest (created_at, then id, then name key): a group that has no
+    id yet takes the id of the name unless another group already holds it. So a group keeps the
+    oldest id of its names (smallest created_at, then smallest id), and an id that two groups
+    claim stays with the group that holds its oldest name; the other group takes the next id of
+    its names or a fresh `mint_id`. A group with no stored name gets `mint_id`.
     """
-    taken: set[str] = set()
-    all_ids = {entity_id for entity_id, _ in rows.values()}
-    oldest: list[tuple | None] = []
-    preferred: list[list[str]] = []
-    for group in groups:
-        stored = [(rows[k][1], k, rows[k][0]) for k in group if k in rows]
-        oldest.append(min((t[0], t[1]) for t in stored) if stored else None)
-        first_seen: dict[str, datetime] = {}
-        for created, _, entity_id in stored:
-            if entity_id not in first_seen or created < first_seen[entity_id]:
-                first_seen[entity_id] = created
-        preferred.append(sorted(first_seen, key=lambda i: (first_seen[i], i)))
-    order = sorted(
-        range(len(groups)),
-        key=lambda i: (oldest[i] is None, oldest[i] or (), canonicals[i], tuple(groups[i])),
-    )
+    group_of = {k: i for i, group in enumerate(groups) for k in group}
     ids: list[str] = [""] * len(groups)
-    for i in order:
-        pick = next((x for x in preferred[i] if x not in taken), None)
-        if pick is None:
-            kind = split_key(groups[i][0])[0]
-            pick = mint_id(kind, canonicals[i], taken | all_ids)
-        taken.add(pick)
-        ids[i] = pick
+    taken: set[str] = set()
+    stored = sorted(
+        ((created, entity_id, k) for k, (entity_id, created) in rows.items() if k in group_of),
+    )
+    for _, entity_id, k in stored:
+        i = group_of[k]
+        if not ids[i] and entity_id not in taken:
+            ids[i] = entity_id
+            taken.add(entity_id)
+    all_ids = {entity_id for entity_id, _ in rows.values()}
+    for i in sorted(
+        (i for i in range(len(groups)) if not ids[i]),
+        key=lambda i: (canonicals[i], tuple(groups[i])),
+    ):
+        ids[i] = mint_id(split_key(groups[i][0])[0], canonicals[i], taken, all_ids)
+        taken.add(ids[i])
     return ids
 
 
