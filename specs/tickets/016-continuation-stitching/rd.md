@@ -1,6 +1,6 @@
 # 016: Continuation stitching (per date)
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 013: needs final article groups
 
