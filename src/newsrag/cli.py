@@ -4,6 +4,7 @@ import typer
 
 from newsrag import config_cli
 from newsrag.aliases import cli as aliases_cli
+from newsrag.baseline import cli as baseline_cli
 from newsrag.chunking import cli as chunking_cli
 from newsrag.dedup import cli as dedup_cli
 from newsrag.editions import cli as editions_cli
@@ -61,6 +62,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (index_cli.embed_app, "embed"),
     (search_cli.app, "search"),
     (eval_cli.app, "eval"),
+    (baseline_cli.app, "baseline"),
 ]
 
 for sub_app, name in SUB_APPS:

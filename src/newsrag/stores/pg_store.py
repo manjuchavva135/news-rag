@@ -39,11 +39,13 @@ def client() -> ConnectionPool:
         return _pool
 
 
-def ping(timeout_s: float = 2.0) -> bool:
-    """True when ``select 1`` succeeds. Uses a direct connection so a down server fails fast."""
+def ping(timeout_s: float = 2.0, dsn: str | None = None) -> bool:
+    """True when ``select 1`` succeeds. Uses a direct connection so a down server fails fast.
+
+    `dsn` defaults to ``settings.postgres_dsn`` (ticket 027 pings the baseline store)."""
     try:
         connect_timeout = max(1, math.ceil(timeout_s))  # libpq takes whole seconds
-        with psycopg.connect(settings.postgres_dsn, connect_timeout=connect_timeout) as conn:
+        with psycopg.connect(dsn or settings.postgres_dsn, connect_timeout=connect_timeout) as conn:
             conn.execute(f"set statement_timeout = {int(timeout_s * 1000)}")
             return conn.execute("select 1").fetchone() == (1,)
     except Exception:  # noqa: BLE001 - ping() must never raise (FR-4)

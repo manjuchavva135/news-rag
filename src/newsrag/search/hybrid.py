@@ -2,7 +2,7 @@
 fused with reciprocal-rank fusion. No reranking, no query rewriting.
 
 `search(store="new")` reads the active generation (or the one given); other stores are backends
-registered with `register_backend` (ticket 027 adds `baseline`).
+registered with `register_backend` (ticket 027 adds `baseline`, `newsrag.baseline.search`).
 
 Importing this module touches neither the stores nor the GPU: the embed model is loaded on the
 first query and kept until `close()`.
@@ -268,3 +268,13 @@ def search(
         qdrant_collection=qdrant_collection,
         embed_profile=embed_profile,
     )
+
+
+def _search_baseline(query: str, **kwargs: Any) -> list[Hit]:
+    """Ticket 027: the old pipeline's stores (imported on first use)."""
+    from newsrag.baseline.search import search_baseline
+
+    return search_baseline(query, **kwargs)
+
+
+register_backend("baseline", _search_baseline)

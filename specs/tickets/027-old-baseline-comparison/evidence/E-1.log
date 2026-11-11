@@ -1,0 +1,7 @@
+postgres: ok
+qdrant: ok
+opensearch: ok
+exit=0
+postgres: ok
+qdrant: ok
+opensearch: ok

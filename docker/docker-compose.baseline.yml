@@ -1,0 +1,81 @@
+# Baseline stores for the old pipeline's export bundle (ticket 027).
+#
+#   postgres    -> schema `old` (issues, pages, articles, chunks)   port 5452
+#   qdrant      -> collection chunks_old (1024-dim BGE-M3)          HTTP 6353, gRPC 6354
+#   opensearch  -> index chunks_old (ICU, Telugu)                   HTTP 9220, transport 9320
+#
+# Start/stop with `uv run newsrag baseline up` / `uv run newsrag baseline down` (volumes kept).
+# Load with `uv run newsrag baseline load <bundle.tar.gz>`.
+#
+# Host networking for the same reason as docker-compose.yml; ports and volumes differ from the
+# new stores (5442 / 6343 / 9210, newsrag-*) so both stacks run side by side.
+
+name: newsrag-baseline
+
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    network_mode: host
+    command: postgres -p 5452
+    environment:
+      POSTGRES_USER: newsrag
+      POSTGRES_PASSWORD: newsrag
+      POSTGRES_DB: newsrag_baseline
+    volumes:
+      - newsrag-baseline-pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -h localhost -p 5452 -U newsrag -d newsrag_baseline"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  qdrant:
+    image: qdrant/qdrant:v1.16.1
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      QDRANT__SERVICE__HTTP_PORT: "6353"
+      QDRANT__SERVICE__GRPC_PORT: "6354"
+    volumes:
+      - newsrag-baseline-qdrant:/qdrant/storage
+
+  opensearch:
+    build:
+      context: .
+      dockerfile: opensearch.Dockerfile
+    image: newsrag-opensearch:2.17.1-icu
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - discovery.type=single-node
+      - http.port=9220
+      - transport.port=9320
+      - bootstrap.memory_lock=true
+      - "OPENSEARCH_JAVA_OPTS=-Xms2g -Xmx2g"
+      - DISABLE_SECURITY_PLUGIN=true
+      - DISABLE_INSTALL_DEMO_CONFIG=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    volumes:
+      - newsrag-baseline-os:/usr/share/opensearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9220/_cluster/health || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 40s
+
+volumes:
+  newsrag-baseline-pg:
+    name: newsrag-baseline-pg
+  newsrag-baseline-qdrant:
+    name: newsrag-baseline-qdrant
+  newsrag-baseline-os:
+    name: newsrag-baseline-os

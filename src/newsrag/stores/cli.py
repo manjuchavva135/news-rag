@@ -5,6 +5,8 @@ from __future__ import annotations
 import shutil
 import subprocess
 import time
+from collections.abc import Callable
+from pathlib import Path
 
 import typer
 
@@ -44,8 +46,11 @@ def _check_docker() -> None:
         raise _fail(f"cannot talk to the docker daemon: {first}", 2)
 
 
-def _compose(*args: str) -> list[str]:
-    return ["docker", "compose", "-p", COMPOSE_PROJECT, "-f", str(settings.compose_file), *args]
+def _compose(
+    *args: str, project: str = COMPOSE_PROJECT, compose_file: Path | None = None
+) -> list[str]:
+    file = compose_file if compose_file is not None else settings.compose_file
+    return ["docker", "compose", "-p", project, "-f", str(file), *args]
 
 
 def _status_lines(states: dict[str, bool]) -> list[str]:
@@ -58,12 +63,13 @@ def _ping_all() -> dict[str, bool]:
     return ping_all(settings.stores_ping_timeout_s)
 
 
-@app.command()
-def up() -> None:
-    """Start the stores (docker compose up -d --build) and wait until all three answer."""
+def compose_up(
+    project: str, compose_file: Path, ping: Callable[[], dict[str, bool]], label: str = "stores"
+) -> None:
+    """`docker compose up -d --build`, then wait until `ping()` reports all three stores ok."""
     _check_docker()
-    typer.echo(f"starting stores from {settings.compose_file} ...")
-    result = _run(_compose("up", "-d", "--build"))
+    typer.echo(f"starting {label} from {compose_file} ...")
+    result = _run(_compose("up", "-d", "--build", project=project, compose_file=compose_file))
     if result.returncode != 0:
         output = (result.stdout or "") + (result.stderr or "")
         tail = output.rstrip().splitlines()[-UP_FAILURE_TAIL_LINES:]
@@ -74,14 +80,14 @@ def up() -> None:
 
     deadline = time.monotonic() + settings.stores_up_timeout_s
     while True:
-        states = _ping_all()
+        states = ping()
         if all(states.get(name) for name in STORE_NAMES):
             for line in _status_lines(states):
                 typer.echo(line)
             return
         if time.monotonic() >= deadline:
             typer.echo(
-                f"stores did not all answer within {settings.stores_up_timeout_s:g} s:", err=True
+                f"{label} did not all answer within {settings.stores_up_timeout_s:g} s:", err=True
             )
             for line in _status_lines(states):
                 typer.echo(line)
@@ -89,27 +95,42 @@ def up() -> None:
         time.sleep(UP_POLL_INTERVAL_S)
 
 
-@app.command()
-def down() -> None:
-    """Stop the stores (docker compose stop). Volumes and data are kept."""
+def compose_stop(project: str, compose_file: Path, label: str = "stores") -> None:
+    """`docker compose stop`: volumes and data are kept."""
     _check_docker()
-    result = _run(_compose("stop"))
+    result = _run(_compose("stop", project=project, compose_file=compose_file))
     if result.returncode != 0:
         output = (result.stdout or "") + (result.stderr or "")
         for line in output.rstrip().splitlines()[-UP_FAILURE_TAIL_LINES:]:
             typer.echo(line, err=True)
         raise typer.Exit(1)
-    typer.echo("stores stopped (data kept)")
+    typer.echo(f"{label} stopped (data kept)")
+
+
+def report_status(states: dict[str, bool]) -> None:
+    """Print `<store>: ok|down` for each store; exit 1 unless all are ok."""
+    for line in _status_lines(states):
+        typer.echo(line)
+    if not all(states.get(name) for name in STORE_NAMES):
+        raise typer.Exit(1)
+
+
+@app.command()
+def up() -> None:
+    """Start the stores (docker compose up -d --build) and wait until all three answer."""
+    compose_up(COMPOSE_PROJECT, settings.compose_file, lambda: _ping_all())
+
+
+@app.command()
+def down() -> None:
+    """Stop the stores (docker compose stop). Volumes and data are kept."""
+    compose_stop(COMPOSE_PROJECT, settings.compose_file)
 
 
 @app.command()
 def status() -> None:
     """Print `<store>: ok|down` for each store; exit 0 only when all are ok."""
-    states = _ping_all()
-    for line in _status_lines(states):
-        typer.echo(line)
-    if not all(states.get(name) for name in STORE_NAMES):
-        raise typer.Exit(1)
+    report_status(_ping_all())
 
 
 def _format_value(value: object) -> str:
@@ -130,12 +151,19 @@ def db_init() -> None:
 
 
 @db_app.command("sql")
-def sql(query: str = typer.Argument(..., help="One SQL statement.")) -> None:
+def sql(
+    query: str = typer.Argument(..., help="One SQL statement."),
+    dsn: str = typer.Option("new", "--dsn", help="new | baseline | a postgresql:// DSN"),
+) -> None:
     """Run one SQL statement (autocommit); print rows tab-separated, no header, NULL as NULL."""
     import psycopg
 
+    target = {"new": settings.postgres_dsn, "baseline": settings.baseline_postgres_dsn}.get(dsn)
+    if target is None and not dsn.startswith(("postgresql://", "postgres://")):
+        typer.echo(f"error: unknown --dsn {dsn!r} (new | baseline | postgresql://...)", err=True)
+        raise typer.Exit(1)
     try:
-        with psycopg.connect(settings.postgres_dsn, autocommit=True) as conn:
+        with psycopg.connect(target or dsn, autocommit=True) as conn:
             cursor = conn.execute(query)
             rows = cursor.fetchall() if cursor.description is not None else []
     except Exception as exc:  # noqa: BLE001 - report any failure as exit 1

@@ -48,13 +48,26 @@ def test_unknown_filter_rejected():
         hybrid.check_filters({"page_ids": "p1"})
 
 
-def test_baseline_not_configured_error():
+@pytest.fixture
+def keep_baseline_backend():
+    """Ticket 027 registers `baseline`; these tests replace it, so put it back afterwards."""
+    saved = hybrid._BACKENDS.get("baseline")
+    yield
+    if saved is not None:
+        hybrid.register_backend("baseline", saved)
+
+
+def test_baseline_not_configured_error(keep_baseline_backend):
     hybrid.unregister_backend("baseline")
     with pytest.raises(hybrid.StoreNotConfigured, match="^baseline stores not configured$"):
         hybrid.search("q", store="baseline")
 
 
-def test_baseline_backend_registry():
+def test_baseline_backend_registered_by_default():
+    assert "baseline" in hybrid._BACKENDS
+
+
+def test_baseline_backend_registry(keep_baseline_backend):
     calls: list[dict[str, Any]] = []
 
     def backend(query: str, **kwargs: Any) -> list[hybrid.Hit]:

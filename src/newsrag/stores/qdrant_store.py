@@ -22,10 +22,11 @@ def client() -> QdrantClient:
         return _client
 
 
-def ping(timeout_s: float = 2.0) -> bool:
-    """True when ``GET /healthz`` answers 200."""
+def ping(timeout_s: float = 2.0, url: str | None = None) -> bool:
+    """True when ``GET /healthz`` answers 200 (`url` defaults to ``settings.qdrant_url``)."""
     try:
-        response = httpx.get(f"{settings.qdrant_url.rstrip('/')}/healthz", timeout=timeout_s)
+        base = (url or settings.qdrant_url).rstrip("/")
+        response = httpx.get(f"{base}/healthz", timeout=timeout_s)
         return response.status_code == 200
     except Exception:  # noqa: BLE001 - ping() must never raise (FR-4)
         return False

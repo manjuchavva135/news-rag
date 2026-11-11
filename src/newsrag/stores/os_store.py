@@ -22,10 +22,11 @@ def client() -> OpenSearch:
         return _client
 
 
-def ping(timeout_s: float = 2.0) -> bool:
-    """True when ``GET /_cluster/health`` answers with a status other than ``red``."""
+def ping(timeout_s: float = 2.0, url: str | None = None) -> bool:
+    """True when ``GET /_cluster/health`` answers with a status other than ``red`` (`url`
+    defaults to ``settings.opensearch_url``)."""
     try:
-        url = f"{settings.opensearch_url.rstrip('/')}/_cluster/health"
+        url = f"{(url or settings.opensearch_url).rstrip('/')}/_cluster/health"
         response = httpx.get(url, timeout=timeout_s)
         response.raise_for_status()
         status = response.json().get("status")

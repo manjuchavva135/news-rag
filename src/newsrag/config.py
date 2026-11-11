@@ -56,6 +56,7 @@ RAW_ROOT_DERIVED = {
     "hf_home": "hf-cache",
     "gpu_lock_path": ".gpu.lock",
     "ocr_tokenizer_root": "indic-ocr-tokenizer",
+    "baseline_dir": "baseline",
 }
 
 # Paths under repo_root that follow it unless overridden themselves.
@@ -76,6 +77,8 @@ REPO_ROOT_DERIVED = {
     "alias_overrides_file": "data/aliases/overrides.yaml",
     "textmodel_stories_file": "data/textmodel-bakeoff-stories.txt",
     "retrieval_set_file": "data/eval/retrieval-v1.jsonl",
+    "baseline_compose_file": "docker/docker-compose.baseline.yml",
+    "baseline_set_file": "data/eval/retrieval-baseline-v1.jsonl",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -91,6 +94,9 @@ REPORTS_DIR_DERIVED = {
     "textmodel_report_file": "textmodel-bakeoff.md",
     "embed_bakeoff_report_file": "embed-bakeoff.md",
     "embed_bakeoff_dir": "embed-bakeoff",
+    "baseline_page_map_file": "baseline-page-map.csv",
+    "baseline_calibration_file": "baseline-calibration.json",
+    "baseline_compare_file": "baseline-compare.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -681,6 +687,28 @@ class Settings(BaseSettings):
     embed_bakeoff_min_questions: int = 200  # questions with their gold story in the corpus
     embed_bakeoff_tie: float = 0.01  # recall@10 / MRR this close count as a tie
     embed_bakeoff_slab: int = 4096  # chunks embedded and written per round
+
+    # --- baseline ---
+    # Ticket 027: the old pipeline's stage-9 bundle in its own stores (project newsrag-baseline),
+    # searched with the same plain hybrid search and compared on the retrieval test.
+    baseline_postgres_dsn: str = "postgresql://newsrag:newsrag@localhost:5452/newsrag_baseline"
+    baseline_qdrant_url: str = "http://localhost:6353"
+    baseline_opensearch_url: str = "http://localhost:9220"
+    baseline_compose_file: Path  # default {repo_root}/docker/docker-compose.baseline.yml
+    baseline_dir: Path  # default {raw_root}/baseline: the bundle and manifest-loaded.json
+    baseline_schema: str = "old"  # Postgres schema of the old warehouse tables
+    baseline_collection: str = "chunks_old"  # Qdrant collection and OpenSearch index
+    baseline_embed_profile: str = "bge-m3"  # the old vectors' model: embeds the queries
+    baseline_load_batch: int = 1000  # rows / points / documents per write while loading
+    baseline_page_map_file: Path  # default {reports_dir}/baseline-page-map.csv
+    baseline_set_file: Path  # default {repo_root}/data/eval/retrieval-baseline-v1.jsonl
+    baseline_set_n: int = 100  # questions of the comparison set
+    baseline_set_seed: int = 7
+    baseline_calibration_n: int = 50
+    baseline_calibration_seed: int = 9
+    baseline_calibration_min: float = 0.8  # `compare` refuses below this calibration
+    baseline_calibration_file: Path  # default {reports_dir}/baseline-calibration.json
+    baseline_compare_file: Path  # default {reports_dir}/baseline-compare.json
 
     # --- textmodel ---
     # `newsrag textmodel bakeoff` (ticket 032): candidate text models run four Telugu tasks on the
