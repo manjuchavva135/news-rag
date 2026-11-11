@@ -23,6 +23,7 @@ from typing import Any, TextIO
 from psycopg import sql
 from psycopg.types.json import Jsonb
 
+from newsrag import config
 from newsrag.config import settings
 from newsrag.ledger import db
 from newsrag.stages.base import (
@@ -95,6 +96,15 @@ def first_line(text: str) -> str:
 # --- loading ledger state ---
 
 
+def in_corpus(column: str = "pub_date") -> tuple[str, list[Any]]:
+    """SQL condition (and its params) keeping the print dates inside the corpus
+    (`corpus_from_date`, ticket 031); `true` when every date counts."""
+    start = config.settings.corpus_from_date
+    if start is None:
+        return "true", []
+    return f"{column} >= %s", [start]
+
+
 def _table(stage: Stage) -> tuple[str, str]:
     return ("date_runs", "pub_date") if isinstance(stage, DateStage) else ("stage_runs", "page_id")
 
@@ -102,14 +112,15 @@ def _table(stage: Stage) -> tuple[str, str]:
 def _load_pages(
     c: Any, page_ids: Sequence[str] | None = None, dates: Sequence[date] | None = None
 ) -> list[PageRow]:
-    clauses, params = [], []
+    scope, params = in_corpus()
+    clauses = [scope]
     if page_ids is not None:
         clauses.append("page_id = any(%s)")
         params.append(list(page_ids))
     if dates is not None:
         clauses.append("pub_date = any(%s)")
         params.append(list(dates))
-    where = f"where {' and '.join(clauses)}" if clauses else ""
+    where = f"where {' and '.join(clauses)}"
     rows = db.fetch_all(c, f"select * from pages {where} order by pub_date, page_id", params)
     return [PageRow.from_row(r) for r in rows]
 
@@ -122,7 +133,8 @@ def _load_page_rows(
 ) -> dict[str, dict[str, dict[str, Any]]]:
     if not stages:
         return {}
-    clauses, params = ["r.stage = any(%s)"], [list(stages)]
+    scope, scope_params = in_corpus("p.pub_date")
+    clauses, params = ["r.stage = any(%s)", scope], [list(stages), *scope_params]
     if page_ids is not None:
         clauses.append("r.page_id = any(%s)")
         params.append(list(page_ids))
@@ -145,7 +157,8 @@ def _load_date_rows(
 ) -> dict[date, dict[str, dict[str, Any]]]:
     if not stages:
         return {}
-    clauses, params = ["stage = any(%s)"], [list(stages)]
+    scope, scope_params = in_corpus()
+    clauses, params = ["stage = any(%s)", scope], [list(stages), *scope_params]
     if dates is not None:
         clauses.append("pub_date = any(%s)")
         params.append(list(dates))
@@ -618,15 +631,19 @@ def stage_counts(stage: Stage) -> dict[str, int]:
     counts = {"done": 0, "failed": 0, "running": 0}
     with db.conn() as c:
         if isinstance(stage, PageStage):
+            scope, params = in_corpus("p.pub_date")
             rows = c.execute(
                 "select r.status, count(*) from stage_runs r join pages p using (page_id) "
-                "where r.stage = %s and p.quarantine_reason is null group by r.status",
-                (stage.name,),
+                f"where r.stage = %s and p.quarantine_reason is null and {scope} "
+                "group by r.status",
+                (stage.name, *params),
             ).fetchall()
         else:
+            scope, params = in_corpus()
             rows = c.execute(
-                "select status, count(*) from date_runs where stage = %s group by status",
-                (stage.name,),
+                f"select status, count(*) from date_runs where stage = %s and {scope} "
+                "group by status",
+                (stage.name, *params),
             ).fetchall()
     for status, count in rows:
         counts[status] = count
@@ -658,6 +675,33 @@ def failure_lines(stage: Stage) -> list[str]:
             (stage.name,),
         ).fetchall()
     return [f"{key}\t{attempt}\t{first_line(error or '')}" for key, attempt, error in rows]
+
+
+def quarantine_failed(stage: Stage) -> list[str]:
+    """Quarantine every corpus page whose item of `stage` has failed `max_attempts` times (ticket
+    031): the page itself for a page stage, every page of the date for a date stage. Reason
+    `stage_failed:<stage>: <error first line>`. Returns the page ids quarantined."""
+    limit = config.settings.max_attempts
+    with db.conn() as c:
+        if isinstance(stage, DateStage):
+            scope, params = in_corpus("p.pub_date")
+            rows = c.execute(
+                "select p.page_id, r.error from date_runs r join pages p using (pub_date) "
+                "where r.stage = %s and r.status = 'failed' and r.attempt >= %s "
+                f"and p.quarantine_reason is null and {scope} order by p.page_id",
+                (stage.name, limit, *params),
+            ).fetchall()
+        else:
+            scope, params = in_corpus("p.pub_date")
+            rows = c.execute(
+                "select p.page_id, r.error from stage_runs r join pages p using (page_id) "
+                "where r.stage = %s and r.status = 'failed' and r.attempt >= %s "
+                f"and p.quarantine_reason is null and {scope} order by p.page_id",
+                (stage.name, limit, *params),
+            ).fetchall()
+    for page_id, error in rows:
+        db.quarantine_page(page_id, f"stage_failed:{stage.name}: {first_line(error or '')}")
+    return [page_id for page_id, _ in rows]
 
 
 _DURATION_RE = re.compile(r"^\s*(\d+)\s*([smhd])\s*$")

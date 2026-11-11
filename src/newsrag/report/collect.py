@@ -68,6 +68,19 @@ def reject_key(path: str) -> tuple[Any, ...]:
     return ("page", when.group(0).lower(), m["edition"].upper(), m["section"].upper(), m["page"])
 
 
+YEAR_RE = re.compile(r"(?:19|20)\d{2}")
+
+
+def reject_in_corpus(path: str) -> bool:
+    """A rejected file counts unless its folders name a year before `corpus_from_date`'s year
+    (ticket 031); a file whose folders name no year always counts."""
+    start = config.settings.corpus_from_date
+    if start is None:
+        return True
+    years = YEAR_RE.findall(str(Path(path).parent))
+    return not years or int(years[-1]) >= start.year
+
+
 def count_rejects(paths: Iterable[str]) -> int:
     return len({reject_key(p) for p in paths})
 
@@ -76,11 +89,15 @@ def pages_input() -> dict[str, Any]:
     """Bar 1: registered pages, pages with a quarantine_reason and the counted filename rejects
     (quarantine rows without a page, reason not `test_or_dummy`)."""
     from newsrag.ledger import db
+    from newsrag.stages.runner import in_corpus
 
+    scope, params = in_corpus()
     with db.conn() as c:
         row = db.fetch_one(
             c,
-            "select count(*) as registered, count(quarantine_reason) as quarantined from pages",
+            "select count(*) as registered, count(quarantine_reason) as quarantined from pages "
+            f"where {scope}",
+            params,
         )
         rejects = db.fetch_all(
             c,
@@ -90,6 +107,7 @@ def pages_input() -> dict[str, Any]:
             [list(COUNTED_REJECTS)],
         )
     assert row is not None
+    rejects = [r for r in rejects if reject_in_corpus(r["source_path"])]
     return {
         "registered": int(row["registered"]),
         "quarantined_pages": int(row["quarantined"]),
@@ -211,12 +229,15 @@ def corpus() -> dict[str, Any] | None:
     (warehouse); plus the render counts (ticket 005)."""
     from newsrag.ledger import db
     from newsrag.stages.render import stats as render_stats
+    from newsrag.stages.runner import in_corpus
     from newsrag.warehouse import db as wdb
 
+    scope, params = in_corpus()
     with db.conn() as c:
         pages = c.execute(
             "select extract(year from pub_date)::int, count(*) from pages "
-            "where quarantine_reason is null group by 1"
+            f"where quarantine_reason is null and {scope} group by 1",
+            params,
         ).fetchall()
     if not pages:
         return None

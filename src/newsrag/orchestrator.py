@@ -511,6 +511,7 @@ class Orchestrator:
         self.record.update(
             {
                 "started_at": started.isoformat(),
+                "start": started.isoformat(),
                 "tag": o.tag,
                 "options": {
                     "until": o.until,
@@ -560,7 +561,7 @@ class Orchestrator:
         if self.stop_event.is_set():
             self.record["interrupted"] = True
             code = EXIT_INTERRUPTED
-        self.record["finished_at"] = datetime.now(UTC).isoformat()
+        self.record["finished_at"] = self.record["end"] = datetime.now(UTC).isoformat()
         self.record["seconds"] = round(time.monotonic() - clock, 3)
         self.record["exit_code"] = code
         path = self.write_run_file(started)

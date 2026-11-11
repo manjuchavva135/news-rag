@@ -1,4 +1,4 @@
-"""`newsrag stage` commands: run, status, failures, requeue-stale, reset."""
+"""`newsrag stage` commands: run, status, failures, requeue-stale, reset, quarantine-failed."""
 
 from __future__ import annotations
 
@@ -133,3 +133,15 @@ def reset(
     except ValueError as exc:
         raise typer.BadParameter(str(exc)) from None
     typer.echo(f"{name}: deleted {count} rows")
+
+
+@app.command("quarantine-failed")
+def quarantine_failed(name: str) -> None:
+    """Quarantine the pages whose item of this stage failed `max_attempts` times (every page of
+    the date for a date stage); they count against the quarantine bar."""
+    from newsrag.stages.runner import quarantine_failed as do_quarantine
+
+    pages = do_quarantine(_stage(name))
+    for page_id in pages:
+        typer.echo(page_id)
+    typer.echo(f"{name}: quarantined {len(pages)} pages")

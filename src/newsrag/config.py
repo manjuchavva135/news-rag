@@ -290,6 +290,9 @@ class Settings(BaseSettings):
     # --- ledger ---
     ledger_schema: str = "ledger"  # Postgres schema holding the pipeline ledger tables
     max_attempts: int = 3  # a failed item is retried until it has failed this many times
+    # Ticket 031: pages printed before this date are outside the corpus: the runner, `stage
+    # status`, `newsrag run` and the quality report do not see them (their rows stay). None = all.
+    corpus_from_date: date | None = None
 
     # --- ingest ---
     unrar_bin: str = "unrar"  # only needed to extract a .rar archive
@@ -767,6 +770,11 @@ class Settings(BaseSettings):
     runs_dir: Path  # default {reports_dir}/runs: one <UTC timestamp>.json per run
     run_stop_grace_s: float = 600  # after SIGINT/SIGTERM, items in flight get this long to finish
     run_requeue_older_than: str = "2h"  # `stage requeue-stale --older-than` before every run
+
+    # --- preflight ---
+    # `newsrag preflight` (ticket 031): checks before the full-corpus run.
+    preflight_min_free_gb: float = 600  # free disk under raw_root, GB (2**30 bytes), at least
+    nvidia_smi_bin: str = "nvidia-smi"
 
     # --- report ---
     # `newsrag report build` (ticket 030): the phase-1 quality report, index.html + report.json.

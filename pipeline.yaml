@@ -10,3 +10,4 @@ enrich_model: qwen3-30b-a3b
 answer_model: qwen3-30b-a3b
 answer_judge_model: sarvam-m-24b
 embed_model: multilingual-e5-large-instruct
+corpus_from_date: '2026-01-01'

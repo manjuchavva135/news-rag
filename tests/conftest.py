@@ -21,6 +21,7 @@ def pin_model_choices(monkeypatch):
         "answer_model",
         "answer_judge_model",
         "embed_model",
+        "corpus_from_date",  # ticket 031 scopes the real corpus; tests see every date
     )
     pinned = {name: fields[name].default for name in names}
     current = config.settings.model_copy(update=pinned)

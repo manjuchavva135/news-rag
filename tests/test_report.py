@@ -502,3 +502,48 @@ def test_bakeoff_pre_blocks_survive_e4_filter(world, monkeypatch):
     rest = "\n".join(kept)
     assert not re.search(r"https?://", rest)
     assert "<h2>Runs</h2>" in rest  # the filter did not eat the rest of the page
+
+
+def test_bars_constants():
+    """Ticket 031: the seven bar thresholds of ticket 030 FR-2 are unchanged (never lowered)."""
+    assert B.MAX_QUARANTINE_PCT == 1.0
+    assert B.INDEXED_PCT == 100.0
+    assert B.MIN_JUDGE_MEAN == 0.90
+    assert B.MAX_JUDGE_LOW_PCT == 5.0
+    assert B.MAX_INVENTED_PCT == 2.0
+    assert B.MIN_SUPPORTED_PCT == 90.0
+    assert B.TEST_SIGNER == "eval-tester"
+    assert len(B.NAMES) == 7
+
+
+def test_reject_in_corpus(monkeypatch):
+    """Ticket 031: with `corpus_from_date`, rejects from folders of earlier years are left out."""
+    monkeypatch.setattr(
+        config,
+        "settings",
+        config.settings.model_copy(update={"corpus_from_date": date(2026, 1, 1)}),
+    )
+    assert collect.reject_in_corpus("/s/2026/October-2026/08-10-2026/x.pdf")
+    assert not collect.reject_in_corpus("/s/2024/December-2024/18-12-2024/main/out/18V_10.pdf")
+    assert collect.reject_in_corpus("/s/unknown/x.pdf")  # no year: counted
+
+
+@pytest.mark.stores
+def test_pages_input_scoped_to_corpus(ledger, monkeypatch):
+    from newsrag.ledger import db
+
+    db.upsert_page(**_page("old", date(2024, 12, 1), "/s/2024/01-12-2024/01B-MAIN_01.pdf"))
+    db.upsert_page(**_page("new", date(2026, 10, 8), "/s/2026/08-10-2026/08B-MAIN_01.pdf"))
+    db.quarantine_page("old", "render:corrupt")
+    with db.conn() as c:
+        c.execute(
+            "insert into quarantine (source_path, source_archive, reason) values (%s, %s, %s)",
+            ("/s/2024/December-2024/18-12-2024/18V_10.pdf", "a.zip", "bad_filename"),
+        )
+    monkeypatch.setattr(
+        config,
+        "settings",
+        config.settings.model_copy(update={"corpus_from_date": date(2026, 1, 1)}),
+    )
+    data = collect.pages_input()
+    assert (data["registered"], data["quarantined_pages"], data["rejects"]) == (1, 0, 0)

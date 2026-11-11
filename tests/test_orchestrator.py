@@ -596,3 +596,82 @@ def test_cli_registered():
 
     result = CliRunner().invoke(app, ["run", "--help"])
     assert result.exit_code == 0 and "--dry-run" in result.output
+
+
+# --- ticket 031 ------------------------------------------------------------------------------
+
+
+def test_run_file_keys(env, registry):
+    """Run files carry `start`, `end` (ISO 8601, +00:00) and `tag`."""
+    from datetime import datetime
+
+    add_pages(1)
+    register(registry, DummyPage("a"))
+    assert make(registry, tag="full").run() == EXIT_OK
+    run = last_run_file(env)
+    assert run["tag"] == "full"
+    for key in ("start", "end"):
+        assert run[key].endswith("+00:00")
+        datetime.fromisoformat(run[key])
+    assert run["end"] >= run["start"]
+
+
+class FailingDate(DummyDate):
+    def __init__(self, name, fail_dates, **kw):
+        super().__init__(name, **kw)
+        self.fail_dates = set(fail_dates)
+
+    def handle(self, pub_date, pages):
+        if pub_date in self.fail_dates:
+            raise RuntimeError(f"date {pub_date} broke\nsecond line")
+        return super().handle(pub_date, pages)
+
+
+def test_quarantine_failed_date_stage(env, registry):
+    """`stage quarantine-failed <date stage>` quarantines every page of a date that failed
+    max_attempts times; a rerun then leaves nothing eligible."""
+    from newsrag.stages.runner import list_eligible, quarantine_failed
+
+    bad = add_pages(2, D1)
+    good = add_pages(1, D2)
+    register(registry, DummyPage("a"), FailingDate("d", {D1}, depends_on=("a",)))
+    assert make(registry, tag="full").run() == EXIT_OK
+    assert rows("d", "date_runs")[D1]["status"] == "failed"
+    assert sorted(quarantine_failed(registry["d"])) == sorted(bad)
+    with db.conn() as c:
+        reasons = dict(c.execute("select page_id, quarantine_reason from pages").fetchall())
+    assert reasons[bad[0]] == f"stage_failed:d: RuntimeError: date {D1} broke"
+    assert reasons[good[0]] is None
+    assert quarantine_failed(registry["d"]) == []  # already quarantined
+    assert make(registry, tag="full").run() == EXIT_OK
+    assert list_eligible(registry["d"], registry=registry)[0] == []
+
+
+def test_quarantine_failed_page_stage(env, registry):
+    from newsrag.stages.runner import quarantine_failed
+
+    ids = add_pages(2)
+    register(registry, DummyPage("a", fail={ids[1]}))
+    assert make(registry).run() == EXIT_OK
+    assert quarantine_failed(registry["a"]) == [ids[1]]
+    with db.conn() as c:
+        reason = c.execute(
+            "select quarantine_reason from pages where page_id = %s", (ids[1],)
+        ).fetchone()[0]
+    assert reason.startswith("stage_failed:a: ")
+
+
+def test_corpus_from_date_hides_older_pages(env, registry, monkeypatch):
+    """Pages printed before `corpus_from_date` are not run, counted or listed."""
+    from newsrag.stages.runner import stage_counts
+
+    old = add_pages(1, date(2025, 6, 1))
+    new = add_pages(1, D1)
+    monkeypatch.setattr(
+        config, "settings", config.settings.model_copy(update={"corpus_from_date": D1})
+    )
+    a, d = register(registry, DummyPage("a"), DummyDate("d", depends_on=("a",)))
+    assert make(registry, tag="full").run() == EXIT_OK
+    assert a.calls == new and old[0] not in rows("a")
+    assert [day for day, _ in d.calls] == [D1]
+    assert stage_counts(a) == {"done": 1, "failed": 0, "running": 0, "eligible": 0}
