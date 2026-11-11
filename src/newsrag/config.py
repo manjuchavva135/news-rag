@@ -71,12 +71,14 @@ REPO_ROOT_DERIVED = {
     "editions_file": "data/editions.yaml",
     "bakeoff_pages_file": "data/bakeoff-pages.txt",
     "bakeoff_telugu_file": "data/telugu-headlines.txt",
+    "continuations_file": "continuations.yaml",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
 REPORTS_DIR_DERIVED = {
     "ocr_check_dir": "ocr-check",
     "transcribe_spotcheck_file": "transcription-spotcheck.json",
+    "stitch_verify_file": "stitch-verify.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -505,6 +507,24 @@ class Settings(BaseSettings):
     transcribe_spotcheck_max_tokens: int = 8192
     transcribe_spotcheck_file: Path  # default {reports_dir}/transcription-spotcheck.json
 
+    # --- stitch ---
+    # Stage `stitch` (ticket 016): joins the parts of a story that continues on another page.
+    continuations_file: Path  # default {repo_root}/continuations.yaml: the marker regexes
+    stitch_kinds: tuple[str, ...] = ("news", "editorial", "brief_item")  # articles that take part
+    stitch_min_score: float = 0.15  # a link needs at least this word-overlap (Jaccard) score
+    stitch_ambiguity_margin: float = 0.02  # a second candidate this close flags the link
+    stitch_page_ref_bonus: float = 0.2  # added when the continuation's marker names the source page
+    stitch_tail_chars: int = 300  # source end / continuation start compared by word overlap
+    stitch_token_min_chars: int = 2  # Telugu tokens shorter than this are ignored
+    stitch_attach_px: int = 100  # an unassigned marker block joins an article within this distance
+    # `newsrag stitch verify` (NFR-1): the text model answers "same story? yes/no" for each link.
+    stitch_verify_model: str = "qwen3-30b-a3b"
+    stitch_verify_n: int = 20
+    stitch_verify_seed: int = 3
+    stitch_verify_part_chars: int = 600  # source end / continuation start shown to the model
+    stitch_verify_max_tokens: int = 8
+    stitch_verify_file: Path  # default {reports_dir}/stitch-verify.json
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -578,6 +598,7 @@ class Settings(BaseSettings):
         "bakeoff_candidates",
         "transcribe_article_kinds",
         "transcribe_standalone_kinds",
+        "stitch_kinds",
         mode="before",
     )
     @classmethod
