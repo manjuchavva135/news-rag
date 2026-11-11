@@ -50,3 +50,4 @@ All dates `done`, only the 7 category values, `enrich_failed` 0%. Over all five 
 - Dropped names are 10-15% of listed names (mostly inflected forms, ZWNJ differences, places listed as organisations): the verbatim guard works as specified.
 - The worktree has no `envs/vllm`; GPU runs from it need `NEWSRAG_VLLM_ENV_DIR=/home/admin1/news-rag/envs/vllm`.
 - The ledger now has `enrich_core` done rows and artifacts for the five dates under `/home/admin1/raw/work/enrich_core/`.
+- **Acceptance (2026-11-11):** the user accepted option A (about 5.3 stories/s over five dates, 4.90-5.64 per date, in place of >= 5 on every date), the fp8 + n-gram speculation change to the shared `qwen3-30b-a3b` profile, and `enrich_concurrency` = 64.

@@ -28,7 +28,7 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 016 | Continuation stitching (per date) | done | solo | waits for 013: needs final article groups |
 | 017 | Cross-edition story dedup (per date) | done | solo | waits for 016: needs stitched articles; waits for 015: standalone table/notice items |
 | 018 | District and mandal reference list | done | solo | waits for 001: needs repo layout |
-| 019 | Enrichment: category, people/orgs, event date | ready | solo | waits for 017: enriches canonical stories |
+| 019 | Enrichment: category, people/orgs, event date | done | solo | waits for 017: enriches canonical stories |
 | 020 | Enrichment: places and districts | draft | solo | waits for 019: same enrich module; waits for 018: reference list |
 | 021 | Enrichment: amounts as structured facts | draft | solo | waits for 020: same enrich module |
 | 022 | Name alias table | draft | solo | waits for 021: same enrich module, uses its entities |
