@@ -1,6 +1,6 @@
 # 024: Embed and index into stores
 
-**Status:** draft
+**Status:** ready
 **Mode:** solo
 **Runs:** waits for 023: needs chunks
 
