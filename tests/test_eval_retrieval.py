@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
+from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -54,7 +56,13 @@ def test_hit_on_later_chunk_counts():
 
 def test_metrics():
     m = r.metrics([1, None, 2, 11], k=10)
-    assert m == {"n": 4, "recall_at_10": 0.5, "mrr": round((1 + 0.5) / 4, 4)}
+    assert m == {
+        "n": 4,
+        "recall_at_10": 0.5,
+        "mrr": round((1 + 0.5) / 4, 4),
+        "recall_at_1": 0.25,  # ticket 034
+        "recall_at_5": 0.5,
+    }
     assert r.metrics([], 10)["n"] == 0
 
 
@@ -243,11 +251,13 @@ def test_run_retrieval_report(tmp_path: Path):
     assert report["n"] == 3
     assert report["recall_at_10"] == round(2 / 3, 4)
     assert report["mrr"] == round((1 + 0.5) / 3, 4)
-    assert report["by_lang"]["te"] == {"n": 2, "recall_at_10": 0.5, "mrr": 0.5}
-    assert report["by_lang"]["en"] == {"n": 1, "recall_at_10": 1.0, "mrr": 0.5}
+    te, en = report["by_lang"]["te"], report["by_lang"]["en"]
+    assert (te["n"], te["recall_at_10"], te["mrr"]) == (2, 0.5, 0.5)
+    assert (en["n"], en["recall_at_10"], en["mrr"]) == (1, 1.0, 0.5)
     assert json.loads(out.read_text()) == report
     assert set(report) == {"store", "set", "n", "recall_at_10", "mrr", "median_search_ms",
-                           "by_lang"}  # fmt: skip
+                           "by_lang", "k", "hit_overlap", "ngram", "translit_model",
+                           "generation", "per_question"}  # fmt: skip
     assert fake.calls[0]["k"] == 10 and fake.calls[0]["filters"] is None
     assert r.summary_line(report).endswith(" n=3")
 
@@ -301,3 +311,141 @@ def test_embed_profile_flag(tmp_path: Path, monkeypatch):
     assert result.exit_code == 0, result.output
     assert seen["embed_profile"] == "cand" and seen["qdrant_collection"] == "c"
     assert result.output.strip() == "recall@10=0.5000 mrr=0.2500 median_search_ms=12.0 n=2"
+
+
+# --- ticket 034: three languages, 2026 only ---------------------------------------------------
+
+ROMAN = "Tirumala lo vaikunta dwara darshanam tokens eppudu issue chesaru?"
+
+
+def test_te_latn_check():
+    assert r.is_romanized_telugu(ROMAN)
+    assert r.check_question(ROMAN, "te_latn", "h") is None
+    english = "When were the darshan tokens issued in Tirumala?"
+    assert r.check_question(english, "te_latn", "h") == "not in Romanized Telugu"
+    mixed = "Tirumala lo టోకెన్లు eppudu issue chesaru?"
+    assert r.check_question(mixed, "te_latn", "h") == "not in Romanized Telugu"
+    assert r.check_question(ROMAN, "en", "h") == "not in English"  # never counted as English
+    assert r.check_question(english, "en", "h") is None
+
+
+def test_te_latn_prompt_asks_for_latin_letters():
+    p = r.question_prompt(story(1, date(2026, 10, 8)), "te_latn")
+    assert "Latin" in p and "Do not use any Telugu script letters" in p
+
+
+def test_parse_langs():
+    assert r.parse_langs("te:100,en:100,te_latn:100", 300) == {"te": 100, "en": 100, "te_latn": 100}
+    with pytest.raises(ValueError, match=r"must sum to --n \(100 != 300\)"):
+        r.parse_langs("te:50,en:50", 300)
+    with pytest.raises(ValueError, match="unknown language xx"):
+        r.parse_langs("te:150,xx:150", 300)
+    with pytest.raises(ValueError, match="bad --langs"):
+        r.parse_langs("te=300", 300)
+
+
+def test_scale_langs_shortfall_proportional():
+    assert r.scale_langs({"te": 100, "en": 100, "te_latn": 100}, 300) == {
+        "te": 100,
+        "en": 100,
+        "te_latn": 100,
+    }
+    scaled = r.scale_langs({"te": 100, "en": 100, "te_latn": 100}, 200)
+    assert sum(scaled.values()) == 200 and max(scaled.values()) - min(scaled.values()) <= 1
+
+
+def three_ask(prompt: str) -> str:
+    sid = prompt.rsplit("కథనం ", 1)[-1].split()[0]
+    if "Telugu script." in prompt:
+        q = f"కథనం సంఖ్య {sid} లో ఏమి జరిగింది?"
+    elif "phone keyboard" in prompt:
+        q = f"Katha number {sid} lo emi jarigindi eppudu?"
+    else:
+        q = f"What happened in story number {sid}?"
+    return json.dumps({"question": q}, ensure_ascii=False)
+
+
+def test_build_langs_and_from_date(tmp_path: Path):
+    stories = [story(i, date(2025, 6, 10)) for i in range(20)]  # before from_date
+    stories += [story(100 + i, date(2026, 10, 1 + i % 20)) for i in range(20)]
+    stories += [story(200 + i, date(2026, 11, 1 + i % 9)) for i in range(20)]
+    out = tmp_path / "set.jsonl"
+    echoed: list[str] = []
+    summary = r.build_retrieval_set(
+        n=30,
+        seed=7,
+        out=out,
+        window_n=0,
+        ask=three_ask,
+        stories=stories,
+        echo=echoed.append,
+        langs={"te": 10, "en": 10, "te_latn": 10},
+        from_date=date(2026, 1, 1),
+    )
+    lines = r.read_set(out)
+    assert summary["by_lang"] == {"te": 10, "en": 10, "te_latn": 10}
+    assert all(x["pub_date"] >= "2026-01-01" for x in lines)
+    assert not any(x["in_baseline_window"] for x in lines)
+    assert {x["pub_date"][:7] for x in lines} == {"2026-10", "2026-11"}
+    meta = json.loads(r.meta_file(out).read_text())
+    assert meta["from_date"] == "2026-01-01" and meta["stories_available"] == 40
+    assert meta["writer_model"] and meta["langs"] == {"te": 10, "en": 10, "te_latn": 10}
+    assert meta["sha1"] == hashlib.sha1(out.read_bytes()).hexdigest()
+
+
+def test_build_langs_shortfall(tmp_path: Path):
+    stories = [story(100 + i, date(2026, 10, 1 + i)) for i in range(6)]
+    echoed: list[str] = []
+    summary = r.build_retrieval_set(
+        n=9,
+        seed=7,
+        out=tmp_path / "set.jsonl",
+        window_n=0,
+        ask=three_ask,
+        stories=stories,
+        echo=echoed.append,
+        langs={"te": 3, "en": 3, "te_latn": 3},
+    )
+    assert summary["by_lang"] == {"te": 2, "en": 2, "te_latn": 2}
+    assert {"short: lang te -1", "short: lang en -1", "short: lang te_latn -1"} <= set(echoed)
+
+
+@dataclass
+class _T:
+    query: str
+    text: str
+    failed: bool
+
+
+def test_translit_pass_and_recall_at(tmp_path: Path):
+    set_file, out = tmp_path / "set.jsonl", tmp_path / "rep.json"
+    rows = [
+        {"qid": "q1", "lang": "te_latn", "question": "c", "gold_page_ids": ["P0", "P1"],
+         "gold_text": GOLD, "in_baseline_window": False},
+        {"qid": "q2", "lang": "te", "question": "a", "gold_page_ids": ["P1"], "gold_text": GOLD,
+         "in_baseline_window": False},
+    ]  # fmt: skip
+    set_file.write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in rows))
+    order: list[str] = []
+
+    def translit_fn(queries):
+        order.append("translit")
+        return [_T(q, "a", False) for q in queries]  # "a": correct at rank 1
+
+    fake = FakeSearch()
+
+    def search(query, **kw):
+        order.append("search")
+        return fake(query, **kw)
+
+    report = r.run_retrieval(
+        set_file=set_file, out=out, search_fn=search, translit=True, translit_fn=translit_fn
+    )
+    assert order[0] == "translit" and order.count("translit") == 1  # all first, then searches
+    latn, after = report["by_lang"]["te_latn"], report["by_lang"]["te_latn_translit"]
+    assert (latn["n"], latn["recall_at_1"], latn["recall_at_10"]) == (1, 0.0, 1.0)
+    assert (after["n"], after["recall_at_1"]) == (1, 1.0)
+    q1 = report["per_question"][0]
+    assert q1["translit_query"] == "a" and q1["rank"] == 2 and q1["rank_translit"] == 1
+    assert q1["translit_failed"] is False and "top1_headline_translit" in q1
+    assert report["n"] == 2  # overall uses the as-typed run

@@ -80,6 +80,8 @@ REPO_ROOT_DERIVED = {
     "baseline_compose_file": "docker/docker-compose.baseline.yml",
     "baseline_set_file": "data/eval/retrieval-baseline-v1.jsonl",
     "customer_questions_file": "data/eval/customer-questions.json",
+    "te_latn_markers_file": "data/eval/te-latn-markers.txt",
+    "eval_2026_set_file": "data/eval/retrieval-2026.jsonl",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -103,6 +105,9 @@ REPORTS_DIR_DERIVED = {
     "customer_answers_file": "customer-answers.json",
     "customer_signoff_file": "customer-answers-signoff.json",
     "quality_report_dir": "quality",
+    "eval_2026_retrieval_file": "retrieval-2026.json",
+    "eval_2026_answers_file": "answers-2026.json",
+    "eval_2026_report_file": "eval-2026.md",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -697,6 +702,14 @@ class Settings(BaseSettings):
     customer_judge_retries: int = 2  # an unparseable judge reply is asked again this many times
     customer_judge_max_tokens: int = 64
     customer_concurrency: int = 16  # parallel answer / judge requests
+    # Ticket 034: the trilingual 2026 test (Telugu, English, Romanized Telugu `te_latn`), the
+    # transliteration of Romanized queries and the graded answer check.
+    retrieval_te_latn_min_markers: int = 2  # marker words a Romanized Telugu question needs
+    te_latn_markers_file: Path  # default {repo_root}/data/eval/te-latn-markers.txt (committed)
+    eval_2026_set_file: Path  # default {repo_root}/data/eval/retrieval-2026.jsonl (committed)
+    eval_2026_retrieval_file: Path  # default {reports_dir}/retrieval-2026.json
+    eval_2026_answers_file: Path  # default {reports_dir}/answers-2026.json (+ .md next to it)
+    eval_2026_report_file: Path  # default {reports_dir}/eval-2026.md
 
     # --- embed_bakeoff ---
     # `newsrag embed bakeoff` (ticket 026): every candidate embeds the active generation's chunks

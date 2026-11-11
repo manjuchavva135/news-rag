@@ -43,3 +43,4 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 031 | Full-corpus run and phase-1 sign-off | draft | solo | waits for 030: needs report; waits for 014: chosen grouping model; waits for 032: chosen text model |
 | 032 | Text model Telugu bake-off | done | solo | waits for 017: needs canonical stories; waits for 006: model runner |
 | 033 | Grouping retry for Gemma 4 (second sample, not resolution) | draft | solo | waits for 014: group_model is gemma4-31b |
+| 034 | Trilingual 2026 test (retrieval + answers) | draft | solo | waits for 031: needs the 2026 corpus indexed and activated (FR-2, FR-3), not its sign-off |

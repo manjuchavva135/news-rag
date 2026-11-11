@@ -32,10 +32,22 @@ def search(
     query: Annotated[str, typer.Argument(help="The question or keywords.")],
     k: Annotated[int, typer.Option("--k", help="Hits to print.")] = 10,
     store: Annotated[str, typer.Option(help="new | baseline")] = "new",
+    translit: Annotated[
+        bool, typer.Option("--translit", help="Rewrite a Romanized Telugu query in Telugu script.")
+    ] = False,
 ) -> None:
     """Print the top hits: rank, score, date, first page id, headline."""
     from newsrag import search as search_mod
 
+    if translit:
+        from newsrag.search.translit import to_telugu_many
+
+        (result,) = to_telugu_many([query])  # the model is released before the search
+        if result.failed:
+            typer.echo("translit: failed, searching as typed")
+        else:
+            typer.echo(f"translit: {result.text}")
+            query = result.text
     try:
         hits = search_mod.search(query, k=k, store=store)
     except search_mod.StoreNotConfigured as e:
