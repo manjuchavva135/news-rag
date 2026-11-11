@@ -1,4 +1,5 @@
-"""`newsrag enrich`: statistics and the quality check of `enrich_core` (ticket 019 FR-5, NFR-1)."""
+"""`newsrag enrich`: statistics and the quality check of `enrich_core` (ticket 019 FR-5, NFR-1),
+and the place statistics (ticket 020 FR-5)."""
 
 from __future__ import annotations
 
@@ -64,15 +65,61 @@ def _done_runs(days: list[str] | None) -> tuple[list[dict[str, Any]], list[dict[
     return artifacts, details
 
 
+def _done_place_artifacts(days: list[str] | None) -> list[dict[str, Any]]:
+    """The artifacts of the done `enrich_places` runs of the given dates (default all)."""
+    from newsrag import enrich
+
+    if not days:
+        return [enrich.read_artifact(p) for p in enrich.done_artifacts("enrich_places").values()]
+    found = {}
+    for d in days:
+        found.update(enrich.done_artifacts("enrich_places", d))
+    return [enrich.read_artifact(p) for _, p in sorted(found.items())]
+
+
+def _places_stats(days: list[str] | None) -> None:
+    from newsrag.enrich import places
+
+    artifacts = _done_place_artifacts(days)
+    if not artifacts:
+        typer.echo(
+            f"no done enrich_places artifact for {', '.join(days) if days else 'any date'}",
+            err=True,
+        )
+        raise typer.Exit(1)
+    out = places.place_totals(artifacts)
+    typer.echo(f"places_per_story={out['places_per_story']}")
+    for kind in places.RESOLVED_TYPES:
+        t = out[kind]
+        typer.echo(
+            f"{kind}: resolved={t['resolved']} ambiguous={t['ambiguous']} "
+            f"unresolved={t['unresolved']}"
+        )
+    typer.echo(f"combined_resolved={out['combined_resolved']}")
+    typer.echo("top_unresolved (count name):")
+    for name, count in out["top_unresolved"]:
+        typer.echo(f"{count} {name}")
+
+
 @app.command()
 def stats(
     day: Annotated[
         list[str] | None,
         typer.Option("--date", help="Print date YYYY-MM-DD, repeatable (default: all done dates)."),
     ] = None,
+    places: Annotated[
+        bool,
+        typer.Option("--places", help="Statistics of `enrich_places` instead of `enrich_core`."),
+    ] = False,
 ) -> None:
     """Prints category counts, people and organisations per story, dropped names, event dates that
-    differ from the print date, failed stories and stories per second of `enrich_core`."""
+    differ from the print date, failed stories and stories per second of `enrich_core`; with
+    `--places` the place statistics of `enrich_places`: places per story, the share of resolved /
+    ambiguous / unresolved district, mandal and city places, `combined_resolved` and the most
+    frequent unresolved names."""
+    if places:
+        _places_stats(day)
+        return
     artifacts, details = _done_runs(day)
     if not artifacts:
         typer.echo(
