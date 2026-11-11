@@ -117,53 +117,67 @@ def parse_reply(reply: str, count: int) -> dict[int, str]:
     return verdicts
 
 
-def check_item(data: Mapping[str, Any], item: Mapping[str, Any], ask: Ask) -> dict[str, Any]:
-    """The per-item result: its lines with the judge's verdicts."""
+def judge_lines(image: bytes, lines: Sequence[str], ask: Ask) -> tuple[dict[int, str], str | None]:
+    """(verdict per line number, error) for `lines` checked against `image`."""
     from newsrag.models.client import build_messages
 
-    s = config.settings
-    lines = item_lines(item)
-    long_side = (
-        s.transcribe_article_max_px if item["source"] == "article" else s.transcribe_block_max_px
-    )
-    result: dict[str, Any] = {
-        "item_id": item["item_id"],
-        "type": item["type"],
-        "lines": [],
-        "error": None,
-    }
-    if not lines:
-        return result
-    image = tr.crop_jpeg(data, item["block_ids"], long_side)
     messages = build_messages(prompt_text(lines), [image])
-    verdicts: dict[int, str] = {}
     sent = list(messages)
-    for _ in range(s.transcribe_parse_retries + 1):
+    error: str | None = None
+    for _ in range(config.settings.transcribe_parse_retries + 1):
         try:
             reply = ask(sent, len(lines))
         except parse.TooLong as exc:
-            result["error"] = f"too long: {exc}"
-            break
+            return {}, f"too long: {exc}"
         try:
             verdicts = parse_reply(reply, len(lines))
         except parse.SchemaError as exc:
-            result["error"] = str(exc)
+            error = str(exc)
             sent = [
                 *messages,
                 {"role": "assistant", "content": reply},
                 {"role": "user", "content": f"Your reply was not valid: {exc}\nAnswer again."},
             ]
             continue
-        result["error"] = None
         missing = len(lines) - len(verdicts)
-        if missing:
-            result["error"] = f"{missing} lines without a verdict (counted as unsure)"
-        break
-    result["lines"] = [
-        {"n": n, "text": line, "verdict": verdicts.get(n, NO_ANSWER)}
-        for n, line in enumerate(lines, start=1)
-    ]
-    return result
+        return verdicts, (
+            f"{missing} lines without a verdict (counted as unsure)" if missing else None
+        )
+    return {}, error
+
+
+def check_item(data: Mapping[str, Any], item: Mapping[str, Any], ask: Ask) -> dict[str, Any]:
+    """The per-item result: its lines with the judge's verdicts. An item read in strips
+    (`parts`) is checked strip by strip, each against its own full-resolution crop."""
+    s = config.settings
+    long_side = (
+        s.transcribe_article_max_px if item["source"] == "article" else s.transcribe_block_max_px
+    )
+    if item.get("parts"):
+        pieces = [
+            (tr.box_jpeg(data, p["bbox"], long_side), item_lines({"markdown": p["markdown"]}))
+            for p in item["parts"]
+        ]
+    else:
+        lines = item_lines(item)
+        pieces = [(tr.crop_jpeg(data, item["block_ids"], long_side), lines)] if lines else []
+    out: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for image, lines in pieces:
+        if not lines:
+            continue
+        verdicts, error = judge_lines(image, lines, ask)
+        if error:
+            errors.append(error)
+        for n, line in enumerate(lines, start=1):
+            out.append({"n": len(out) + 1, "text": line, "verdict": verdicts.get(n, NO_ANSWER)})
+    return {
+        "item_id": item["item_id"],
+        "type": item["type"],
+        "parts": len(item.get("parts") or []),
+        "lines": out,
+        "error": "; ".join(errors) or None,
+    }
 
 
 def invented_pct(results: Sequence[Mapping[str, Any]]) -> float | None:

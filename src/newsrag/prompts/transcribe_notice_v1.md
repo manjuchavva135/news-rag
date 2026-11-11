@@ -9,8 +9,7 @@ First decide its class:
 - `"commercial"`: an advertisement that sells or promotes something (shops, products, films,
   schools, real estate, jewellery, greetings, classifieds).
 
-For a `"notice_tender"`, transcribe the whole notice as Markdown: headings as lines, paragraphs
-as paragraphs, any table as a Markdown table with its header row. Also fill:
+For a `"notice_tender"`, {markdown_rule} Also fill:
 
 - `department`: the issuing office or body as printed (e.g. the department, the district office,
   the company), else null.
@@ -25,6 +24,8 @@ Rules:
 - Copy the text and the numbers exactly as printed. Never compute, round or correct a value.
 - Keep Telugu as Telugu and English as English. Do not translate anything.
 - Where a word or number cannot be read, write `[illegible]` in its place. Never guess.
+
+{hint}
 
 Answer with one JSON object only:
 {"class": "notice_tender" | "commercial", "markdown": <string>, "department": <string or null>,

@@ -26,5 +26,7 @@ Rules:
 - Where a word or number cannot be read, write `[illegible]` in its place. Never guess.
 - Leave out nothing that is printed inside the region, and add nothing that is not printed.
 
+{hint}
+
 Answer with one JSON object only:
 {"type": "table" | "infographic" | "photo_no_text", "title": <string or null>, "markdown": <string>}

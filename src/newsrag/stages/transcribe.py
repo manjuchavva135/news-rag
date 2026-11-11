@@ -41,7 +41,9 @@ from newsrag.stages.base import (
 PROMPTS = Path(__file__).resolve().parents[1] / "prompts"
 BLOCK_PROMPT_FILE = PROMPTS / "transcribe_v1.md"
 NOTICE_PROMPT_FILE = PROMPTS / "transcribe_notice_v1.md"
-PROMPT_VERSION = 1
+PART_PROMPT_FILE = PROMPTS / "transcribe_part_v1.md"
+# 2: the indic-ocr text goes along as a spelling reference; big notices are read in strips
+PROMPT_VERSION = 2
 JPEG_QUALITY = 92
 FAILED = "low_confidence:transcribe_failed"
 LOW = "low_confidence:"
@@ -58,17 +60,21 @@ VERSION_SETTINGS = [
     "transcribe_article_max_px",
     "transcribe_max_tokens",
     "transcribe_parse_retries",
+    "transcribe_tile_max_mp",
+    "transcribe_tile_overlap_px",
+    "transcribe_hint_chars",
     "transcribe_article_kinds",
     "transcribe_standalone_kinds",
     "table_labels",
     "figure_labels",
     "chart_labels",
 ]
-PROMPT_FILES = [BLOCK_PROMPT_FILE, NOTICE_PROMPT_FILE]
+PROMPT_FILES = [BLOCK_PROMPT_FILE, NOTICE_PROMPT_FILE, PART_PROMPT_FILE]
 
 Ask = Callable[..., str]  # ask(messages, max_items=None) -> the model's reply text
 BLOCK_REQUEST = 1  # `max_items` of a block request: `make_create` sends the block schema
 NOTICE_REQUEST = 2  # ... of an article (notice/ad) request: the notice schema
+PART_REQUEST = 3  # ... of one strip of a big notice: `{"markdown"}`
 
 
 # --- which regions ------------------------------------------------------------------------------
@@ -173,26 +179,52 @@ def union_box(boxes: Sequence[Sequence[float]]) -> tuple[float, float, float, fl
     )
 
 
-def crop_jpeg(data: Mapping[str, Any], block_ids: Sequence[str], long_side: int) -> bytes:
-    """JPEG of the union box of `block_ids` with `transcribe_pad_px` margin, shrunk (never grown)
-    to `long_side`."""
-    from PIL import Image
+Box = tuple[int, int, int, int]
 
+
+def _page_image(data: Mapping[str, Any]) -> Path:
     s = config.settings
-    blocks = {b["block_id"]: b for b in data.get("blocks") or []}
     image = (data.get("image") or {}).get("path") or Path(s.images_dir) / f"{data['page_id']}.png"
     if not Path(image).is_file():
         raise FileNotFoundError(f"rendered page missing: {image}")
+    return Path(image)
+
+
+def region_box(data: Mapping[str, Any], block_ids: Sequence[str]) -> Box:
+    """The union box of `block_ids` with `transcribe_pad_px` margin, inside the page."""
+    from PIL import Image
+
+    pad = config.settings.transcribe_pad_px
+    blocks = {b["block_id"]: b for b in data.get("blocks") or []}
     x1, y1, x2, y2 = union_box([blocks[b]["bbox"] for b in block_ids])
-    pad = s.transcribe_pad_px
-    with Image.open(image) as page:
-        box = (
-            max(0, round(x1) - pad),
-            max(0, round(y1) - pad),
-            min(page.width, round(x2) + pad),
-            min(page.height, round(y2) + pad),
+    image = data.get("image") or {}
+    width, height = image.get("width"), image.get("height")
+    if not (width and height):
+        with Image.open(_page_image(data)) as page:
+            width, height = page.size
+    return (
+        max(0, round(x1) - pad),
+        max(0, round(y1) - pad),
+        min(int(width), round(x2) + pad),
+        min(int(height), round(y2) + pad),
+    )
+
+
+def crop_jpeg(data: Mapping[str, Any], block_ids: Sequence[str], long_side: int) -> bytes:
+    """JPEG of the union box of `block_ids` with `transcribe_pad_px` margin, shrunk (never grown)
+    to `long_side`."""
+    return box_jpeg(data, region_box(data, block_ids), long_side)
+
+
+def box_jpeg(data: Mapping[str, Any], box: Sequence[int], long_side: int) -> bytes:
+    """JPEG of `box` (page pixels) of the rendered page, shrunk (never grown) to `long_side`."""
+    from PIL import Image
+
+    with Image.open(_page_image(data)) as page:
+        x1, y1, x2, y2 = (int(v) for v in box)
+        picture = page.convert("RGB").crop(
+            (max(0, x1), max(0, y1), min(page.width, x2), min(page.height, y2))
         )
-        picture = page.convert("RGB").crop(box)
     longest = max(picture.size)
     if longest > long_side:
         scale = long_side / longest
@@ -201,6 +233,69 @@ def crop_jpeg(data: Mapping[str, Any], block_ids: Sequence[str], long_side: int)
     buf = io.BytesIO()
     picture.save(buf, format="JPEG", quality=JPEG_QUALITY, subsampling=0)
     return buf.getvalue()
+
+
+def tiles(box: Box, block_boxes: Sequence[Sequence[float]]) -> list[Box]:
+    """Horizontal strips of `box`, top to bottom, each at most `transcribe_tile_max_mp`
+    megapixels. A strip ends on a line no block crosses when there is one in its lower 70 %;
+    otherwise it is cut at its full height and the next strip starts
+    `transcribe_tile_overlap_px` higher. One strip when the box is small enough."""
+    s = config.settings
+    x1, y1, x2, y2 = box
+    width = max(1, x2 - x1)
+    max_h = max(256, int(s.transcribe_tile_max_mp * 1_000_000 / width))
+    if (y2 - y1) <= max_h:
+        return [box]
+    spans = [(float(b[1]), float(b[3])) for b in block_boxes]
+    cuts = sorted({round(v) for top, bottom in spans for v in (top, bottom)})
+
+    def free(y: int) -> bool:
+        return all(not (top < y < bottom) for top, bottom in spans)
+
+    out: list[Box] = []
+    top = y1
+    while y2 - top > max_h:
+        low, high = top + int(max_h * 0.3), top + max_h
+        good = [y for y in cuts if low <= y <= high and free(y)]
+        if good:
+            out.append((x1, top, x2, good[-1]))
+            top = good[-1]
+        else:
+            out.append((x1, top, x2, high))
+            top = high - s.transcribe_tile_overlap_px
+    out.append((x1, top, x2, y2))
+    return out
+
+
+HINT_INTRO = (
+    "Reference text read from this region by an OCR engine, in reading order. It can have "
+    "mistakes and can miss text (tables come as HTML). Use it to spell words, names and numbers "
+    "exactly as printed wherever the image shows the same text; the image decides what is "
+    "there, its order and its structure. Never copy reference text that is not in the image."
+)
+
+
+def hint_text(blocks: Sequence[Mapping[str, Any]], chars: int) -> str:
+    """The OCR reference for a prompt (the blocks' texts in `order`), or "" when there is none."""
+    texts = [
+        str(b.get("text") or "").strip() for b in sorted(blocks, key=lambda b: int(b["order"]))
+    ]
+    body = "\n".join(t for t in texts if t)[:chars].strip()
+    if not body or chars <= 0:
+        return ""
+    return f"{HINT_INTRO}\n<<<\n{body}\n>>>"
+
+
+def blocks_in(data: Mapping[str, Any], block_ids: Sequence[str], box: Box) -> list[dict]:
+    """The blocks of `block_ids` whose centre lies in `box` (y only: strips span the width)."""
+    wanted = set(block_ids)
+    out = []
+    for b in data.get("blocks") or []:
+        if b["block_id"] in wanted:
+            cy = (float(b["bbox"][1]) + float(b["bbox"][3])) / 2
+            if box[1] <= cy < box[3]:
+                out.append(b)
+    return out
 
 
 # --- talking to the model -----------------------------------------------------------------------
@@ -244,9 +339,24 @@ NOTICE_FORMAT = {
 }
 
 
+PART_FORMAT = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "part",
+        "schema": {
+            "type": "object",
+            "properties": {"markdown": {"type": "string"}},
+            "required": ["markdown"],
+            "additionalProperties": False,
+        },
+    },
+}
+FORMATS = {BLOCK_REQUEST: BLOCK_FORMAT, NOTICE_REQUEST: NOTICE_FORMAT, PART_REQUEST: PART_FORMAT}
+
+
 def make_create(client: Any) -> Callable[..., Any]:
-    """`create(messages, max_items)` on a `ModelClient`: temperature 0, the block schema
-    (`BLOCK_REQUEST`) or the notice schema (`NOTICE_REQUEST`)."""
+    """`create(messages, max_items)` on a `ModelClient`: temperature 0, the schema of the request
+    kind (`BLOCK_REQUEST`, `NOTICE_REQUEST` or `PART_REQUEST`)."""
     s = config.settings
     raw = client.raw.with_options(timeout=s.group_request_timeout_s, max_retries=0)
 
@@ -256,7 +366,7 @@ def make_create(client: Any) -> Callable[..., Any]:
             messages=messages,
             temperature=0,
             max_tokens=s.transcribe_max_tokens,
-            response_format=NOTICE_FORMAT if max_items == NOTICE_REQUEST else BLOCK_FORMAT,
+            response_format=FORMATS.get(max_items or BLOCK_REQUEST, BLOCK_FORMAT),
         )
 
     return create
@@ -308,6 +418,18 @@ def parse_block(reply: str) -> dict[str, Any]:
     return {"type": kind, "title": _opt_str(data, "title"), "markdown": markdown.strip()}
 
 
+def parse_part(reply: str) -> dict[str, Any]:
+    """`{markdown}` of a strip reply."""
+    try:
+        data = parse_json_reply(reply)
+    except ValueError as exc:
+        raise parse.SchemaError(str(exc)) from None
+    markdown = data.get("markdown") if isinstance(data, dict) else None
+    if not isinstance(markdown, str):
+        raise parse.SchemaError('the reply must be {"markdown": <string>}')
+    return {"markdown": markdown.strip()}
+
+
 def parse_notice(reply: str) -> dict[str, Any]:
     """`{class, markdown, department, notice_number, deadline}` of a notice reply."""
     try:
@@ -339,13 +461,10 @@ def request(
     retries: int,
 ) -> dict[str, Any] | None:
     """The parsed reply, asking again with the error up to `retries` times; None when no reply
-    was valid (or the reply did not fit `transcribe_max_tokens`)."""
+    was valid. `parse.TooLong` (the request or the reply does not fit) is raised."""
     sent = list(messages)
     for _ in range(retries + 1):
-        try:
-            reply = ask(sent, kind)
-        except parse.TooLong:
-            return None
+        reply = ask(sent, kind)
         try:
             return parser(reply)
         except parse.SchemaError as exc:
@@ -381,36 +500,111 @@ def _item(target: Target, **fields: Any) -> dict[str, Any]:
     }
 
 
+def request_with_hint(
+    ask: Ask,
+    prompt: Callable[[str], str],
+    image: bytes,
+    hint_blocks: Sequence[Mapping[str, Any]],
+    kind: int,
+    parser: Callable[[str], dict[str, Any]],
+) -> dict[str, Any] | None:
+    """One request with the OCR reference of `hint_blocks` in the prompt (`prompt(hint)` builds
+    it). A request that does not fit is sent again with a third of the reference, then with
+    none; None when no reply was valid or nothing fits."""
+    from newsrag.models.client import build_messages
+
+    s = config.settings
+    chars = s.transcribe_hint_chars
+    for limit in dict.fromkeys((chars, chars // 3, 0)):
+        messages = build_messages(prompt(hint_text(hint_blocks, limit)), [image])
+        try:
+            return request(ask, messages, kind, parser, s.transcribe_parse_retries)
+        except parse.TooLong:
+            continue
+    return None
+
+
+def _fill(template: str, **values: Any) -> str:
+    for key, value in values.items():
+        template = template.replace("{" + key + "}", str(value))
+    return template
+
+
+NOTICE_WHOLE = (
+    "transcribe the whole notice as Markdown: headings as lines, paragraphs as paragraphs, any "
+    "table as a Markdown table with its header row (the first printed row if no header is "
+    "printed; never an empty header row)."
+)
+NOTICE_STRIPS = (
+    'write `markdown` as an empty string "" (the notice is big: its text is read separately, '
+    "strip by strip)."
+)
+
+
+def read_notice(
+    data: Mapping[str, Any], target: Target, ask: Ask
+) -> tuple[dict[str, Any] | None, str]:
+    """A whole notice/ad article. The overview request decides the class and the fields (and,
+    for a crop within `transcribe_tile_max_mp`, the text); a bigger notice's text is read strip
+    by strip at full resolution and the strips are kept as `parts`."""
+    s = config.settings
+    blocks = [b for b in data.get("blocks") or [] if b["block_id"] in set(target.block_ids)]
+    box = region_box(data, target.block_ids)
+    strips = tiles(box, [b["bbox"] for b in blocks])
+    template = NOTICE_PROMPT_FILE.read_text(encoding="utf-8")
+    rule = NOTICE_WHOLE if len(strips) == 1 else NOTICE_STRIPS
+    got = request_with_hint(
+        ask,
+        lambda hint: _fill(template, markdown_rule=rule, hint=hint),
+        box_jpeg(data, box, s.transcribe_article_max_px),
+        blocks,
+        NOTICE_REQUEST,
+        parse_notice,
+    )
+    if got is None:
+        return None, "failed"
+    if got["class"] == "commercial":
+        return _item(target, type="commercial"), "kept"
+    fields = {k: got[k] for k in ("department", "notice_number", "deadline")}
+    if len(strips) == 1:
+        return _item(target, type="notice_tender", markdown=got["markdown"], **fields), "kept"
+    part_template = PART_PROMPT_FILE.read_text(encoding="utf-8")
+    parts: list[dict[str, Any]] = []
+    for n, strip in enumerate(strips, start=1):
+        part = request_with_hint(
+            ask,
+            lambda hint, n=n: _fill(part_template, part=n, parts=len(strips), hint=hint),
+            box_jpeg(data, strip, s.transcribe_article_max_px),
+            blocks_in(data, target.block_ids, strip),
+            PART_REQUEST,
+            parse_part,
+        )
+        if part is None:
+            return None, "failed"
+        parts.append({"bbox": list(strip), "markdown": part["markdown"]})
+    markdown = "\n\n".join(p["markdown"] for p in parts if p["markdown"])
+    item = _item(target, type="notice_tender", markdown=markdown, **fields)
+    item["parts"] = parts
+    return item, "kept"
+
+
 def read_target(
     data: Mapping[str, Any], target: Target, ask: Ask
 ) -> tuple[dict[str, Any] | None, str]:
     """(item or None, outcome): outcome is `kept`, `photo_no_text` or `failed`."""
-    from newsrag.models.client import build_messages
-
-    s = config.settings
-    retries = s.transcribe_parse_retries
     if target.source == "article":
-        image = crop_jpeg(data, target.block_ids, s.transcribe_article_max_px)
-        prompt = NOTICE_PROMPT_FILE.read_text(encoding="utf-8")
-        got = request(ask, build_messages(prompt, [image]), NOTICE_REQUEST, parse_notice, retries)
-        if got is None:
-            return None, "failed"
-        if got["class"] == "commercial":
-            return _item(target, type="commercial"), "kept"
-        return (
-            _item(
-                target,
-                type="notice_tender",
-                markdown=got["markdown"],
-                department=got["department"],
-                notice_number=got["notice_number"],
-                deadline=got["deadline"],
-            ),
-            "kept",
-        )
-    image = crop_jpeg(data, target.block_ids, s.transcribe_block_max_px)
-    prompt = BLOCK_PROMPT_FILE.read_text(encoding="utf-8")
-    got = request(ask, build_messages(prompt, [image]), BLOCK_REQUEST, parse_block, retries)
+        return read_notice(data, target, ask)
+    s = config.settings
+    template = BLOCK_PROMPT_FILE.read_text(encoding="utf-8")
+    blocks = [b for b in data.get("blocks") or [] if b["block_id"] in set(target.block_ids)]
+    got = request_with_hint(
+        ask,
+        lambda hint: _fill(template, hint=hint),
+        crop_jpeg(data, target.block_ids, s.transcribe_block_max_px),
+        blocks,
+        BLOCK_REQUEST,
+        parse_block,
+    )
     if got is None:
         return None, "failed"
     if got["type"] == "photo_no_text":

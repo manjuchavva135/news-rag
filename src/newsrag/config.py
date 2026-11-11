@@ -487,6 +487,14 @@ class Settings(BaseSettings):
     transcribe_article_max_px: int = 3072
     transcribe_max_tokens: int = 8192  # reply length of one transcription
     transcribe_parse_retries: int = 2  # invalid JSON / value outside the enums: ask again
+    # A notice crop larger than this (megapixels at 300 DPI) is read in strips cut between its
+    # blocks (the VLM sees ~2.6 MP per image: bigger crops get shrunk and small Telugu misread).
+    # A strip that has to cut through a block overlaps the next one by transcribe_tile_overlap_px.
+    transcribe_tile_max_mp: float = 2.4
+    transcribe_tile_overlap_px: int = 48
+    # The indic-ocr text of the region goes with every request as a spelling reference, cut to
+    # this many characters (a request that does not fit is sent with a third, then without).
+    transcribe_hint_chars: int = 4000
     # Articles of these kinds are read whole (notice or commercial, the VLM decides) ...
     transcribe_article_kinds: tuple[str, ...] = ("notice_tender", "ad_commercial")
     # ... and table/infographic blocks of these kinds' articles become standalone items.

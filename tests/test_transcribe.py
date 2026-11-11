@@ -407,7 +407,7 @@ def test_lazy_model(data, tmp_path, monkeypatch, set_settings):
     stage = TranscribeStage()
     assert stage.models_needed == (config.settings.group_model,)
     assert stage.concurrency == config.settings.group_concurrency
-    assert stage.version.startswith(f"{config.settings.group_model}-transcribe-p1-")
+    assert stage.version.startswith(f"{config.settings.group_model}-transcribe-p2-")
     stage.open()
     first = stage.handle(page_row("P0"))
     assert fake.opened == []  # no target: no model
@@ -467,3 +467,137 @@ def test_spotcheck_report(data, monkeypatch, tmp_path, set_settings):
     assert report["invented_pct"] == round(4 / 9 * 100, 2)
     assert f"invented_pct={report['invented_pct']:.2f}" in result.output
     assert fake.opened == [config.settings.judge_model]
+
+
+# --- tiles and the OCR hint (user decision 2026-11-11, D-6) ----------------------------------
+
+
+def test_tiles_cut_between_blocks(set_settings):
+    # 1000 px wide, 0.3 MP -> strips of at most 300 px; cuts in the gaps 240-260, 490-510
+    set_settings(transcribe_tile_max_mp=0.3, transcribe_tile_overlap_px=20)
+    boxes = [(0, 0, 1000, 240), (0, 260, 1000, 490), (0, 510, 1000, 700)]
+    strips = tr.tiles((0, 0, 1000, 700), boxes)
+    assert strips == [(0, 0, 1000, 260), (0, 260, 1000, 510), (0, 510, 1000, 700)]
+    for top, bottom in [(s[1], s[3]) for s in strips]:  # no block crosses a cut
+        assert all(not (b[1] < top < b[3]) and not (b[1] < bottom < b[3]) for b in boxes)
+    # small enough: one strip
+    assert tr.tiles((0, 0, 1000, 290), boxes) == [(0, 0, 1000, 290)]
+
+
+def test_tiles_overlap_when_a_block_is_too_tall(set_settings):
+    set_settings(transcribe_tile_max_mp=0.3, transcribe_tile_overlap_px=20)
+    strips = tr.tiles((0, 0, 1000, 700), [(0, 0, 1000, 700)])
+    assert strips[0] == (0, 0, 1000, 300)
+    assert strips[1][1] == 280  # starts overlap px above the forced cut
+    assert strips[-1][3] == 700
+
+
+def test_hint_text_in_order_and_cut():
+    blocks = [blk(2, (0, 0, 1, 1), text="second"), blk(1, (0, 0, 1, 1), text="first")]
+    hint = tr.hint_text(blocks, 4000)
+    assert hint.startswith(tr.HINT_INTRO) and "first\nsecond" in hint
+    assert "secon" not in tr.hint_text(blocks, 5)
+    assert tr.hint_text([blk(1, (0, 0, 1, 1))], 4000) == ""
+    assert tr.hint_text(blocks, 0) == ""
+
+
+def _prompt_of(messages):
+    return next(p["text"] for p in messages[-1]["content"] if p["type"] == "text")
+
+
+def test_ocr_hint_sent_with_block_and_notice(data):
+    d = json.loads(json.dumps(data))
+    for b in d["blocks"]:
+        if b["block_id"] == "b002":
+            b["text"] = "<table><tr><td>కేరళ</td><td>24,114</td></tr></table>"
+    ask = _script_in_order()
+    run(d, ask=ask)
+    table_prompt = _prompt_of(ask.requests[0][0])
+    notice_prompt = _prompt_of(ask.requests[2][0])
+    assert "24,114" in table_prompt and tr.HINT_INTRO in table_prompt
+    assert "TENDER NOTICE" in notice_prompt and "{hint}" not in notice_prompt
+    assert "{markdown_rule}" not in notice_prompt and tr.NOTICE_WHOLE in notice_prompt
+    # a photo with no OCR text gets no reference section
+    assert tr.HINT_INTRO not in _prompt_of(ask.requests[5][0])
+
+
+def test_hint_shortened_when_too_long(data):
+    from newsrag.grouping import parse as gparse
+
+    d = json.loads(json.dumps(data))
+    for b in d["blocks"]:
+        if b["block_id"] == "b002":
+            b["text"] = "x" * 3000
+    ask = Scripted(gparse.TooLong("context"), gparse.TooLong("context"), table_reply())
+    target = select_targets(d, grouping())[0]
+    item, outcome = tr.read_target(d, target, ask)
+    assert outcome == "kept" and item["type"] == "table"
+    sizes = [_prompt_of(m).count("x") for m, _ in ask.requests]
+    assert sizes[0] > sizes[1] > sizes[2] and tr.HINT_INTRO not in _prompt_of(ask.requests[2][0])
+
+
+def test_big_notice_read_in_strips(tmp_path, set_settings):
+    set_settings(transcribe_tile_max_mp=0.05, transcribe_pad_px=0)
+    path = tmp_path / "tall.png"
+    Image.new("RGB", (200, 900), "white").save(path)
+    blocks = [
+        blk(1, (0, 0, 200, 200), "Text", "part one"),
+        blk(2, (0, 210, 200, 440), "Text", "part two"),
+        blk(3, (0, 450, 200, 690), "Text", "part three"),
+        blk(4, (0, 700, 200, 900), "Text", "part four"),
+    ]
+    d = {"page_id": PAGE, "image": {"path": str(path)}, "page_flags": [], "blocks": blocks}
+    g = {
+        "articles": [art(1, "notice_tender", [(1, "body"), (2, "body"), (3, "body"), (4, "body")])]
+    }
+    strips = tr.tiles(
+        tr.region_box(d, ["b001", "b002", "b003", "b004"]), [b["bbox"] for b in blocks]
+    )
+    assert len(strips) == 4
+    parts = [json.dumps({"markdown": f"strip {n}"}) for n in range(1, 5)]
+    ask = Scripted(notice_reply(), *parts)
+    artifact = transcribe_page(d, g, lambda: ask)
+    item = artifact["items"][0]
+    assert item["type"] == "notice_tender" and item["department"] == "Mines"
+    assert item["markdown"] == "strip 1\n\nstrip 2\n\nstrip 3\n\nstrip 4"
+    assert [p["bbox"] for p in item["parts"]] == [list(s) for s in strips]
+    overview = _prompt_of(ask.requests[0][0])
+    assert tr.NOTICE_STRIPS in overview
+    assert [k for _, k in ask.requests] == [tr.NOTICE_REQUEST] + [tr.PART_REQUEST] * 4
+    # each strip gets only its own blocks' OCR text
+    second = _prompt_of(ask.requests[2][0])
+    assert "part two" in second and "part one" not in second and "part 2 of 4" in second
+    # a strip that never answers fails the whole item
+    ask = Scripted(notice_reply(), parts[0], "bad", "bad", "bad")
+    artifact = transcribe_page(d, g, lambda: ask)
+    assert artifact["items"] == [] and artifact["transcribe_failed"] == 1
+
+
+def test_spotcheck_judges_parts_separately(data):
+    item = {
+        "item_id": f"{PAGE}#t01",
+        "type": "notice_tender",
+        "source": "article",
+        "block_ids": ["b004", "b005"],
+        "title": None,
+        "markdown": "a\nb\n\nc",
+        "parts": [
+            {"bbox": [210, 10, 390, 100], "markdown": "a\nb"},
+            {"bbox": [210, 100, 390, 200], "markdown": "c"},
+        ],
+    }
+    counts = []
+
+    def ask(messages, count):
+        counts.append(count)
+        verdicts = ["present"] * count
+        verdicts[-1] = "not_present"
+        return json.dumps({"lines": [{"n": i, "verdict": v} for i, v in enumerate(verdicts, 1)]})
+
+    result = sc.check_item(data, item, ask)
+    assert counts == [2, 1] and result["parts"] == 2
+    assert [(ln["n"], ln["text"], ln["verdict"]) for ln in result["lines"]] == [
+        (1, "a", "present"),
+        (2, "b", "not_present"),
+        (3, "c", "not_present"),
+    ]
