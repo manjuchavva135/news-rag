@@ -76,6 +76,7 @@ REPO_ROOT_DERIVED = {
 # Paths under reports_dir that follow it unless overridden themselves.
 REPORTS_DIR_DERIVED = {
     "ocr_check_dir": "ocr-check",
+    "transcribe_spotcheck_file": "transcription-spotcheck.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -477,6 +478,25 @@ class Settings(BaseSettings):
     bakeoff_read_max_tokens: int = 256  # reply length of one headline reading
     bakeoff_tie: float = 0.01  # mean judge scores this close are a tie
 
+    # --- transcribe ---
+    # Stage `transcribe` (ticket 015): the grouping VLM (group_model) reads tables, infographics
+    # and notice/ad regions into Markdown. Crops get this margin (300-DPI pixels) and are shrunk
+    # to the long side below (block crops / whole-article crops).
+    transcribe_pad_px: int = 8
+    transcribe_block_max_px: int = 2048
+    transcribe_article_max_px: int = 3072
+    transcribe_max_tokens: int = 8192  # reply length of one transcription
+    transcribe_parse_retries: int = 2  # invalid JSON / value outside the enums: ask again
+    # Articles of these kinds are read whole (notice or commercial, the VLM decides) ...
+    transcribe_article_kinds: tuple[str, ...] = ("notice_tender", "ad_commercial")
+    # ... and table/infographic blocks of these kinds' articles become standalone items.
+    transcribe_standalone_kinds: tuple[str, ...] = ("masthead", "other")
+    # `newsrag transcribe spotcheck`: the judge (judge_model) checks each line of the sample.
+    transcribe_spotcheck_n: int = 50
+    transcribe_spotcheck_seed: int = 1
+    transcribe_spotcheck_max_tokens: int = 8192
+    transcribe_spotcheck_file: Path  # default {reports_dir}/transcription-spotcheck.json
+
     @classmethod
     def settings_customise_sources(
         cls,
@@ -545,7 +565,12 @@ class Settings(BaseSettings):
         return value
 
     @field_validator(
-        "editions_state_sections", "judge_skip_kinds", "bakeoff_candidates", mode="before"
+        "editions_state_sections",
+        "judge_skip_kinds",
+        "bakeoff_candidates",
+        "transcribe_article_kinds",
+        "transcribe_standalone_kinds",
+        mode="before",
     )
     @classmethod
     def _str_list(cls, value: Any) -> Any:
