@@ -42,3 +42,4 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 030 | Quality report | draft | solo | waits for 029: reads all run stats; waits for 026, 027, 028: their scores |
 | 031 | Full-corpus run and phase-1 sign-off | draft | solo | waits for 030: needs report; waits for 014: chosen grouping model; waits for 032: chosen text model |
 | 032 | Text model Telugu bake-off | draft | solo | waits for 017: needs canonical stories; waits for 006: model runner |
+| 033 | Grouping retry for Gemma 4 (second sample, not resolution) | draft | solo | waits for 014: group_model is gemma4-31b |

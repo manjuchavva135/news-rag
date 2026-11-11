@@ -1,0 +1,15 @@
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files: 100%|██████████| 12/12 [00:00<00:00, 2849.71it/s]
+feedback {'seconds': 55.5, 'errors': {}} requests/prompt_tokens/max_prompt [8, 40889, 6045]
+{
+ "feedback": {
+  "2024-12-08_BGNOPSVACLT_main_10": 0.312,
+  "2024-12-09_R_main_03": 0.8,
+  "2024-12-11_B_main_03": 0.667,
+  "2025-01-26_B_main_05": 1.0,
+  "2025-01-27_B_main_14": 0.529,
+  "2025-05-04_BGNOPRSVACLT_main_06": 0.0,
+  "2025-05-11_BGNOPRSVACLT_main_03": 0.778,
+  "2025-11-03_BG_main_01": 0.636
+ }
+}
+feedback mean 0.59 below0.8 6
