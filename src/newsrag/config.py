@@ -72,6 +72,7 @@ REPO_ROOT_DERIVED = {
     "bakeoff_pages_file": "data/bakeoff-pages.txt",
     "bakeoff_telugu_file": "data/telugu-headlines.txt",
     "continuations_file": "continuations.yaml",
+    "alias_overrides_file": "data/aliases/overrides.yaml",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -82,11 +83,14 @@ REPORTS_DIR_DERIVED = {
     "dedup_verify_file": "dedup-verify.json",
     "enrich_verify_file": "enrich-core-verify.json",
     "enrich_facts_verify_file": "enrich-facts-verify.json",
+    "alias_review_file": "alias-review.csv",
+    "alias_verify_file": "alias-verify.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
 WORK_DIR_DERIVED = {
     "sarvam_cache_dir": "sarvam-cache",
+    "alias_dir": "aliases",
 }
 
 # The layout-label groups of labels.yaml (ticket 007 FR-6), and the label-set settings derived
@@ -589,6 +593,28 @@ class Settings(BaseSettings):
     enrich_facts_verify_n: int = 50
     enrich_facts_verify_seed: int = 13
     enrich_facts_verify_file: Path  # default {reports_dir}/enrich-facts-verify.json
+
+    # --- aliases ---
+    # Ticket 022: which names (people, organisations) of the `enrich_core` artifacts are one entity.
+    # The model is `enrich_model`; the alias version is `<enrich_model>-alias-p1`.
+    alias_dir: Path  # default {work_dir}/aliases: <version>/entities.json, verdicts.jsonl, ...
+    alias_review_file: Path  # default {reports_dir}/alias-review.csv
+    alias_overrides_file: Path  # default {repo_root}/data/aliases/overrides.yaml (committed)
+    alias_jw_threshold: float = 0.90  # rule (b): Jaro-Winkler on the folded names
+    alias_min_shared_stories: int = 2  # rule (d): stories two names with a shared surname share
+    alias_max_llm_pairs: int = 50_000  # new pairs sent to the model per batch, most frequent first
+    alias_auto_confidence: float = 0.9  # auto-apply needs `same` and at least this confidence
+    alias_examples: int = 3  # example sentences per name in the prompt
+    alias_example_chars: int = 200  # one example sentence is cut to this many characters
+    alias_concurrency: int = 64  # parallel requests
+    alias_format_retries: int = 2  # invalid JSON / schema: asks again this many times
+    alias_max_tokens: int = 64
+    # `newsrag aliases verify` (NFR-1): the judge model asks about pairs of an auto-merged group.
+    alias_verify_model: str = "gemma3-27b"
+    alias_verify_n: int = 40
+    alias_verify_seed: int = 17
+    alias_verify_min_ok_ratio: float = 0.95  # share of pairs the judge must call the same entity
+    alias_verify_file: Path  # default {reports_dir}/alias-verify.json
 
     @classmethod
     def settings_customise_sources(

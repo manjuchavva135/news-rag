@@ -3,6 +3,7 @@
 import typer
 
 from newsrag import config_cli
+from newsrag.aliases import cli as aliases_cli
 from newsrag.dedup import cli as dedup_cli
 from newsrag.editions import cli as editions_cli
 from newsrag.enrich import cli as enrich_cli
@@ -46,6 +47,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (stitch_cli.app, "stitch"),
     (dedup_cli.app, "dedup"),
     (enrich_cli.app, "enrich"),
+    (aliases_cli.app, "aliases"),
 ]
 
 for sub_app, name in SUB_APPS:
