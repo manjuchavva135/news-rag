@@ -1,0 +1,17 @@
+render         done=3497 failed=0 running=0 eligible=0
+ocr            done=3497 failed=0 running=0 eligible=0
+ocr_split      done=3497 failed=0 running=0 eligible=0
+ocr_final      done=3497 failed=0 running=0 eligible=0
+folio          done=3497 failed=0 running=0 eligible=3497
+group          done=144 failed=0 running=0 eligible=3353
+judge          done=144 failed=0 running=0 eligible=0
+group_retry    done=144 failed=0 running=0 eligible=0
+judge_retry    done=144 failed=0 running=0 eligible=0
+group_final    done=144 failed=0 running=0 eligible=0
+transcribe     done=141 failed=0 running=0 eligible=3
+stitch         done=5 failed=0 running=0 eligible=0
+dedup          done=5 failed=0 running=0 eligible=0
+enrich_core    done=5 failed=0 running=0 eligible=0
+enrich_places  done=3 failed=0 running=0 eligible=2
+enrich_facts   done=3 failed=0 running=0 eligible=0
+chunk          done=3 failed=0 running=0 eligible=0

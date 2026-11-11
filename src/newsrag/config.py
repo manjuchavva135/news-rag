@@ -619,6 +619,12 @@ class Settings(BaseSettings):
     alias_verify_min_ok_ratio: float = 0.95  # share of pairs the judge must call the same entity
     alias_verify_file: Path  # default {reports_dir}/alias-verify.json
 
+    # --- chunking ---
+    # Ticket 023: stage `chunk` cuts every canonical story (and its tables) into retrieval chunks.
+    # The tokenizer is the one of this embed profile of models.yaml; a model change re-chunks.
+    embed_model: str = "bge-m3"  # embed profile of models.yaml (ticket 026 may change it)
+    chunk_max_tokens: int = 512  # the whole embedded string (prefix + text) fits this many tokens
+
     # --- textmodel ---
     # `newsrag textmodel bakeoff` (ticket 032): candidate text models run four Telugu tasks on the
     # same canonical stories and are cross-judged by candidates of another family; `--apply` writes

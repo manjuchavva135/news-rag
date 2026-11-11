@@ -1,0 +1,54 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.16, pytest-9.2.0, pluggy-1.7.0
+rootdir: /home/admin1/news-rag/.claude/worktrees/agent-a3cff284c73df078b
+configfile: pyproject.toml
+plugins: anyio-4.16.0
+collected 39 items
+
+tests/test_chunking.py .......................................           [100%]
+
+==================================== PASSES ====================================
+____________________ test_handle_writes_artifact_and_detail ____________________
+----------------------------- Captured stderr call -----------------------------
+chunk 2026-04-03: 1 stories -> 3 chunks (0 table), max 40 tokens, 1 empty, 0 unmapped names in 0.0 s
+=========================== short test summary info ============================
+PASSED tests/test_chunking.py::test_short_story_one_chunk
+PASSED tests/test_chunking.py::test_paragraph_split_with_one_paragraph_overlap
+PASSED tests/test_chunking.py::test_long_paragraph_sentence_split
+PASSED tests/test_chunking.py::test_decimal_not_sentence_end
+PASSED tests/test_chunking.py::test_hard_split_when_one_sentence_is_too_long
+PASSED tests/test_chunking.py::test_prefix_counted
+PASSED tests/test_chunking.py::test_prefix_format
+PASSED tests/test_chunking.py::test_long_headline_is_cut
+PASSED tests/test_chunking.py::test_n_tokens_matches_embedded_string
+PASSED tests/test_chunking.py::test_overlap_shrinks_when_too_big
+PASSED tests/test_chunking.py::test_overlap_dropped_when_last_sentence_does_not_fit_either
+PASSED tests/test_chunking.py::test_window_always_has_new_text
+PASSED tests/test_chunking.py::test_table_chunk_linked_to_story
+PASSED tests/test_chunking.py::test_table_headline_falls_back_to_title
+PASSED tests/test_chunking.py::test_table_split_repeats_header
+PASSED tests/test_chunking.py::test_table_in_continuation_part_found
+PASSED tests/test_chunking.py::test_table_duplicated_across_printings_kept_once
+PASSED tests/test_chunking.py::test_table_of_another_story_not_attached
+PASSED tests/test_chunking.py::test_ads_not_chunked
+PASSED tests/test_chunking.py::test_notice_fields_and_kind
+PASSED tests/test_chunking.py::test_enrichment_fields_and_entity_ids
+PASSED tests/test_chunking.py::test_low_confidence_propagates
+PASSED tests/test_chunking.py::test_flag_sources
+PASSED tests/test_chunking.py::test_table_item_flags_only_on_its_chunk
+PASSED tests/test_chunking.py::test_inlined_items_skipped
+PASSED tests/test_chunking.py::test_table_story_row_split
+PASSED tests/test_chunking.py::test_empty_story_skipped
+PASSED tests/test_chunking.py::test_stale_dates_only_changed
+PASSED tests/test_chunking.py::test_lookup_hash_follows_alias_and_edition_entries
+PASSED tests/test_chunking.py::test_version_follows_embed_model
+PASSED tests/test_chunking.py::test_alias_change_changes_version
+PASSED tests/test_chunking.py::test_registered
+PASSED tests/test_chunking.py::test_unknown_embed_profile
+PASSED tests/test_chunking.py::test_known_embed_profile_passes_preflight
+PASSED tests/test_chunking.py::test_missing_aliases
+PASSED tests/test_chunking.py::test_handle_writes_artifact_and_detail
+PASSED tests/test_chunking.py::test_stats_of
+PASSED tests/test_chunking.py::test_stats_command
+PASSED tests/test_chunking.py::test_real_tokenizer_respects_512
+============================== 39 passed in 6.68s ==============================

@@ -1,0 +1,19 @@
+=== 2024-12-26
+chunk 2024-12-26: 106 stories -> 175 chunks (7 table), max 512 tokens, 11 empty, 0 unmapped names in 0.5 s
+done 2024-12-26
+chunk: done=1 failed=0 skipped=0 in 6.5s
+run exit 0
+chunks=175 stories=106 chunks_per_story_mean=1.65 chunks_per_story_max=7 tokens_p50=320 tokens_p95=501 tokens_max=512 low_confidence_share=0.914
+stats exit 0
+=== 2025-06-10
+chunk: done=0 failed=0 skipped=1 in 0.0s
+run exit 0
+chunks=125 stories=84 chunks_per_story_mean=1.49 chunks_per_story_max=7 tokens_p50=275 tokens_p95=490 tokens_max=510 low_confidence_share=0.904
+stats exit 0
+=== 2025-08-02
+chunk 2025-08-02: 96 stories -> 132 chunks (0 table), max 512 tokens, 5 empty, 0 unmapped names in 0.4 s
+done 2025-08-02
+chunk: done=1 failed=0 skipped=0 in 6.3s
+run exit 0
+chunks=132 stories=96 chunks_per_story_mean=1.38 chunks_per_story_max=7 tokens_p50=324 tokens_p95=490 tokens_max=512 low_confidence_share=1.0
+stats exit 0
