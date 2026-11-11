@@ -1,6 +1,6 @@
 # 019: Enrichment: category, people/orgs, event date
 
-**Status:** draft
+**Status:** ready
 **Mode:** solo
 **Runs:** waits for 017: enriches canonical stories
 
