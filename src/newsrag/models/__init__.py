@@ -16,7 +16,7 @@ from newsrag.models.client import (
     use,
 )
 from newsrag.models.fit import ModelDoesNotFitError
-from newsrag.models.lock import gpu_lock
+from newsrag.models.lock import gpu_lock, lock_holders
 from newsrag.models.profiles import Profile, get_profile, load_profiles
 from newsrag.models.serve import ModelStartError
 
@@ -31,5 +31,6 @@ __all__ = [
     "gpu_lock",
     "load_profiles",
     "loaded_profiles",
+    "lock_holders",
     "use",
 ]

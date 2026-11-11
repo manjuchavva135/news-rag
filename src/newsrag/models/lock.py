@@ -214,6 +214,7 @@ class _Held:
 
 _mutex = threading.Lock()
 _held: _Held | None = None
+_holders: list[str] = []  # holder names of in-process GPU users (kind "lock"), first use first
 
 
 class GpuLockHandle:
@@ -262,6 +263,8 @@ def gpu_lock(
                 os.close(fd)
                 raise
             held = _held = _Held(fd=fd, path=path, record=record)
+            if kind == "lock" and holder not in _holders:
+                _holders.append(holder)
     try:
         yield GpuLockHandle(held)
     finally:
@@ -287,3 +290,11 @@ def held_by_this_process() -> LockRecord | None:
     """The record of the lock this process holds, if any."""
     with _mutex:
         return _held.record if _held is not None else None
+
+
+def lock_holders() -> list[str]:
+    """Holder names this process took the GPU lock for as an in-process GPU user (kind "lock",
+    e.g. ``ocr``, ``indic-ocr``), in order of first use. With `loaded_profiles()` this is every
+    model this process loaded (ticket 029 `models_loaded`)."""
+    with _mutex:
+        return list(_holders)

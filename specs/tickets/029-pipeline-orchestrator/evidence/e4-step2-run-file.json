@@ -1,0 +1,274 @@
+{
+ "started_at": "2026-11-11T20:11:21.490973+00:00",
+ "tag": null,
+ "options": {
+  "until": "index",
+  "only": null,
+  "pages_file": null,
+  "dates": [
+   "2024-12-02"
+  ]
+ },
+ "plan": [
+  "render",
+  "ocr",
+  "ocr_split",
+  "ocr_final",
+  "folio",
+  "group",
+  "judge",
+  "group_retry",
+  "judge_retry",
+  "group_final",
+  "transcribe",
+  "stitch",
+  "dedup",
+  "enrich_core",
+  "enrich_places",
+  "enrich_facts",
+  "chunk",
+  "index"
+ ],
+ "interrupted": false,
+ "failed_stage": null,
+ "error": null,
+ "requeued_stale": 0,
+ "archives_unpacked": [],
+ "unpack_exit_code": 0,
+ "register": "skipped",
+ "pages_registered": 0,
+ "cycles": 1,
+ "finished_at": "2026-11-11T20:11:21.899795+00:00",
+ "seconds": 0.409,
+ "exit_code": 0,
+ "stages": {
+  "render": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr_split": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr_final": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "folio": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "group": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "judge": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "group_retry": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "judge_retry": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "group_final": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "transcribe": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "stitch": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "dedup": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "enrich_core": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "enrich_places": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "enrich_facts": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "chunk": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "index": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  }
+ },
+ "corpus_steps": {
+  "editions build": {
+   "ran": 0
+  },
+  "aliases build": {
+   "ran": 0
+  }
+ },
+ "failed_items": {},
+ "models_loaded": [],
+ "status": {
+  "render": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 1041
+  },
+  "ocr": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "ocr_split": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "ocr_final": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "folio": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3462
+  },
+  "group": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3338
+  },
+  "judge": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "group_retry": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "judge_retry": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "group_final": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "transcribe": {
+   "done": 156,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3
+  },
+  "stitch": {
+   "done": 6,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "dedup": {
+   "done": 6,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "enrich_core": {
+   "done": 6,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "enrich_places": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 2
+  },
+  "enrich_facts": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "chunk": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3
+  },
+  "index": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  }
+ }
+}

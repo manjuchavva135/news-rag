@@ -97,6 +97,7 @@ REPORTS_DIR_DERIVED = {
     "baseline_page_map_file": "baseline-page-map.csv",
     "baseline_calibration_file": "baseline-calibration.json",
     "baseline_compare_file": "baseline-compare.json",
+    "runs_dir": "runs",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -739,6 +740,12 @@ class Settings(BaseSettings):
     # Models that answer the customer questions (ticket 028): set by `textmodel bakeoff --apply`.
     answer_model: str = "qwen3-30b-a3b"
     answer_judge_model: str | None = None  # text judge of 028's claim check; judge_model when unset
+
+    # --- orchestrator ---
+    # `newsrag run` (ticket 029): every stage in dependency order, one pass per stage.
+    runs_dir: Path  # default {reports_dir}/runs: one <UTC timestamp>.json per run
+    run_stop_grace_s: float = 600  # after SIGINT/SIGTERM, items in flight get this long to finish
+    run_requeue_older_than: str = "2h"  # `stage requeue-stale --older-than` before every run
 
     @classmethod
     def settings_customise_sources(

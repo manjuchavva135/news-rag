@@ -2,7 +2,7 @@
 
 import typer
 
-from newsrag import config_cli
+from newsrag import config_cli, orchestrator_cli
 from newsrag.aliases import cli as aliases_cli
 from newsrag.baseline import cli as baseline_cli
 from newsrag.chunking import cli as chunking_cli
@@ -63,6 +63,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (search_cli.app, "search"),
     (eval_cli.app, "eval"),
     (baseline_cli.app, "baseline"),
+    (orchestrator_cli.app, "run"),
 ]
 
 for sub_app, name in SUB_APPS:

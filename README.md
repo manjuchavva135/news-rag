@@ -132,6 +132,39 @@ From Python, `newsrag.models.use("<profile>")` gives a client with `chat()` / `c
 (or an embedder with `embed()`), and `newsrag.models.gpu_lock("<holder>")` takes the lock for
 any other in-process GPU user.
 
+## Run the pipeline
+
+One command processes everything that is not done yet:
+
+```bash
+uv run newsrag run
+```
+
+It requeues `running` rows older than 2 h, unpacks new archives from `archive_dir`, registers
+their pages (skipped when the unpacked archives did not change), then runs every stage in
+dependency order, one pass per stage, so each model loads at most once per pass and not at all
+for a stage with nothing to do. `editions build` + `editions apply` run after `folio`, and
+`aliases build` after `enrich_core`, only when their input changed. The order repeats until a
+cycle finds no work; an unfiltered run that reaches `index` ends with `index validate`.
+
+A new year's archive is picked up by the same command: only its pages run, plus the date stages
+of the dates that gained pages. Interrupted runs resume where they stopped.
+
+```bash
+uv run newsrag run --dry-run                                  # eligible items per stage
+uv run newsrag run --pages-file data/dev-sample.txt --until group_final
+uv run newsrag run --dates 2024-12-05,2024-12-06 --until index
+uv run newsrag run --only chunk,index                         # one pass each, no corpus steps
+uv run newsrag run --tag full
+```
+
+Each run writes `<reports_dir>/runs/<UTC timestamp>.json`: per-stage processed / failed /
+seconds, archives unpacked, pages registered, models loaded, permanently failed items and the
+final `stage status`. Ctrl-C (or SIGTERM) stops claiming new items, lets items in flight finish
+(up to `run_stop_grace_s`, 10 min), writes the run file with `interrupted: true` and exits 130.
+A stage that cannot run at all (preflight, model start, stores down) stops the run with exit 1;
+item failures never do. When `data/editions.yaml` changes the run says so: commit it.
+
 ## Development
 
 ```bash

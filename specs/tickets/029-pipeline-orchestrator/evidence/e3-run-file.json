@@ -1,0 +1,224 @@
+{
+ "started_at": "2026-11-11T19:43:52.679728+00:00",
+ "tag": null,
+ "options": {
+  "until": "group_final",
+  "only": null,
+  "pages_file": "data/dev-sample.txt",
+  "dates": null
+ },
+ "plan": [
+  "render",
+  "ocr",
+  "ocr_split",
+  "ocr_final",
+  "folio",
+  "group",
+  "judge",
+  "group_retry",
+  "judge_retry",
+  "group_final"
+ ],
+ "interrupted": false,
+ "failed_stage": null,
+ "error": null,
+ "requeued_stale": 0,
+ "archives_unpacked": [
+  "November-2026.zip",
+  "October - 2026.zip"
+ ],
+ "unpack_exit_code": 0,
+ "register": "ran",
+ "pages_registered": 1041,
+ "chunk_dates_reset": 0,
+ "cycles": 2,
+ "finished_at": "2026-11-11T19:46:02.907548+00:00",
+ "seconds": 130.228,
+ "exit_code": 0,
+ "stages": {
+  "render": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr_split": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr_final": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "folio": {
+   "processed": 20,
+   "failed": 0,
+   "seconds": 120.73,
+   "passes": 1
+  },
+  "group": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "judge": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "group_retry": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "judge_retry": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "group_final": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  }
+ },
+ "corpus_steps": {
+  "editions build": {
+   "ran": 1,
+   "seconds": 1.002,
+   "detail": {
+    "page_editions": 3497,
+    "editions_yaml_changed": false
+   }
+  }
+ },
+ "failed_items": {},
+ "models_loaded": [
+  "indic-ocr"
+ ],
+ "status": {
+  "render": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 1041
+  },
+  "ocr": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "ocr_split": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "ocr_final": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "folio": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3477
+  },
+  "group": {
+   "done": 144,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3353
+  },
+  "judge": {
+   "done": 144,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "group_retry": {
+   "done": 144,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "judge_retry": {
+   "done": 144,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "group_final": {
+   "done": 144,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "transcribe": {
+   "done": 141,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3
+  },
+  "stitch": {
+   "done": 5,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "dedup": {
+   "done": 5,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "enrich_core": {
+   "done": 5,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "enrich_places": {
+   "done": 3,
+   "failed": 0,
+   "running": 0,
+   "eligible": 2
+  },
+  "enrich_facts": {
+   "done": 3,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "chunk": {
+   "done": 3,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3
+  },
+  "index": {
+   "done": 3,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  }
+ }
+}

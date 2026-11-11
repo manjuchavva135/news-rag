@@ -1,0 +1,646 @@
+{
+ "started_at": "2026-11-11T19:46:25.694488+00:00",
+ "tag": null,
+ "options": {
+  "until": "index",
+  "only": null,
+  "pages_file": null,
+  "dates": [
+   "2024-12-02"
+  ]
+ },
+ "plan": [
+  "render",
+  "ocr",
+  "ocr_split",
+  "ocr_final",
+  "folio",
+  "group",
+  "judge",
+  "group_retry",
+  "judge_retry",
+  "group_final",
+  "transcribe",
+  "stitch",
+  "dedup",
+  "enrich_core",
+  "enrich_places",
+  "enrich_facts",
+  "chunk",
+  "index"
+ ],
+ "interrupted": false,
+ "failed_stage": null,
+ "error": null,
+ "requeued_stale": 0,
+ "archives_unpacked": [],
+ "unpack_exit_code": 0,
+ "register": "skipped",
+ "pages_registered": 0,
+ "chunk_dates_reset": 0,
+ "cycles": 2,
+ "finished_at": "2026-11-11T20:10:52.982356+00:00",
+ "seconds": 1467.288,
+ "exit_code": 0,
+ "stages": {
+  "render": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr_split": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "ocr_final": {
+   "processed": 0,
+   "failed": 0,
+   "seconds": 0.0,
+   "passes": 0
+  },
+  "folio": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 109.246,
+   "passes": 1
+  },
+  "group": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 248.434,
+   "passes": 1
+  },
+  "judge": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 159.868,
+   "passes": 1
+  },
+  "group_retry": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 247.409,
+   "passes": 1
+  },
+  "judge_retry": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 128.964,
+   "passes": 1
+  },
+  "group_final": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 0.141,
+   "passes": 1
+  },
+  "transcribe": {
+   "processed": 15,
+   "failed": 0,
+   "seconds": 205.986,
+   "passes": 1
+  },
+  "stitch": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 0.124,
+   "passes": 1
+  },
+  "dedup": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 14.842,
+   "passes": 1
+  },
+  "enrich_core": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 102.399,
+   "passes": 1
+  },
+  "enrich_places": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 75.954,
+   "passes": 1
+  },
+  "enrich_facts": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 94.277,
+   "passes": 1
+  },
+  "chunk": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 7.457,
+   "passes": 1
+  },
+  "index": {
+   "processed": 1,
+   "failed": 0,
+   "seconds": 5.248,
+   "passes": 1
+  }
+ },
+ "corpus_steps": {
+  "editions build": {
+   "ran": 1,
+   "seconds": 0.575,
+   "detail": {
+    "page_editions": 3497,
+    "editions_yaml_changed": false
+   }
+  },
+  "aliases build": {
+   "ran": 1,
+   "seconds": 65.98,
+   "detail": {
+    "asked": 66,
+    "names": 1633,
+    "entities": 1533,
+    "auto_pairs": 112,
+    "review_pairs": 0,
+    "largest_group": 5,
+    "auto_groups": [
+     [
+      "org|https://www.apeprocurement.gov.in",
+      "org|www.apeprocurement.gov.in"
+     ],
+     [
+      "org|అటవీ",
+      "org|అటవీశాఖ"
+     ],
+     [
+      "org|ఆంధ్రప్రదేశ్ ప్రభుత్వం",
+      "org|ఆంధ్రప్రదేశ్ ప్రభుత్వము"
+     ],
+     [
+      "org|ఈ ప్రభుత్వం",
+      "org|ఏపీ ప్రభుత్వం",
+      "org|ప్రభుత్వం"
+     ],
+     [
+      "org|ఈటివి",
+      "org|ఈటీవీ"
+     ],
+     [
+      "org|ఉద్యాన శాఖ",
+      "org|ఏపీ ఉద్యాన శాఖ"
+     ],
+     [
+      "org|ఎక్సైజ్ శాఖ",
+      "org|ఎక్సైజ్శాఖ"
+     ],
+     [
+      "org|ఎన్డీఏ",
+      "org|ఎన్‌డీఏ"
+     ],
+     [
+      "org|ఎల్లో మీడియా",
+      "org|ఎల్లో మీడియా ఛానల్స్"
+     ],
+     [
+      "org|ఎస్వీ అన్న ప్రసాదం ట్రస్టు",
+      "org|ఎస్వీ అన్న ప్రసాదం ట్రస్ట్"
+     ],
+     [
+      "org|ఏపీ ఈఆర్సీ",
+      "org|ఏపీఈఆర్సీ"
+     ],
+     [
+      "org|కర్నూలు",
+      "org|కర్నూలు జిల్లా"
+     ],
+     [
+      "org|కలెక్టర్",
+      "org|కలెక్టర్లకు"
+     ],
+     [
+      "org|కాంగ్రెస్",
+      "org|కాంగ్రెస్ పార్టీ"
+     ],
+     [
+      "org|కూటమి సర్కారు",
+      "org|కూటమి సర్కార్"
+     ],
+     [
+      "org|కృషి మరియు రైతుల కళ్యాణ మంత్రాలయం",
+      "org|కృషి మరియు రైతుల కళ్యాణ మంత్రిాలయం"
+     ],
+     [
+      "org|కోర్టు",
+      "org|కోర్టులు"
+     ],
+     [
+      "org|జనసేన",
+      "org|జనసేన పార్టీ"
+     ],
+     [
+      "org|టీడీపీ కూటమి",
+      "org|టీడీపీ కూటమి ప్రభుత్వం",
+      "org|టీడీపీ కూటమి సర్కారు"
+     ],
+     [
+      "org|తహశీల్దార్లు",
+      "org|తహసీల్దార్",
+      "org|తహసీల్దార్ కార్యాలయం"
+     ],
+     [
+      "org|తిరుపతి రూరల్",
+      "org|తిరుపతి రూరల్ మండలం"
+     ],
+     [
+      "org|తిరుమల తిరుపతి దేవస్థానం",
+      "org|తిరుమల తిరుపతి దేవస్థానములు, తిరుపతి"
+     ],
+     [
+      "org|తిరుమల శ్రీ వేంకటేశ్వర స్వామివారి ఆలయం",
+      "org|తిరుమల శ్రీ వేంకటేశ్వరస్వామివారి ఆలయం"
+     ],
+     [
+      "org|తెలంగాణ",
+      "org|తెలంగాణ సర్కారు"
+     ],
+     [
+      "org|దళారుల",
+      "org|దళారులు"
+     ],
+     [
+      "org|నంద్యాల",
+      "org|నంద్యాల జిల్లా"
+     ],
+     [
+      "org|నెల్లూరు",
+      "org|నెల్లూరు జిల్లా",
+      "org|నెల్లూరు జిల్లా ఎస్పీ"
+     ],
+     [
+      "org|పాఠశాల విద్యా శాఖ",
+      "org|పాఠశాల విద్యాశాఖ",
+      "org|పాఠశాల విద్యాశాఖ డైరెక్టరేట్"
+     ],
+     [
+      "org|పోక్సో",
+      "org|పోక్సో కేసు"
+     ],
+     [
+      "org|పోలీసు",
+      "org|పోలీసు శాఖ",
+      "org|పోలీసులు"
+     ],
+     [
+      "org|ఫెర్రో అల్లాయిస్",
+      "org|ఫెర్రో అల్లాయిస్ కంపెనీలు"
+     ],
+     [
+      "org|బీసీఈ",
+      "org|బీసీబీ"
+     ],
+     [
+      "org|భారత",
+      "org|భారత్"
+     ],
+     [
+      "org|రాష్ట్ర ప్రభుత్వ",
+      "org|రాష్ట్ర ప్రభుత్వం"
+     ],
+     [
+      "org|రెవెన్యూ",
+      "org|రెవెన్యూ శాఖ"
+     ],
+     [
+      "org|రైతు సంఘం",
+      "org|రైతు సంఘాలు"
+     ],
+     [
+      "org|రైతు సేవా కేంద్రం",
+      "org|రైతుసేవా కేంద్రం"
+     ],
+     [
+      "org|లాస్ ఎంజెల్సెస్",
+      "org|లాస్ ఏంజెలెస్"
+     ],
+     [
+      "org|లోక్సభ",
+      "org|లోక్‌సభ"
+     ],
+     [
+      "org|విద్యా శాఖ",
+      "org|విద్యాశాఖ"
+     ],
+     [
+      "org|వైఎస్సార్ కడప",
+      "org|వైఎస్సార్ కడప జిల్లా"
+     ],
+     [
+      "org|వైఎస్సార్ సీపీ",
+      "org|వైఎస్సార్సీపీ",
+      "org|వైఎస్సార్సీపీ ప్రభుత్వం",
+      "org|వైఎస్సార్‌సీపీ"
+     ],
+     [
+      "org|వైద్య ఆరోగ్యశాఖ",
+      "org|వైద్య, ఆరోగ్య శాఖ"
+     ],
+     [
+      "org|వ్యవసాయ శాఖ",
+      "org|వ్యవసాయశాఖ"
+     ],
+     [
+      "org|శ్రీ పద్మావతి అమ్మవారి",
+      "org|శ్రీపద్మావతి అమ్మవారి"
+     ],
+     [
+      "org|శ్రీసత్యసాయి జిల్లా",
+      "org|శ్రీసత్యసాయి జిల్లా కలెక్టరేట్"
+     ],
+     [
+      "org|సాక్షి టీవీ",
+      "org|సాక్షి టీవీ చానల్"
+     ],
+     [
+      "org|సాక్షి మీడియా",
+      "org|సాక్షి మీడియా గ్రూప్",
+      "org|సాక్షి మీడియా యాజమాన్యం"
+     ],
+     [
+      "org|సుప్రీం కోర్టు",
+      "org|సుప్రీంకోర్టు"
+     ],
+     [
+      "org|సూపర్ సిక్స్",
+      "org|సూపర్ సిక్స్లు"
+     ],
+     [
+      "person|sathyanarayana setty",
+      "person|సత్యనారాయణ శెట్టి"
+     ],
+     [
+      "person|అశోక్‌కుమార్ రెడ్డి",
+      "person|పి.అశోక్ కుమార్ రెడ్డి"
+     ],
+     [
+      "person|ఆర్. ధనంజయరెడ్డి",
+      "person|ఆర్.ధనంజయరెడ్డి"
+     ],
+     [
+      "person|ఎం పీ మిథున్‌రెడ్డి",
+      "person|ఎంపీ మిథున్‌రెడ్డి"
+     ],
+     [
+      "person|ఎస్.తనూజరాణి",
+      "person|తనూజారాణి"
+     ],
+     [
+      "person|కాకాణి గోవర్ధన్ రెడ్డి",
+      "person|కాకాణి గోవర్ధన్‌రెడ్డి"
+     ],
+     [
+      "person|కృష్ణం రాజు",
+      "person|కృష్ణంరాజు"
+     ],
+     [
+      "person|కె.ఎస్.రామరావు",
+      "person|కేఎస్ రామరావు"
+     ],
+     [
+      "person|కొమ్మినేని శ్రీనివాస రావు",
+      "person|కొమ్మినేని శ్రీనివాసరావు"
+     ],
+     [
+      "person|కోన శశి ధర్",
+      "person|కోన శశిధర్"
+     ],
+     [
+      "person|చంద్రబాబు",
+      "person|చంద్రబాబు నాయుడు",
+      "person|చంద్రబాబూ"
+     ],
+     [
+      "person|చెవిరెడ్డి",
+      "person|చెవిరెడ్డి భాస్కర్",
+      "person|చెవిరెడ్డి భాస్కర్ రెడ్డి",
+      "person|చెవిరెడ్డి భాస్కర్రెడ్డి"
+     ],
+     [
+      "person|జి.రమ్య మాధురి",
+      "person|జి.రమ్యమాధురి"
+     ],
+     [
+      "person|జె.పి.నడ్డా",
+      "person|జేపీ నడ్డా"
+     ],
+     [
+      "person|టీజేఆర్ సుధాకర్ బాబు",
+      "person|టీజేఆర్ సుధాకర్‌బాబు"
+     ],
+     [
+      "person|ద్వారంపూడి చంద్రశేఖరరెడ్డి",
+      "person|ద్వారంపూడి చంద్రశేఖర్‌రెడ్డి"
+     ],
+     [
+      "person|నల్లపరెడ్డి ప్రసన్నకుమార్‌రెడ్డి",
+      "person|నల్లపరెడ్డి ప్రసన్నుకమార్‌రెడ్డి"
+     ],
+     [
+      "person|నారా లోకేశ్",
+      "person|నారా లోకేష్"
+     ],
+     [
+      "person|పవన్ కల్యాణ్",
+      "person|పవన్ కళ్యాణ్",
+      "person|పవన్కళ్యాణ్"
+     ],
+     [
+      "person|భూమన కరుణాకరరెడ్డి",
+      "person|భూమన కరుణాకర్",
+      "person|భూమన కరుణాకర్‌రెడ్డి"
+     ],
+     [
+      "person|లేళ్ల అప్పిరెడ్డి",
+      "person|లేళ్ళ అప్పిరెడ్డి"
+     ],
+     [
+      "person|లోకేశే",
+      "person|లోకేశ్"
+     ],
+     [
+      "person|వరుదు కల్యాణి",
+      "person|వరుదు కళ్యాణి"
+     ],
+     [
+      "person|వాసు దేవరెడ్డి",
+      "person|వాసుదేవరెడ్డి"
+     ],
+     [
+      "person|వి. శ్రీనివాసరావు",
+      "person|వి.శ్రీనివాసరావు"
+     ],
+     [
+      "person|విజయరామరాజు",
+      "person|విజయ్ రామరాజు"
+     ],
+     [
+      "person|వీర పాండియన్",
+      "person|వీరపాం డియన్"
+     ],
+     [
+      "person|వెంకయ్య చౌదరి",
+      "person|వెంకయ్యచౌదరి"
+     ],
+     [
+      "person|వై.ఎస్.జగన్మోహన్‌రెడ్డి",
+      "person|వైఎస్ జగన్",
+      "person|వైఎస్ జగన్ మోహన్‌రెడ్డి",
+      "person|వైఎస్ జగన్మోహన్‌రెడ్డి",
+      "person|వైఎస్ జగన్‌మోహన్‌రెడ్డి"
+     ],
+     [
+      "person|వైఎస్ అవినాశ్ రెడ్డి",
+      "person|వైఎస్ అవినాష్‌రెడ్డి"
+     ],
+     [
+      "person|షారుక్ ఖాన్",
+      "person|షారుక్‌ఖాన్"
+     ],
+     [
+      "person|సత్య కుమార్ యాదవ్",
+      "person|సత్యకుమార్"
+     ],
+     [
+      "person|సాయి రాజేశ్",
+      "person|సాయిరాజేశ్"
+     ]
+    ]
+   }
+  }
+ },
+ "failed_items": {},
+ "models_loaded": [
+  "gemma4-31b",
+  "bge-m3",
+  "qwen3-30b-a3b",
+  "multilingual-e5-large-instruct",
+  "indic-ocr"
+ ],
+ "status": {
+  "render": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 1041
+  },
+  "ocr": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "ocr_split": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "ocr_final": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "folio": {
+   "done": 3497,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3462
+  },
+  "group": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3338
+  },
+  "judge": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "group_retry": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "judge_retry": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "group_final": {
+   "done": 159,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "transcribe": {
+   "done": 156,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3
+  },
+  "stitch": {
+   "done": 6,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "dedup": {
+   "done": 6,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "enrich_core": {
+   "done": 6,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "enrich_places": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 2
+  },
+  "enrich_facts": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  },
+  "chunk": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 3
+  },
+  "index": {
+   "done": 4,
+   "failed": 0,
+   "running": 0,
+   "eligible": 0
+  }
+ }
+}
