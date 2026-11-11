@@ -1,6 +1,6 @@
 # 032: Text model Telugu bake-off
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 017: needs real canonical stories; waits for 006: model runner
 
