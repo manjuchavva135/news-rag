@@ -1,0 +1,4 @@
+deleted bakeoff__bge-m3
+deleted bakeoff__multilingual-e5-large-instruct
+deleted bakeoff__qwen3-embedding-8b
+bge-m3__v1  qdrant=432 opensearch=432 postgres=432  active

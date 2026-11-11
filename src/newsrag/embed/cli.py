@@ -69,3 +69,55 @@ def validate(
         typer.echo(generations.line(result))
     if any(not (q == o == p) for _, q, o, p in results):
         raise typer.Exit(1)
+
+
+# --- `newsrag embed` (ticket 026) -------------------------------------------------------------
+
+embed_app = typer.Typer(help="Embedding models: the bake-off that picks embed_model.")
+
+
+@embed_app.callback()
+def _embed_group() -> None:
+    """Embedding models."""
+
+
+@embed_app.command()
+def bakeoff(
+    candidates: Annotated[
+        str | None,
+        typer.Option(help="Comma-separated embed profiles (default embed_bakeoff_candidates)."),
+    ] = None,
+    apply: Annotated[
+        bool,
+        typer.Option("--apply", help="Write the report's winner as embed_model (no rerun)."),
+    ] = False,
+    cleanup: Annotated[
+        bool, typer.Option("--cleanup", help="Delete the bakeoff__* Qdrant collections.")
+    ] = False,
+) -> None:
+    """Embed the active generation's chunks with every candidate, run the retrieval test on each
+    and write <reports_dir>/embed-bakeoff.md with the winner."""
+    from newsrag.embed import bakeoff as bk
+
+    if apply and cleanup:
+        raise typer.BadParameter("--apply and --cleanup do not go together")
+    try:
+        if apply:
+            winner, changed = bk.apply()
+            if changed:
+                typer.echo(f"embed_model set to {winner}; chunk and index stages will rerun")
+            else:
+                typer.echo(f"embed_model unchanged ({winner})")
+            return
+        if cleanup:
+            for name in bk.cleanup():
+                typer.echo(f"deleted {name}")
+            return
+        names = candidates.split(",") if candidates else None
+        outcome = bk.run_bakeoff(names)
+    except bk.BakeoffError as exc:
+        typer.echo(str(exc), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(outcome.report_file.read_text(encoding="utf-8").rstrip())
+    if outcome.winner is None:
+        raise typer.Exit(1)

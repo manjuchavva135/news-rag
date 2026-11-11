@@ -9,4 +9,4 @@ judge_model: gemma4-31b
 enrich_model: qwen3-30b-a3b
 answer_model: qwen3-30b-a3b
 answer_judge_model: sarvam-m-24b
-embed_model: bge-m3
+embed_model: multilingual-e5-large-instruct

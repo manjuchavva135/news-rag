@@ -26,9 +26,13 @@ def _date_filter(day: date) -> Any:
 def ensure_collection(generation: str, dim: int) -> str:
     """Create the Qdrant collection of the generation (cosine, `dim`) with its payload indexes;
     an existing one is kept. Returns its name."""
+    return ensure_named_collection(embed.collection_name(generation), dim)
+
+
+def ensure_named_collection(name: str, dim: int) -> str:
+    """`ensure_collection` for any collection name (ticket 026's `bakeoff__<candidate>`)."""
     from qdrant_client import models as qm
 
-    name = embed.collection_name(generation)
     client = qdrant()
     if not client.collection_exists(name):
         client.create_collection(

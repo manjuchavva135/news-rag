@@ -114,3 +114,22 @@ profiles:
     dim: 1024
     query_prefix: ""
     doc_prefix: ""
+
+  # ticket 026: embedding bake-off candidates (`newsrag embed bakeoff`)
+  - name: qwen3-embedding-8b
+    hf_id: Qwen/Qwen3-Embedding-8B
+    family: qwen
+    kind: embed
+    dtype: bfloat16
+    dim: 4096
+    query_prefix: "Instruct: Given a news question, retrieve the news article that answers it\nQuery: "
+    doc_prefix: ""
+
+  - name: multilingual-e5-large-instruct
+    hf_id: intfloat/multilingual-e5-large-instruct
+    family: e5
+    kind: embed
+    dtype: float16
+    dim: 1024
+    query_prefix: "Instruct: Given a news question, retrieve the news article that answers it\nQuery: "
+    doc_prefix: ""

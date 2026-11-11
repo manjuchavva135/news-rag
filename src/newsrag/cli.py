@@ -58,6 +58,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (chunking_cli.app, "chunk"),
     (warehouse_cli.app, "warehouse"),
     (index_cli.app, "index"),
+    (index_cli.embed_app, "embed"),
     (search_cli.app, "search"),
     (eval_cli.app, "eval"),
 ]

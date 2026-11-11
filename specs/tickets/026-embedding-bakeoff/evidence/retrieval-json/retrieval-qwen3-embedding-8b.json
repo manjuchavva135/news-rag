@@ -1,0 +1,20 @@
+{
+  "store": "new",
+  "set": "/home/admin1/news-rag/data/eval/retrieval-v1.jsonl",
+  "n": 200,
+  "recall_at_10": 0.985,
+  "mrr": 0.8416,
+  "median_search_ms": 41.5,
+  "by_lang": {
+    "te": {
+      "n": 140,
+      "recall_at_10": 0.9929,
+      "mrr": 0.9315
+    },
+    "en": {
+      "n": 60,
+      "recall_at_10": 0.9667,
+      "mrr": 0.6317
+    }
+  }
+}

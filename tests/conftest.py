@@ -8,7 +8,8 @@ from newsrag.config import SECRET_ALIASES
 @pytest.fixture(autouse=True)
 def pin_model_choices(monkeypatch):
     """Unit tests use the code defaults for the model choices, not whatever `pipeline.yaml` was
-    set to (e.g. by `newsrag group bakeoff --apply` or `newsrag textmodel bakeoff --apply`)."""
+    set to (e.g. by `newsrag group bakeoff --apply` or `newsrag textmodel bakeoff --apply`
+    or `newsrag embed bakeoff --apply`)."""
     import newsrag.stages.base as base_mod
     from newsrag import config
 
@@ -19,6 +20,7 @@ def pin_model_choices(monkeypatch):
         "enrich_model",
         "answer_model",
         "answer_judge_model",
+        "embed_model",
     )
     pinned = {name: fields[name].default for name in names}
     current = config.settings.model_copy(update=pinned)

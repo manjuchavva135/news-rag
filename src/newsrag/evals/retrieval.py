@@ -412,13 +412,17 @@ def run_retrieval(
     embed_profile: str | None = None,
     out: Path | None = None,
     search_fn: Callable[..., list[Any]] | None = None,
+    questions: Sequence[Mapping[str, Any]] | None = None,
 ) -> dict[str, Any]:
-    """FR-4: search every question, score the hits, write the report JSON and return it."""
+    """FR-4: search every question, score the hits, write the report JSON and return it.
+
+    `questions` replaces the questions read from `set_file` (ticket 026 passes a filtered list;
+    `set_file` is then only named in the report)."""
     from newsrag import search as search_mod
 
     s = config.settings
     set_file = Path(set_file or s.retrieval_set_file)
-    questions = read_set(set_file)
+    questions = list(questions) if questions is not None else read_set(set_file)
     if only_window:
         questions = [q for q in questions if q.get("in_baseline_window")]
     filters = None

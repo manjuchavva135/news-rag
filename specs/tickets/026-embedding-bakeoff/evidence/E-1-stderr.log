@@ -1,0 +1,16 @@
+corpus: 432 chunks of bge-m3__v1; 200 questions
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 32903.43it/s]
+bge-m3: embedding 432 chunks into bakeoff__bge-m3
+  embedded 432/432 chunks
+bge-m3: searching 200 questions
+bge-m3: recall@10=0.9950 mrr=0.8236 embed=0.8s
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]Loading weights: 100%|██████████| 398/398 [00:00<00:00, 6769.81it/s]
+qwen3-embedding-8b: embedding 432 chunks into bakeoff__qwen3-embedding-8b
+  embedded 432/432 chunks
+qwen3-embedding-8b: searching 200 questions
+qwen3-embedding-8b: recall@10=0.9850 mrr=0.8416 embed=59.5s
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 6576.20it/s]
+multilingual-e5-large-instruct: embedding 432 chunks into bakeoff__multilingual-e5-large-instruct
+  embedded 432/432 chunks
+multilingual-e5-large-instruct: searching 200 questions
+multilingual-e5-large-instruct: recall@10=0.9850 mrr=0.8446 embed=0.8s

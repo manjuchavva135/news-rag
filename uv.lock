@@ -568,6 +568,7 @@ dependencies = [
     { name = "sarvamai" },
     { name = "sentence-transformers" },
     { name = "torch" },
+    { name = "transformers" },
     { name = "typer" },
 ]
 
@@ -597,6 +598,7 @@ requires-dist = [
     { name = "sarvamai", specifier = ">=0.1.45" },
     { name = "sentence-transformers", specifier = ">=3.3" },
     { name = "torch", specifier = ">=2.7", index = "https://download.pytorch.org/whl/cu128" },
+    { name = "transformers", specifier = ">=4.51" },
     { name = "typer", specifier = ">=0.12" },
 ]
 

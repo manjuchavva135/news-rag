@@ -213,6 +213,8 @@ def test_repo_profiles():
         "qwen3-30b-a3b",
         "sarvam-m-24b",
         "bge-m3",
+        "qwen3-embedding-8b",
+        "multilingual-e5-large-instruct",
     ]
     qwen_vl = profiles["qwen3-vl-32b"]
     assert qwen_vl.hf_id == "Qwen/Qwen3-VL-32B-Instruct" and qwen_vl.kind == "vlm"

@@ -89,6 +89,8 @@ REPORTS_DIR_DERIVED = {
     "alias_review_file": "alias-review.csv",
     "alias_verify_file": "alias-verify.json",
     "textmodel_report_file": "textmodel-bakeoff.md",
+    "embed_bakeoff_report_file": "embed-bakeoff.md",
+    "embed_bakeoff_dir": "embed-bakeoff",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -664,6 +666,21 @@ class Settings(BaseSettings):
     retrieval_k: int = 10  # hits scored per question (recall@k)
     retrieval_ngram: int = 5  # characters per n-gram of the hit rule
     retrieval_hit_overlap: float = 0.3  # share of a hit's n-grams that must occur in the gold text
+
+    # --- embed_bakeoff ---
+    # `newsrag embed bakeoff` (ticket 026): every candidate embeds the active generation's chunks
+    # into Qdrant `<store_alias_prefix>bakeoff__<candidate>` and runs the retrieval test on it;
+    # `--apply` writes the winner as `embed_model`.
+    embed_bakeoff_candidates: tuple[str, ...] = (
+        "bge-m3",
+        "qwen3-embedding-8b",
+        "multilingual-e5-large-instruct",
+    )
+    embed_bakeoff_report_file: Path  # default {reports_dir}/embed-bakeoff.md
+    embed_bakeoff_dir: Path  # default {reports_dir}/embed-bakeoff: per-candidate retrieval JSON
+    embed_bakeoff_min_questions: int = 200  # questions with their gold story in the corpus
+    embed_bakeoff_tie: float = 0.01  # recall@10 / MRR this close count as a tie
+    embed_bakeoff_slab: int = 4096  # chunks embedded and written per round
 
     # --- textmodel ---
     # `newsrag textmodel bakeoff` (ticket 032): candidate text models run four Telugu tasks on the

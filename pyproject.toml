@@ -23,6 +23,7 @@ dependencies = [
     "sarvamai>=0.1.45",
     "sentence-transformers>=3.3",
     "torch>=2.7",  # CUDA 12.8+ build (Blackwell), from the pytorch-cu128 index below
+    "transformers>=4.51",  # Qwen3-Embedding (ticket 026)
     "typer>=0.12",
 ]
 

@@ -1,0 +1,12 @@
+embed_model set to multilingual-e5-large-instruct; chunk and index stages will rerun
+
+real	0m0.902s
+user	0m6.259s
+sys	0m0.130s
+embed_model: multilingual-e5-large-instruct
+chunk          done=3 failed=0 running=0 eligible=3
+index          done=3 failed=0 running=0 eligible=0
+Loading weights:   0%|          | 0/391 [00:00<?, ?it/s]Loading weights: 100%|██████████| 391/391 [00:00<00:00, 34407.67it/s]
+ 1  0.0295  2024-12-26  2024-12-26_V_main_03  ఇదేం బాడుడు బాబూ బిల్లులు భగభగ! గతంలో రూ.150 - 250 దాటిని ఇం
+ 2  0.0289  2024-12-26  2024-12-26_GNOPRSACLT_main_03  (శీర్షిక లేదు)
+ 3  0.0285  2024-12-26  2024-12-26_V_main_03  ఇదేం బాడుడు బాబూ బిల్లులు భగభగ! గతంలో రూ.150 - 250 దాటిని ఇం
