@@ -73,4 +73,22 @@ Of the 36 not-present lines, 28 are in notices, 4 in tables, 4 in infographics. 
 mostly by misreading clearly printed Telugu (e.g. "స్టయిఫండరీ స్కీమ్" read as "స్వయంబందీ సీఎం"
 in a 2681×3915 px notice): a whole-notice crop is shrunk to Gemma 4's ~2.6 MP image budget, and small
 Telugu becomes unreadable. A few lines are invented table headers (`| అంశం | వివరాలు |`, `| | |`) and
-garbled Hindi. **NFR-1 is not met on 100 pages; open.**
+garbled Hindi. NFR-1 was not met on 100 pages, which led to D-6 below.
+
+## After D-6: strips + indic-ocr reference (FR-8), same 100 pages
+
+`transcribe` (p2): 100/100 done, 0 failed, 666 s; the page that timed out before (`2024-12-04_B_main_10`)
+is done. 6 notices were read in strips. Evidence: evidence/run-100-pages-v2.log.
+
+| Spot-check | Items | Lines | not_present | invented_pct |
+|------------|-------|-------|-------------|--------------|
+| `--n 50` (ticket's E-3) | 50 | 505 | 8 | **1.58** (PASS) |
+| all kept items | 129 | 1304 | 24 | **1.84** (PASS) |
+
+By type (all items): notices 11/494 lines, infographics 9/392, tables 4/418. 7 of the 24 lines carry no
+text: Markdown dividers `***`, empty rows `| | |`, an image tag `![Emblem of India]`. The rest are still
+misread Telugu words in small infographics, and invented header cells. The margin to 2.0 is thin.
+Evidence: evidence/transcription-spotcheck-100p-n50-v2.json, transcription-spotcheck-100p-all-v2.json.
+
+Unit tests: 496 passed (24 in tests/test_transcribe.py, incl. 7 for strips, the reference and the
+per-strip spot-check).
