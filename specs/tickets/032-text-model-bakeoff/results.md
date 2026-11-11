@@ -48,3 +48,18 @@ Wall time of the bake-off: 15m59s (NFR-1 < 4 h). The sarvam-m download (47 GB) t
 - Facts task uses the print date as event date (independent of the core task).
 - If fewer than n eligible stories exist the list is redrawn each run (not an issue with 332).
 - No vLLM server or background job of mine is still running; GPU free.
+
+## User decision (2026-11-11): keep qwen3-30b-a3b
+
+The report's rule picked `sarvam-m-24b` (total 0.9250). The user chose to keep `qwen3-30b-a3b` after a
+follow-up check: Sarvam-M grading its own 40 outputs gives 0.797 (`evidence/sarvam_self_judge.py`,
+`evidence/sarvam_self_scores.json`), about what it gives the others (0.774–0.815), so it is a harsh judge
+that never judged itself in the bake-off. With the same three judges (gemma3-27b, gemma4-31b, sarvam-m-24b)
+for both, judged is qwen3 0.885 vs sarvam 0.871, total qwen3 0.909 vs sarvam 0.904. Qwen3 also has the best
+`names_verbatim` (0.929) and is the fastest (0.81 s/story), and 019–022 already ran with it, so nothing
+needs rerunning.
+
+`pipeline.yaml` therefore has `enrich_model: qwen3-30b-a3b`, `answer_model: qwen3-30b-a3b` and
+`answer_judge_model: sarvam-m-24b` (the best-ranked candidate of a different family from qwen), set by hand
+instead of by `--apply`. `textmodel-bakeoff.md` still shows `winner: sarvam-m-24b`, so a later
+`bakeoff --apply` would overwrite this choice.
