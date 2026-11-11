@@ -1,6 +1,6 @@
 # 028: Customer-question answer check
 
-**Status:** draft
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 025: needs the search script
 
