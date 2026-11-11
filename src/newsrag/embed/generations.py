@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import threading
 from dataclasses import dataclass
 from datetime import date
 
@@ -11,6 +12,8 @@ from newsrag.stores import opensearch, qdrant
 from newsrag.warehouse import db as wdb
 from newsrag.warehouse import write as wwrite
 
+_first_lock = threading.Lock()
+
 
 class UnknownGeneration(ValueError):
     """The generation has no collection in Qdrant or no index in OpenSearch."""
@@ -18,7 +21,10 @@ class UnknownGeneration(ValueError):
 
 def activate(generation: str) -> None:
     """FR-4: switch the Qdrant alias, the OpenSearch alias and `warehouse.active_generation`
-    to the generation, together. The collection and the index must exist."""
+    to the generation, together. The collection and the index must exist.
+
+    The three switches happen in this order (Qdrant, OpenSearch, Postgres); each is atomic. If one
+    fails the others are already switched: run `activate` again to finish."""
     name = embed.collection_name(generation)
     missing = []
     if not qdrant().collection_exists(name):
@@ -33,10 +39,11 @@ def activate(generation: str) -> None:
 
 def activate_if_first(generation: str) -> bool:
     """FR-4: the first generation ever written is activated automatically."""
-    if wdb.active_generation() is not None:
-        return False
-    activate(generation)
-    return True
+    with _first_lock:  # `stage run --workers N` runs several dates at once
+        if wdb.active_generation() is not None:
+            return False
+        activate(generation)
+        return True
 
 
 @dataclass(frozen=True)

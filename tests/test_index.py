@@ -829,11 +829,28 @@ def test_icu_telugu_search_and_district_filter_on_fake_data(env):
 
 
 @pytest.mark.stores
-def test_db_init_runs_both_migrations():
-    out = runner.invoke(app, ["db", "init"])
-    assert out.exit_code == 0, out.output
-    assert "ledger schema ledger: up to date" in out.output
-    assert "warehouse schema warehouse: up to date" in out.output
+def test_db_init_runs_both_migrations(monkeypatch):
+    """Under throw-away schema names: the real `ledger` and `warehouse` are not touched."""
+    from psycopg import sql
+
+    from newsrag.ledger import db as ledger_db
+    from newsrag.stores import pg
+
+    suffix = secrets.token_hex(4)
+    warehouse, ledger = f"test_wh_{suffix}", f"test_lg_{suffix}"
+    monkeypatch.setattr(
+        config, "settings", config.settings.model_copy(update={"warehouse_schema": warehouse})
+    )
+    try:
+        with ledger_db.use_schema(ledger):
+            out = runner.invoke(app, ["db", "init"])
+        assert out.exit_code == 0, out.output
+        assert f"ledger schema {ledger}: up to date" in out.output
+        assert f"warehouse schema {warehouse}: up to date" in out.output
+    finally:
+        with pg().connection() as c:
+            for name in (warehouse, ledger):
+                c.execute(sql.SQL("DROP SCHEMA IF EXISTS {} CASCADE").format(sql.Identifier(name)))
 
 
 # --- E-3: the real index built by E-1 (marked data) --------------------------------------------
@@ -893,10 +910,14 @@ def test_district_filter_real_index():
     """E-3 / FR-2: a Qdrant query filtered on `districts_current` returns only that district."""
     from qdrant_client import models as qm
 
+    from newsrag.embed import index as store_index
     from newsrag.stores import qdrant
+    from newsrag.warehouse import db as wdb
 
     _real_alias_ready()
-    chunks = _real_chunks()
+    indexed = set(store_index.qdrant_counts(wdb.active_generation()))
+    chunks = [c for c in _real_chunks() if date.fromisoformat(c["pub_date"]) in indexed]
+    assert chunks, "no indexed chunk"
     counts: dict[str, int] = {}
     for chunk in chunks:
         for district in chunk["districts_current"]:
@@ -906,7 +927,7 @@ def test_district_filter_real_index():
     flt = qm.Filter(
         must=[qm.FieldCondition(key="districts_current", match=qm.MatchValue(value=district))]
     )
-    points = qdrant().scroll(embed.alias_name(), scroll_filter=flt, limit=10_000)[0]
+    points = qdrant().scroll(embed.alias_name(), scroll_filter=flt, limit=1_000_000)[0]
     assert len(points) == counts[district]
     assert all(district in p.payload["districts_current"] for p in points)
     dim = qdrant().get_collection(embed.alias_name()).config.params.vectors.size
