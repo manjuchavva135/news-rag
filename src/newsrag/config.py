@@ -564,7 +564,7 @@ class Settings(BaseSettings):
     enrich_concurrency: int = 64  # parallel requests inside one date (32 gives about 4.7 stories/s)
     enrich_input_chars: int = 6000  # headline + text sent to the model, truncated to this
     enrich_max_tokens: int = 1024
-    enrich_max_listed: int = 6  # people and organisations listed per story, at most each
+    enrich_max_listed: int = 8  # people and organisations listed per story, at most each
     enrich_request_timeout_s: float = 120.0  # one chat request
     enrich_transport_retries: int = 3  # timeout / 5xx / connection errors
     enrich_retry_backoff_s: tuple[float, ...] = (2.0, 5.0, 15.0)  # waits between those retries

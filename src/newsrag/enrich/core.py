@@ -32,7 +32,7 @@ WEEKDAYS_EN = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday
 RULES_START = "<!-- rules:start -->"
 RULES_END = "<!-- rules:end -->"
 
-ROLE_MAX_CHARS = 30  # a longer role is cut by the schema
+ROLE_MAX_CHARS = 60  # a safety net against a looping role; roles are a few words
 
 
 def reply_schema(max_items: int) -> dict[str, Any]:
@@ -144,19 +144,32 @@ class TransportFailed(RuntimeError):
     """The request still failed after the transport retries."""
 
 
+def chat_once(client: Any, messages: list[dict[str, str]], **extra: Any) -> str:
+    """One request, sent once: a `ModelClient` is used through its raw OpenAI client with the
+    SDK's own retries off (the retries are ours); anything else only needs a `chat` method."""
+    s = config.settings
+    params = {
+        "temperature": 0,
+        "max_tokens": s.enrich_max_tokens,
+        "timeout": s.enrich_request_timeout_s,
+        **extra,
+    }
+    raw = getattr(client, "raw", None)
+    if raw is None:
+        return client.chat(messages, **params)
+    resp = raw.with_options(max_retries=0).chat.completions.create(
+        model=client.profile, messages=messages, **params
+    )
+    return resp.choices[0].message.content or ""
+
+
 def ask(client: Any, messages: list[dict[str, str]], **extra: Any) -> str:
     """One chat request with the stage's sampling settings and the transport retries (FR-1)."""
     s = config.settings
     waits = list(s.enrich_retry_backoff_s) or [0.0]
     for attempt in range(s.enrich_transport_retries + 1):
         try:
-            return client.chat(
-                messages,
-                temperature=0,
-                max_tokens=s.enrich_max_tokens,
-                timeout=s.enrich_request_timeout_s,
-                **extra,
-            )
+            return chat_once(client, messages, **extra)
         except Exception as exc:
             if not is_transport_error(exc):
                 raise
@@ -215,6 +228,7 @@ def enrich_story(
                     print_date,
                     s.enrich_event_past_years,
                     s.enrich_event_future_days,
+                    limit,
                 )
             )
         except ValueError as exc:  # not JSON, or v.SchemaError

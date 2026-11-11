@@ -13,6 +13,7 @@ ORG_TYPES = ("party", "government_department", "company", "court", "other")
 
 FAILED_FLAG = "low_confidence:enrich_failed"
 REJECTED_FLAG = "event_date_rejected"
+CAPPED_FLAG = "enrich_list_capped"  # informational: a list reached the cap, names may be missing
 
 _SPACES = re.compile(r"\s+")
 _ISO_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
@@ -140,6 +141,7 @@ def parse_reply(
     print_date: date,
     past_years: int = 3,
     future_days: int = 366,
+    max_listed: int | None = None,
 ) -> Parsed:
     """Validate the decoded JSON reply for the story whose model input was `model_input`.
 
@@ -159,6 +161,11 @@ def parse_reply(
     event_date, basis, flags = resolve_event_date(
         data.get("event_date"), expression, print_date, past_years, future_days
     )
+    if max_listed is not None and any(
+        isinstance(data.get(k), list) and len(data[k]) >= max_listed
+        for k in ("people", "organisations")
+    ):
+        flags.append(CAPPED_FLAG)
     return Parsed(
         category=category,
         people=people,

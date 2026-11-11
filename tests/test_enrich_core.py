@@ -186,10 +186,40 @@ def test_invalid_json_falls_back_to_other():
         c["response_format"]["json_schema"]["schema"]["properties"]["people"]["maxItems"]
         for c in client.calls
     ]
-    assert limits == [6, 4, 2]
-    schema = core.reply_schema(6)
+    assert limits == [8, 4, 2]
+    schema = core.reply_schema(8)
     assert schema["properties"]["category"]["enum"] == list(v.CATEGORIES)
     assert client.calls[0]["response_format"]["json_schema"]["schema"] == schema
+
+
+def test_list_at_the_cap_is_flagged():
+    names = [{"name": "చంద్రబాబు", "role": None}] * 8
+    assert parsed_of(people=names).flags == ["enrich_list_capped"]
+    assert parsed_of(people=names[:7]).flags == []
+
+
+def test_sdk_retries_are_off_for_a_model_client():
+    """A ModelClient is used through `raw.with_options(max_retries=0)`: the retries are ours."""
+    seen = {}
+
+    class Completions:
+        def create(self, **kw):
+            seen["kw"] = kw
+            msg = type("M", (), {"content": reply()})
+            return type("R", (), {"choices": [type("C", (), {"message": msg})]})
+
+    class Raw:
+        chat = type("Chat", (), {"completions": Completions()})
+
+        def with_options(self, **kw):
+            seen["options"] = kw
+            return self
+
+    client = type("Client", (), {"raw": Raw(), "profile": "qwen3-30b-a3b"})()
+    assert core.chat_once(client, [{"role": "user", "content": "x"}]) == reply()
+    assert seen["options"] == {"max_retries": 0}
+    assert seen["kw"]["model"] == "qwen3-30b-a3b" and seen["kw"]["timeout"] == 120.0
+    assert seen["kw"]["temperature"] == 0 and seen["kw"]["max_tokens"] == 1024
 
 
 def test_retry_asks_for_shorter_lists():
