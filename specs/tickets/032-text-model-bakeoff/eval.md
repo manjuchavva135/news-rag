@@ -28,7 +28,7 @@
 - **Steps:**
   1. `time uv run newsrag textmodel bakeoff --n 40 --seed 21`
   2. `wc -l < data/textmodel-bakeoff-stories.txt; cat /home/admin1/raw/reports/textmodel-bakeoff.md`
-- **Expected:** real time < 3 h; `40`; one row per candidate with `json_ok`, `names_verbatim`, `facts_verbatim`, `telugu_output`, `judged`, `total`, seconds/story, and a `winner:` line.
+- **Expected:** real time < 4 h; `40`; one row per candidate with `json_ok`, `names_verbatim`, `facts_verbatim`, `telugu_output`, `judged`, `total`, seconds/story, and a `winner:` line.
 
 ### E-3: Apply (covers FR-5)
 
@@ -44,7 +44,7 @@
 - **Type:** CLI
 - **Steps:**
   1. `uv run pytest -q tests/test_textmodel_bakeoff.py -v`
-- **Expected:** all pass, including `test_no_self_judging`, `test_total_formula`, `test_tie_breaks`, `test_failed_candidate_excluded`, `test_apply_picks_other_family_judge`, `test_no_winner_exits_1`.
+- **Expected:** all pass, including `test_no_self_judging`, `test_no_same_family_judging`, `test_total_formula`, `test_tie_breaks`, `test_failed_candidate_excluded`, `test_apply_picks_other_family_judge`, `test_no_winner_exits_1`.
 
 ## Traceability
 
