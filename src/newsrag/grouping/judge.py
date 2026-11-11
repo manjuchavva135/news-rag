@@ -1,6 +1,6 @@
 """Judging a page's article grouping (ticket 013 FR-2, FR-7).
 
-A vision-language model of another family than the grouping model sees the page with the articles
+A vision-language model (another family than the grouping model unless `judge_allow_same_family`) sees the page with the articles
 painted and numbered (`draw_articles`), plus one list line per article, and says for each article
 whether it is one correct story. The page score is the share of correct articles.
 """
@@ -50,7 +50,8 @@ class JudgeError(RuntimeError):
 
 
 def check_families() -> None:
-    """Raise StageUnavailable unless the judge is a vlm of another family than the grouper."""
+    """Raise StageUnavailable unless the judge is a vlm (and, when `judge_allow_same_family` is
+    off, of another family than the grouper)."""
     from newsrag.models import get_profile
     from newsrag.stages.base import StageUnavailable
 
@@ -61,7 +62,7 @@ def check_families() -> None:
         raise StageUnavailable(str(exc)) from None
     if judge.kind != "vlm":
         raise StageUnavailable(f"judge_model {judge.name} is not a vlm profile")
-    if judge.family == group.family:
+    if judge.family == group.family and not s.judge_allow_same_family:
         raise StageUnavailable("judge_model and group_model must be different families")
 
 

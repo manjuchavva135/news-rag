@@ -438,7 +438,9 @@ class Settings(BaseSettings):
     group_dup_text_frac: float = 0.8
 
     # --- judge ---
-    # The VLM that scores a grouping: another family than group_model (checked by `judge`).
+    # The VLM that scores a grouping. Since 2026-11-11 (user decision, ticket 014 D-6) it may be of
+    # the same family as group_model, even the same model; False brings back the family check.
+    judge_allow_same_family: bool = True
     # Gemma 4 won the 013 bake-off (6/10 merges caught on the page view; Gemma 3 and InternVL 0/10).
     judge_model: str = "gemma4-31b"
     judge_threshold: float = 0.8  # a page scoring below this is grouped again at higher resolution
@@ -458,7 +460,12 @@ class Settings(BaseSettings):
     # `newsrag group bakeoff` (ticket 014): candidate grouping VLMs group the same pages, the
     # judge scores them, each candidate also reads Telugu headline crops; the winner goes to
     # pipeline.yaml with `--apply`.
-    bakeoff_candidates: tuple[str, ...] = ("qwen3-vl-32b", "qwen3-vl-30b-a3b", "gemma3-27b")
+    bakeoff_candidates: tuple[str, ...] = (
+        "qwen3-vl-32b",
+        "qwen3-vl-30b-a3b",
+        "gemma3-27b",
+        "gemma4-31b",
+    )
     bakeoff_pages_file: Path  # default {repo_root}/data/bakeoff-pages.txt (committed, generated)
     bakeoff_telugu_file: (
         Path  # default {repo_root}/data/telugu-headlines.txt (committed, generated)

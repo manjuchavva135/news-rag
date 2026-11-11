@@ -490,25 +490,22 @@ def page_score(result: Mapping[str, Any] | None) -> float:
 
 
 def pick_winner(rows: Sequence[Row], tie: float | None = None) -> str | None:
-    """Highest mean judge score; when the top two are within `tie` (default `bakeoff_tie`), the
-    higher `telugu_read`, then fewer seconds/page. None when no candidate finished."""
+    """Highest mean judge score; every candidate within `tie` (default `bakeoff_tie`) of the best
+    is a tie, broken by the higher `telugu_read`, then fewer seconds/page. None when no candidate
+    finished."""
     tie = config.settings.bakeoff_tie if tie is None else tie
     done = [r for r in rows if r.status == DONE and r.mean_score is not None]
     if not done:
         return None
-    ranked = sorted(done, key=lambda r: -(r.mean_score or 0.0))
-    if len(ranked) == 1:
-        return ranked[0].candidate
-    first, second = ranked[0], ranked[1]
-    if round((first.mean_score or 0.0) - (second.mean_score or 0.0), 6) > tie:
-        return first.candidate
+    best = max(r.mean_score or 0.0 for r in done)
+    tied = [r for r in done if round(best - (r.mean_score or 0.0), 6) <= tie]
 
     def tie_key(r: Row) -> tuple[float, float]:
         read = r.telugu_read if r.telugu_read is not None else -1.0
         speed = r.seconds_per_page if r.seconds_per_page is not None else float("inf")
         return (-read, speed)
 
-    return min((first, second), key=tie_key).candidate
+    return min(tied, key=tie_key).candidate
 
 
 def _fmt(value: float | None, digits: int) -> str:
@@ -565,7 +562,8 @@ def report_value(text: str, key: str) -> str | None:
 
 
 def check_request(candidates: Sequence[str], judge: str) -> tuple[list[str], dict[str, str]]:
-    """(candidates to run, {skipped candidate: reason}). Raises `BakeoffError` for an unknown
+    """(candidates to run, {skipped candidate: reason}); a candidate of the judge's family is
+    skipped only when `judge_allow_same_family` is off. Raises `BakeoffError` for an unknown
     profile or a judge / candidate that is not a vlm."""
     from newsrag.models import get_profile
 
@@ -584,7 +582,7 @@ def check_request(candidates: Sequence[str], judge: str) -> tuple[list[str], dic
             raise BakeoffError(f"unknown candidate profile: {name}") from None
         if profile.kind != "vlm":
             raise BakeoffError(f"candidate {name} is not a vlm profile")
-        if profile.family == judge_profile.family:
+        if profile.family == judge_profile.family and not config.settings.judge_allow_same_family:
             skipped[name] = f"same family as the judge {judge} ({profile.family})"
         else:
             run.append(name)

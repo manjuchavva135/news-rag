@@ -28,7 +28,7 @@
 - **Steps:**
   1. `time uv run newsrag group bakeoff`
   2. `wc -l < data/bakeoff-pages.txt; cat /home/admin1/raw/reports/group-bakeoff.md`
-- **Expected:** real time < 3 h; `5`; the report has one row per candidate with the five columns of FR-3 a `skipped` row for `gemma3-27b` (judge family), and a line `winner: <one of the candidates>`.
+- **Expected:** real time < 3 h; `5`; the report has one row per candidate with the five columns of FR-3 no `skipped` rows (D-6), and a line `winner: <one of the candidates>`.
 
 ### E-3: Apply (covers FR-4)
 
@@ -54,8 +54,8 @@
   1. `grep -v '^#' data/telugu-headlines.txt | wc -l`
   2. `grep -E 'telugu_read|winner:' /home/admin1/raw/reports/group-bakeoff.md`
   3. `grep -E '^(group_model|judge_model):' pipeline.yaml`
-  4. `uv run pytest -q tests/test_bakeoff.py -k "telugu_read_score or judge_model_set_by_apply or gemma_candidate_skipped_by_gemma_judge"`
-- **Expected:** `30`; the report has a `telugu_read` column for every candidate that ran, a `judge:` line and a `winner:` line; `judge_model` in `pipeline.yaml` equals the report's judge (`gemma4-31b`) and is another family than `group_model`; tests pass.
+  4. `uv run pytest -q tests/test_bakeoff.py -k "telugu_read_score or judge_model_set_by_apply or gemma_candidate_skipped_by_gemma_judge or same_family_candidates_run_by_default"`
+- **Expected:** `30`; the report has a `telugu_read` column for every candidate that ran, a `judge:` line and a `winner:` line; `judge_model` in `pipeline.yaml` equals the report's judge (`gemma4-31b`); tests pass.
 
 ## Traceability
 

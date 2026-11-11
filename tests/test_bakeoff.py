@@ -256,6 +256,7 @@ def test_reading_error_scores_zero(set_settings, datas):
 
 
 def test_judge_family_candidate_skipped(set_settings, datas):
+    set_settings(judge_allow_same_family=False)
     fakes = Fakes()
     rows, winner, _ = run(fakes, datas, candidates=("qwen3-vl-32b", "qwen3-vl-30b-a3b"),
                              judge="qwen3-vl-32b")  # fmt: skip
@@ -267,6 +268,7 @@ def test_judge_family_candidate_skipped(set_settings, datas):
 
 
 def test_gemma_candidate_skipped_by_gemma_judge(set_settings, datas):
+    set_settings(judge_allow_same_family=False)
     fakes = Fakes()
     rows, winner, text_path = run(
         fakes, datas, candidates=("qwen3-vl-32b", "qwen3-vl-30b-a3b", "gemma3-27b")
@@ -280,6 +282,19 @@ def test_gemma_candidate_skipped_by_gemma_judge(set_settings, datas):
     assert "| gemma3-27b | skipped |" in text
     assert "judge: gemma4-31b" in text
     assert winner in ("qwen3-vl-32b", "qwen3-vl-30b-a3b")
+
+
+def test_same_family_candidates_run_by_default(set_settings, datas):
+    # D-6: the family rule is off by default; the judge may even grade its own grouping
+    fakes = Fakes(read={"gemma4-31b": "మొదటి వార్త శీర్షిక"})
+    candidates = ("qwen3-vl-32b", "gemma3-27b", "gemma4-31b")
+    rows, winner, path = run(fakes, datas, candidates=candidates)
+    assert [r.status for r in rows] == [bk.DONE, bk.DONE, bk.DONE]
+    assert fakes.opened == [*candidates, "gemma4-31b"]  # the judge loads once, after the groupers
+    assert all(len(r.scores) == len(PAGES) for r in rows)
+    # equal judge scores: the better Telugu reader wins the tie
+    assert winner == "gemma4-31b"
+    assert "skipped" not in path.read_text()
 
 
 def test_unknown_candidate_rejected():
@@ -385,6 +400,13 @@ def test_tie_within_001_picks_faster():
     # more than 0.01 apart: the better score wins whatever the speed
     rows = [row("slow", 0.83, spp=20.0), row("fast", 0.80, spp=5.0)]
     assert bk.pick_winner(rows, tie=0.01) == "slow"
+
+
+def test_three_way_tie_considers_every_tied_candidate():
+    rows = [row("a", 0.80, read=0.3), row("b", 0.80, read=0.4), row("c", 0.795, read=0.9)]
+    assert bk.pick_winner(rows, tie=0.01) == "c"
+    rows.append(row("d", 0.85, read=0.1))  # clearly best: wins whatever it reads
+    assert bk.pick_winner(rows, tie=0.01) == "d"
 
 
 def test_tie_prefers_telugu_read_before_speed():

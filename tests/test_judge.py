@@ -280,7 +280,14 @@ def test_settings_defaults():
     assert s.judge_model == "gemma4-31b" and s.judge_threshold == 0.8
 
 
+def test_same_family_allowed_by_default(set_settings):
+    set_settings(judge_model="qwen3-vl-32b")
+    for stage in (JudgeStage(), JudgeRetryStage()):
+        stage.preflight()  # qwen judging a qwen grouper: allowed since ticket 014 D-6
+
+
 def test_same_family_refused(set_settings):
+    set_settings(judge_allow_same_family=False)
     JudgeStage().preflight()  # gemma judging a qwen grouper: fine
     set_settings(judge_model="qwen3-vl-32b")
     for stage in (JudgeStage(), JudgeRetryStage()):
@@ -293,7 +300,7 @@ def test_same_family_refused(set_settings):
 def test_same_family_exits_2_before_any_db_access(set_settings):
     from newsrag.cli import app
 
-    set_settings(judge_model="qwen3-vl-32b")
+    set_settings(judge_model="qwen3-vl-32b", judge_allow_same_family=False)
     result = CliRunner().invoke(app, ["stage", "run", "judge", "--limit", "1"])
     assert result.exit_code == 2
     assert "judge_model and group_model must be different families" in result.output
