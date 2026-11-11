@@ -1,6 +1,6 @@
 # 014: Grouping model bake-off
 
-**Status:** ready
+**Status:** done
 **Mode:** solo
 **Runs:** waits for 013: needs grouping + judge
 
