@@ -8,12 +8,15 @@ import json
 from pathlib import Path
 from types import SimpleNamespace
 
+import httpx
+import openai
 import pytest
 from PIL import Image
 from typer.testing import CliRunner
 
 from newsrag import config
 from newsrag.grouping import input as gin
+from newsrag.grouping import parse
 from newsrag.stages import transcribe as tr
 from newsrag.stages.base import PageRow
 from newsrag.stages.transcribe import TranscribeStage, select_targets, transcribe_page
@@ -571,6 +574,84 @@ def test_big_notice_read_in_strips(tmp_path, set_settings):
     ask = Scripted(notice_reply(), parts[0], "bad", "bad", "bad")
     artifact = transcribe_page(d, g, lambda: ask)
     assert artifact["items"] == [] and artifact["transcribe_failed"] == 1
+
+
+def _tall_notice(tmp_path, height=1200):
+    path = tmp_path / "dense.png"
+    Image.new("RGB", (200, height), "white").save(path)
+    blocks = [blk(1, (0, 0, 200, height), "Table", "dense table")]  # no line to cut on
+    d = {"page_id": PAGE, "image": {"path": str(path)}, "page_flags": [], "blocks": blocks}
+    return d, {"articles": [art(1, "notice_tender", [(1, "table")])]}, blocks
+
+
+TIMEOUT = openai.APITimeoutError(request=httpx.Request("POST", "http://127.0.0.1:8100/v1"))
+
+
+def test_strip_that_times_out_is_split(tmp_path, set_settings):
+    set_settings(transcribe_tile_max_mp=0.12, transcribe_pad_px=0, transcribe_tile_overlap_px=48)
+    d, g, blocks = _tall_notice(tmp_path)
+    strips = tr.tiles(tr.region_box(d, ["b001"]), [b["bbox"] for b in blocks])
+    assert [s[1::2] for s in strips] == [(0, 600), (552, 1152), (1104, 1200)]
+    halves = tr.split_strip(strips[0], [b["bbox"] for b in blocks])
+    assert [h[1::2] for h in halves] == [(0, 325), (277, 600)]
+
+    def part(text):
+        return json.dumps({"markdown": text})
+
+    # strip 1 times out, its two halves answer; strip 2 is cut at max_tokens with every hint
+    # size and is split too; strip 3 answers
+    too_long = parse.TooLong("the reply was cut at max_tokens")
+    ask = Scripted(
+        notice_reply(), TIMEOUT, part("1a"), part("1b"),
+        too_long, too_long, too_long, part("2a"), part("2b"), part("3"),
+    )  # fmt: skip
+    artifact = transcribe_page(d, g, lambda: ask)
+    item = artifact["items"][0]
+    assert artifact["transcribe_failed"] == 0
+    assert item["markdown"] == "1a\n\n1b\n\n2a\n\n2b\n\n3"
+    assert [p["bbox"][1::2] for p in item["parts"]] == [
+        [0, 325], [277, 600], [552, 877], [829, 1152], [1104, 1200],
+    ]  # fmt: skip
+    assert tr.STRIPS_SPLIT in item["flags"]
+    assert "part 1 of 3" in _prompt_of(ask.requests[2][0])  # a half keeps its strip's number
+
+
+def test_strip_at_minimum_height_fails_the_item_not_the_page(tmp_path, set_settings):
+    set_settings(transcribe_tile_max_mp=0.12, transcribe_pad_px=0, transcribe_tile_overlap_px=48)
+    d, g, _ = _tall_notice(tmp_path)
+    # strip 1 and both its halves (325 px: too short to split again) time out
+    ask = Scripted(notice_reply(), TIMEOUT, TIMEOUT)
+    artifact = transcribe_page(d, g, lambda: ask)
+    assert artifact["items"] == [] and artifact["transcribe_failed"] == 1
+    assert artifact["page_flags"] == [tr.FAILED]
+    assert len(ask.requests) == 3
+
+
+def test_unsplit_notice_has_no_split_flag(tmp_path, set_settings):
+    set_settings(transcribe_tile_max_mp=0.12, transcribe_pad_px=0, transcribe_tile_overlap_px=48)
+    d, g, _ = _tall_notice(tmp_path)
+    parts = [json.dumps({"markdown": f"s{n}"}) for n in (1, 2, 3)]
+    item = transcribe_page(d, g, lambda: Scripted(notice_reply(), *parts))["items"][0]
+    assert tr.STRIPS_SPLIT not in item["flags"] and len(item["parts"]) == 3
+
+
+def test_send_once_does_not_retry_a_timeout(set_settings):
+    from newsrag.stages.group import send
+
+    set_settings(group_transport_retries=2, group_retry_backoff_s=(0.0,))
+    calls = []
+
+    def create(messages, max_items=None):
+        calls.append(max_items)
+        raise TIMEOUT
+
+    ask = send(create)
+    with pytest.raises(openai.APITimeoutError):
+        ask.once([], 3)
+    assert len(calls) == 1
+    with pytest.raises(openai.APITimeoutError):
+        ask([], 3)
+    assert len(calls) == 4  # the plain call still retries twice
 
 
 def test_spotcheck_judges_parts_separately(data):

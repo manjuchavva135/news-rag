@@ -76,12 +76,16 @@ def send(
     `group_retry_backoff_s` waits; HTTP 400 for context length and a reply cut by
     `max_tokens` raise `parse.TooLong`. `on_usage(prompt_tokens, completion_tokens)` is called
     after every answered request.
+
+    `ask.once(messages, max_items)` is the same call without the retries after a timeout (the
+    timeout is raised at once), for a caller that would rather send a smaller request than wait
+    for the same one again; connection errors and HTTP 5xx are still retried.
     """
     import openai
 
     s = config.settings
 
-    def ask(messages: list[dict[str, Any]], max_items: int | None = None) -> str:
+    def call(messages: list[dict[str, Any]], max_items: int | None, retry_timeouts: bool) -> str:
         attempt = 0
         while True:
             try:
@@ -90,8 +94,12 @@ def send(
                 if is_context_error(str(exc)):
                     raise parse.TooLong(str(exc)) from None
                 raise
-            except (openai.APITimeoutError, openai.APIConnectionError) as exc:
+            except openai.APITimeoutError as exc:
+                if not retry_timeouts:
+                    raise
                 failure: Exception = exc
+            except openai.APIConnectionError as exc:
+                failure = exc
             except openai.APIStatusError as exc:
                 if exc.status_code < 500:
                     raise
@@ -110,6 +118,13 @@ def send(
             time.sleep(waits[min(attempt, len(waits) - 1)] if waits else 0.0)
             attempt += 1
 
+    def ask(messages: list[dict[str, Any]], max_items: int | None = None) -> str:
+        return call(messages, max_items, True)
+
+    def once(messages: list[dict[str, Any]], max_items: int | None = None) -> str:
+        return call(messages, max_items, False)
+
+    ask.once = once  # type: ignore[attr-defined]
     return ask
 
 

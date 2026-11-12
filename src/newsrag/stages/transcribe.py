@@ -47,6 +47,8 @@ PART_PROMPT_FILE = PROMPTS / "transcribe_part_v1.md"
 PROMPT_VERSION = 3
 JPEG_QUALITY = 92
 FAILED = "low_confidence:transcribe_failed"
+STRIPS_SPLIT = "strips_split"  # a strip of a big notice was read in smaller pieces
+MIN_TILE_H = 256  # a strip is never made shorter than this (300-DPI pixels)
 LOW = "low_confidence:"
 
 BLOCK_TYPES = ("table", "infographic", "photo_no_text")
@@ -236,15 +238,16 @@ def box_jpeg(data: Mapping[str, Any], box: Sequence[int], long_side: int) -> byt
     return buf.getvalue()
 
 
-def tiles(box: Box, block_boxes: Sequence[Sequence[float]]) -> list[Box]:
+def tiles(box: Box, block_boxes: Sequence[Sequence[float]], max_h: int | None = None) -> list[Box]:
     """Horizontal strips of `box`, top to bottom, each at most `transcribe_tile_max_mp`
-    megapixels. A strip ends on a line no block crosses when there is one in its lower 70 %;
-    otherwise it is cut at its full height and the next strip starts
-    `transcribe_tile_overlap_px` higher. One strip when the box is small enough."""
+    megapixels (or `max_h` pixels high when given). A strip ends on a line no block crosses when
+    there is one in its lower 70 %; otherwise it is cut at its full height and the next strip
+    starts `transcribe_tile_overlap_px` higher. One strip when the box is small enough."""
     s = config.settings
     x1, y1, x2, y2 = box
     width = max(1, x2 - x1)
-    max_h = max(256, int(s.transcribe_tile_max_mp * 1_000_000 / width))
+    if max_h is None:
+        max_h = max(MIN_TILE_H, int(s.transcribe_tile_max_mp * 1_000_000 / width))
     if (y2 - y1) <= max_h:
         return [box]
     spans = [(float(b[1]), float(b[3])) for b in block_boxes]
@@ -266,6 +269,18 @@ def tiles(box: Box, block_boxes: Sequence[Sequence[float]]) -> list[Box]:
             top = high - s.transcribe_tile_overlap_px
     out.append((x1, top, x2, y2))
     return out
+
+
+def split_strip(strip: Box, block_boxes: Sequence[Sequence[float]]) -> list[Box] | None:
+    """`strip` cut into (usually two) shorter strips by the rules of `tiles`, or None when the
+    pieces would be shorter than `MIN_TILE_H`."""
+    height = strip[3] - strip[1]
+    if height < 2 * MIN_TILE_H:
+        return None
+    pieces = tiles(
+        strip, block_boxes, (height + config.settings.transcribe_tile_overlap_px) // 2 + 1
+    )
+    return pieces if len(pieces) > 1 else None
 
 
 HINT_INTRO = (
@@ -626,23 +641,65 @@ def read_notice(
     if len(strips) == 1:
         return _item(target, type="notice_tender", markdown=got["markdown"], **fields), "kept"
     part_template = PART_PROMPT_FILE.read_text(encoding="utf-8")
+    block_boxes = [b["bbox"] for b in blocks]
     parts: list[dict[str, Any]] = []
     for n, strip in enumerate(strips, start=1):
+        prompt = functools.partial(_fill, part_template, part=n, parts=len(strips))
+        got_parts = read_strip(
+            data, target, ask, strip, lambda hint, p=prompt: p(hint=hint), block_boxes
+        )
+        if got_parts is None:
+            return None, "failed"
+        parts.extend(got_parts)
+    markdown = "\n\n".join(p["markdown"] for p in parts if p["markdown"])
+    item = _item(target, type="notice_tender", markdown=markdown, **fields)
+    item["parts"] = parts
+    if len(parts) > len(strips) and STRIPS_SPLIT not in item["flags"]:
+        item["flags"].append(STRIPS_SPLIT)
+    return item, "kept"
+
+
+def read_strip(
+    data: Mapping[str, Any],
+    target: Target,
+    ask: Ask,
+    strip: Box,
+    prompt: Callable[[str], str],
+    block_boxes: Sequence[Sequence[float]],
+) -> list[dict[str, Any]] | None:
+    """The parts (`{bbox, markdown}`) of one strip of a big notice, top to bottom.
+
+    A strip the model cannot read in one request (the request times out, the reply is cut at
+    `transcribe_max_tokens`, or no reply is valid: a dense table) is cut into shorter strips
+    (`split_strip`) and each is read on its own, again and again until the pieces would be
+    shorter than `MIN_TILE_H`. None when a piece of that size still cannot be read. A timeout is
+    not sent again at the same size (`ask.once`)."""
+    import openai
+
+    s = config.settings
+    try:
         part = request_with_hint(
-            ask,
-            lambda hint, n=n: _fill(part_template, part=n, parts=len(strips), hint=hint),
+            getattr(ask, "once", ask),
+            prompt,
             box_jpeg(data, strip, s.transcribe_article_max_px),
             blocks_in(data, target.block_ids, strip),
             PART_REQUEST,
             parse_part,
         )
-        if part is None:
-            return None, "failed"
-        parts.append({"bbox": list(strip), "markdown": part["markdown"]})
-    markdown = "\n\n".join(p["markdown"] for p in parts if p["markdown"])
-    item = _item(target, type="notice_tender", markdown=markdown, **fields)
-    item["parts"] = parts
-    return item, "kept"
+    except openai.APITimeoutError:
+        part = None
+    if part is not None:
+        return [{"bbox": list(strip), "markdown": part["markdown"]}]
+    pieces = split_strip(strip, block_boxes)
+    if pieces is None:
+        return None
+    out: list[dict[str, Any]] = []
+    for piece in pieces:
+        got = read_strip(data, target, ask, piece, prompt, block_boxes)
+        if got is None:
+            return None
+        out.extend(got)
+    return out
 
 
 def read_target(
