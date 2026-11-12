@@ -11,6 +11,7 @@ from typing import Any
 
 import pytest
 
+from newsrag import config
 from newsrag.evals import retrieval as r
 from newsrag.search.hybrid import Hit
 
@@ -449,3 +450,23 @@ def test_translit_pass_and_recall_at(tmp_path: Path):
     assert q1["translit_query"] == "a" and q1["rank"] == 2 and q1["rank_translit"] == 1
     assert q1["translit_failed"] is False and "top1_headline_translit" in q1
     assert report["n"] == 2  # overall uses the as-typed run
+
+
+def test_style_examples_in_prompt_and_meta(tmp_path, monkeypatch):
+    style_file = tmp_path / "customer.json"
+    qs = [{"id": f"Q{i:02d}", "telugu": f"కస్టమర్ ప్రశ్న {i} ఎన్ని?"} for i in range(1, 11)]
+    style_file.write_text(json.dumps({"questions": qs}, ensure_ascii=False))
+    style = r.load_style_questions(style_file)
+    assert len(style) == 10
+    picked = r.style_sample(style, "s1", "en", 7)
+    assert len(picked) == config.settings.retrieval_style_examples == 6
+    assert picked == r.style_sample(style, "s1", "en", 7)  # fixed by seed, story and language
+    assert picked != r.style_sample(style, "s2", "en", 7)
+    st = story(1, date(2026, 10, 8))
+    p = r.question_prompt(st, "en", examples=picked)
+    assert all(f"- {e}" in p for e in picked) and "in the same manner" in p
+    assert "Examples:" not in r.question_prompt(st, "en")  # without a style file: as before
+    with pytest.raises(ValueError, match="no questions"):
+        empty = tmp_path / "empty.json"
+        empty.write_text('{"questions": []}')
+        r.load_style_questions(empty)

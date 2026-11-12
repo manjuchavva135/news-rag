@@ -710,6 +710,15 @@ class Settings(BaseSettings):
     eval_2026_retrieval_file: Path  # default {reports_dir}/retrieval-2026.json
     eval_2026_answers_file: Path  # default {reports_dir}/answers-2026.json (+ .md next to it)
     eval_2026_report_file: Path  # default {reports_dir}/eval-2026.md
+    # `eval build-retrieval --style-file`: customer questions shown in every writer prompt
+    retrieval_style_examples: int = 6
+    # `eval answers --thinking`: every question is answered a second time by this reasoning
+    # profile (the reply is `reasoning</think>answer`), with these sampling settings
+    eval_2026_thinking_model: str = "qwen3-30b-a3b-thinking"
+    eval_2026_thinking_temperature: float = 0.6
+    eval_2026_thinking_top_p: float = 0.95
+    eval_2026_thinking_max_tokens: int = 8192  # the reasoning and the answer together
+    eval_2026_explain_max_chars: int = 6000  # an answer is cut to this for the explanation grade
 
     # --- embed_bakeoff ---
     # `newsrag embed bakeoff` (ticket 026): every candidate embeds the active generation's chunks

@@ -137,6 +137,104 @@ def test_grade_counts_and_pcts(files):
     assert Path(files / "answers-2026.md").exists()
 
 
+class TwoPassClient(FakeClient):
+    """Like FakeClient, but the reasoning profile's answers come as `reasoning</think>answer`
+    and explanation prompts get an explanation label."""
+
+    def __init__(self, opener_ref, explain="clear", **kw):
+        super().__init__(**kw)
+        self.opener_ref = opener_ref
+        self.explain = explain
+        self.params: list[tuple[str, dict]] = []
+
+    def chat(self, prompt, **params):
+        held = self.opener_ref[0].held
+        self.params.append((held, params))
+        if "EXPLAINS itself" in prompt:
+            self.prompts.append(prompt)
+            return json.dumps({"label": self.explain})
+        reply = super().chat(prompt, **params)
+        if "Sources:" in prompt and held == "qwen3-30b-a3b-thinking":
+            return f"I read source 1.</think>thought {reply}"
+        return reply
+
+
+def run_two_pass(**kw):
+    ref: list = [None]
+    client = TwoPassClient(ref, **kw.pop("client_kw", {}))
+    searched: list[str] = []
+    opener = Opener(client)
+    ref[0] = opener
+    report = a.run_answers(
+        search_fn=lambda query, k: [] if query == "Nothing matches this" else [good_hit()],
+        opener=opener,
+        story_meta=lambda ids: {i: {"page_id": "P1", "editions": ["E1"]} for i in ids},
+        covered_years=[2026],
+        embed_profile="e5",
+        today=date(2026, 11, 11),
+        echo=lambda _m: None,
+        **kw,
+    )
+    return report, opener, client, searched
+
+
+def test_thinking_pass_keeps_reasoning_and_grades_both(files):
+    report, opener, client, _ = run_two_pass(thinking=True, explain=True)
+    # embed, answer, reasoning model, judge: one at a time, in this order
+    assert opener.events == ["e5", config.settings.answer_model, "qwen3-30b-a3b-thinking",
+                             a.customer.judge_profile()]  # fmt: skip
+    by = {it["qid"]: it for it in report["items"]}
+    one = by["q0001"]
+    assert one["answer"].startswith("answer of") and one["answer_thinking"].startswith("thought")
+    assert one["reasoning"] == "I read source 1."
+    assert one["grade"] == "correct" and one["grade_thinking"] == "correct"
+    assert one["explain"] == "clear" and one["explain_thinking"] == "clear"
+    assert one["sources"][0]["headline"] == "తిరుమల టోకెన్లు"
+    # no hits: wrong for both answers, no explanation grade
+    assert by["q0004"]["grade_thinking"] == "wrong" and by["q0004"]["explain"] is None
+    assert report["thinking"]["overall"] == report["overall"]
+    assert report["explain"]["plain"]["overall"]["clear_pct"] == 100.0
+    assert report["explain"]["plain"]["n"] == 3  # only answered questions are rated
+    # the settings each model ran with are in the report
+    m = report["models"]
+    assert m["answer"]["thinking"] is False and m["answer"]["temperature"] == 0
+    assert m["answer_thinking"]["thinking"] is True
+    assert m["answer_thinking"]["temperature"] == 0.6 and m["answer_thinking"]["top_p"] == 0.95
+    sent = [p for held, p in client.params if held == "qwen3-30b-a3b-thinking"]
+    assert sent and all(p["temperature"] == 0.6 and "chat_template_kwargs" not in
+                        p.get("extra_body", {}) for p in sent)  # fmt: skip
+    md = Path(files / "answers-2026.md").read_text()
+    assert "## Models and settings" in md and "Reasoning of the model" in md
+    assert "| Reasoning on | all |" in md and "clear %" in md
+
+
+def test_reasoning_without_answer_is_failed(files, monkeypatch):
+    def only_reasons(client, prompt):
+        raise ValueError("no answer after the reasoning")
+
+    monkeypatch.setattr(a, "ask_thinking", only_reasons)
+    report, _, _, _ = run_two_pass(thinking=True)
+    by = {it["qid"]: it for it in report["items"]}
+    assert by["q0001"]["answer_thinking"] == "" and by["q0001"]["grade_thinking"] is None
+    assert "no answer" in by["q0001"]["error_thinking"]
+    assert by["q0001"]["grade"] == "correct"  # the plain answer is not affected
+    assert report["thinking"]["n_failed"] == 3
+
+
+def test_split_reasoning():
+    assert a.split_reasoning("why</think> the answer") == ("why", "the answer")
+    assert a.split_reasoning("<think>why</think>ans") == ("why", "ans")
+    assert a.split_reasoning("just an answer") == ("", "just an answer")
+    assert a.split_reasoning("<think>still thinking") == ("still thinking", "")
+
+
+def test_default_run_has_no_extra_passes(files):
+    report, opener, _ = run(FakeClient())
+    assert len(opener.events) == 3 and "thinking" not in report and "explain" not in report
+    assert "answer_thinking" not in report["items"][0] and "explain" not in report["items"][0]
+    assert "answer_thinking" not in report["models"]
+
+
 def test_unparseable_grade_is_null_and_failed(files):
     client = FakeClient(grades={TRANSLIT: "not json at all"})
     report, _, _ = run(client)

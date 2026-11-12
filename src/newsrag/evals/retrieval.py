@@ -163,7 +163,31 @@ def check_question(question: Any, lang: str, headline: str) -> str | None:
     return None
 
 
-def question_prompt(story: Mapping[str, Any], lang: str, problem: str | None = None) -> str:
+def load_style_questions(path: Path) -> list[str]:
+    """The customer's own questions (`telugu` of every entry of a customer-questions file): the
+    examples a styled set is written after."""
+    data = json.loads(Path(path).read_text("utf-8"))
+    out = [" ".join(str(q.get("telugu") or "").split()) for q in data.get("questions") or []]
+    out = [q for q in out if q]
+    if not out:
+        raise ValueError(f"{path}: no questions with a `telugu` text")
+    return out
+
+
+def style_sample(style: Sequence[str], story_id: Any, lang: str, seed: int) -> list[str]:
+    """`retrieval_style_examples` of the style questions for one prompt, fixed by the seed, the
+    story and the language (so a rebuilt set shows every story the same examples)."""
+    k = min(len(style), max(0, config.settings.retrieval_style_examples))
+    return random.Random(f"{seed}:{story_id}:{lang}").sample(list(style), k)
+
+
+def question_prompt(
+    story: Mapping[str, Any],
+    lang: str,
+    problem: str | None = None,
+    examples: Sequence[str] = (),
+) -> str:
+    """`examples` (customer questions, Telugu) make the model ask the way the customer does."""
     s = config.settings
     body = f"{story['headline']}\n\n{story['text']}"[: s.retrieval_story_chars]
     language = LANG_NAMES[lang]
@@ -176,8 +200,21 @@ def question_prompt(story: Mapping[str, Any], lang: str, problem: str | None = N
         ),
         "Use your own words: paraphrase. Do not copy phrases from the headline.",
         _language_rule(lang, language),
-        'Reply with JSON only: {"question": "..."}',
     ]
+    if examples:
+        lines += [
+            (
+                "The customer of this archive asks questions like the examples below (they are "
+                "in Telugu; they only show the manner of asking). Ask in the same manner: what "
+                "an analyst wants to know (how many, how much, which districts or people, what "
+                "was decided or promised, what is alleged and by whom, what changed and why), "
+                "in a full, specific sentence. Do not ask about the examples' topics: your "
+                f"question is about the story below, answerable from it alone, in {language}."
+            ),
+            "Examples:",
+            *[f"- {e}" for e in examples],
+        ]
+    lines.append('Reply with JSON only: {"question": "..."}')
     if problem:
         lines.append(f"Your previous question was rejected ({problem}). Write a different one.")
     return "\n".join(lines) + f"\n\nStory:\n{body}"
@@ -220,12 +257,14 @@ def parse_reply(reply: str) -> Any:
     return data.get("question") if isinstance(data, dict) else None
 
 
-def write_question(story: Mapping[str, Any], lang: str, ask: Ask) -> str | None:
+def write_question(
+    story: Mapping[str, Any], lang: str, ask: Ask, examples: Sequence[str] = ()
+) -> str | None:
     """Up to `retrieval_max_tries` attempts; None when none gave a usable question."""
     problem = None
     for _ in range(max(1, config.settings.retrieval_max_tries)):
         try:
-            reply = ask(question_prompt(story, lang, problem))
+            reply = ask(question_prompt(story, lang, problem, examples))
         except Exception as e:  # noqa: BLE001 - a failed request counts as a try
             problem = f"request failed: {e}"[:200]
             continue
@@ -390,8 +429,13 @@ def build_retrieval_set(
     echo: Callable[[str], None] = print,
     langs: Mapping[str, int] | None = None,
     from_date: date | None = None,
+    style: Sequence[str] | None = None,
+    style_file: Path | None = None,
 ) -> dict[str, Any]:
     """FR-3: write the question set to `out` (JSON lines) and return a summary.
+
+    `style` = the customer's questions (`load_style_questions(style_file)`): every prompt shows
+    `retrieval_style_examples` of them so the questions are asked the way the customer asks.
 
     Ticket 034: `langs` = exact questions per language code (summing to n), `from_date` keeps
     only stories printed on or after it; a `<out>.meta.json` records how the set was built.
@@ -436,9 +480,13 @@ def build_retrieval_set(
         with ThreadPoolExecutor(max_workers=max(1, s.retrieval_concurrency)) as ex:
             while pending:
                 todo = [(i, story) for i, story in pending if story is not None]
-                found = list(
-                    ex.map(lambda item: write_question(item[1], langs_of[item[0]], ask), todo)
-                )
+
+                def write(item: tuple[int, Mapping[str, Any]]) -> str | None:
+                    lang = langs_of[item[0]]
+                    examples = style_sample(style, item[1]["story_id"], lang, seed) if style else ()
+                    return write_question(item[1], lang, ask, examples)
+
+                found = list(ex.map(write, todo))
                 pending = []
                 for (i, story), question in zip(todo, found, strict=True):
                     if question is not None:
@@ -490,7 +538,7 @@ def build_retrieval_set(
         "short": short,
         "stories_available": len(pool),
     }
-    if langs is not None or from_date is not None:
+    if langs is not None or from_date is not None or style:
         meta = {
             "n": len(lines),
             "langs": dict(langs) if langs is not None else None,
@@ -499,6 +547,18 @@ def build_retrieval_set(
             "window_n": window_n,
             "seed": seed,
             "writer_model": s.enrich_model,
+            "writer_settings": {
+                "temperature": 0,
+                "max_tokens": s.retrieval_max_tokens,
+                "thinking": False,
+                "max_tries": s.retrieval_max_tries,
+                "story_chars": s.retrieval_story_chars,
+            },
+            "style_file": str(style_file) if style_file else None,
+            "style_questions": len(style) if style else 0,
+            "style_examples_per_prompt": (
+                min(len(style), s.retrieval_style_examples) if style else 0
+            ),
             "stories_available": len(pool),
             "strata": {st.name: st.quota for st in strata},
             "short": short,

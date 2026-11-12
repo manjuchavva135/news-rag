@@ -25,6 +25,13 @@ def build_retrieval(
     from_date: Annotated[
         str | None, typer.Option(help="Only stories printed on or after YYYY-MM-DD.")
     ] = None,
+    style_file: Annotated[
+        Path | None,
+        typer.Option(
+            help="Customer-questions JSON: the questions are asked in the manner of its "
+            "questions (retrieval_style_examples of them in every prompt)."
+        ),
+    ] = None,
 ) -> None:
     """Write questions from the stories of the active generation, one JSON line each."""
     from datetime import date
@@ -36,7 +43,8 @@ def build_retrieval(
     try:
         lang_counts = retrieval.parse_langs(langs, total) if langs else None
         start = date.fromisoformat(from_date) if from_date else None
-    except ValueError as e:
+        style = retrieval.load_style_questions(style_file) if style_file else None
+    except (ValueError, OSError) as e:
         typer.echo(str(e), err=True)
         raise typer.Exit(2) from None
     summary = retrieval.build_retrieval_set(
@@ -47,6 +55,8 @@ def build_retrieval(
         echo=typer.echo,
         langs=lang_counts,
         from_date=start,
+        style=style,
+        style_file=style_file,
     )
     per_lang = " ".join(f"{c}={k}" for c, k in summary["by_lang"].items() if k or c != "te_latn")
     typer.echo(
@@ -149,13 +159,30 @@ def answers_cmd(
         typer.Option("--retrieval", help="eval retrieval --translit report of the set."),
     ] = None,
     out: Annotated[Path | None, typer.Option(help="Default eval_2026_answers_file.")] = None,
+    thinking: Annotated[
+        bool,
+        typer.Option(
+            "--thinking",
+            help="Also answer every question with the reasoning model "
+            "(eval_2026_thinking_model) and keep its reasoning.",
+        ),
+    ] = False,
+    explain: Annotated[
+        bool,
+        typer.Option("--explain", help="Also grade how well each answer explains itself."),
+    ] = False,
 ) -> None:
     """Answer every question from its hits and grade it correct / partial / wrong."""
     from newsrag.evals import answers, customer
 
     try:
         report = answers.run_answers(
-            set_file=set_file, retrieval_file=retrieval_file, out=out, echo=typer.echo
+            set_file=set_file,
+            retrieval_file=retrieval_file,
+            out=out,
+            echo=typer.echo,
+            thinking=thinking,
+            explain=explain,
         )
     except customer.FamilyError as e:
         typer.echo(str(e), err=True)
