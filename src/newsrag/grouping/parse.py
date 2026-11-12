@@ -2,7 +2,9 @@
 
 `parse_reply` checks one reply against the schema and returns a raw grouping
 `{"articles": [{"kind", "blocks": [{"n", "role"}]}], "unassigned": [n...]}`; `request_grouping`
-asks the model, appending the error and asking again when the reply is invalid.
+asks the model, appending the error and asking again when the reply is invalid. On the last
+reply only, block numbers that are not on the page are dropped instead of failing the page; the
+grouping then carries them as `dropped_refs`.
 """
 
 from __future__ import annotations
@@ -106,12 +108,18 @@ def _is_int(value: Any) -> bool:
     return isinstance(value, int) and not isinstance(value, bool)
 
 
-def parse_reply(text: str, valid: Collection[int]) -> dict[str, Any]:
+def parse_reply(text: str, valid: Collection[int], drop_invalid: bool = False) -> dict[str, Any]:
     """The raw grouping of one reply. `valid` are the block numbers that exist on the page.
 
     Raises SchemaError for invalid JSON, a missing or mistyped field, an unknown kind or role,
     or a block number that is not in `valid`. An article with an empty `blocks` list is dropped.
+
+    With `drop_invalid`, an integer block number that is not in `valid` (in an article or in
+    `unassigned`) is left out instead of raising, and the grouping gets `dropped_refs`: those
+    numbers in reply order. An article left without blocks is dropped; its real blocks were never
+    claimed, so they end up unassigned. Every other error still raises.
     """
+    dropped: list[int] = []
     try:
         data = parse_json_reply(text)
     except ValueError as exc:
@@ -140,28 +148,43 @@ def parse_reply(text: str, valid: Collection[int]) -> dict[str, Any]:
             n, role = entry.get("n"), entry.get("role")
             if not _is_int(n):
                 raise SchemaError(f"{at}.n must be an integer block number, got {n!r}")
-            if n not in valid:
-                raise SchemaError(f"{at}.n {n} is not a block number on this page")
             if role not in ROLES:
                 raise SchemaError(f"{at}.role {role!r} is not one of {', '.join(ROLES)}")
+            if n not in valid:
+                if not drop_invalid:
+                    raise SchemaError(f"{at}.n {n} is not a block number on this page")
+                dropped.append(n)
+                continue
             entries.append({"n": n, "role": role})
         if entries:
             out_articles.append({"kind": kind, "blocks": entries})
     unassigned = data.get("unassigned", [])
     if not isinstance(unassigned, list):
         raise SchemaError("`unassigned` must be a list of block numbers")
+    kept = []
     for n in unassigned:
+        if _is_int(n) and n not in valid and drop_invalid:
+            dropped.append(n)
+            continue
         if not _is_int(n) or n not in valid:
             raise SchemaError(f"unassigned entry {n!r} is not a block number on this page")
-    return {"articles": out_articles, "unassigned": list(unassigned)}
+        kept.append(n)
+    out: dict[str, Any] = {"articles": out_articles, "unassigned": kept}
+    if dropped:
+        out["dropped_refs"] = dropped
+    return out
 
 
 def merge_raw(parts: Sequence[dict[str, Any]]) -> dict[str, Any]:
     """Several raw groupings (the two halves of a page) as one."""
-    return {
+    out: dict[str, Any] = {
         "articles": [a for part in parts for a in part["articles"]],
         "unassigned": [n for part in parts for n in part["unassigned"]],
     }
+    dropped = [n for part in parts for n in part.get("dropped_refs", [])]
+    if dropped:
+        out["dropped_refs"] = dropped
+    return out
 
 
 def request_grouping(
@@ -172,13 +195,14 @@ def request_grouping(
 ) -> dict[str, Any]:
     """`ask(messages)` returns the model's reply text (and raises TooLong when it does not
     fit). An invalid reply is answered with the error appended; after `retries` more tries the
-    page fails with GroupingError."""
+    page fails with GroupingError. The last reply is parsed with `drop_invalid`, so a grouping
+    whose only fault is block numbers that are not on the page is kept without them."""
     sent = list(messages)
     error = ""
-    for _ in range(retries + 1):
+    for attempt in range(retries + 1):
         reply = ask(sent)
         try:
-            return parse_reply(reply, valid)
+            return parse_reply(reply, valid, drop_invalid=attempt == retries)
         except SchemaError as exc:
             error = str(exc)
             sent = [

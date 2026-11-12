@@ -150,6 +150,64 @@ def test_unknown_block_number_is_schema_error():
         parse.parse_reply(reply(("news", [(1, "headline")]), unassigned=[7]), {1, 2})
 
 
+def test_drop_invalid_keeps_article_without_bad_ref():
+    text = reply(("news", [(1, "headline"), (3069, "body"), (2, "body")]), unassigned=[7])
+    got = parse.parse_reply(text, {1, 2}, drop_invalid=True)
+    assert got["articles"] == [
+        {"kind": "news", "blocks": [{"n": 1, "role": "headline"}, {"n": 2, "role": "body"}]}
+    ]
+    assert got["unassigned"] == []
+    assert got["dropped_refs"] == [3069, 7]
+
+
+def test_drop_invalid_drops_article_left_empty():
+    text = reply(("news", [(1, "headline")]), ("news", [(99, "body")]))
+    got = parse.parse_reply(text, {1, 2}, drop_invalid=True)
+    assert got["articles"] == [{"kind": "news", "blocks": [{"n": 1, "role": "headline"}]}]
+    assert got["dropped_refs"] == [99]
+
+
+@pytest.mark.parametrize(
+    "bad",
+    [
+        '{"articles": [{"kind": "news", "blocks": [{"n": 9, "role": "title"}]}]}',  # bad role
+        '{"articles": [{"kind": "news", "blocks": [{"n": "9", "role": "body"}]}]}',  # n not int
+        '{"articles": [], "unassigned": ["9"]}',
+    ],
+)
+def test_drop_invalid_still_raises_other_errors(bad):
+    with pytest.raises(parse.SchemaError):
+        parse.parse_reply(bad, {1, 2}, drop_invalid=True)
+
+
+def test_bad_block_number_retried_then_dropped_on_last_reply(page_png):
+    bad = reply(("news", [(1, "headline"), (2, "body"), (3069, "body")]))
+    ask = Scripted(bad, bad, bad)
+    artifact = group_page(page_data(page_png, BLOCKS), ask, "m")
+    assert len(ask.calls) == 3  # the first two bad replies were still sent back to the model
+    assert "3069 is not a block number" in ask.calls[1][-1]["content"]
+    assert len(artifact["articles"]) == 1
+    assert artifact["articles"][0]["headline"] == "Head"
+    assert artifact["unassigned"] == []
+    assert artifact["page_flags"] == [group_mod.INVALID_BLOCK_REFS]
+    assert artifact["dropped_block_refs"] == [3069]
+
+
+def test_dropped_article_blocks_become_unassigned(page_png):
+    bad = reply(("news", [(1, "headline")]), ("news", [(3069, "body")]))
+    artifact = group_page(page_data(page_png, BLOCKS), Scripted(bad, bad, bad), "m")
+    assert artifact["unassigned"] == ["b002"]
+    assert artifact["page_flags"] == [group_mod.INVALID_BLOCK_REFS, "blocks_omitted"]
+
+
+def test_good_page_has_no_dropped_refs(page_png):
+    artifact = group_page(
+        page_data(page_png, BLOCKS), Scripted(reply(("news", [(1, "headline"), (2, "body")]))), "m"
+    )
+    assert "dropped_block_refs" not in artifact
+    assert group_mod.INVALID_BLOCK_REFS not in artifact["page_flags"]
+
+
 @pytest.mark.parametrize(
     "bad",
     [

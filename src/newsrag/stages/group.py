@@ -33,6 +33,8 @@ from newsrag.stages.base import (
 PROMPT_VERSION = gin.PROMPT_VERSION
 NO_BLOCKS = "low_confidence:no_blocks"
 SPLIT_HALVES = "split_halves"
+# the model's last reply named block numbers that are not on the page; they were dropped
+INVALID_BLOCK_REFS = "low_confidence:invalid_block_refs"
 VERSION_SETTINGS = [
     "group_model",
     "group_image_max_px",
@@ -173,8 +175,10 @@ def group_page(
     page_flags = list(data.get("page_flags") or [])
     params = geometry.Params.from_settings()
 
-    def artifact(articles: list, unassigned: list, extra: Sequence[str]) -> dict[str, Any]:
-        return {
+    def artifact(
+        articles: list, unassigned: list, extra: Sequence[str], dropped: Sequence[int] = ()
+    ) -> dict[str, Any]:
+        out = {
             "page_id": page_id,
             "model": model,
             "prompt_version": PROMPT_VERSION,
@@ -182,6 +186,9 @@ def group_page(
             "unassigned": unassigned,
             "page_flags": [*dict.fromkeys([*page_flags, *extra])],
         }
+        if dropped:
+            out["dropped_block_refs"] = list(dropped)
+        return out
 
     if not blocks:
         return artifact([], [], [NO_BLOCKS])
@@ -201,9 +208,12 @@ def group_page(
             ]
         )
         extra.append(SPLIT_HALVES)
+    dropped = raw.get("dropped_refs", [])
+    if dropped:
+        extra.append(INVALID_BLOCK_REFS)
 
     built = geometry.build_grouping(raw["articles"], raw["unassigned"], blocks, page_id, params)
-    return artifact(built.articles, built.unassigned, [*extra, *built.page_flags])
+    return artifact(built.articles, built.unassigned, [*extra, *built.page_flags], dropped)
 
 
 # --- the stage ---------------------------------------------------------------------------------
