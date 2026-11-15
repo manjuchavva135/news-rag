@@ -1,0 +1,65 @@
+{
+  "n": 165,
+  "source": "questions staff asked on the deployed Sakshi archive assistant (query history 2026-07-16 .. 2026-11-12: 250 queries, 28 users) and its 55 answer-feedback entries, read on 2026-11-13",
+  "by_kind": {
+    "topic": 64,
+    "fact": 29,
+    "person": 24,
+    "latest": 13,
+    "incident": 10,
+    "all_articles": 8,
+    "pressmeet": 6,
+    "other": 4,
+    "followup": 3,
+    "compare": 3,
+    "timeline": 1
+  },
+  "by_lang": {
+    "latin": 95,
+    "te": 68,
+    "mixed": 2
+  },
+  "words": {
+    "1-3": 67,
+    "4-6": 37,
+    "7+": 61
+  },
+  "with_feedback": 49,
+  "with_expect": 63,
+  "expect_checks": {
+    "fact": 12,
+    "cross_term": 9,
+    "coverage": 7,
+    "as_of": 7,
+    "speaker_named": 7,
+    "not_ads": 6,
+    "resolve_name": 5,
+    "story_on": 4,
+    "timeline": 4,
+    "scope": 3,
+    "event_date": 3,
+    "on_topic": 2,
+    "no_duplicate_sources": 1,
+    "continuation_page": 1,
+    "latency": 1,
+    "latest_development": 1
+  },
+  "fields": {
+    "kind": "person | all_articles | pressmeet | incident | topic | latest | timeline | fact | compare | followup | other (assigned by hand)",
+    "lang": "te (Telugu script) | latin (English or Telugu typed in Latin letters) | mixed",
+    "asked / users": "times the exact question was asked / by how many staff",
+    "old_failed": "of those, how often the old system answered 'no information', refused the name or returned no answer",
+    "filters": "filters the user set in the old UI (state, category, date range)",
+    "ratings": "the user's ratings of the old answer, 1-10",
+    "feedback": "the user's comment on the old answer, summarised in English",
+    "expect": "what a good answer must do, taken from the feedback; `check` is one of the keys of expect_checks"
+  },
+  "caveats": [
+    "No gold story ids: the questions are about January-June 2026 and the new stores hold October-November 2026 (plus 4 older days). `story_on` names the story by print date instead.",
+    "Questions were retyped from the site; invisible joiner characters (ZWNJ) some users typed inside Telugu words are not kept. Spelling mistakes are kept.",
+    "Exact repeats are one row (`asked` counts them); 5 near-identical retypes and one comment typed into the question box dropped.",
+    "No user names or e-mail addresses are stored."
+  ],
+  "built_at": "2026-11-13T10:29:32+00:00",
+  "sha1": "b1995657b4da798c3178568b2390d725c1011a3b"
+}

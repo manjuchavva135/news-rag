@@ -44,3 +44,10 @@ Source: `specs/grill/newspaper-rag-v2.md` (confirmed grill record; D-n / A-n ids
 | 032 | Text model Telugu bake-off | done | solo | waits for 017: needs canonical stories; waits for 006: model runner |
 | 033 | Grouping retry for Gemma 4 (second sample, not resolution) | draft | solo | waits for 014: group_model is gemma4-31b |
 | 034 | Trilingual 2026 test (retrieval + answers) | draft | solo | waits for 031: needs the 2026 corpus indexed and activated (FR-2, FR-3), not its sign-off |
+| 035 | Search filters on the indexed fields, notices off by default | draft | solo | alongside |
+| 036 | Resolve names through the alias table before searching | draft | solo | waits for 035: same `search/hybrid.py`, uses its `entity_ids` filter |
+| 037 | Rerank the fused candidates with a cross-encoder | draft | solo | waits for 036: same `search/hybrid.py` |
+| 038 | Search Latin-letter questions in Telugu too (transliterate or translate) | draft | solo | waits for 037: same `search/hybrid.py`; waits for 040: same `answer/service.py` |
+| 039 | Answer from whole stories, one source per story | draft | solo | alongside |
+| 040 | Show the event date in every source | draft | solo | waits for 039: same `answer/context.py`, reads its story loader |
+| 041 | Answer list-type questions from a dated story listing | draft | solo | waits for 038: same `answer/service.py`; uses 035 kinds, 036 names, 039 sources, 040 dates |

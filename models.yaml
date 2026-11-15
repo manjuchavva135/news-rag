@@ -93,6 +93,16 @@ profiles:
       - --speculative-config
       - '{"method": "ngram", "num_speculative_tokens": 5, "prompt_lookup_max": 6, "prompt_lookup_min": 2}'
 
+  # `newsrag answer`: the thinking build of the answer model (it always reasons first; the
+  # reply is `reasoning</think>answer`). Set with `answer_chat_model: qwen3-30b-a3b-thinking`.
+  - name: qwen3-30b-a3b-thinking
+    hf_id: Qwen/Qwen3-30B-A3B-Thinking-2507
+    family: qwen
+    kind: llm
+    dtype: bfloat16
+    max_model_len: 65536  # a long thread, 18 sources, the reasoning and the answer
+    gpu_memory_utilization: 0.90
+
   - name: sarvam-m-24b
     hf_id: sarvamai/sarvam-m
     family: mistral  # Mistral-Small-3.1 base with Indic post-training

@@ -4,6 +4,7 @@ import typer
 
 from newsrag import config_cli, orchestrator_cli, preflight_cli
 from newsrag.aliases import cli as aliases_cli
+from newsrag.answer import cli as answer_cli
 from newsrag.baseline import cli as baseline_cli
 from newsrag.chunking import cli as chunking_cli
 from newsrag.dedup import cli as dedup_cli
@@ -67,6 +68,7 @@ SUB_APPS: list[tuple[typer.Typer, str]] = [
     (orchestrator_cli.app, "run"),
     (report_cli.app, "report"),
     (preflight_cli.app, "preflight"),
+    (answer_cli.app, "answer"),
 ]
 
 for sub_app, name in SUB_APPS:

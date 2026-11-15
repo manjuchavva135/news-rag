@@ -112,6 +112,49 @@ def retrieval_cmd(
     typer.echo(retrieval.summary_line(report))
 
 
+@app.command("build-short")
+def build_short_cmd(
+    n: Annotated[int | None, typer.Option(help="Story queries (default short_story_n).")] = None,
+    seed: Annotated[int | None, typer.Option(help="Default short_seed.")] = None,
+    out: Annotated[Path | None, typer.Option(help="Default short_set_file.")] = None,
+) -> None:
+    """Write the short-query set: the names of short_names_file and 2-5 word story queries."""
+    from newsrag.evals import short
+
+    try:
+        summary = short.build_short_set(n=n, seed=seed, out=out)
+    except (ValueError, OSError, RuntimeError) as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    typer.echo(
+        f"wrote {summary['names']} name and {summary['stories']} story queries to "
+        f"{summary['out']} (replaced={summary['replaced']} "
+        f"stories={summary['stories_available']})"
+    )
+
+
+@app.command("short")
+def short_cmd(
+    set_file: Annotated[
+        Path | None, typer.Option("--set", help="Query set (default short_set_file).")
+    ] = None,
+    out: Annotated[
+        Path | None, typer.Option(help="Report JSON (default short_report_file).")
+    ] = None,
+) -> None:
+    """Search the short-query set and the real staff questions; print the scores."""
+    from newsrag import search
+    from newsrag.evals import short
+
+    try:
+        report = short.run_short(set_file=set_file, out=out)
+    except (search.StoreNotConfigured, ValueError, OSError, RuntimeError) as e:
+        typer.echo(str(e), err=True)
+        raise typer.Exit(1) from None
+    for line in short.summary_lines(report):
+        typer.echo(line)
+
+
 @app.command("customer")
 def customer_cmd(
     k: Annotated[

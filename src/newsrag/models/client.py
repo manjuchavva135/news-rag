@@ -282,3 +282,18 @@ def use(name: str, device: str = "cuda", report: Reporter | None = None) -> Iter
             if entry.depth == 0:
                 _loaded = None
                 entry.stack.close()
+
+
+@contextlib.contextmanager
+def cpu_embedder(name: str) -> Iterator[Embedder]:
+    """An embed profile on the CPU, outside the one-model slot of `use()` and without the GPU
+    lock: the query embedder of `newsrag answer` next to a served LLM."""
+    profile = get_profile(name)
+    if profile.kind != "embed":
+        raise ValueError(f"{name} is {profile.kind}, not an embed profile")
+    path = hub.download(profile, quiet=True)
+    holder = {"model": _load_sentence_transformer(path, "cpu", profile.dtype)}
+    try:
+        yield Embedder(profile, holder["model"])
+    finally:
+        _free(holder)

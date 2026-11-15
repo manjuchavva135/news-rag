@@ -12,6 +12,7 @@ from newsrag.models.client import (
     Embedder,
     ModelBusyError,
     ModelClient,
+    cpu_embedder,
     loaded_profiles,
     use,
 )
@@ -27,6 +28,7 @@ __all__ = [
     "ModelDoesNotFitError",
     "ModelStartError",
     "Profile",
+    "cpu_embedder",
     "get_profile",
     "gpu_lock",
     "load_profiles",

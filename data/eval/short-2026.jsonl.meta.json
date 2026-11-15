@@ -1,0 +1,19 @@
+{
+  "names": 105,
+  "stories": 200,
+  "by_form": {
+    "te": 137,
+    "latin": 137,
+    "typo": 31
+  },
+  "replaced": 11,
+  "stories_available": 6098,
+  "names_file": "/home/admin1/news-rag/data/eval/short-names.json",
+  "seed": 7,
+  "from_date": "2026-01-01",
+  "writer_model": "qwen3-30b-a3b",
+  "prompt": "eval_short_query_v1.md",
+  "max_words": 5,
+  "built_at": "2026-11-13T10:39:44+00:00",
+  "sha1": "6cf7fe11deb51ffb3a54b04fc902584026552cef"
+}

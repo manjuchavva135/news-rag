@@ -15,6 +15,7 @@ from newsrag.search.hybrid import (
     rrf_fuse,
     search,
     unregister_backend,
+    use_embedder,
 )
 
 __all__ = [
@@ -25,4 +26,5 @@ __all__ = [
     "rrf_fuse",
     "search",
     "unregister_backend",
+    "use_embedder",
 ]

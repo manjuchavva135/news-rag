@@ -41,7 +41,11 @@ NO_FILE = Path("/dev/null")
 DEFAULT_RAW_ROOT = Path("/home/admin1/raw")
 
 # Plain environment names accepted for secret fields.
-SECRET_ALIASES = {"HF_TOKEN": "hf_token", "SARVAM_API_KEY": "sarvam_api_key"}
+SECRET_ALIASES = {
+    "HF_TOKEN": "hf_token",
+    "SARVAM_API_KEY": "sarvam_api_key",
+    "AWS_BEARER_TOKEN_BEDROCK": "bedrock_api_key",
+}
 
 # Settings that only the real environment (or init kwargs) may set.
 REAL_ENV_ONLY = ("env_file", "pipeline_file")
@@ -82,6 +86,9 @@ REPO_ROOT_DERIVED = {
     "customer_questions_file": "data/eval/customer-questions.json",
     "te_latn_markers_file": "data/eval/te-latn-markers.txt",
     "eval_2026_set_file": "data/eval/retrieval-2026.jsonl",
+    "short_names_file": "data/eval/short-names.json",
+    "short_set_file": "data/eval/short-2026.jsonl",
+    "real_questions_file": "data/eval/real-questions-v1.jsonl",
 }
 
 # Paths under reports_dir that follow it unless overridden themselves.
@@ -108,6 +115,7 @@ REPORTS_DIR_DERIVED = {
     "eval_2026_retrieval_file": "retrieval-2026.json",
     "eval_2026_answers_file": "answers-2026.json",
     "eval_2026_report_file": "eval-2026.md",
+    "short_report_file": "short-2026.json",
 }
 
 # Paths under work_dir that follow it unless overridden themselves.
@@ -279,6 +287,7 @@ class Settings(BaseSettings):
     # --- secrets ---
     hf_token: SecretStr | None = None
     sarvam_api_key: SecretStr | None = None
+    bedrock_api_key: SecretStr | None = None  # Bedrock API key (bearer) of the `claude` answers
 
     # --- stores ---
     postgres_dsn: str = "postgresql://newsrag:newsrag@localhost:5442/newsrag"
@@ -719,6 +728,24 @@ class Settings(BaseSettings):
     eval_2026_thinking_top_p: float = 0.95
     eval_2026_thinking_max_tokens: int = 8192  # the reasoning and the answer together
     eval_2026_explain_max_chars: int = 6000  # an answer is cut to this for the explanation grade
+    # The short-query test (`newsrag eval build-short | short`): staff search with one to five
+    # words. Names in three spellings, story queries written by `enrich_model`, and the
+    # questions staff really asked on the deployed assistant.
+    short_names_file: Path  # default {repo_root}/data/eval/short-names.json (committed)
+    short_set_file: Path  # default {repo_root}/data/eval/short-2026.jsonl (committed)
+    real_questions_file: Path  # default {repo_root}/data/eval/real-questions-v1.jsonl
+    short_report_file: Path  # default {reports_dir}/short-2026.json
+    short_story_n: int = 200  # story queries in a built set (half Telugu, half Latin letters)
+    short_seed: int = 7
+    short_from_date: date = date(2026, 1, 1)  # story queries come from stories printed since
+    short_news_kinds: tuple[str, ...] = ("news", "editorial")  # other kinds count as other_kind
+    short_min_story_chars: int = 400  # shorter stories get no query
+    short_max_words: int = 5  # a story query has 2 to this many words
+    short_copy_words: int = 3  # a query sharing this many consecutive headline words is redone
+    short_k: int = 10  # hits scored per query
+    short_about_mentions: int = (
+        3  # a story naming the name this often (or in its headline) is about it
+    )
 
     # --- embed_bakeoff ---
     # `newsrag embed bakeoff` (ticket 026): every candidate embeds the active generation's chunks
@@ -786,6 +813,38 @@ class Settings(BaseSettings):
     # Models that answer the customer questions (ticket 028): set by `textmodel bakeoff --apply`.
     answer_model: str = "qwen3-30b-a3b"
     answer_judge_model: str | None = None  # text judge of 028's claim check; judge_model when unset
+
+    # --- answer ---
+    # `newsrag answer`: threads of questions answered from the stores. Every turn sends the
+    # earlier questions and answers of its thread to the model, newest first, until
+    # `answer_history_tokens` is used; the sources cited earlier in the thread stay available.
+    answer_schema: str = "answer"  # Postgres schema of the threads and their turns
+    answer_provider: str = "local"  # local (vLLM profile) | claude (Bedrock)
+    answer_chat_model: str | None = None  # local profile of the answers; answer_model when unset
+    answer_thinking: bool = True  # the model reasons before it answers (when it can)
+    answer_k: int = 12  # fresh sources (search hits) per question
+    answer_source_chars: int = 1500  # each source's text is cut to this
+    answer_carry_sources: int = 6  # sources cited earlier in the thread added to a question
+    answer_history_tokens: int = 8000  # earlier turns sent with a question, in estimated tokens
+    answer_chars_per_token: float = 2.0  # the estimate: characters per token (Telugu is dense)
+    answer_max_tokens: int = 4096  # the answer (local: answer and reasoning together)
+    answer_temperature: float = 0.0  # local, thinking off
+    answer_thinking_temperature: float = 0.6  # local, thinking on (Qwen3 loops when greedy)
+    answer_repetition_penalty: float = 1.05  # local (vLLM); 1.0 = off
+    answer_embed_device: str = "auto"  # query embedder: auto (cpu next to a local LLM) | cpu | cuda
+    # A follow-up question is rewritten into a standalone search query from the recent turns.
+    answer_rewrite_history_tokens: int = 1500
+    answer_rewrite_max_tokens: int = 1024
+    answer_rewrite_max_chars: int = 600  # a longer rewrite is dropped for the question as typed
+    # provider `claude`: Bedrock's native Anthropic invoke endpoint with `bedrock_api_key`.
+    answer_claude_base_url: str = "https://bedrock-runtime.ap-south-2.amazonaws.com"
+    answer_claude_model: str = "global.anthropic.claude-sonnet-4-5-20250929-v1:0"
+    # budget: {"type": "enabled", "budget_tokens": N} (Sonnet 4.5 and older) | adaptive:
+    # {"type": "adaptive"} with an effort (Claude 4.6 and newer reject a budget) | off
+    answer_claude_thinking: str = "budget"
+    answer_claude_thinking_budget: int = 4000
+    answer_claude_effort: str = "medium"  # adaptive only
+    answer_claude_timeout_s: float = 300.0
 
     # --- orchestrator ---
     # `newsrag run` (ticket 029): every stage in dependency order, one pass per stage.

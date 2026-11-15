@@ -12,7 +12,7 @@ from __future__ import annotations
 
 import contextlib
 import threading
-from collections.abc import Callable, Mapping, Sequence
+from collections.abc import Callable, Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import date
 from typing import Any
@@ -113,6 +113,21 @@ def close() -> None:
     """Unload the query embed model (and free the GPU lock)."""
     with _embed_lock:
         _close_locked()
+
+
+@contextlib.contextmanager
+def use_embedder(profile: str, embedder: Any) -> Iterator[None]:
+    """Search with an embedder the caller owns (e.g. `models.cpu_embedder`) for the scope,
+    instead of loading `profile` on the GPU."""
+    with _embed_lock:
+        _close_locked()
+        _embed_state.update(profile=profile, stack=None, embedder=embedder)
+    try:
+        yield
+    finally:
+        with _embed_lock:
+            if _embed_state["embedder"] is embedder:
+                _close_locked()
 
 
 def embed_query(query: str, profile: str) -> list[float]:

@@ -211,6 +211,7 @@ def test_repo_profiles():
         "gemma4-31b",
         "internvl3.5-38b",
         "qwen3-30b-a3b",
+        "qwen3-30b-a3b-thinking",
         "sarvam-m-24b",
         "bge-m3",
         "qwen3-embedding-8b",

@@ -1,0 +1,35 @@
+{
+  "n": 300,
+  "langs": {
+    "te": 100,
+    "en": 100,
+    "te_latn": 100
+  },
+  "by_lang": {
+    "te": 100,
+    "en": 100,
+    "te_latn": 100
+  },
+  "from_date": "2026-01-01",
+  "window_n": 0,
+  "seed": 7,
+  "writer_model": "qwen3-30b-a3b",
+  "writer_settings": {
+    "temperature": 0,
+    "max_tokens": 256,
+    "thinking": false,
+    "max_tries": 3,
+    "story_chars": 4000
+  },
+  "style_file": "data/eval/customer-questions.json",
+  "style_questions": 30,
+  "style_examples_per_prompt": 6,
+  "stories_available": 7521,
+  "strata": {
+    "2026-10": 150,
+    "2026-11": 150
+  },
+  "short": [],
+  "built_at": "2026-11-12T13:11:34+00:00",
+  "sha1": "281f1711863ddb664c53f10748c0234a5f7567c6"
+}
