@@ -51,8 +51,8 @@ def run(
     ] = False,
 ) -> None:
     """Run the named stages over their eligible items."""
-    from newsrag.stages.base import StageUnavailable
-    from newsrag.stages.runner import RunFilters, read_pages_file, run_stage
+    from newsrag.core import StageUnavailable, read_pages_file
+    from newsrag.stages.runner import RunFilters, run_stage
 
     stages = [_stage(name) for name in names]
     page_ids: list[str] | None = None

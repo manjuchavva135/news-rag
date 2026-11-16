@@ -63,7 +63,9 @@ def test_baseline_not_configured_error(keep_baseline_backend):
         hybrid.search("q", store="baseline")
 
 
-def test_baseline_backend_registered_by_default():
+def test_baseline_backend_registered_by_the_baseline_module():
+    import newsrag.baseline.search  # noqa: F401
+
     assert "baseline" in hybrid._BACKENDS
 
 

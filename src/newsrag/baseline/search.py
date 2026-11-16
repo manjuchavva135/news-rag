@@ -153,3 +153,7 @@ def _is_connection_error(e: Exception) -> bool:
 
     errors = (ConnectionError, httpx.TransportError, OSConnectionError, ResponseHandlingException)
     return isinstance(e, errors)
+
+
+# `search(store="baseline")` reaches this module through the backend registry.
+hybrid.register_backend("baseline", search_baseline)

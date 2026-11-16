@@ -8,50 +8,14 @@ from __future__ import annotations
 
 import os
 import random
-import re
 import tempfile
-from collections.abc import Callable, Sequence
+from collections.abc import Sequence
 from pathlib import Path
 
 from newsrag.config import settings
+from newsrag.core import PageRow
+from newsrag.ingest.kinds import PREDICATES
 from newsrag.ledger import db
-from newsrag.stages.base import PageRow
-
-_SINGLE = re.compile(r"[A-Za-z]")
-_LETTERS = re.compile(r"[A-Za-z]{2,}")
-
-
-def _front(p: PageRow) -> bool:
-    return p.page_num == 1
-
-
-def _single(p: PageRow) -> bool:
-    return bool(_SINGLE.fullmatch(p.edition_code)) and p.page_num != 1
-
-
-def _combined(p: PageRow) -> bool:
-    return (
-        bool(_LETTERS.fullmatch(p.edition_code))
-        and p.edition_code.upper() != "ALL"
-        and p.page_num != 1
-    )
-
-
-def _all(p: PageRow) -> bool:
-    return p.edition_code.upper() == "ALL"
-
-
-def _spread(p: PageRow) -> bool:
-    return p.page_end is not None
-
-
-PREDICATES: dict[str, Callable[[PageRow], bool]] = {
-    "front": _front,
-    "single": _single,
-    "combined": _combined,
-    "all": _all,
-    "spread": _spread,
-}
 
 # year -> [(stratum, count)], filled in this order (ticket 005 FR-4 / D-5).
 STRATA: dict[int, list[tuple[str, int]]] = {
@@ -134,7 +98,7 @@ def build(force: bool = False) -> tuple[Path, list[str], list[str]]:
 
 def show_lines() -> list[str]:
     """`<page_id>\\t<image path>\\tok|missing` for every sample page."""
-    from newsrag.stages.runner import read_pages_file
+    from newsrag.core import read_pages_file
 
     path = Path(settings.dev_sample_file)
     if not path.exists():

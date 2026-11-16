@@ -21,9 +21,8 @@ def spotcheck(
 ) -> None:
     """The judge checks every line of a sample of kept items; prints `invented_pct=<x>`."""
     from newsrag import config
+    from newsrag.core import read_pages_file, write_json_atomic
     from newsrag.grouping.input import load_ocr_final
-    from newsrag.stages.base import write_json_atomic
-    from newsrag.stages.runner import read_pages_file
     from newsrag.transcribe import spotcheck as sc
 
     s = config.settings

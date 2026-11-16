@@ -14,8 +14,8 @@ from collections.abc import Callable, Iterable, Mapping, Sequence
 from pathlib import Path
 
 from newsrag.config import settings
-from newsrag.sample import PREDICATES as SAMPLE_PREDICATES
-from newsrag.stages.base import PageRow
+from newsrag.core import PageRow
+from newsrag.ingest.kinds import PREDICATES as SAMPLE_PREDICATES
 
 
 def _front(p: PageRow) -> bool:
@@ -64,7 +64,7 @@ def choose(dev_ids: Sequence[str], rows: Mapping[str, PageRow]) -> tuple[list[st
 
 def read_ids(path: str | Path) -> list[str]:
     """One page_id per line; blank lines and `#` lines are skipped."""
-    from newsrag.stages.runner import read_pages_file
+    from newsrag.core import read_pages_file
 
     return read_pages_file(path)
 

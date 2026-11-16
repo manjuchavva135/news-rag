@@ -49,6 +49,9 @@ def search(
             typer.echo(f"translit: {result.text}")
             query = result.text
     try:
+        if store == "baseline":
+            import newsrag.baseline.search  # noqa: F401  (registers the `baseline` backend)
+
         hits = search_mod.search(query, k=k, store=store)
     except search_mod.StoreNotConfigured as e:
         typer.echo(str(e), err=True)

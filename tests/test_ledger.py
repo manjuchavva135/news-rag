@@ -39,13 +39,14 @@ def test_config_hash_follows_settings_and_files(tmp_path, monkeypatch):
     assert config_hash(["render_dpi"], [prompt]) == first
     prompt.write_text("v2")
     assert config_hash(["render_dpi"], [prompt]) != first
+    from newsrag import config
     from newsrag.stages import base
 
     before = base.config_hash(["render_dpi"])
-    monkeypatch.setattr(base, "settings", settings.model_copy(update={"render_dpi": 200}))
+    monkeypatch.setattr(config, "settings", settings.model_copy(update={"render_dpi": 200}))
     assert base.config_hash(["render_dpi"]) != before
     secret = settings.model_copy(update={"hf_token": SecretStr("hf_x")})
-    monkeypatch.setattr(base, "settings", secret)
+    monkeypatch.setattr(config, "settings", secret)
     with pytest.raises(ValueError, match="secrets"):
         base.config_hash(["hf_token"])
 

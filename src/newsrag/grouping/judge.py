@@ -52,8 +52,8 @@ class JudgeError(RuntimeError):
 def check_families() -> None:
     """Raise StageUnavailable unless the judge is a vlm (and, when `judge_allow_same_family` is
     off, of another family than the grouper)."""
+    from newsrag.core import StageUnavailable
     from newsrag.models import get_profile
-    from newsrag.stages.base import StageUnavailable
 
     s = config.settings
     try:
@@ -343,7 +343,7 @@ def judge_grouping(
     "n_judged": int, "text_chars": int}``; masthead and ad articles are not judged and not in `verdicts`; an article
     the judge did not answer for has the verdict ``"missing"``. A page with no OCR blocks is not
     sent (score None); a page whose blocks all went unassigned is sent, so missed stories count. `ask(messages, max_items)` is the model call
-    (`newsrag.stages.group.send(make_create(client))`); without it the judge model is opened with
+    (`newsrag.grouping.page.send(make_create(client))`); without it the judge model is opened with
     `newsrag.models.use`.
     """
     s = config.settings
@@ -353,7 +353,7 @@ def judge_grouping(
         return {"score": None, "verdicts": {}, "missed_regions": 0, "n_judged": 0}
     if ask is None:
         from newsrag import models
-        from newsrag.stages.group import send
+        from newsrag.grouping.page import send
 
         with models.use(s.judge_model) as client:
             return judge_grouping(data, grouping, image_long_side, ask=send(make_create(client)))

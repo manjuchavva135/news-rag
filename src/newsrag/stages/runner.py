@@ -17,7 +17,6 @@ from collections.abc import Iterator, Mapping, Sequence
 from dataclasses import dataclass, field
 from datetime import date, timedelta
 from functools import partial
-from pathlib import Path
 from typing import Any, TextIO
 
 from psycopg import sql
@@ -76,16 +75,6 @@ class RunResult:
     skipped: int = 0
     seconds: float = 0.0
     failed_items: list[str] = field(default_factory=list)
-
-
-def read_pages_file(path: str | Path) -> list[str]:
-    """One page_id per line; blank lines and `#` lines are skipped."""
-    out = []
-    for line in Path(path).read_text(encoding="utf-8").splitlines():
-        line = line.strip()
-        if line and not line.startswith("#"):
-            out.append(line)
-    return out
 
 
 def first_line(text: str) -> str:

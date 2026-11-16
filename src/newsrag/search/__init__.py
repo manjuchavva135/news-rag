@@ -1,7 +1,7 @@
 """Search over the stores (ticket 025): `search(query, k, store, ...) -> list[Hit]`.
 
 - `hybrid`: dense + BM25 + reciprocal-rank fusion over the active generation; the backend
-  registry (`register_backend("baseline", ...)` is ticket 027's).
+  registry (`newsrag.baseline.search` registers `baseline` when it is imported, ticket 027).
 - `cli`: `newsrag search "<query>"`.
 
 Importing this package touches neither the stores nor the GPU.

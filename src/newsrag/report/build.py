@@ -17,9 +17,9 @@ from string import Template
 from typing import Any
 
 from newsrag import config
+from newsrag.core import write_json_atomic
 from newsrag.report import bars as B
 from newsrag.report import collect
-from newsrag.stages.base import write_json_atomic
 
 TEMPLATE = Path(__file__).with_name("template.html")
 NOT_AVAILABLE = "not available"

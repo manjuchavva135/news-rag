@@ -20,6 +20,7 @@ from typing import Any
 
 from newsrag import config
 from newsrag.baseline import pages
+from newsrag.baseline import search as _baseline_search  # noqa: F401  (registers `baseline`)
 from newsrag.evals import retrieval
 
 OldChunks = Callable[[Sequence[str]], list[dict[str, Any]]]

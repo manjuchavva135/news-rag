@@ -13,8 +13,8 @@ import pytest
 from typer.testing import CliRunner
 
 from newsrag import config
-from newsrag.embed import bakeoff as bk
 from newsrag.embed import records
+from newsrag.evals import embed_bakeoff as bk
 from newsrag.models import client as model_client
 
 runner = CliRunner()

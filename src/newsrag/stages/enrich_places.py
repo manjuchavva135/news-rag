@@ -50,7 +50,7 @@ class EnrichPlacesStage(EnrichCoreStage):
     def preflight(self) -> None:
         """The model checks of `enrich_core`, and the geo files must load (before any request)."""
         from newsrag import geo
-        from newsrag.stages.base import StageUnavailable
+        from newsrag.core import StageUnavailable
 
         super().preflight()
         try:

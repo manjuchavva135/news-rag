@@ -188,7 +188,7 @@ def split_stats(
     ],
 ) -> None:
     """Split rate of `ocr_split` over the listed pages that have both artifacts."""
-    from newsrag.stages.runner import read_pages_file
+    from newsrag.core import read_pages_file
 
     page_ids = read_pages_file(pages_file)
     ocr = _done_artifacts("ocr", page_ids)

@@ -63,7 +63,7 @@ def verify(
 ) -> None:
     """The text model is asked "same news story? yes/no" for random links; prints `yes: k/n`."""
     from newsrag import config
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
     from newsrag.stitch import verify as vf
 
     s = config.settings

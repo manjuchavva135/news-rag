@@ -19,7 +19,7 @@ from typing import Any
 import yaml
 
 from newsrag import config
-from newsrag.stages.base import PageRow
+from newsrag.core import PageRow
 
 Rule = dict[str, list[Any]]
 
