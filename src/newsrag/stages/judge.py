@@ -81,7 +81,7 @@ class LazyModel:
 
 
 def judge_ask_factory(client: Any) -> Callable[..., str]:
-    from newsrag.stages.group import send
+    from newsrag.grouping.page import send
 
     return send(jg.make_create(client))
 

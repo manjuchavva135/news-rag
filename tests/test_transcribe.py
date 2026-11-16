@@ -457,7 +457,7 @@ def test_spotcheck_report(data, monkeypatch, tmp_path, set_settings):
     def ask(messages, count):
         return verdicts(*(["present"] * (count - 1) + ["not_present"]))
 
-    from newsrag.stages import group as group_mod
+    from newsrag.grouping import page as group_mod
 
     monkeypatch.setattr(group_mod, "send", lambda create: ask)
     monkeypatch.setattr(sc, "make_create", lambda client: None)

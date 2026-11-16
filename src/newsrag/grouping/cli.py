@@ -78,9 +78,9 @@ def stats(
     ],
 ) -> None:
     """Pages grouped, failed pages and the share of text blocks left unassigned."""
+    from newsrag.core import read_pages_file
     from newsrag.grouping.input import load_ocr_final
     from newsrag.ledger import db
-    from newsrag.stages.runner import read_pages_file
 
     page_ids = read_pages_file(pages_file)
     with db.conn() as c:

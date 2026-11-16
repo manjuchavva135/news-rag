@@ -21,10 +21,10 @@ from typer.testing import CliRunner
 from newsrag import aliases, config, embed
 from newsrag.cli import app
 from newsrag.embed import generations, records
+from newsrag.embed import rows as wrows
 from newsrag.models import Embedder, Profile
 from newsrag.stages.base import StageUnavailable
 from newsrag.stages.index import IndexStage
-from newsrag.warehouse import rows as wrows
 
 runner = CliRunner()
 DAY = date(2026, 4, 3)

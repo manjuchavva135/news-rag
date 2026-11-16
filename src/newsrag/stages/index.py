@@ -133,7 +133,7 @@ class IndexStage(DateStage):
         from newsrag.dedup import load as dedup_load
         from newsrag.embed import generations
         from newsrag.embed import index as store_index
-        from newsrag.warehouse import rows as wrows
+        from newsrag.embed import rows as wrows
         from newsrag.warehouse import write as wwrite
 
         day = pub_date.isoformat()

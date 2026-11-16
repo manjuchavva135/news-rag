@@ -7,9 +7,9 @@ from datetime import date
 from pathlib import Path
 from typing import Any
 
+from newsrag.core import PageRow
 from newsrag.dedup.units import Unit, build_units
 from newsrag.grouping import input as gin
-from newsrag.stages.base import PageRow
 
 
 def date_items(page_ids: list[str]) -> dict[str, list[dict[str, Any]]]:

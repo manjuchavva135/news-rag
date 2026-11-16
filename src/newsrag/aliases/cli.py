@@ -63,7 +63,7 @@ def verify(
     from newsrag.aliases import build as builder
     from newsrag.aliases import verify as vf
     from newsrag.aliases.names import collect
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
 
     s = config.settings
     try:

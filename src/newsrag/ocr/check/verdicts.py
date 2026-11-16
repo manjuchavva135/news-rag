@@ -19,7 +19,7 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from newsrag.stages.base import write_json_atomic
+from newsrag.core import write_json_atomic
 
 VERDICTS = ("good", "acceptable", "bad")
 PROBLEMS = (

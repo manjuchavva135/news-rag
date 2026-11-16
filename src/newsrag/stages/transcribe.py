@@ -389,7 +389,7 @@ def make_create(client: Any) -> Callable[..., Any]:
 
 
 def ask_factory(client: Any) -> Ask:
-    from newsrag.stages.group import send
+    from newsrag.grouping.page import send
 
     return send(make_create(client))
 

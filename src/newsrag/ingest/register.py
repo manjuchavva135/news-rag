@@ -14,10 +14,10 @@ from pathlib import Path
 from typing import Any
 
 from newsrag.config import settings
+from newsrag.core import write_json_atomic
 from newsrag.ingest.filenames import PARSE_REASONS, ParsedPage, Rejected, parse
 from newsrag.ingest.unpack import marker_path, read_marker
 from newsrag.ledger import db
-from newsrag.stages.base import write_json_atomic
 
 SOURCE_MISSING = "source_missing"
 

@@ -13,6 +13,8 @@ RAG, phase 1: process the newspaper archives into stores.
 - `src/newsrag/<module>/` - one package per module (e.g. `stores`, `models`, `ocr`)
 - `src/newsrag/stages/<stage>.py` - one file per pipeline stage
 - `src/newsrag/config.py` - all settings; `src/newsrag/cli.py` - the `newsrag` command line
+- `src/newsrag/core.py` - helpers any package may use (`write_json_atomic`, `config_hash`,
+  `version_slug`, `PageRow`, `StageUnavailable`, `read_pages_file`)
 - `tests/` - pytest tests
 - `docker/` - compose file and images for the stores
 - `specs/` - grill record, tickets, board
@@ -33,6 +35,17 @@ RAG, phase 1: process the newspaper archives into stores.
 - **Flags:** a flag that marks a doubtful item starts with `low_confidence:`; other flags are
   informational.
 - No `psql` on the host: use `uv run newsrag db sql "<query>"` (from ticket 002 on).
+
+## Package layering
+
+`tests/test_layers.py` enforces it: an import between two packages must point to the same layer or
+a lower one, and packages must not import each other in a cycle. `cli.py` / `*_cli.py` modules are
+exempt. Lowest first: `config`, `core` → models, stores, ledger, warehouse, geo → the domain
+packages (ingest … embed, search) → `stages` → tools (orchestrator, evals, report, answer,
+baseline, bake-offs, sample). So a domain package never imports `newsrag.stages`: take shared
+helpers from `newsrag.core`, and keep model calls and domain logic in the domain package (the stage
+module only adapts it, e.g. `stages/group.py` around `grouping/page.py`). A new package gets an
+entry in `LAYERS`.
 
 ## How to add a stage
 

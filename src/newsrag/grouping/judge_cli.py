@@ -40,8 +40,8 @@ def stats(
 ) -> None:
     """Pages judged, mean score of the kept groupings, share below the threshold, share regrouped
     and the mean score gain of the regrouped pages."""
+    from newsrag.core import read_pages_file
     from newsrag.grouping.stats import stats as judge_stats
-    from newsrag.stages.runner import read_pages_file
 
     page_ids = read_pages_file(pages_file) if pages_file is not None else None
     for line in lines_of(judge_stats(page_ids)):
@@ -57,11 +57,10 @@ def sanity(
     `judge`, distinct headlines) in memory only, judge the corrupted grouping and count the pages
     where the judge does not call the merged article `correct`."""
     from newsrag import config, models
+    from newsrag.core import StageUnavailable, read_pages_file
     from newsrag.grouping import input as gin
     from newsrag.grouping import judge as jg
-    from newsrag.stages.base import StageUnavailable
-    from newsrag.stages.group import send
-    from newsrag.stages.runner import read_pages_file
+    from newsrag.grouping.page import send
 
     try:
         jg.check_families()

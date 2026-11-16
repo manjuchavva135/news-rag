@@ -252,7 +252,7 @@ def cache_get(digest: str) -> dict[str, Any] | None:
 
 
 def cache_put(digest: str, text: str, job_id: str) -> None:
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
 
     write_json_atomic(cache_path(digest), {"text": text, "job_id": job_id})
 

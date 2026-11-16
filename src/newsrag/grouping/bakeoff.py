@@ -120,7 +120,7 @@ def choose_pages(sample: Sequence[str]) -> list[str]:
 
 def ensure_pages_file(path: Path, sample_file: Path) -> list[str]:
     """The bake-off pages: read `path`, or choose them from `sample_file` and write `path`."""
-    from newsrag.stages.runner import read_pages_file
+    from newsrag.core import read_pages_file
 
     if path.is_file():
         return read_pages_file(path)
@@ -190,7 +190,7 @@ def ensure_headlines_file(
 ) -> list[tuple[str, str]]:
     """The Telugu headline blocks: read `path`, or choose them from the dev sample's `ocr_final`
     and write `path`."""
-    from newsrag.stages.runner import read_pages_file
+    from newsrag.core import read_pages_file
 
     if path.is_file():
         return read_headlines_file(path)
@@ -281,15 +281,15 @@ def read_one(ask: Ask, data: Mapping[str, Any], block_id: str) -> dict[str, Any]
 
 def group_version(candidate: str) -> str:
     """The ticket-012 `group` version with `group_model` set to the candidate."""
-    from newsrag.stages.base import config_hash
-    from newsrag.stages.group import PROMPT_VERSION, VERSION_SETTINGS
+    from newsrag.core import config_hash
+    from newsrag.grouping.page import PROMPT_VERSION, VERSION_SETTINGS
 
     names = [n for n in VERSION_SETTINGS if n != "group_model"]
     return f"{candidate}-group-p{PROMPT_VERSION}-{config_hash(names, [gin.PROMPT_FILE])}"
 
 
 def telugu_version(candidate: str) -> str:
-    from newsrag.stages.base import config_hash
+    from newsrag.core import config_hash
 
     # the headline list itself is checked by `cached_telugu`
     names = ["bakeoff_crop_pad_px", "bakeoff_read_max_tokens"]
@@ -297,34 +297,34 @@ def telugu_version(candidate: str) -> str:
 
 
 def judge_version(judge: str) -> str:
-    from newsrag.stages.base import config_hash
+    from newsrag.core import config_hash
 
     names = [n for n in jg.JUDGE_SETTINGS if n != "judge_model"]
     return f"{judge}-judge-p{jg.PROMPT_VERSION}-{config_hash(names, jg.PROMPT_FILES)}"
 
 
 def group_dir(candidate: str) -> Path:
-    from newsrag.stages.base import version_slug
+    from newsrag.core import version_slug
 
     return config.settings.work_dir / "group_bakeoff" / version_slug(group_version(candidate))
 
 
 def telugu_dir(candidate: str) -> Path:
-    from newsrag.stages.base import version_slug
+    from newsrag.core import version_slug
 
     return config.settings.work_dir / "group_bakeoff" / version_slug(telugu_version(candidate))
 
 
 def judge_root(candidate: str) -> Path:
     """All judgements of the candidate's current grouping version."""
-    from newsrag.stages.base import version_slug
+    from newsrag.core import version_slug
 
     root = config.settings.work_dir / "group_bakeoff_judge"
     return root / version_slug(group_version(candidate))
 
 
 def judge_dir(candidate: str, judge: str) -> Path:
-    from newsrag.stages.base import version_slug
+    from newsrag.core import version_slug
 
     return judge_root(candidate) / version_slug(judge_version(judge))
 
@@ -356,7 +356,7 @@ def make_read_create(client: Any) -> Callable[..., Any]:
 def connect(profile: str) -> Iterator[SimpleNamespace]:
     """Open a profile; yields `group`, `judge` and `read` ask functions on it."""
     from newsrag import models
-    from newsrag.stages import group as group_stage
+    from newsrag.grouping import page as group_stage
 
     with models.use(profile) as client:
         yield SimpleNamespace(
@@ -424,8 +424,8 @@ def run_grouping(
 ) -> dict[str, Any]:
     """Group the pages (concurrently, `group_concurrency` threads); write each artifact and
     `timing.json`. Earlier judgements of this grouping version are removed."""
-    from newsrag.stages.base import write_json_atomic
-    from newsrag.stages.group import group_page
+    from newsrag.core import write_json_atomic
+    from newsrag.grouping.page import group_page
 
     out = group_dir(candidate)
     shutil.rmtree(judge_root(candidate), ignore_errors=True)
@@ -458,7 +458,7 @@ def run_grouping(
 def run_telugu(
     candidate: str, items: Sequence[tuple[str, str]], datas: Mapping[str, dict], ask: Ask
 ) -> dict[str, Any]:
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
 
     def one(item: tuple[str, str]) -> dict[str, Any]:
         return read_one(ask, datas[item[0]], item[1])
@@ -602,7 +602,7 @@ def run_bakeoff(
 ) -> tuple[list[Row], str | None, Path]:
     """Run (or reuse) every candidate, judge them, write the report. Returns (rows, winner,
     report path)."""
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
 
     s = config.settings
     load_page = load_page or gin.load_ocr_final

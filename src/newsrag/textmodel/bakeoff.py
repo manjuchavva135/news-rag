@@ -709,7 +709,7 @@ def _load_json(path: Path) -> Any:
 
 
 def _save_json(path: Path, data: Any) -> None:
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
 
     path.parent.mkdir(parents=True, exist_ok=True)
     write_json_atomic(path, data)

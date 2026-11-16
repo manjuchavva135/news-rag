@@ -58,8 +58,8 @@ def verify(
     """The text model is asked "same news story (local edits allowed)? yes/no" for random merged
     pairs (canonical vs another printing); prints `yes: k/n`."""
     from newsrag import config
+    from newsrag.core import write_json_atomic
     from newsrag.dedup import verify as vf
-    from newsrag.stages.base import write_json_atomic
 
     s = config.settings
     pairs = vf.collect_pairs(date.fromisoformat(day) if day else None)

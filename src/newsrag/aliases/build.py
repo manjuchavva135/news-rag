@@ -125,7 +125,7 @@ def run_build(
 ) -> BuildResult:
     """Build the alias table from `enrich_core` artifacts. `decider()` is a context manager that
     gives the `Decide` function; it is entered only when there are pairs to ask about."""
-    from newsrag.stages.base import write_json_atomic
+    from newsrag.core import write_json_atomic
 
     s = config.settings
     names = collect(artifacts)

@@ -233,7 +233,7 @@ def run_spotcheck(
     chosen = sample(kept_items(artifacts), n, seed)
     if chosen and ask is None:
         from newsrag import models
-        from newsrag.stages.group import send
+        from newsrag.grouping.page import send
 
         with models.use(s.judge_model) as client:
             return run_spotcheck(artifacts, n, seed, load_page, send(make_create(client)))

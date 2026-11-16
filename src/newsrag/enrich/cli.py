@@ -167,8 +167,8 @@ def verify_core(
     """A second model judges the category and the names of random enriched stories; prints
     `category_ok=<a>/<n> names_ok=<b>/<n>` and exits 1 below the threshold."""
     from newsrag import config
+    from newsrag.core import write_json_atomic
     from newsrag.enrich import verify as vf
-    from newsrag.stages.base import write_json_atomic
 
     s = config.settings
     stories = vf.collect_stories(day)
@@ -201,8 +201,8 @@ def verify_facts(
     """A second model judges random enriched facts (value, unit, scale and what it refers to);
     prints `correct: <k>/<n>` and exits 1 below the threshold."""
     from newsrag import config
+    from newsrag.core import write_json_atomic
     from newsrag.enrich import facts
-    from newsrag.stages.base import write_json_atomic
 
     s = config.settings
     items = facts.collect_facts(day)

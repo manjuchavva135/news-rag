@@ -341,7 +341,8 @@ class Orchestrator:
         return [s for s in self.corpus_steps if s.after == stage]
 
     def filters(self) -> Any:
-        from newsrag.stages.runner import RunFilters, read_pages_file
+        from newsrag.core import read_pages_file
+        from newsrag.stages.runner import RunFilters
 
         page_ids: list[str] | None = None
         if self.options.pages_file is not None:

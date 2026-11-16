@@ -97,7 +97,7 @@ def bakeoff(
 ) -> None:
     """Embed the active generation's chunks with every candidate, run the retrieval test on each
     and write <reports_dir>/embed-bakeoff.md with the winner."""
-    from newsrag.embed import bakeoff as bk
+    from newsrag.evals import embed_bakeoff as bk
 
     if apply and cleanup:
         raise typer.BadParameter("--apply and --cleanup do not go together")
